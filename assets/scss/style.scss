@@ -1,0 +1,57 @@
+// edie-custom scss
+@import 'base/variables', 'base/mixins';
+@import 'switch', 'ep', 'input';
+
+body {
+  background-color: $white;
+}
+
+.nav-tab-wrapper {
+  .nav-tab {
+    @include fast-transition;
+
+    &.nav-tab-active {
+      border: 1px solid $border-color;
+      border-bottom-color: $white;
+      background-color: $white;
+    }
+  }
+}
+
+.wp-core-ui .wrap .button-primary, input[type=button] {
+  background-color: transparent;
+  border-radius: 0;
+  color: $primary-color;
+  text-shadow: none;
+  box-shadow: none;
+  @include fast-transition;
+  padding: 2px 8px;
+  height: auto;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  @include border;
+
+  &:focus,
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color;
+  }
+}
+
+test1 {
+  @include border(white);
+}
+test2 {
+  @include border(2px);
+}
+test3 {
+  @include border(top, left);
+}
+test4 {
+  @include border(6px, white, top, bottom);
+}
+test5 {
+  @include border(2px, white);
+}

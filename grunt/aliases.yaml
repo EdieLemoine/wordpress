@@ -1,0 +1,8 @@
+default:
+    - 'concurrent:scss'
+    - 'concurrent:js'
+deploy:
+    - 'concurrent:scss_dist'
+    - 'concurrent:js_dist'
+    - 'clean:dist'
+    

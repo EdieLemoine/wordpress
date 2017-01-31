@@ -1,0 +1,9 @@
+$primary-color: #e55148;
+$secondary-color: desaturate(darken($primary-color, 20%), 10%);
+
+$black: #333;
+$white: #fefefe;
+$border-color: $primary-color;
+
+$heading-font: "Montserrat", sans-serif;
+$body-font: "Roboto Condensed", sans-serif;
