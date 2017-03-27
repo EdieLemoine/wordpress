@@ -4,7 +4,7 @@ module.exports = {
 	},
 	prod: {
 		src: 'assets/js/**/*.js',
-		dest: 'dist/js/ep.min.js',
+		dest: 'includes/js/script.min.js',
 	},
 	dist: {
 		src: ['assets/js/**/*.js', '!assets/js/concatenated.js'],

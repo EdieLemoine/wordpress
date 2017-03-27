@@ -1,1 +1,23 @@
-@import 'responsive/max-339', 'responsive/max-767', 'responsive/max-979', 'responsive/print';
+@media only screen and (max-width: 979px) {
+  @import '../responsive/max-979';
+}
+
+@media only screen and (max-width: 767px) {
+  @import '../responsive/max-767';
+}
+
+@media only screen and (max-width: 696px) {
+  @import '../responsive/max-696';
+}
+
+@media only screen and (max-width: 443px) {
+  @import '../responsive/max-443';
+}
+
+@media only screen and (max-width: 339px) {
+  @import '../responsive/max-339';
+}
+
+@media print {
+  @import '../responsive/print';
+}

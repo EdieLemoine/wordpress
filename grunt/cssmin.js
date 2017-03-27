@@ -5,7 +5,7 @@ module.exports = {
   },
   target:  {
     files:  {
-      'style.min.css': 'style.css'
+      'style.min.css': 'includes/css/style.css'
     }
   }
 };

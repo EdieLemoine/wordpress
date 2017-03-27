@@ -1,10 +1,15 @@
 module.exports = {
 	prod: {
+		files: {
+			'includes/css/style.css': 'assets/scss/style.scss',
+		},
+	},
+	dist: {
 		options: {
-			loadPath: 'assets/scss/partials',
+			sourcemap: 'none',
 		},
 		files: {
-			'dist/css/ep.css': 'assets/scss/style.scss'
+			'includes/css/style.css': 'assets/scss/style.scss'
 		}
 	}
 };

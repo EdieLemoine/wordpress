@@ -1,9 +1,181 @@
-$primary-color: #e55148;
-$secondary-color: desaturate(darken($primary-color, 20%), 10%);
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
 
-$black: #333;
-$white: #fefefe;
-$border-color: $primary-color;
+$product-padding: 15px;
+////////////
+// Colors //
+////////////
+$primary-color: #8dc63f;
+$secondary-color: lighten($primary-color, 20%);
 
-$heading-font: "Montserrat", sans-serif;
-$body-font: "Roboto Condensed", sans-serif;
+$black: #000;
+$dark-gray: #333;
+$gray: #6d6e71;
+$light-gray: #ccc;
+$white: #fff;
+
+$background: #eee;
+
+$light-background-color: $white;
+$dark-background-color: $dark-gray;
+
+// Vendor
+$vendor-spacing: 15px;
+$header-height: 400px;
+$profile-size: 180px;
+$social-size: 50px;
+
+////////////
+// Global //
+////////////
+$container-width: 1200px;
+$container-max-width: 95%;
+$global-border-radius: 0;
+$global-border-color: $primary-color;
+$global-border-width: 2px;
+
+//////////
+// Text //
+//////////
+
+$heading-font: "Crete Round", serif;
+$heading-font-google: true;
+$heading-text-weight: 400;
+$heading-text-transform: uppercase;
+$heading-color: $dark-gray;
+
+$body-font: "Open Sans", Helvetica, sans-serif;
+$body-font-google: true;
+$body-text-size: 16px;
+$body-text-style: normal;
+$body-text-weight: 300;
+$body-text-color: $gray;
+$body-line-height: 1.9;
+$body-background-color: $white;
+
+$text-color-light: $white;
+$text-color-dark: $dark-gray;
+
+$extra-font: "Amatic SC", serif;
+
+//////////////
+// Sections //
+//////////////
+$section-padding: 100px;
+
+///////////////////
+// Slanted edges //
+///////////////////
+$deg: 1.5;
+
+/////////////
+// Buttons //
+/////////////
+$button-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
+$button-style-transition: none; // Grow | Shrink | none
+$button-style-transition-rotation: 0; // Rotation on hover
+$button-border-radius: $global-border-radius;
+$button-border-width: $global-border-width;
+$button-color: $text-color-light;
+$button-background-color: $primary-color;
+$button-active-background-color: $secondary-color;
+
+////////////
+// Inputs //
+////////////
+$input-text-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
+$input-text-style-transition: none; // Grow | Shrink | none
+$input-text-style-transition-rotation: 0; // Rotation on hover
+$input-text-border-radius: $global-border-radius;
+$input-text-border-width: $global-border-width;
+$input-text-border-color: transparent;
+$input-text-active-border-color: $global-border-color;
+$input-text-color: $text-color-dark;
+$input-text-background-color: $white;
+$input-text-active-background-color: $secondary-color;
+$input-text-height: 50px;
+
+////////////
+// Navbar //
+////////////
+// Colors //
+$navbar-background-color: $white;
+$navbar-fixed-background-color: $navbar-background-color;
+$navbar-submenu-background-color: $navbar-background-color;
+$navbar-fixed-submenu-background-color: $navbar-fixed-background-color;
+
+// Height //
+$navbar-height: 98px;
+$navbar-fixed-height: $navbar-height;
+$navbar-submenu-padding: 0;
+
+// Text //
+$navbar-text-size: 13px;
+$navbar-text-font: $heading-font;
+$navbar-text-color: $text-color-dark;
+$navbar-text-hover-color: darken($navbar-text-color, 15);
+$navbar-text-transform: $heading-text-transform;
+$navbar-text-weight: $heading-text-weight;
+$navbar-text-spacing: 10px; // Horizontal padding of list items
+
+// Links //
+$navbar-link-style: 'border'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+$navbar-link-accent-width: $global-border-width;
+$navbar-link-active-color: $primary-color;
+$navbar-link-border-radius: $global-border-radius;
+$navbar-fixed-link-active-color: $navbar-link-active-color;
+
+// Brand //
+$navbar-brand-image: true;
+$navbar-brand-height: 76px;
+$navbar-fixed-brand-height: $navbar-brand-height;
+$navbar-brand-center: false;
+$navbar-item-amount: 4;
+$navbar-brand-circle: false;
+
+////////////
+// Footer //
+////////////
+$footer-top-padding: 5%;
+$footer-top-background-color: $gray;
+$footer-top-text-color: $text-color-light;
+
+$footer-bottom-padding: 35px;
+$footer-bottom-background-color: $secondary-color;
+$footer-bottom-text-color: $footer-top-text-color;
+
+
+////////////////
+// Contactbox //
+////////////////
+$contactbox-used: true; // If you are using the html contactbox
+$contactbox-size: $input-text-height;
+$contactbox-background-color: $secondary-color;
+$contactbox-hover-background-color: $primary-color;
+$contactbox-right-opacity: 1 / 4;
+$contactbox-text-color: $text-color-light;
+
+/////////////////
+// X overrides //
+/////////////////
+$accentColor: $primary-color;
+$linkColor: $primary-color;
+$linkColorHover: $secondary-color;
+$sansFontFamily: $body-font;
+$altFontFamily: $heading-font;
+$navbarHeight: $navbar-height;
+$navbarFontSize: $navbar-text-size;
+$navbarBackground: $navbar-background-color;
+$navbarLinkColor: $navbar-text-color;
+$navbarLinkColorHover: $navbar-text-hover-color;
+$navbarLinkColorActive: $navbar-text-hover-color;
+$headingsFontWeight: $heading-text-weight;
+$headingsColor: $heading-color;
+$tableBorder: $global-border-color;
+$inputBorder: $global-border-color;
+$inputBackground: $input-text-background-color;
+$baseLineHeight: $body-line-height;
+$baseFontWeight: $body-text-weight;
+$bodyBackground: $body-background-color;
+$textColor: $body-text-color;
+$fa-font-path: '../x/framework/fonts/font_awesome';
+$baseBorderRgba: rgba(0,0,0,0);

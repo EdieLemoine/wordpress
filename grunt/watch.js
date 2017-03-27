@@ -1,20 +1,26 @@
 module.exports = {
-	options: {
-		livereload: true,
-		// atBegin: 'copy',
-	},
-	configFiles: {
-		files: ['gruntfile.js'],
-		options: {
-			reload: true,
-		},
-	},
-	scss: {
-		files: ['assets/scss/**/*.scss'],
-		tasks: ['sass:prod', 'postcss:scss'],
-	},
-	js: {
-		files: ['assets/js/**/*.js'],
-		tasks: ['concat:prod']
-	}
+  options: {
+    livereload: true,
+  },
+  configFiles: {
+    files: ['gruntfile.js', 'grunt/**/*.js'],
+    options: {
+      reload: true,
+    },
+  },
+  scss: {
+    options: {
+      livereload: false,
+    },
+    files: ['assets/scss/**/*.scss'],
+    tasks: ['sass:prod', 'postcss:scss'],
+  },
+  js: {
+    files: ['assets/js/**/*.js'],
+    tasks: ['concat:prod'],
+  },
+  css: {
+    files: ['includes/css/*.css'],
+    tasks: []
+  }
 };

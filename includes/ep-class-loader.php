@@ -1,6 +1,6 @@
 <?php
 
-class Edie_Custom_Loader {
+class Edies_Plugin_Loader {
 	protected $actions;
 	protected $filters;
 

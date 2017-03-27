@@ -4,7 +4,7 @@ module.exports = {
   },
   dist: {
     files: {
-      'dist/js/ep.min.js': 'assets/js/concatenated.js'
+      'includes/js/script.min.js': 'assets/js/concatenated.js'
     }
   }
 };
