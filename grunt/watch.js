@@ -1,7 +1,4 @@
 module.exports = {
-  options: {
-    livereload: true,
-  },
   configFiles: {
     files: ['gruntfile.js', 'grunt/**/*.js'],
     options: {
@@ -9,9 +6,6 @@ module.exports = {
     },
   },
   scss: {
-    options: {
-      livereload: false,
-    },
     files: ['assets/scss/**/*.scss'],
     tasks: ['sass:prod', 'postcss:scss'],
   },

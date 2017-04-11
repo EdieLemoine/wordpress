@@ -5,7 +5,7 @@ module.exports = {
   },
   target:  {
     files:  {
-      'style.min.css': 'includes/css/style.css'
+      'includes/css/ep-admin.min.css': 'includes/css/ep-admin.css'
     }
   }
 };

@@ -9,7 +9,7 @@ return array(
 	'class' => '',
 	'style' => '',
 	'heading' => 'Title',
-	'subtitle' => 'Subtitle',
+	'subtitle' => '',
 	'image' => '',
 	'url' => '#'
 );

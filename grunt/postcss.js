@@ -8,6 +8,6 @@ module.exports = {
 		]
 	},
 	scss: {
-		src: 'includes/css/style.css'
+		src: 'includes/css/ep-admin.css'
 	}
 };

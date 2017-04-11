@@ -1,7 +1,7 @@
 module.exports = {
 	prod: {
 		files: {
-			'includes/css/style.css': 'assets/scss/style.scss',
+			'includes/css/ep-admin.css': 'assets/scss/style.scss',
 		},
 	},
 	dist: {
@@ -9,7 +9,7 @@ module.exports = {
 			sourcemap: 'none',
 		},
 		files: {
-			'includes/css/style.css': 'assets/scss/style.scss'
+			'includes/css/ep-admin.css': 'assets/scss/style.scss'
 		}
 	}
 };

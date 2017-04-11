@@ -1,10 +1,10 @@
 <?php
 
 class Edies_Plugin_Theme {
-  private $version;
+  protected $path;
 
-  public function __construct( $version ) {
-    $this->version = $version;
+  public function __construct(  ) {
+    $this->path = plugin_dir_path( __FILE__ ) . 'elements/';
   }
 
   public function disable_x_css() {
@@ -12,15 +12,24 @@ class Edies_Plugin_Theme {
   }
 
   public function register_elements() {
-    $path = plugin_dir_path( __FILE__ ) . 'elements/';
+    $this->register_sortable_element( 'EP_Custom_Map', 'custom-map' );
+    $this->register_sortable_element( 'EP_Advanced_Accordion', 'advanced-accordion' );
 
-    cornerstone_register_element( 'Cat_Button', 'cat-button', $path . 'cat-button' );
-    cornerstone_register_element( 'Custom_Map', 'custom-map', $path . 'custom-map' );
-    cornerstone_register_element( 'Portfolio_Block', 'portfolio-block', $path . 'portfolio-block' );
+    // $this->register_element( 'EP_Portfolio_Block', 'portfolio-block' );
+    $this->register_element( 'EP_Advanced_Button', 'advanced-button' );
+  }
+
+  private function register_element( $name, $slug ) {
+    cornerstone_register_element( $name, $slug, $this->path . $slug );
+  }
+
+  private function register_sortable_element( $name, $slug ) {
+    cornerstone_register_element( $name, $slug, $this->path . $slug );
+    cornerstone_register_element( $name . '_Item', $slug . '-item', $this->path . $slug . '-item' );
   }
 
   public function icon_map( $icon_map ) {
-    $icon_map['edies-plugin'] = plugin_dir_url( __FILE__ ) . '/assets/svg/icons.svg';
+    $icon_map['edies-plugin'] = $this->path . '/elements/icon-map.svg';
     return $icon_map;
   }
 }

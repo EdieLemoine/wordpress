@@ -10,6 +10,9 @@
 // Own files
 // @import 'partials/custom';
 @import 'partials/media';
+body[class*="sitepress-multilingual-cms"] {
+  @import 'partials/wpml';
+}
 
 // Plugin files
 // @import 'partials/plugins/...';

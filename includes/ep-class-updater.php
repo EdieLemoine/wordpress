@@ -26,13 +26,13 @@ class Edies_Plugin_Updater {
   //Returns current plugin info.
   public function plugin_get($i) {
   	global $this_file;
-  	if ( ! public function_exists( 'get_plugins' ) )
+  	if ( ! function_exists( 'get_plugins' ) )
   		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
   	$plugin_folder = get_plugins( '/' . plugin_basename( dirname( $this_file ) ) );
   	$plugin_file = basename( ( $this_file ) );
   	return $plugin_folder[$plugin_file][$i];
   }
-
+  
 
   public function check_update() {
   	global $wp_version;

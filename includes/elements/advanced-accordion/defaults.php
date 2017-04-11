@@ -7,6 +7,6 @@
 return array(
 	'id' => '',
 	'class' => '',
-	'style' => '',
-	'height' => '500px',
+	'title' => '',
+	'title_toggle' => false
 );
