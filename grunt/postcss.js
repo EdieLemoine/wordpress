@@ -7,7 +7,13 @@ module.exports = {
 			})
 		]
 	},
-	scss: {
-		src: 'includes/css/ep-admin.css'
+	theme: {
+		src: '<%= theme_dist %>'
+	},
+	plugin: {
+		src: ['<%= plugin_style_dist %>', '<%= plugin_admin_dist %>']
+	},
+	prod: {
+		src: [ '<%= theme_style_dist %>', '<%= admin_style_dist %>', '<%= plugin_style_dist %>' ]
 	}
 };

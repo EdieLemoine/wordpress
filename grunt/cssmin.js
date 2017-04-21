@@ -5,7 +5,9 @@ module.exports = {
   },
   target:  {
     files:  {
-      'includes/css/ep-admin.min.css': 'includes/css/ep-admin.css'
+      '<%= theme_style_dist %>': '<%= theme_style_dist %>',
+      '<%= plugin_style_dist %>': '<%= plugin_style_dist %>',
+      '<%= admin_style_dist %>': '<%= admin_style_dist %>'
     }
   }
 };

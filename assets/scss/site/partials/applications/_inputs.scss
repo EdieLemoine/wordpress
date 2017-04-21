@@ -1,0 +1,14 @@
+input[type=text],
+input.wpcf7-text {
+  height: $input-text-height;
+}
+
+input[type=text],
+input.wpcf7-text,
+textarea {
+  border-color: $input-text-border-color;
+  border-width: $input-text-border-width;
+  &:focus {
+    border-color: $input-text-active-border-color;
+  }
+}

@@ -1,13 +1,11 @@
 module.exports = {
   dist: [
-    '*.map',
-    'dist/**/*.map',
-    'dist/js/*.js',
-    '!dist/js/*.min.js',
-    '*.min.css'
+    '<%= theme %>/**/*.map',
+    '<%= plugin %>/**/*.map',
   ],
   nuke: [ // DANGEROUS
-    '/assets',
+    '<%= theme %>/assets',
+    '<%= plugin_prod %>',
     '/.sass-cache',
     '/.git',
     '/node-modules',
@@ -15,7 +13,9 @@ module.exports = {
     'package.json',
     'readme.md',
     'watch.bat',
-    '/**/*.map',
+    'watch.command',
+    '<%= theme %>/**/*.map',
+    '<%= plugin %>/**/*.map',
     'gruntfile.js'
   ]
 };

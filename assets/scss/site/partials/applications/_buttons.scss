@@ -1,0 +1,140 @@
+.button,
+.x-btn,
+.x-slider-scroll-bottom,
+[type="submit"],
+input.wpcf7-submit,
+input[type=submit],
+.x-scroll-top {
+  color: $button-color;
+  @include fast-transition;
+
+  @if $button-style-transition == 'grow' {
+    &:active,
+    &:hover {
+      transform: scale(1.1) rotate(unquote($button-style-transition-rotation + 'deg'));
+    }
+  }
+
+  @elseif $button-style-transition == 'shrink' {
+    &:active,
+    &:hover {
+      transform: scale(0.9) rotate(unquote($button-style-transition-rotation + 'deg'));
+    }
+  }
+
+  @if $button-style == 'transparent' or $button-style == 'border-fill' {
+    border-color: $button-background-color;
+    border-width: $button-border-width;
+    border-radius: $button-border-radius;
+
+    @if $button-style == 'transparent' {
+      background-color: transparent;
+      color: $button-background-color !important;
+    }
+    @else {
+      background-color: $button-background-color;
+    }
+    @if $button-border-radius != 0 {
+      border-radius: $button-border-radius;
+    }
+
+    &:hover {
+      border-color: $button-background-color;
+      color: $text-color-light !important;
+
+      @if $button-style == 'transparent' {
+        background-color: $button-background-color;
+      }
+      @else {
+        background-color: $button-active-background-color;
+      }
+    }
+  }
+
+  @elseif $button-style == 'fill' {
+    background-color: $button-background-color;
+    border: none;
+    @if $button-border-radius != 0 {
+      border-radius: $button-border-radius;
+    }
+
+    &:hover {
+      background-color: $button-active-background-color;
+    }
+  }
+
+  @elseif $button-style == '3D' {
+    $button-color1: lighten(desaturate(adjust-hue($button-background-color, 1.6391), 3.9715), 18.4314);
+    $button-color2: darken(desaturate(adjust-hue($button-background-color, -1.4903), 10.6695), 2.7451);
+    $button-color3: lighten(saturate(adjust-hue($button-background-color, -1.6925), 2.4568), 12.1569);
+    $button-color4: darken(desaturate(adjust-hue($button-background-color, -1.4903), 10.6695), 2.7451);
+    box-shadow: 0 1px 0 0 $button-color1 inset;
+    border: $button-border-width solid $button-background-color;
+    background: $button-color3 linear-gradient(to bottom, $button-color3 5%, $button-color4 100%) repeat scroll 0 0;
+    border-radius: $button-border-radius;
+
+    &:hover {
+      background: $button-color2 linear-gradient(to bottom, $button-color2 5%, $button-color3 100%) repeat scroll 0 0;
+    }
+  }
+}
+.x-scroll-top i {
+  line-height: 1;
+}
+
+.dark-background {
+  button,
+  .x-btn,
+  .x-slider-scroll-bottom,
+  [type="submit"],
+  input.wpcf7-submit,
+  input[type=submit],
+  .x-scroll-top {
+
+    @if $button-style == 'transparent' or $button-style == 'border-fill' {
+      border-color: $button-active-background-color;
+
+      @if $button-style == 'transparent' {
+        color: $button-active-background-color !important;
+      }
+      @else {
+        background-color: $button-active-background-color;
+      }
+
+      &:hover {
+        border-color: $button-active-background-color;
+        color: $button-background-color !important;
+
+        @if $button-style == 'transparent' {
+          background-color: $button-active-background-color;
+        }
+        @else {
+          background-color: $button-active-background-color;
+        }
+      }
+    }
+
+    @elseif $button-style == 'fill' {
+      background-color: $button-active-background-color;
+
+      &:hover {
+        background-color: $button-active-background-color;
+      }
+    }
+
+    @elseif $button-style == '3D' {
+      $button-active-color1: lighten(desaturate(adjust-hue($button-active-background-color, 1.6391), 3.9715), 18.4314);
+      $button-active-color2: darken(desaturate(adjust-hue($button-active-background-color, -1.4903), 10.6695), 2.7451);
+      $button-active-color3: lighten(saturate(adjust-hue($button-active-background-color, -1.6925), 2.4568), 12.1569);
+      $button-active-color4: darken(desaturate(adjust-hue($button-active-background-color, -1.4903), 10.6695), 2.7451);
+      box-shadow: 0 1px 0 0 $button-active-color1 inset;
+      border: $button-border-width solid $button-active-background-color;
+      background: $button-active-color3 linear-gradient(to bottom, $button-active-color3 5%, $button-active-color4 100%) repeat scroll 0 0;
+      border-radius: $button-border-radius;
+
+      &:hover {
+        background: $button-active-color2 linear-gradient(to bottom, $button-active-color2 5%, $button-active-color3 100%) repeat scroll 0 0;
+      }
+    }
+  }
+}

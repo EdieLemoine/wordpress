@@ -1,0 +1,34 @@
+/*
+
+Theme Name: Base X Child template with Grunt
+Author: Edie
+Template: x
+
+*/
+
+// This file is only for importing partials.
+// Use only what you need.
+
+@import '../global/base/variables';
+
+// Stack; Only use the one you enabled in X.
+// @import 'partials/stack/icon';
+// @import 'partials/stack/renew';
+// @import 'partials/stack/integrity';
+@import 'partials/stack/ethos';
+
+@import '../global/base/classes';
+@import '../global/base/mixins';
+@import 'partials/base/applications';
+// @import 'partials/base/cornerstone'; // If using edie-plugin
+
+// Own files
+@import 'partials/custom';
+
+// Plugin files
+@import 'partials/plugins/essentialgrid';
+@import 'partials/plugins/revolutionslider';
+@import 'partials/plugins/wpml';
+
+// Responsive
+@import 'partials/base/responsive';

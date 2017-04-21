@@ -1,0 +1,15 @@
+@import '../../../../../themes/x/framework/css/src/site/stacks/ethos';
+@import 'global';
+
+.x-navbar-fixed-top-active .x-navbar-wrap {
+  margin-bottom: 0 !important;
+}
+
+.x-navbar {
+  border-bottom: none;
+}
+
+.x-navbar .desktop .x-nav > li > a,
+.x-navbar .desktop .x-nav > li:first-child > a {
+  border: none;
+}

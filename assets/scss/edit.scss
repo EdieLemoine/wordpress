@@ -1,0 +1,152 @@
+////////////
+// Colors //
+////////////
+$primary-color: #aa2525 !default;
+$secondary-color: lighten($primary-color, 20%) !default;
+
+$black: #000 !default;
+$dark-gray: #333 !default;
+$gray: #6d6e71 !default;
+$light-gray: #ccc !default;
+$white: #fff !default;
+
+$background: #eee !default;
+
+$light-background-color: $white !default;
+$dark-background-color: $dark-gray !default;
+
+// Vendor
+$vendor-spacing: 15px !default;
+$header-height: 400px !default;
+$profile-size: 180px !default;
+$social-size: 50px !default;
+
+////////////
+// Global //
+////////////
+$container-width: 1200px !default;
+$container-max-width: 95% !default;
+$global-border-radius: 0 !default;
+$global-border-color: $primary-color !default;
+$global-border-width: 2px !default;
+
+//////////
+// Text //
+//////////
+
+$heading-font: "Crete Round", serif !default;
+$heading-font-external: true !default;
+$heading-text-weight: 400 !default;
+$heading-text-transform: uppercase !default;
+$heading-color: $dark-gray !default;
+
+$body-font: "Open Sans", Helvetica, sans-serif !default;
+$body-font-external: true !default;
+$body-font-size: 16px !default;
+$body-text-style: normal !default;
+$body-text-weight: 300 !default;
+$body-text-color: $gray !default;
+$body-line-height: 1.9 !default;
+$body-background-color: $white !default;
+
+$text-color-light: $white !default;
+$text-color-dark: $dark-gray !default;
+
+$extra-font: "Amatic SC", serif !default;
+
+//////////////
+// Sections //
+//////////////
+$section-padding: 100px !default;
+
+///////////////////
+// Slanted edges //
+///////////////////
+$deg: 1.5 !default;
+
+/////////////
+// Buttons //
+/////////////
+$button-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
+$button-style-transition: none !default; // Grow | Shrink | none
+$button-style-transition-rotation: 0 !default; // Rotation on hover
+$button-border-radius: $global-border-radius !default;
+$button-border-width: $global-border-width !default;
+$button-color: $text-color-light !default;
+$button-background-color: $primary-color !default;
+$button-active-background-color: $secondary-color !default;
+
+////////////
+// Inputs //
+////////////
+$input-text-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
+$input-text-style-transition: none !default; // Grow | Shrink | none
+$input-text-style-transition-rotation: 0 !default; // Rotation on hover
+$input-text-border-radius: $global-border-radius !default;
+$input-text-border-width: $global-border-width !default;
+$input-text-border-color: transparent !default;
+$input-text-active-border-color: $global-border-color !default;
+$input-text-color: $text-color-dark !default;
+$input-text-background-color: $white !default;
+$input-text-active-background-color: $secondary-color !default;
+$input-text-height: 50px !default;
+
+////////////
+// Navbar //
+////////////
+// Colors //
+$navbar-background-color: $white !default;
+$navbar-fixed-background-color: $navbar-background-color !default;
+$navbar-submenu-background-color: $navbar-background-color !default;
+$navbar-fixed-submenu-background-color: $navbar-fixed-background-color !default;
+
+// Height //
+$navbar-height: 98px !default;
+$navbar-fixed-height: $navbar-height !default;
+$navbar-submenu-padding: 0 !default;
+
+// Text //
+$navbar-text-font-size: 13px !default;
+$navbar-text-font-family: $heading-font-family !default;
+$navbar-text-color: $text-color-dark !default;
+$navbar-text-hover-color: darken($navbar-text-color, 15) !default;
+$navbar-text-transform: $heading-text-transform !default;
+$navbar-text-weight: $heading-text-weight !default;
+$navbar-text-spacing: 10px !default; // Horizontal padding of list items
+
+// Links //
+$navbar-link-style: 'border' !default; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+$navbar-link-accent-width: $global-border-width !default;
+$navbar-link-active-color: $primary-color !default;
+$navbar-link-border-radius: $global-border-radius !default;
+$navbar-fixed-link-active-color: $navbar-link-active-color !default;
+
+// Brand //
+$navbar-brand-image: true !default;
+$navbar-brand-height: 76px !default;
+$navbar-fixed-brand-height: $navbar-brand-height !default;
+$navbar-brand-center: false !default;
+$navbar-item-amount: 4 !default;
+$navbar-brand-circle: false !default;
+
+////////////
+// Footer //
+////////////
+$footer-top-padding: 5% !default;
+$footer-top-background-color: $gray !default;
+$footer-top-text-color: $text-color-light !default;
+
+$footer-bottom-padding: 35px !default;
+$footer-bottom-background-color: $secondary-color !default;
+$footer-bottom-text-color: $footer-top-text-color !default;
+
+
+////////////////
+// Contactbox //
+////////////////
+$contactbox-used: true !default; // If you are using the html contactbox
+$contactbox-size: $input-text-height !default;
+$contactbox-background-color: $secondary-color !default;
+$contactbox-hover-background-color: $primary-color !default;
+$contactbox-right-opacity: 1 / 4 !default;
+$contactbox-text-color: $text-color-light !default;

@@ -1,0 +1,18 @@
+.x-section {
+  padding: $section-padding 0 !important;
+  margin: 0;
+}
+
+.flex-direction-nav a, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .x-dropcap, .x-skill-bar .bar, .x-pricing-column.featured h2, .h-comments-title small, .x-pagination a:hover, .x-entry-share .x-share:hover, .entry-thumb, .widget_tag_cloud .tagcloud a:hover, .widget_product_tag_cloud .tagcloud a:hover, .x-highlight, .x-recent-posts .x-recent-posts-img::after, .x-portfolio-filters {
+  background-color: $secondary-color !important;
+}
+
+
+.x-container{
+  .width {
+    width: $container-width;
+  }
+  .max {
+    max-width: $container-max-width;
+  }
+}

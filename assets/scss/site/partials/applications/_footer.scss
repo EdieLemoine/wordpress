@@ -1,0 +1,22 @@
+.x-colophon {
+  // Top Footer
+  &.top {
+    background-color: $footer-top-background-color;
+    padding: $footer-top-padding 0;
+    #{textElements()}, .textwidget {
+      color: $footer-top-text-color;
+    }
+  }
+  // Bottom Footer
+  &.bottom {
+    background-color: $footer-bottom-background-color;
+    padding: $footer-bottom-padding 0;
+    color: $footer-bottom-text-color;
+  }
+
+  &.bottom .x-colophon-content a:hover,
+  &.bottom .x-nav a:hover,
+  .widget a:hover {
+    color: $navbar-text-hover-color;
+  }
+}

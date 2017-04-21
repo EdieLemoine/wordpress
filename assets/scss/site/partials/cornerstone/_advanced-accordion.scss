@@ -1,0 +1,48 @@
+.x-accordion-group {
+
+  .x-accordion-heading {
+
+    .ep-accordion-toggle {
+      display: block;
+      padding: 10px 15px;
+      font-size: 128.6%;
+      background-color: $light-background-color;
+      cursor: pointer;
+      & > span {
+        @include turbo-transition;
+        color: $text-color-dark;
+      }
+      &:hover {
+        background-color: $primary-color;
+        & > span, &::before {
+          color: $text-color-light;
+        }
+      }
+      &.collapsed::before {
+        transform: rotate(0);
+      }
+      &::before {
+        opacity: 0.5;
+        content: "\f067";
+        position: relative;
+        display: inline-block;
+        bottom: 0.25em;
+        font-size: $body-font-size;
+        margin-right: 10px;
+        color: $text-color-dark;
+        transform: rotate(45deg);
+        font-family: "FontAwesome" !important;
+        @include turbo-transition;
+      }
+    }
+  }
+  .x-accordion-body {
+
+    .x-accordion-inner {
+      @include border();
+      & > .x-column {
+        padding: $section-padding / 2 $section-padding / 4;
+      }
+    }
+  }
+}

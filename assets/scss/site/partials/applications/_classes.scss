@@ -1,0 +1,60 @@
+.light-background {
+  background-color: $light-background-color;
+
+  #{textElements()} {
+    color: $text-color-dark;
+  }
+}
+
+.dark-background {
+  background-color: $dark-background-color;
+
+  #{textElements()},
+  .x-accordion-inner {
+    color: $text-color-light;
+  }
+}
+
+.h1,
+.h1 a,
+.h2,
+.h2 a,
+.h3,
+.h3 a,
+.h4,
+.h4 a,
+.h5,
+.h5 a,
+.h6,
+.h6 a,
+blockquote,
+h1,
+h1 a,
+h2,
+h2 a,
+h3,
+h3 a,
+h4,
+h4 a,
+h5,
+h5 a,
+h6,
+h6 a {
+  font-family: $heading-font-family;
+  color: $heading-color;
+}
+
+body {
+  font-size: $body-font-size;
+  font-style: $body-text-style;
+  font-weight: $body-text-weight;
+  color: $body-text-color;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $body-font-family;
+}

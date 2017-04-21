@@ -1,20 +1,20 @@
 module.exports = {
   configFiles: {
-    files: ['gruntfile.js', 'grunt/**/*.js'],
+    files: [ 'gruntfile.js', 'grunt/**/*.js' ],
     options: {
       reload: true,
     },
   },
+
   scss: {
-    files: ['assets/scss/**/*.scss'],
-    tasks: ['sass:prod', 'postcss:scss'],
+    files: [ '<%= style_prod %>/**/*.scss' ],
+    tasks: [ 'sass:prod', 'postcss:prod' ],
   },
-  js: {
-    files: ['assets/js/**/*.js'],
-    tasks: ['concat:prod'],
-  },
-  css: {
-    files: ['includes/css/*.css'],
-    tasks: []
+
+  livereload: {
+    options: {
+      livereload: true,
+    },
+    files: [ '<%= theme %>/**/*.css', '<%= plugin %>/**/*.css' ]
   }
 };

@@ -1,0 +1,15 @@
+// This file is only for importing partials.
+// Use only what you need.
+
+@import '../global/base/variables'; // Always import these variables first
+
+@import '../global/base/classes';
+@import '../global/base/mixins';
+// @import 'partials/base/applications';
+
+// Own files
+// @import 'partials/custom';
+@import 'partials/media';
+body[class*="sitepress-multilingual-cms"] { // WPML page
+  @import 'partials/wpml';
+}

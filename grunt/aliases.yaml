@@ -1,8 +1,8 @@
 default:
-    - 'concurrent:scss'
-    - 'concurrent:js'
+    - 'sass:theme'
+    - 'sass:plugin_admin'
+    - 'sass:plugin_style'
 deploy:
     - 'concurrent:scss_dist'
     - 'concurrent:js_dist'
     - 'clean:dist'
-    

@@ -1,0 +1,17 @@
+#lang_sel_footer {
+  border: none;
+  background-color: $primary-color;
+  ul li {
+    line-height: normal;
+    a {
+      padding: 5px 10px;
+      height: 30px;
+      width: 40px;
+      position: relative;
+      display: inline-block;
+    }
+    img {
+      @include absolute-center;
+    }
+  }
+}
