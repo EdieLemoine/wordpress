@@ -13,19 +13,7 @@
     font-family: $body-font-family;
     src: url('./dist/fonts/' + unquote($body-font-family) + '.woff2') format('woff2'),
          url('./dist/fonts/' + unquote($body-font-family) + '.woff') format('woff');
-    font-weight: $body-text-weight;
+    font-weight: $body-font-weight;
     font-style: normal;
   }
-}
-@if $navbar-brand-image == false {
-  .x-brand {
-    font-family: $heading-font-family !important;
-  }
-}
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $heading-font-family !important;
-}
-
-body, input, button, select, textarea {
-    font-family: $body-font-family, sans-serif !important;
 }

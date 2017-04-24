@@ -14,6 +14,7 @@ $post_types = array(
     'id' => 'ac-winkel'
   )
 );
+
 foreach ($post_types as $post_type) {
   $entries = array();
   $entries[] = array(
@@ -25,7 +26,7 @@ foreach ($post_types as $post_type) {
     'type' => 'select',
     'context' => 'content',
     'ui' => array(
-      'title' => __($post_type['id'], 'albertcuyp')
+      'title' => __($post_type['id'], 'edies-plugin')
     ),
     'options' => array()
   );

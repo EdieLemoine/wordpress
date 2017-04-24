@@ -19,16 +19,6 @@ $array = array(
     'options' => array()
   ),
 
-  // 'post_category' => array(
-  //   'type' => 'multi-choose',
-  //   'context' => 'content',
-  //   'ui' => array(
-  //     'title' => $c->text( 'Categories' ),
-  //     'tooltip' => $c->text( 'Leave empty to select all' )
-  //   ),
-  //   'options' => array()
-  // ),
-
   'per_page' => array(
     'type' => 'number',
     'ui' => array(
@@ -77,7 +67,7 @@ $array = array(
 
 $post_types = get_post_types(
   array(
-    'public'   => true
+    'public' => true
   )
 );
 

@@ -22,7 +22,7 @@ class Edies_Plugin_Templates {
 	public function set_archive_template( $template ) {
 		if ( is_tax( 'winkel-cat' ) OR is_tax( 'kraam-cat' ) ) {
       $template = 'ep-category-template.php';
-
+			
 			$template = $this->dir . $template;
     }
     return $template;

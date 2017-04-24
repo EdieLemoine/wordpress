@@ -55,7 +55,7 @@ $global-border-width: 2px !default;
 
 $heading-font-family: "Crete Round", serif !default;
 $heading-font-external: true !default;
-$heading-text-weight: 400 !default;
+$heading-font-weight: 400 !default;
 $heading-text-transform: uppercase !default;
 $heading-color: $dark-gray !default;
 
@@ -63,7 +63,7 @@ $body-font-family: "Open Sans", Helvetica, sans-serif !default;
 $body-font-external: true !default;
 $body-font-size: 16px !default;
 $body-font-style: normal !default;
-$body-text-weight: 300 !default;
+$body-font-weight: 300 !default;
 $body-text-color: $gray !default;
 $body-line-height: 1.9 !default;
 $body-background-color: $white !default;
@@ -130,7 +130,7 @@ $navbar-text-font-family: $heading-font-family !default;
 $navbar-text-color: $text-color-dark !default;
 $navbar-text-hover-color: darken($navbar-text-color, 15) !default;
 $navbar-text-transform: $heading-text-transform !default;
-$navbar-text-weight: $heading-text-weight !default;
+$navbar-font-weight: $heading-font-weight !default;
 $navbar-text-spacing: 10px !default; // Horizontal padding of list items
 
 // Links //

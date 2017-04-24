@@ -30,7 +30,7 @@ $global-border-width: 2px;
 //////////
 $heading-font: "Crete Round", serif;
 $heading-font-external: true;
-$heading-text-weight: 400;
+$heading-font-weight: 400;
 $heading-text-transform: uppercase;
 $heading-color: $dark-gray;
 
@@ -38,7 +38,7 @@ $body-font: "Open Sans", Helvetica, sans-serif;
 $body-font-external: true;
 $body-font-size: 16px;
 $body-font-style: normal;
-$body-text-weight: 300;
+$body-font-weight: 300;
 $body-text-color: $gray;
 $body-line-height: 1.9;
 $body-background-color: $light-background-color;
@@ -95,7 +95,7 @@ $navbar-text-font-family: $heading-font-family;
 $navbar-text-color: $text-color-dark;
 $navbar-text-hover-color: darken($navbar-text-color, 15);
 $navbar-text-transform: $heading-text-transform;
-$navbar-text-weight: $heading-text-weight;
+$navbar-font-weight: $heading-font-weight;
 $navbar-text-spacing: 10px; // Horizontal padding of list items
 
 // Links //
