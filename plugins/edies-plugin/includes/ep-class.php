@@ -33,8 +33,8 @@ class Edies_Plugin {
   private function define_hooks() {
     // Admin
     $admin = new Edies_Plugin_Admin( $this->get_version() );
-    $this->loader->add_action( 'init', $admin, 'add_menu_pages' ); // Add menu pages
     $this->loader->add_action( 'init', $admin, 'add_post_types' ); // Add post types
+    $this->loader->add_action( 'admin_menu', $admin, 'add_menu_pages' ); // Add menu pages
     $this->loader->add_action( 'wp_enqueue_scripts', $admin, 'enqueue_styles' ); // Enqueue custom styles
     $this->loader->add_action( 'wp_enqueue_scripts', $admin, 'enqueue_scripts' ); // Enqueue custom scripts
     $this->loader->add_action( 'wp_enqueue_scripts', $admin, 'dequeue_scripts' ); // Dequeue js
