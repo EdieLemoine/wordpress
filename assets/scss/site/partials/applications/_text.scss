@@ -1,13 +1,13 @@
 @if $navbar-brand-image == false {
   .x-brand {
-    font-family: $heading-font-family !important;
+    font-family: $heading-font !important;
   }
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $heading-font-family !important;
+  font-family: $heading-font !important;
 }
 
 body, input, button, select, textarea {
-    font-family: $body-font-family, sans-serif !important;
+    font-family: $body-font, sans-serif !important;
 }

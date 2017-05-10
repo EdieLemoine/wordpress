@@ -7,7 +7,7 @@ $c = new EP_Advanced_Accordion_Item();
 
 $atts = cs_atts( array(
 	'id' => $id,
-	'class' => trim( 'class' . $c->staticID() . ' x-accordion-group ' . $class)
+	'class' => trim( 'x-accordion-group ' . $class )
 ) );
 ?>
 

@@ -1,3 +1,5 @@
+@import '../../edit';
+
 $z-layers: (
   bg: -9999,
   normal: 1,
@@ -31,8 +33,8 @@ $white: #fff !default;
 
 $background: #eee !default;
 
-$light-background-color: $white !default;
-$dark-background-color: $dark-gray !default;
+$background-color-light: $white !default;
+$background-color-dark: $dark-gray !default;
 
 // Vendor
 $vendor-spacing: 15px !default;
@@ -48,18 +50,18 @@ $container-max-width: 95% !default;
 $global-border-radius: 0 !default;
 $global-border-color: $primary-color !default;
 $global-border-width: 2px !default;
+$global-spacing: 2em !default;
 
 //////////
 // Text //
 //////////
-
-$heading-font-family: "Crete Round", serif !default;
+$heading-font: "Crete Round", serif !default;
 $heading-font-external: true !default;
 $heading-font-weight: 400 !default;
 $heading-text-transform: uppercase !default;
 $heading-color: $dark-gray !default;
 
-$body-font-family: "Open Sans", Helvetica, sans-serif !default;
+$body-font: "Open Sans", Helvetica, sans-serif !default;
 $body-font-external: true !default;
 $body-font-size: 16px !default;
 $body-font-style: normal !default;
@@ -126,7 +128,7 @@ $navbar-submenu-padding: 0 !default;
 
 // Text //
 $navbar-text-font-size: 13px !default;
-$navbar-text-font-family: $heading-font-family !default;
+$navbar-text-font: $heading-font !default;
 $navbar-text-color: $text-color-dark !default;
 $navbar-text-hover-color: darken($navbar-text-color, 15) !default;
 $navbar-text-transform: $heading-text-transform !default;
@@ -170,5 +172,4 @@ $contactbox-hover-background-color: $primary-color !default;
 $contactbox-right-opacity: 1 / 4 !default;
 $contactbox-text-color: $text-color-light !default;
 
-@import '../../edit';
 @import 'variable_overrides';

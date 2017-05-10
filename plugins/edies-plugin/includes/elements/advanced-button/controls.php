@@ -4,16 +4,12 @@
  * Element Controls
  */
 
-$ep_class = new EP_Advanced_Button();
-
-$post_types = get_post_types( '', 'objects' );
-
+$c = new EP_Advanced_Button();
 
 $array = array(
   'common' => array(
     '!style'
   ),
-
   'button_style' => array(
     'type' => 'select',
     'ui' => array(
@@ -26,7 +22,6 @@ $array = array(
       )
     )
   ),
-
   'link_type' => array(
     'type' => 'select',
     'ui' => array(
@@ -39,61 +34,8 @@ $array = array(
       )
     )
   ),
-
-  'post_type' => array(
-    'type' => 'select',
-    'ui' => array(
-      'title' => __( 'Post type', 'edies-plugin' )
-    ),
-    'options' => array(),
-    'condition' => array(
-      'link_type' => 'post'
-    )
-  ),
-
-  'post' => array(
-    'type' => 'select',
-    'ui' => array(
-      'title' => __( 'Post', 'edies-plugin' )
-    ),
-    'options' => array(),
-    'condition' => array(
-      'link_type' => 'post',
-      'post_type:not' => ''
-    )
-  ),
-
-  'link' => array(
-    'type' => 'text',
-    'ui' => array(
-      'title' => __( 'Link', 'edies-plugin' )
-    ),
-    'condition' => array(
-      'link_type' => 'custom'
-    )
-  )
+  'post_type' => $c->control( 'post_type', 'Post Type', array( 'link_type', 'post' ) ),
+  'link' => $c->control( 'text', 'Link', array( 'link_type', 'custom' ) )
 );
-
-foreach ($post_types as $post_type) {
-  $post_types[] = array(
-    'value' => $post_type->name,
-    'label' => $post_type->name
-  );
-  // $array['post_type']['options']['choices'] = array(
-  //   'value' => $post_type->ID,
-  //   'label' => $post_type->name
-  // );
-
-}
-  $array['post_type']['options'] = array(
-    'choices' => $post_types
-  );
-
-  // $array[$post_type->name]['options'] = array(
-  //   'choices' => $categories
-  // );
-
-
-
 
 return $array;

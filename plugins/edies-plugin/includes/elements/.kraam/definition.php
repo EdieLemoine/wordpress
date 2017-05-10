@@ -4,7 +4,7 @@
  * Element Definition
  */
 
-class Kraam {
+class EP_Kraam extends EP_Element_Base {
 
 	public function ui() {
 		return array(

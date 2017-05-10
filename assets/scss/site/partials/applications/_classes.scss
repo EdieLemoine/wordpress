@@ -1,60 +1,41 @@
-.light-background {
-  background-color: $light-background-color;
+.x-container {
+  padding: $global-spacing !important;
+}
 
-  #{textElements()} {
-    color: $text-color-dark;
+.ep-container {
+  padding: $global-spacing;
+}
+
+.bg1 {
+  @include background( 'light' );
+}
+
+.bg2 {
+  @include background( 'dark' );
+}
+
+.bg3 {
+  @include background();
+}
+
+.x-section.bg1 > .x-container {
+  @include background( 'dark' );
+  &:first-child {
+    @include background();
   }
 }
 
-.dark-background {
-  background-color: $dark-background-color;
-
-  #{textElements()},
-  .x-accordion-inner {
-    color: $text-color-light;
+.x-section.bg2 > .x-container {
+  @include background( 'light' );
+  &:first-child {
+    @include background();
   }
 }
 
-.h1,
-.h1 a,
-.h2,
-.h2 a,
-.h3,
-.h3 a,
-.h4,
-.h4 a,
-.h5,
-.h5 a,
-.h6,
-.h6 a,
-blockquote,
-h1,
-h1 a,
-h2,
-h2 a,
-h3,
-h3 a,
-h4,
-h4 a,
-h5,
-h5 a,
-h6,
-h6 a {
-  font-family: $heading-font-family;
-  color: $heading-color;
-}
-
-body {
-  font-size: $body-font-size;
-  font-style: $body-font-style;
-  font-weight: $body-font-weight;
-  color: $body-text-color;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-  font-family: $body-font-family;
+.x-section.bg3 > .x-container {
+  // @include background('dark');
+  //
+  // &:first-child {
+  //   @include background( 'light' );
+  // }
 }

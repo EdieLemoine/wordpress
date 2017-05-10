@@ -4,7 +4,8 @@
  * Element Definition
  */
 
-class EP_Advanced_Accordion_Item {
+class EP_Advanced_Accordion_Item extends EP_Advanced_Accordion {
+	public static $staticID = 0;
 
 	public function ui() {
 		return array(
@@ -17,10 +18,9 @@ class EP_Advanced_Accordion_Item {
 	}
 
 	public function staticID() {
-		static $staticID = 0;
-		$staticID++;
-
-		return $staticID;
+		$this->staticID++;
+		
+		return $this->staticID;
 	}
 
 	public function flags() {

@@ -6,6 +6,7 @@
     }
   }
 }
+
 .ep-col[class*="ep-1-"] {
   @include break('small') {
     width: 100%;
@@ -59,7 +60,7 @@
     }
     .ep-overlay {
       height: 100%;
-      @include transition( 0.5s, ease, 0.1s );
+      @include transition( all, 0.5s, ease, 0.1s );
     }
     h2,
     p {

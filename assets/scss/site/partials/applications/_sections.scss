@@ -7,12 +7,15 @@
   background-color: $secondary-color !important;
 }
 
-
-.x-container{
+.x-container {
   .width {
     width: $container-width;
   }
   .max {
     max-width: $container-max-width;
   }
+}
+
+.x-section:not(.bg-image):nth-child( 2n ) { // Auto alternating bg colors for sections
+  background-color: $light-gray;
 }

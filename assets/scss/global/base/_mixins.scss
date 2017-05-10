@@ -1,5 +1,5 @@
-@mixin transition($speed, $timing: ease, $delay: null) {
-  transition: all $speed $timing !important;
+@mixin transition($element, $speed, $timing: ease, $delay: null) {
+  transition: $element $speed $timing !important;
   @if $delay != null {
     transition-delay: $delay;
   }
@@ -22,19 +22,19 @@
 // Simple easing transitions
 // Usage @include slow-transition;
 @mixin slow-transition {
-  @include transition(1s);
+  @include transition(all, 1s);
 }
 // Usage @include simple-transition;
 @mixin simple-transition {
-  @include transition(0.5s);
+  @include transition(all, 0.5s);
 }
 // Usage @include fast-transition;
 @mixin fast-transition {
-  @include transition(0.3s);
+  @include transition(all, 0.3s);
 }
 // Usage @include turbo-transition;
 @mixin turbo-transition {
-  @include transition(0.1s);
+  @include transition(all, 0.1s);
 }
 
 @mixin pos( $top, $right:$top, $bottom:$top, $left:$right) {
@@ -42,6 +42,38 @@
   right: $right;
   bottom: $bottom;
   left: $left;
+}
+
+// Easily target all heading elements at once
+@function headings() {
+  @return 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h-custom-headline';
+}
+
+// Easily target all text elements at once
+@function textElements() {
+  @return unquote( #{headings()} ) + ',' + unquote(' blockquote, p');
+}
+
+@mixin background( $color:$primary-color, $tint:null ) {
+
+  @if $color == 'dark' {
+    $color: $background-color-dark;
+    @if $tint == null {
+      $tint: $text-color-light;
+    }
+  } @elseif $color == 'light' {
+    $color: $background-color-light;
+    @if $tint == null {
+      $tint: $text-color-dark;
+    }
+  } @elseif $color == $primary-color {
+    $tint: $text-color-light;
+  }
+
+  background-color: $color !important;
+  #{textElements()} {
+    color: $tint;
+  }
 }
 
 // Quick size
@@ -52,25 +84,10 @@
 }
 
 // Because it is annoying to type out
-@mixin absolute-center( $pos:0 ) {
+@mixin absolute-center( $pos: 0 ) {
   position: absolute;
   @include pos($pos);
   margin: auto;
-}
-
-// Easily target all text elements at once
-// Usage: #{textElements()} { (your styles) }
-@function textElements() {
-  @return 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a, blockquote, p';
-}
-
-// Easy opacity
-// Usage: color: black(0.75);
-@function black($opacity) {
-   @return rgba(0,0,0,$opacity);
-}
-@function white($opacity) {
-   @return rgba(255,255,255,$opacity);
 }
 
 // Inserts a background image from Lorem Pixel with the dimensions and optionally subject of your choice
@@ -130,89 +147,5 @@
         border-#{$side}: $style;
       }
     }
-  }
-}
-
-// Set style for all 6 headings
-// Usage: #{headings(1,6)} { (your styles) }
-@function headings($from:1, $to:6) {
-   @if $from == $to{
-    @return 'h#{$from}';
-  }
-  @else {
-     @return'h#{$from},' + headings($from+1, $to);
-  }
-}
-
-// Easy Triangle
-// Usage: @include triangle(32px, $primary-color, down);
-@mixin triangle ($size, $color: $primary-color, $direction: down) {
-  height: 0;
-  width: 0;
-  $width: nth($size, 1);
-  $height: nth($size, length($size));
-  $foreground-color: nth($color, 1);
-  $background-color: if(length($color) == 2, nth($color, 2), transparent);
-  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
-    $width: $width / 2;
-    $height: if(length($size) > 1, $height, $height/2);
-    @if $direction == up {
-      border-bottom: $height solid $foreground-color;
-      border-left: $width solid $background-color;
-      border-right: $width solid $background-color;
-    }
-    @else if $direction == right {
-      border-bottom: $width solid $background-color;
-      border-left: $height solid $foreground-color;
-      border-top: $width solid $background-color;
-    }
-    @else if $direction == down {
-      border-left: $width solid $background-color;
-      border-right: $width solid $background-color;
-      border-top: $height solid $foreground-color;
-    }
-    @else if $direction == left {
-      border-bottom: $width solid $background-color;
-      border-right: $height solid $foreground-color;
-      border-top: $width solid $background-color;
-    }
-  }
-  @else if ($direction == up-right) or ($direction == up-left) {
-    border-top: $height solid $foreground-color;
-    @if $direction == up-right {
-      border-left: $width solid $background-color;
-    }
-    @else if $direction == up-left {
-      border-right: $width solid $background-color;
-    }
-  }
-  @else if ($direction == down-right) or ($direction == down-left) {
-    border-bottom: $height solid $foreground-color;
-    @if $direction == down-right {
-      border-left: $width solid $background-color;
-    }
-    @else if $direction == down-left {
-      border-right: $width solid $background-color;
-    }
-  }
-  @else if ($direction == inset-up) {
-    border-color: $background-color $background-color $foreground-color;
-    border-style: solid;
-    border-width: $height $width;
-  }
-  @else if ($direction == inset-down) {
-    border-color: $foreground-color $background-color $background-color;
-    border-style: solid;
-    border-width: $height $width;
-  }
-  @else if ($direction == inset-right) {
-    border-color: $background-color $background-color $background-color $foreground-color;
-    border-style: solid;
-    border-width: $width $height;
-  }
-  @else if ($direction == inset-left) {
-    border-color: $background-color $foreground-color $background-color $background-color;
-    border-style: solid;
-    border-width: $width $height;
   }
 }

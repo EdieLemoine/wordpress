@@ -6,57 +6,108 @@
 class Edies_Plugin {
   protected $version;
   protected $slug = 'edies-plugin';
+  static $loader;
 
   public function __construct() {
-    $this->version = '0.1.0';
+    $this->version = '0.1.1';
 
-    $this->load_dependencies();
+    define( 'PATH', plugin_dir_path( __FILE__ ) );
+    define( 'URL', plugin_dir_url( __FILE__ ) );
+
+    define( 'DIR_CSS', URL . '/css/' );
+    define( 'DIR_JS', URL . '/js/' );
+    define( 'DIR_SHORTCODES', PATH . 'shortcodes/' );
+    define( 'DIR_TEMPLATES', PATH . 'templates/' );
+    define( 'DIR_ELEMENTS', PATH . 'elements/' );
+    define( 'DIR_FRAMEWORK', PATH . 'framework/' );
+
+    $this->set_options();
+    $this->load_dependencies( $this->get_version() );
     $this->define_hooks();
-
-    register_activation_hook( __FILE__, 'flush_rewrite' ); // Rewrite permalink structure on activation of plugin
   }
 
-  private function load_dependencies() {
-    require_once 'ep-class-loader.php';
-    require_once 'ep-class-admin.php';
-    require_once 'ep-class-shortcodes.php';
-    require_once 'ep-class-templates.php';
-    require_once 'ep-class-theme.php';
+  private function set_options() {
+    add_option( 'ep_disable_theme' );
+    add_option( 'ep_live_reload' );
 
-    // Initiate loader
-    $this->loader = new Edies_Plugin_Loader( $this->get_version() );
+    if ( ! wp_get_theme( 'x' )  ) :
+      update_option( 'ep_disable_theme', false );
+    else :
+      update_option( 'ep_disable_theme', true );
+    endif;
   }
-  public function text( $string ) {
-    return __( $string, $this->slug );
+
+  private function load_dependencies( $ver ) {
+    require_once 'classes/ep-class-loader.php';
+    require_once 'classes/ep-class-admin.php';
+    require_once 'classes/ep-class-dashboard.php';
+    require_once 'classes/ep-class-templates.php';
+    require_once 'classes/ep-class-shortcodes.php';
+    require_once 'classes/ep-class-theme.php';
+
+    // Initiate classes
+    $this::$loader = new EP_Loader( $ver );
+
+    $this->dashboard = new EP_Dashboard( $ver );
+    $this->admin = new EP_Admin( $ver );
+    $this->templates = new EP_Templates( $ver );
+    $this->theme = new EP_Theme( $ver );
+    $this->shortcodes = new EP_Shortcodes( $ver );
+  }
+
+  public function register_cornerstone_integration() {
+    require_once 'classes/ep-class-cornerstone.php';
+
+    cornerstone_register_integration( $this->slug, 'EP_Cornerstone' );
   }
 
   private function define_hooks() {
-    // Admin
-    $admin = new Edies_Plugin_Admin( $this->get_version() );
-    $this->loader->add_action( 'init', $admin, 'add_post_types' ); // Add post types
-    $this->loader->add_action( 'admin_menu', $admin, 'add_menu_pages' ); // Add menu pages
-    $this->loader->add_action( 'wp_enqueue_scripts', $admin, 'enqueue_styles' ); // Enqueue custom styles
-    $this->loader->add_action( 'wp_enqueue_scripts', $admin, 'enqueue_scripts' ); // Enqueue custom scripts
-    $this->loader->add_action( 'wp_enqueue_scripts', $admin, 'dequeue_scripts' ); // Dequeue js
+    // Dashboard
+    $this::$loader->add_action( 'init', $this->dashboard, 'add_post_types' ); // Add post types
+    $this::$loader->add_action( 'admin_menu', $this->dashboard, 'add_menu_pages' ); // Add menu pages
 
-    // Shortcodes
-    new Edies_Plugin_Shortcodes( $this->get_version() ); // its __construct function adds the shortcodes
+    // Admin
+    if ( get_option( 'ep_live_reload' ) ) :
+      $this::$loader->add_action( 'wp_head', $this->admin, 'live_reload' );
+    endif;
+
+    $this::$loader->add_action( 'wp_enqueue_scripts', $this->admin, 'queue' ); // Enqueue custom styles
+    $this::$loader->add_action( 'wp_print_scripts', $this->admin, 'print_scripts' );
+    $this::$loader->add_action( 'wp_print_styles', $this->admin, 'print_styles' );
 
     // Templates
-    $templates = new Edies_Plugin_Templates( $this->get_version() );
-    $this->loader->add_filter( 'single_template', $templates, 'set_single_template' ); // Change single page template
-    $this->loader->add_filter( 'archive_template', $templates, 'set_archive_template' ); // Change archive page template
+    $this::$loader->add_filter( 'single_template', $this->templates, 'set_single_template' ); // Change single page template
+    $this::$loader->add_filter( 'archive_template', $this->templates, 'set_archive_template' ); // Change archive page template
 
     // Theme
-    $theme = new Edies_Plugin_Theme( $this->get_version() );
-    $this->loader->add_action( 'cornerstone_register_elements', $theme, 'register_elements' ); // Register custom Cornerstone elements
-    $this->loader->add_filter( 'cornerstone_icon_map', $theme, 'icon_map' ); // Map icons to the custom Cornerstone elements
-    $this->loader->remove_action( 'wp_head', 'x_output_generated_styles', 9998 ); // Remove customizer output
-    $this->loader->remove_action( 'wp_enqueue_scripts', 'x_legacy_cranium_enqueue_styles', 99999 ); // Remove legacy customizer output
+    $this::$loader->add_action( 'cornerstone_integrations', $this, 'register_cornerstone_integration' );
+
+    // Shortcodes
+    $this->shortcodes->register_shortcodes();
+
+    if ( get_option( 'ep_disable_theme' ) ) :
+      // echo did_action( 'x_enqueue_styles' );
+      $this::$loader->add_action( 'init', $this->theme, 'disable_theme' );
+      $this::$loader->add_action( 'init', $this->theme, 'dequeue' );
+    endif;
   }
 
-  private function flush_rewrite() {
-    flush_rewrite_rules();
+  public function __( $string, $slug = null ) {
+    if ( $slug == null ) :
+      $slug = $this->slug;
+    endif;
+
+    return __( $string, $slug );
+  }
+
+  public function dash( $string ) {
+    return str_replace('-', '_', $string);
+  }
+
+  public function pretty_print($string) {
+    echo '<pre>';
+    print_r( $string );
+    echo '</pre>';
   }
 
   public function get_version() {
@@ -64,7 +115,7 @@ class Edies_Plugin {
   }
 
   public function run() {
-    $this->loader->run();
+    $this::$loader->run();
   }
 }
 

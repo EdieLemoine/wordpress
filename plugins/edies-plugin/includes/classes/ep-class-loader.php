@@ -1,6 +1,6 @@
 <?php
 
-class Edies_Plugin_Loader {
+class EP_Loader {
 	protected $actions;
 	protected $filters;
 	protected $remove_actions;

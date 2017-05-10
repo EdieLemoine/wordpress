@@ -4,11 +4,11 @@
  * Element Definition
  */
 
-class Cat_Button {
+class EP_Cat_Button extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title'       => __( 'Cat Button', 'albertcuyp' ),
+      'title' => 'Cat Button', 'albertcuyp' ),
       'autofocus' => array(
     		'heading' => '',
 				'subtitle' => '',

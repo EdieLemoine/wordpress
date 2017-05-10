@@ -1,8 +1,8 @@
 @if $heading-font-external == false {
   @font-face {
-    font-family: $heading-font-family;
-    src: url('./dist/fonts/' + unquote($heading-font-family) + '.woff2') format('woff2'),
-         url('./dist/fonts/' + unquote($heading-font-family) + '.woff') format('woff');
+    font-family: $heading-font;
+    src: url('./dist/fonts/' + unquote($heading-font) + '.woff2') format('woff2'),
+         url('./dist/fonts/' + unquote($heading-font) + '.woff') format('woff');
     font-weight: $heading-font-weight;
     font-style: normal;
   }
@@ -10,10 +10,30 @@
 
 @if $body-font-external == false {
   @font-face {
-    font-family: $body-font-family;
-    src: url('./dist/fonts/' + unquote($body-font-family) + '.woff2') format('woff2'),
-         url('./dist/fonts/' + unquote($body-font-family) + '.woff') format('woff');
+    font-family: $body-font;
+    src: url('./dist/fonts/' + unquote($body-font) + '.woff2') format('woff2'),
+         url('./dist/fonts/' + unquote($body-font) + '.woff') format('woff');
     font-weight: $body-font-weight;
     font-style: normal;
+  }
+}
+
+#{headings()} {
+  font-family: $heading-font;
+  color: $heading-color;
+  letter-spacing: $heading-letter-spacing;
+}
+
+body {
+  font-size: $body-font-size;
+  font-style: $body-font-style;
+  font-weight: $body-font-weight;
+  color: $body-text-color;
+  background-color: $body-background-color;
+}
+
+@if $navbar-brand-image == false {
+  .x-brand {
+    font-family: $heading-font !important;
   }
 }

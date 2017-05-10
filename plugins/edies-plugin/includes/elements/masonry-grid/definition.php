@@ -4,49 +4,29 @@
  * Element Definition
  */
 
-class EP_Masonry_Grid extends Edies_Plugin {
+class EP_Masonry_Grid extends EP_Element_Base {
 
-	public function __construct() {
-		// add_action('wp_footer', 'footer_script');
-	}
+	public function __construct(){}
 
 	public function ui() {
 		return array(
-      'title' => $this->text( 'Masonry Grid' ),
-    	'icon_group' => 'masonry-grid'
+      'title' => $this->__( 'Masonry Grid' ),
+    	'icon_group' => $this->icon_group
     );
 	}
 
-	public function staticID() {
-		static $staticID = 0;
-		$staticID++;
-
-		return $staticID;
-	}
-
-	public function update_build_shortcode_atts( $atts ) {
-		$atts['id'] .= $this->staticID();
-	}
-
-	public function footer_script() { ?>
-		<script>
-			jQuery(document).ready(function(){
-
-				<?php for ($i = 1; $i <= $this->staticID(); $i++) { ?>
-
-					var $grid = $('#grid-<?php echo $this->staticID(); ?>').imagesLoaded( function() {
-						$grid.masonry({
-							itemSelector: '.grid-item',
-							percentPosition: true,
-							columnWidth: '.grid-sizer'
-						});
-					});
-
-				<?php } ?>
-
-			});
-		</script>
-	<?php }
-
-
+	// public function flags() {
+	// 	return array(
+	// 		'dynamic_child' => true
+	// 	);
+	// }
+	//
+	// public function register_shortcode() {
+  // 	return false;
+  // }
+	//
+	// public function update_build_shortcode_atts( $atts ) {
+	// 	$atts['content'] = count( $atts['elements'] );
+	// 	return $atts;
+	// }
 }

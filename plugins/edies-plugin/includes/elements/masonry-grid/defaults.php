@@ -8,5 +8,6 @@ return array(
 	'id' => '',
 	'class' => '',
 	'title' => '',
-	'html' => ''
+	'title_toggle' => false,
+	'columns' => 1
 );

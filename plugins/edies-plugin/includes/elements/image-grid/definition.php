@@ -4,11 +4,11 @@
  * Element Definition
  */
 
-class EP_Image_Grid extends Edies_Plugin {
+class EP_Image_Grid extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title' => $this->text( 'Image Grid' ),
+      'title' => $this->__( 'Image Grid' ),
       'autofocus' => array(
 				'categorie' => '',
     	),
@@ -17,6 +17,6 @@ class EP_Image_Grid extends Edies_Plugin {
 	}
 
 	public function truncate( $string, $length, $dots = "..." ) {
-		return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots)) . $dots : $string;
+		return ( strlen( $string ) > $length ) ? substr( $string, 0, $length - strlen( $dots ) ) . $dots : $string;
 	}
 }

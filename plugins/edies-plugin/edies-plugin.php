@@ -2,7 +2,7 @@
 /**
 * Plugin Name:       Edie's Plugin
 * Plugin URI:        http://bitbucket.com/bifi323/
-* Description:       Eeeyyyy
+* Description:       My plugin :):)
 * Version:           1.0.0
 * Author:            Edie Lemoine
 * Author URI:        http://edielemoine.nl
@@ -32,3 +32,9 @@ function ep_run_edies_plugin() {
 * Run the plugin
 */
 ep_run_edies_plugin();
+
+add_action( 'wp_footer', 'testfunctin', 99999 );
+
+function testfunctin() {
+  echo '<h1 class="output">' . did_action( 'x_enqueue_styles' ) . '</h1>';
+}

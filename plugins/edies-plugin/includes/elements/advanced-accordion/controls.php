@@ -14,11 +14,11 @@ return array(
   'elements' => array(
     'type' => 'sortable',
     'ui' => array(
-      'title' => $c->text('Accordion Items')
+      'title' => $c->__('Accordion Items')
     ),
     'options' => array(
       'element' => 'advanced-accordion-item',
-      'newTitle' => $c->text('Accordion item %s'),
+      'newTitle' => $c->__('Accordion item %s'),
       'floor'   => 1,
       'title_field' => 'title'
     ),
@@ -28,19 +28,6 @@ return array(
       array( 'title' => 'Second Item', 'content' => 'Test content' )
     )
   ),
-
-  'title_toggle' => array(
-    'type' => 'toggle',
-    'ui' => array(
-      'title' => $c->text('Toggle Heading')
-    )
-  ),
-
-  'columns' => array(
-    'type' => 'number',
-    'ui' => array(
-      'title' => $c->text('Columns')
-    ),
-    'suggest' => 1
-  )
+  'title_toggle' => $c->control( 'toggle', 'Toggle Heading' ),
+  'columns' => $c->control( 'number', 'Columns' )
 );

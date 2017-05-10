@@ -13,7 +13,7 @@ header > div:first-child .x-bar-container .x-bar-content-area {
   max-width: 95vw;
   @include absolute-center;
   path {
-    @include transition(2s);
+    @include transition( all, 2s );
   }
 }
 

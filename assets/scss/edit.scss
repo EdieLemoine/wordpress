@@ -24,6 +24,7 @@ $container-max-width: 95%;
 $global-border-radius: 0;
 $global-border-color: $primary-color;
 $global-border-width: 2px;
+$global-spacing: 2em !default;
 
 //////////
 // Text //
@@ -33,6 +34,7 @@ $heading-font-external: true;
 $heading-font-weight: 400;
 $heading-text-transform: uppercase;
 $heading-color: $dark-gray;
+$heading-letter-spacing: 0;
 
 $body-font: "Open Sans", Helvetica, sans-serif;
 $body-font-external: true;
@@ -91,7 +93,7 @@ $navbar-submenu-padding: 0;
 
 // Text //
 $navbar-text-font-size: 13px;
-$navbar-text-font-family: $heading-font-family;
+$navbar-text-font: $heading-font;
 $navbar-text-color: $text-color-dark;
 $navbar-text-hover-color: darken($navbar-text-color, 15);
 $navbar-text-transform: $heading-text-transform;
@@ -116,21 +118,10 @@ $navbar-brand-circle: false;
 ////////////
 // Footer //
 ////////////
-$footer-top-padding: 5%;
+$footer-top-padding: $global-spacing * 2;
 $footer-top-background-color: $gray;
 $footer-top-text-color: $text-color-light;
 
-$footer-bottom-padding: 35px;
+$footer-bottom-padding: $global-spacing;
 $footer-bottom-background-color: $secondary-color;
 $footer-bottom-text-color: $footer-top-text-color;
-
-
-////////////////
-// Contactbox //
-////////////////
-$contactbox-used: true; // If you are using the html contactbox
-$contactbox-size: $input-text-height;
-$contactbox-background-color: $secondary-color;
-$contactbox-hover-background-color: $primary-color;
-$contactbox-right-opacity: 1 / 4;
-$contactbox-text-color: $text-color-light;

@@ -8,11 +8,11 @@ class EP_Masonry_Grid_Item extends EP_Masonry_Grid {
 
 	public function ui() {
 		return array(
-      'title'       => $this->text('Advanced Accordion Item'),
+      'title' => $this->__('Advanced Accordion Item'),
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'advanced-accordion-item'
+    	'icon_group' => 'edies-plugin'
     );
 	}
 

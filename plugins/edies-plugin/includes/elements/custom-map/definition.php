@@ -4,11 +4,11 @@
  * Element Definition
  */
 
-class EP_Custom_Map {
-	public $preserve_content = true;
+class EP_Custom_Map extends EP_Element_Base {
+	public static $staticID = 0;
 
 	public function __construct() {
-
+		$this::$staticID++;
 	}
 
 	public function ui() {
@@ -17,15 +17,8 @@ class EP_Custom_Map {
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'custom-map'
+    	'icon_group' => 'edies-plugin'
     );
-	}
-
-	public function getStaticID() {
-		static $staticID = 0;
-		$staticID++;
-
-		return 'ep-map' . $staticID;
 	}
 
 	public function flags() {

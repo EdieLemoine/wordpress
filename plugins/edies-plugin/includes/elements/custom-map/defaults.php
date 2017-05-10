@@ -9,10 +9,11 @@ return array(
 	'class' => '',
 	'title' => '',
 	'height' => '500px',
-	'scroll_toggle' => 'false',
+	'scroll' => 'false',
 	'spinner_toggle' => 'false',
 	'zoom' => 14,
-	'centerLatLng' => '52.3745291, 4.7585319',
+	'center' => '52.3745291, 4.7585319',
 	'snazzy_style' => '',
-	'spinner' => ''
+	'spinner' => '',
+	'post_types' => ''
 );

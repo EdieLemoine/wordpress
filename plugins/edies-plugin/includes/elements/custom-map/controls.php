@@ -4,85 +4,28 @@
  * Element Controls
  */
 
-$ep_class = new EP_Custom_Map();
+$c = new EP_Custom_Map();
 
-return array(
+$array = array(
   'common' => array(
     '!style'
   ),
-
-  'elements' => array(
-    'type' => 'sortable',
-    'ui' => array(
-      'title' => __( 'Map Items', 'edies-plugin' ),
-      'tooltip' =>__( 'Add a new item to your Map.', 'edies-plugin' ),
-    ),
-    'options' => array(
-      'element' => 'custom-map-item',
-      'newTitle' => __( 'Map Item %s', 'edies-plugin' ),
-      'floor'   => 0,
-    ),
-    'context' => 'content'
-  ),
-
-  'zoom' => array(
-    'type' => 'number',
-    'ui' => array(
-      'title' => __( 'Zoom level', 'edies-plugin' )
-    ),
-    'context' => 'content'
-  ),
-
-  'scroll_toggle' => array(
-    'type' => 'toggle',
-    'ui' => array(
-      'title' => __( 'Scrollwheel', 'edies-plugin' )
-    ),
-    'context' => 'content'
-  ),
-
-  'spinner_toggle' => array(
-    'type' => 'toggle',
-		'ui' => array(
-			'title' => __( 'Spinner', 'edies-plugin' )
-		),
-		'context' => 'spinner_toggle'
-  ),
-
-  'spinner' => array(
-    'type' => 'text',
-		'ui' => array(
-			'title' => __( 'Spinner URL', 'edies-plugin' )
-		),
-    'condition' => array(
-      'spinner_toggle' => true
-    ),
-    'context' => 'content'
-  ),
-
-  'centerLatLng' => array(
-    'type' => 'text',
-		'ui' => array(
-			'title' => __( 'Center Coordinates', 'edies-plugin' )
-		),
-		'context' => 'content'
-  ),
-
-  'height' => array(
-    'type' => 'text',
-		'ui' => array(
-			'title' => __( 'Height', 'edies-plugin' )
-		),
-		'context' => 'content'
-  ),
-  
+  'post_type' => $c->control( 'post_type' ),
+  'zoom' => $c->control( 'number', 'Zoom level' ),
+  'scroll' => $c->control( 'toggle', 'Scroll' ),
+  'spinner_toggle' => $c->control( 'toggle', 'Spinner' ),
+  'spinner' => $c->control( 'text', 'Spinner URL', 'spinner_toggle' ),
+  'center' => $c->control( 'text', 'Center' ),
+  'height' => $c->control( 'text', 'Height' ),
   'snazzy_style' => array(
     'type' => 'textarea',
 		'ui' => array(
-			'title' => __( 'Snazzy JSON', 'edies-plugin' ),
-      'tooltip' => __( 'Paste JSON code from snazzymaps here.', 'edies-plugin' )
+			'title' => $c->__( 'Snazzy JSON' ),
+      'tooltip' => $c->__( 'Paste JSON code from snazzymaps here.' )
 		),
 		'context' => 'content',
     'monospace' => true
   )
 );
+
+return $array;
