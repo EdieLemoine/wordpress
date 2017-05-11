@@ -2,10 +2,9 @@
 /**
  * SCSS Variables
  */
-class EP_Variables extends Edies_Plugin {
-  public $variables;
+class EP_Variables extends EP_Theme {
 
-  function __construct() {
+  public function __construct() {
     $this->define_vars();
     $this->create_file();
   }
@@ -127,6 +126,24 @@ class EP_Variables extends Edies_Plugin {
         'footer-bottom-text-color' => '$footer-top-text-color',
       )
     );
+  }
+
+  public function read_file() {
+    $fh = fopen( DIR_FRAMEWORK . 'edit.scss','r');
+    $arr = array();
+
+    while ( $line = fgets( $fh ) ) {
+      preg_match( '/^\$.*\:/', $line, $name );
+      preg_match( '/:.*$/', $line, $value );
+
+      if ( $name ) :
+        $name = str_replace('', '', str_replace(':', '', $name[0] ) );
+        $value = trim(str_replace(':', '', str_replace(';', '', $value[0] ) ) );
+        $arr[ $name ] = $value;
+      endif;
+    }
+    fclose( $fh );
+    return $arr;
   }
 
   public function create_file() {

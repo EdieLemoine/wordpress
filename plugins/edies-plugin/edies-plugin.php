@@ -32,9 +32,3 @@ function ep_run_edies_plugin() {
 * Run the plugin
 */
 ep_run_edies_plugin();
-
-add_action( 'wp_footer', 'testfunctin', 99999 );
-
-function testfunctin() {
-  echo '<h1 class="output">' . did_action( 'x_enqueue_styles' ) . '</h1>';
-}

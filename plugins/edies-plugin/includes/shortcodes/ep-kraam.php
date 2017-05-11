@@ -27,5 +27,4 @@ function ac_kraam( $atts ) {
   endif;
 
   return '[cs_cat_button heading="' . $title . '" subtitle="' . $subtitle . '" image="' . $image . '" url="' . $url . '"]';
-
 }

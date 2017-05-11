@@ -1,10 +1,10 @@
 <?php
 
 class EP_Templates extends Edies_Plugin {
-	protected $version;
+	
 
-  public function __construct( $version ) {
-    $this->version = $version;
+  public function __construct() {
+    
 	}
 
 	public function set_single_template( $template ) {

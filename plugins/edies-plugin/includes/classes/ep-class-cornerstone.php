@@ -1,6 +1,6 @@
 <?php
 
-class EP_Cornerstone extends Edies_Plugin {
+class EP_Cornerstone extends EP_Theme {
   protected $elements;
 
   public function __construct() {

@@ -1,10 +1,10 @@
 <?php
 
-class EP_Shortcodes extends Edies_Plugin {
-  protected $version;
+class EP_Shortcodes extends EP_Theme {
 
-  public function __construct( $version ) {
-    $this->version = $version;
+
+  public function __construct() {
+
   }
 
   public function register_shortcodes() {

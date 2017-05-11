@@ -2,9 +2,10 @@ module.exports = {
 	prod: {
 		files: [{
 			expand: true,
-			src: ['style.css'],
-			dest: '',
-			filter: 'isFile'
+			src: ['<%= style_prod %>/edit.scss'],
+			dest: '<%= plugin %>/includes/framework',
+			filter: 'isFile',
+			flatten: true
 		}, ]
 	}
 };

@@ -5,10 +5,10 @@
  */
 
 return array(
-	'id' => '',
+	'id' => 'ep-map',
 	'class' => '',
 	'title' => '',
-	'height' => '500px',
+	'height' => '50vh',
 	'scroll' => 'false',
 	'spinner_toggle' => 'false',
 	'zoom' => 14,

@@ -4,11 +4,9 @@
   Main class for use with custom elements
 */
 
-class EP_Element_Base extends Edies_Plugin {
+class EP_Element_Base extends EP_Theme {
   protected $icon_group;
-  /*
-    Empty constructor function to avoid it inheriting from parent
-  */
+
   public function __construct() {
     $this->icon_group = $this->slug;
   }
@@ -18,7 +16,7 @@ class EP_Element_Base extends Edies_Plugin {
     if ( $title == null ) :
       $title = ucwords( $type );
     endif;
-
+    
     // Check if it's a select control
     if ( $type == 'post_type' OR $type == 'post' ) :
       $array = $this->get_post_types( $type, $title, $post_types );
@@ -113,27 +111,6 @@ class EP_Element_Base extends Edies_Plugin {
     );
     return $array;
   }
-
-  // private function createControl( $array ) {
-  //   $array = $array[ 'array' ];
-  //   $condition = $array['condition'];
-  //
-  //   if ( is_array( $condition ) ) :
-  //     $array['condition'] = array(
-  //       $condition[0] => $condition[1]
-  //     );
-  //   elseif ( $condition[0] === '!' ) :
-  //     $array['condition'] = array(
-  //       $condition => false
-  //     );
-  //   else :
-  //     $array['condition'] = array(
-  //       $condition => true
-  //     );
-  //   endif;
-  //
-  //   return $array;
-  // }
 
   /*
     Converts bool back to true/false after controls (shortcode.php)

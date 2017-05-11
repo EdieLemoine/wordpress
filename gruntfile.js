@@ -23,8 +23,6 @@ module.exports = function(grunt) {
 			plugin_style_dist: '<%= plugin %>/includes/css/ep-style.css',
 
 			theme_script_dist: '<%= theme %>/dist/js',
-			// plugin_js_dist: '<%= plugin_dist %>/css/ep-style.css',
-			// plugin_js_prod: '<%= plugin_dist %>/css/ep-style.css'
 		}
 	});
 };

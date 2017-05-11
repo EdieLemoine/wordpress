@@ -1,6 +1,9 @@
 <?php
 
-function ep_kaart( $atts ) {
+function ep_custom_map( $atts ) {
+  $c = new EP_Theme();
+  $var = $c->variables['variables'];
+
   $a = shortcode_atts( array(
     'post_types' => false,
     'scroll' => 'false',
@@ -20,17 +23,18 @@ function ep_kaart( $atts ) {
   $map_data = [];
 
   $map_data = array(
-    'div' => $a['id'],
+    'id' => $a['id'],
     'zoom' => intval($a['zoom']),
     'scroll' => $a['scroll'],
     'center' => array(
       'lat' => floatval( $center[0] ),
       'lng' => floatval( $center[1] )
     ),
+    'primary_color' => $var['colors']['primary-color'],
+    'secondary_color' => $var['colors']['secondary-color'],
     'markers' => array()
   );
-
-  $output = '<div class="ep-kaart-wrapper"><div id="' . $a['id'] . '" style="height:' . $a['height'] . ';"></div>';
+  $output = '<div class="ep-kaart-wrapper"><div id="' . $map_data['id'] . '" style="height:' . $a['height'] . ';"></div>';
 
   if ( $a['post_types'] != false OR $a['markers'] == true  ) : // Only do this if there are post types entered
 
@@ -82,8 +86,8 @@ function ep_kaart( $atts ) {
     wp_reset_postdata();
   endif;
 
-  wp_enqueue_script( 'ep-google-maps' );
-  wp_localize_script( 'ep-google-maps', 'mapData', $map_data ); // Register map data variable with js
+  wp_enqueue_script( 'ep-custom-map' );
+  wp_localize_script( 'ep-custom-map', 'mapData', $map_data ); // Register map data variable with js
 
   $output .=  '</div>'; // Close wrapper
 
