@@ -20,14 +20,14 @@ Template: x
 @import '../global/base/classes';
 @import '../global/base/mixins';
 
-@import 'partials/colors';
+// @import 'partials/colors';
 
 @import 'partials/base/applications';
 
 // Own files
-@import 'partials/svg';
-@import 'partials/custom';
-@import 'partials/parallax';
+// @import 'partials/svg';
+// @import 'partials/custom';
+// @import 'partials/parallax';
 
 // Plugin files
 @import 'partials/plugins/essentialgrid';

@@ -1,0 +1,67 @@
+.ep-row {
+  @include break( 'large', 'min' ) {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+.ep-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ep-wrap {
+}
+
+.ep {
+  // width: 50%;
+  // float: left;
+  position: relative;
+  overflow: hidden;
+  @include break( 'large', 'min' ) {
+    // min-height: 50vh;
+  }
+  @include break( 'medium' ) {
+    flex-basis: 100% !important;
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+  }
+  &[class*=' ep-'] {
+    display: flex;
+    position: relative;
+    align-content: stretch;
+    min-height: 400px;
+    & > .bg-image {
+      background-size: cover;
+      background-position: center center;
+      background-color: transparent;
+      width: 100%;
+      @include placeholder;
+      // min-height: 400px;
+    }
+    & > .bg-image {
+      position: absolute;
+      @include pos(0);
+    }
+  }
+
+  // Create grid structure
+  @for $a from 1 through 12 {
+    @for $b from 1 through 12 {
+      // Don't output anything where:
+      // $a equals $b ( 2-2, 3-3, 4-4 -> all 100% )
+      // $a is smaller than $b ( 3-2 -> over 100% )
+      // You can simplify the fractions ( 2-4, 3-9 -> 50%, 33% )
+      // But do output 1-1 to 1-12
+      @if $a != $b
+      and $a < $b
+      and ( $b % $a ) % 2 != 0
+      and ( $b % $a ) % 3 != 0
+      or $a == 1 {
+        &.ep-#{$a}-#{$b} {
+          flex-basis: 100% / ($b / $a);
+        }
+      }
+    }
+  }
+}

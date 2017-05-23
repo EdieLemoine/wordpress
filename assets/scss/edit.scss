@@ -1,30 +1,10 @@
 ////////////
 // Colors //
-//////////// #231F20
-$C: #00aeef; // cyan
-$M: #ec008c; // magenta
-$Y: #fff200; // yellow
+////////////
+$primary-color: #c83d3d;
+$secondary-color: lighten( $primary-color, 35% );
 
-// $C: cyan;
-// $M: magenta;
-// $Y: yellow;
-
-$colors: (
-  cyan: $C,
-  magenta: $M,
-  yellow: $Y
-);
-
-$list: $C, $M, $Y;
-$index: random(3);
-
-$nth: nth($list, $index);
-
-$madog: #231F20;
-$primary-color: lighten( $madog, 35% );
-$secondary-color: $madog;
-
-$black: $secondary-color;
+$black: #222;
 $dark-gray: #333;
 $gray: #6d6e71;
 $light-gray: #ccc;

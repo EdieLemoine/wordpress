@@ -8,23 +8,6 @@ html {
   }
 }
 
-.madog-logo {
-  .cls-1 {
-    fill: #fff !important;
-  }
-}
-
-.madog-paw {
-  float: inherit;
-  width: 100px;
-  position: absolute;
-  bottom: 0;
-
-  .cls-1 {
-    @include fast-transition;
-    fill: transparentize( $black, 0.75 );
-  }
-}
 
 // .ep-row:hover .madog-paw .cls-1 {
 //   fill: $black;

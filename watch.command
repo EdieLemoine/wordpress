@@ -1,2 +1,2 @@
-cd "`dirname "$0"`"
+cd "`dirname "$0"`/assets/grunt"
 grunt watch

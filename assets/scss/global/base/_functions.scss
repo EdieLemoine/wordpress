@@ -1,0 +1,36 @@
+// Get preset z-index from map
+// Usage: z-index: z( above-header );
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
+
+// Replaces strings
+// Usage: str-replace( 'this is a string', ' ', '-' );
+// Output: 'this-is-a-string'
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+
+// Easily target all heading elements at once
+@function headings( $all: false ) {
+  @if $all == true {
+    @return 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h-custom-headline';
+  }
+  @else {
+    @return 'h1, h2, h3, h4, h5, h6';
+  }
+}
+
+// Easily target all text elements at once
+@function textElements( $all: false ) {
+  @return unquote( #{headings( $all )} ) + ',' + unquote(' blockquote, p, ul');
+}

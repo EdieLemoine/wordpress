@@ -111,6 +111,9 @@ class Edies_Plugin {
 
     // Shortcodes
     $this->shortcodes->register_shortcodes();
+
+    // global $wp_filter;
+    // $this->pretty_print( $wp_filter );
   }
 
   public function notification() {

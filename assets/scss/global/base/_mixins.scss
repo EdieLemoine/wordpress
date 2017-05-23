@@ -17,20 +17,6 @@
   font-weight: $body-font-weight;
 }
 
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-  @return $string;
-}
-
-@mixin transition($element, $speed, $timing: ease, $delay: null) {
-  transition: $element $speed $timing;
-  @if $delay != null {
-    transition-delay: $delay;
-  }
-}
 
 @mixin break( $size, $type: max ) {
   @media ( #{$type}-width: map-get($breakpoints, $size) ) {
@@ -38,12 +24,12 @@
   }
 }
 
-@function z($key) {
-  @if map-has-key($z-layers, $key) {
-    @return map-get($z-layers, $key);
+// Base transition mixin
+@mixin transition( $element, $speed, $timing: ease, $delay: null ) {
+  transition: $element $speed $timing;
+  @if $delay != null {
+    transition-delay: $delay;
   }
-  @warn "Unknown `#{$key}` in $z-layers.";
-  @return null;
 }
 
 // Simple easing transitions
@@ -64,24 +50,14 @@
   @include transition(all, 0.1s);
 }
 
-@mixin pos( $top, $right:$top, $bottom:$top, $left:$right) {
+@mixin pos( $top: 0, $right:$top, $bottom:$top, $left:$right) {
   top: $top;
   right: $right;
   bottom: $bottom;
   left: $left;
 }
 
-// Easily target all heading elements at once
-@function headings() {
-  @return 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h-custom-headline';
-}
-
-// Easily target all text elements at once
-@function textElements() {
-  @return unquote( #{headings()} ) + ',' + unquote(' blockquote, p');
-}
-
-@mixin background( $color:$primary-color, $tint:null ) {
+@mixin background( $color:$primary-color, $tint:null, $all: false) {
 
   @if $color == 'dark' {
     $color: $background-color-dark;
@@ -97,15 +73,15 @@
     $tint: $text-color-light;
   }
 
-  background-color: $color;
-  #{textElements()} {
+  background-color: $color !important;
+  #{textElements( $all )} {
     color: $tint;
   }
 }
 
 // Quick size
 // Usage: @include size(100%); If you don't include the second argument, height, it will be the same as the width.
-@mixin size($width, $height: $width) {
+@mixin size( $width, $height: $width ) {
   width: $width;
   height: $height;
 }
@@ -119,7 +95,7 @@
 
 // Inserts a background image from Lorem Pixel with the dimensions and optionally subject of your choice
 // Usage: @include placeholder()
-@mixin placeholder($width, $height, $subject:null) {
+@mixin placeholder($width:400px, $height:$width, $subject:null) {
   background-image: url("http://lorempixel.com/#{$width}/#{$height}/#{$subject}");
 }
 
@@ -170,14 +146,14 @@
 
 
 // Apply same border to varying sides of objects
-// Usage: @include border(); for all sides, or for example @include border(top, left) for only top and left.
-@mixin border ($sides...) {
+// Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
+@mixin border ( $sides... ) {
   $style: $global-border-width solid $global-border-color;
-  @if ($sides == null){
+  @if ( $sides == '' ){
     border: $style;
   }
   @else {
-     @each $side in $sides{
+    @each $side in $sides {
       @if ($side == 'top' or $side == 'right' or $side == 'bottom' or $side == 'left') {
         border-#{$side}: $style;
       }

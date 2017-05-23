@@ -8,12 +8,8 @@
 
 .bg2 {
   @include background( 'dark' );
-  .madog {
-    filter: invert(100%);
-  }
 }
 
 .bg3 {
   @include background();
-  @include slow-transition;
 }

@@ -22,8 +22,9 @@ $args = array(
 );
 
 $query = new WP_Query($args);
+
+$count = $query->post_count();
 if ( $columns_auto == 1 ):
-	$count = $query->post_count();
 
  	if ( $count % 4 == 0 ):
 		$cols = 4;
@@ -38,21 +39,22 @@ else:
 	$cols = $columns;
 endif;
 
-
+$image = the_post_thumbnail_url('large');
 ?>
 
 <div <?php echo $atts ?>>
-  <?php if ( $query->have_posts() ) :  ?>
-    <div class="ep-grid-list ep-cols-<?php echo $cols ?> cf">
+  <?php if ( $query->have_posts() ) : ?>
+    <div class="ep-grid" posts="<?php echo $count; ?>">
 	    <?php while ( $query->have_posts() ) : $query->the_post();?>
 				<?php if ( $complex == 1 ) : ?>
-					<a class="ep-col ep-1-<?php echo $cols ?>" href="<?php echo get_permalink() ?>" >
+					<a class="ep ep-1-<?php echo $cols ?>" href="<?php echo get_permalink() ?>" >
 			      <div class="ep-grid-item">
 							<div class="ep-grid-text-wrap">
 								<h2 class="man"><?php echo get_the_title(); ?></h2>
 			        	<p class="man"><?php echo $c->truncate( wp_strip_all_tags( get_the_excerpt(), true ), 80 ); ?></p>
 							</div>
-							<div class="ep-grid-image" style="background-image: url(<?php the_post_thumbnail_url('large') ?>);">
+							<div class="bg-image"
+							<?php ( $image )?: "style=\"background-image: url($image);\"" ?>>
 								<div class="ep-overlay"></div>
 							</div>
 			      </div>

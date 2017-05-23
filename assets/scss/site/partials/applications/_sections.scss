@@ -1,10 +1,12 @@
-.flex-direction-nav a, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .x-dropcap, .x-skill-bar .bar, .x-pricing-column.featured h2, .h-comments-title small, .x-pagination a:hover, .x-entry-share .x-share:hover, .entry-thumb, .widget_tag_cloud .tagcloud a:hover, .widget_product_tag_cloud .tagcloud a:hover, .x-highlight, .x-recent-posts .x-recent-posts-img::after, .x-portfolio-filters {
-  background-color: $secondary-color !important;
+.site, .x-site {
+  background-color: $body-background-color !important;
 }
+
 .x-container {
   &.width {
     width: $container-width;
   }
+
   &.max {
     max-width: $container-max-width;
   }
@@ -15,79 +17,6 @@
   margin: 0;
 }
 
-.ep-row {
-  @include break( 'large', 'min' ) {
-    display: flex;
-    align-items: stretch;
-    &:nth-of-type(2n + 1) {
-      flex-direction: row-reverse;
-    }
-  }
-  .ep {
-    width: 50%;
-    float: left;
-    position: relative;
-    overflow: hidden;
-    @include break( 'large', 'min' ) {
-      min-height: 50vh;
-    }
-    @include break( 'large' ) {
-      width: 100% !important;
-      padding-top: $section-padding;
-      padding-bottom: $section-padding;
-      &.ep-3-5 {
-        min-height: 400px;
-      }
-    }
-    &.ep-3-5 {
-      display: flex;
-      position: relative;
-      align-content: stretch;
-      min-height: 400px;
-      & > .bg-image {
-        background-size: cover;
-        background-position: center center;
-        background-color: transparent;
-        width: 100%;
-        min-height: 400px;
-      }
-      & > .bg-image,
-      & > .madog-svg {
-        position: absolute;
-        @include pos(0);
-      }
-      & > .madog-svg {
-        height: 95%;
-        margin: auto;
-        text,
-        path {
-          fill: $white;
-        }
-      }
-    }
-
-    &.ep-2-5 {
-      padding: $section-padding 0;
-      display: flex;
-
-      & > .x-container.max.width {
-        margin: auto;
-        @include break( 'tiny', 'min' ) {
-          // max-width: $container-max-width / 2;
-          max-width: 600px;
-        }
-      }
-    }
-    @for $i from 2 through 12 {
-      &.ep-1-#{$i} {
-        width: 100% / $i;
-      }
-      &.ep-2-#{$i} {
-        width: 100% / $i * 2;
-      }
-      &.ep-3-#{$i} {
-        width: 100% / $i * 3;
-      }
-    }
-  }
+.page-template-template-blank-4-php .x-main, .page-template-template-blank-5-php .x-main, .page-template-template-blank-6-php .x-main, .page-template-template-blank-8-php .x-main {
+  background-color: transparent;
 }

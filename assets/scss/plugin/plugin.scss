@@ -1,17 +1,13 @@
-// This file is only for importing partials.
-// Use only what you need.
-
-@import '../global/base/variables'; // Always import these variables first
+@import '../global/base/variables';
 
 @import '../global/base/classes';
 @import '../global/base/mixins';
-// @import 'partials/base/applications';
 
 
-// Plugin files
-@import 'partials/ep';
-@import 'partials/ep-grid';
-@import 'partials/ep-contactbox';
+// Base files
+@import 'partials/grid';
 
-// Responsive
-// @import 'site/base/responsive';
+// Elements
+@import 'partials/elements/ep';
+@import 'partials/elements/ep-grid';
+@import 'partials/elements/ep-contactbox';

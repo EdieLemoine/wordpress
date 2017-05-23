@@ -102,12 +102,7 @@
     &:active,
     &:focus,
     &:hover {
-      @if $primary-color == $Y {
-        color: $text-color-dark;
-      }
-      @else {
-        color: $text-color-light;
-      }
+      color: $text-color-light;
       // text-shadow: 0px 0px 3px transparentize($black, 0.5);
       border-color: $button-background-color;
 
@@ -157,9 +152,7 @@
 }
 
 .bg3 .x-btn.x-btn-global {
-  @if $primary-color == $Y {
-    $button-active-background-color: $black;
-  }
+  $button-active-background-color: $black;
 
   @if $button-style == 'transparent' or $button-style == 'border-fill' {
     border-color: $button-active-background-color;

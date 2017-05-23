@@ -1,8 +1,9 @@
 @for $i from 1 to 4 {
   .ep-1-#{$i} {
     width: 100% / $i;
+    flex-basis: 100% / $i;
     & > img {
-      max-width: 100% / $i;
+      // max-width: 100% / $i;
     }
   }
 }
