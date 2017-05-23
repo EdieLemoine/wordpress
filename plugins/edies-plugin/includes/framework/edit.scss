@@ -1,127 +1,89 @@
-////////////
-// Colors //
-////////////
-$primary-color: #aa2525;
-$secondary-color: lighten($primary-color, 20%);
-
-$black: #000;
+$madog: #231F20;
+$primary-color: lighten( $madog, 35% );
+$secondary-color: $madog;
+$black: $secondary-color;
 $dark-gray: #333;
 $gray: #6d6e71;
 $light-gray: #ccc;
 $white: #fff;
-
-$light-background-color: $white;
-$dark-background-color: $dark-gray;
-
+$background-color-light: $white;
+$background-color-dark: $black;
 $text-color-light: $white;
 $text-color-dark: $dark-gray;
-
-////////////
-// Global //
-////////////
-$container-width: 1200px;
-$container-max-width: 95%;
-$global-border-radius: 0;
+$container-width: 95%;
+$container-max-width: 1000px;
+$global-border-radius: 100px;
 $global-border-color: $primary-color;
-$global-border-width: 2px;
-$global-spacing: 2em !default;
-
-//////////
-// Text //
-//////////
-$heading-font: "Crete Round", serif;
+$global-border-width: 3px;
+$global-spacing: 2em;
+$heading-font: "Oswald";
 $heading-font-external: true;
-$heading-font-weight: 400;
+$heading-font-weight: 300;
 $heading-text-transform: uppercase;
-$heading-color: $dark-gray;
+$heading-color: $text-color-light;
 $heading-letter-spacing: 0;
-
-$body-font: "Open Sans", Helvetica, sans-serif;
+$body-font: "Lato";
 $body-font-external: true;
-$body-font-size: 16px;
+$body-font-size: 20px;
 $body-font-style: normal;
 $body-font-weight: 300;
-$body-text-color: $gray;
+$body-text-color: $text-color-light;
 $body-line-height: 1.9;
-$body-background-color: $light-background-color;
-
-//////////////
-// Sections //
-//////////////
-$section-padding: 100px;
-
-/////////////
-// Buttons //
-/////////////
-$button-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
-$button-style-transition: none; // Grow | Shrink | none
-$button-style-transition-rotation: 0; // Rotation on hover
+$body-background-color: $background-color-dark;
+$section-padding: $global-spacing * 2;
+$button-style: 'transparent';
+$button-font: 'heading';
+$button-style-transition: none;
+$button-style-transition-rotation: 0; 
 $button-border-radius: $global-border-radius;
 $button-border-width: $global-border-width;
 $button-color: $text-color-light;
 $button-background-color: $primary-color;
-$button-active-background-color: $secondary-color;
-
-////////////
-// Inputs //
-////////////
-$input-text-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
-$input-text-style-transition: none; // Grow | Shrink | none
-$input-text-style-transition-rotation: 0; // Rotation on hover
-$input-text-border-radius: $global-border-radius;
-$input-text-border-width: $global-border-width;
-$input-text-border-color: transparent;
-$input-text-active-border-color: $global-border-color;
-$input-text-color: $text-color-dark;
-$input-text-background-color: $white;
-$input-text-active-background-color: $secondary-color;
-$input-text-height: 50px;
-
-////////////
-// Navbar //
-////////////
-// Colors //
-$navbar-background-color: $white;
-$navbar-fixed-background-color: $navbar-background-color;
-$navbar-submenu-background-color: $navbar-background-color;
+$button-active-background-color: $white;
+$input-style: 'transparent';
+$input-style-transition: none;
+$input-style-transition-rotation: 0;
+$input-border-radius: $global-border-radius;
+$input-border-width: $global-border-width;
+$input-border-color: transparent;
+$input-active-border-color: $global-border-color;
+$input-color: $text-color-dark;
+$input-background-color: $white;
+$input-active-background-color: $secondary-color;
+$input-height: $global-spacing * 1.5;
+$input-background-color: $white;
+$navbar-background-color: transparent;
+$navbar-fixed-background-color: transparent;
+$navbar-submenu-background-color: $navbar-fixed-background-color;
 $navbar-fixed-submenu-background-color: $navbar-fixed-background-color;
-
-// Height //
-$navbar-height: 98px;
-$navbar-fixed-height: $navbar-height;
+$navbar-height: 180px;
+$navbar-fixed-height: $navbar-height * 0.5;
 $navbar-submenu-padding: 0;
-
-// Text //
-$navbar-text-font-size: 13px;
+$navbar-text-font-size: 18px;
 $navbar-text-font: $heading-font;
 $navbar-text-color: $text-color-dark;
-$navbar-text-hover-color: darken($navbar-text-color, 15);
+$navbar-fixed-text-color: $text-color-light;
+$navbar-text-hover-color: $black;
 $navbar-text-transform: $heading-text-transform;
 $navbar-font-weight: $heading-font-weight;
-$navbar-text-spacing: 10px; // Horizontal padding of list items
-
-// Links //
-$navbar-link-style: 'border'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+$navbar-text-spacing: 10px;
+$navbar-link-style: 'fill';
 $navbar-link-accent-width: $global-border-width;
 $navbar-link-active-color: $primary-color;
 $navbar-link-border-radius: $global-border-radius;
-$navbar-fixed-link-active-color: $navbar-link-active-color;
-
-// Brand //
+$navbar-fixed-link-active-color: $primary-color;
 $navbar-brand-image: true;
-$navbar-brand-height: 76px;
-$navbar-fixed-brand-height: $navbar-brand-height;
+$navbar-brand-height: $navbar-height * 0.80;
+$navbar-fixed-brand-height: $navbar-fixed-height;
 $navbar-brand-center: false;
 $navbar-item-amount: 4;
 $navbar-brand-circle: false;
-
-////////////
-// Footer //
-////////////
-$footer-top-padding: $global-spacing * 2;
-$footer-top-background-color: $gray;
+$footer-top-padding: $global-spacing * 4;
+$footer-top-background-color: darken( $secondary-color, 2% );
 $footer-top-text-color: $text-color-light;
-
-$footer-bottom-padding: $global-spacing;
-$footer-bottom-background-color: $secondary-color;
+$footer-top-font-size: $body-font-size;
+$footer-bottom-padding: $global-spacing * 0.5;
+$footer-bottom-font: 'heading';
+$footer-bottom-background-color: $primary-color;
 $footer-bottom-text-color: $footer-top-text-color;
+$footer-bottom-font-size: $body-font-size;

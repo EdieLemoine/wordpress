@@ -1,3 +1,90 @@
+.plugin-update-tr.active td,
+.plugins .active th.check-column {
+  border-left: 3px solid #95878c; }
+
+.plugins .active td,
+.plugins .active th {
+  background-color: white; }
+
+.wrap .add-new-h2,
+.wrap .add-new-h2:active,
+.wrap .page-title-action,
+.wrap .page-title-action:active,
+a {
+  color: #827377; }
+
+.wrap .page-title-action:focus {
+  border-color: #bfbfbf;
+  box-shadow: 0 0 2px rgba(147, 147, 147, 0.8); }
+
+.wrap .add-new-h2:hover,
+.wrap .page-title-action:hover {
+  border-color: #8e7f83;
+  background: #95878c; }
+
+a:active,
+a:hover {
+  color: #95878c; }
+
+.x-customize-description span,
+input[type="radio"]:checked::before {
+  background-color: #827377; }
+
+#customize-controls .control-section .accordion-section-title:focus,
+#customize-controls .control-section .accordion-section-title:hover,
+#customize-controls .control-section.open .accordion-section-title,
+#customize-controls .control-section:hover > .accordion-section-title {
+  color: #827377;
+  border-left-color: #827377; }
+
+.wp-core-ui .button-primary-disabled,
+.wp-core-ui .button-primary.disabled,
+.wp-core-ui .button-primary:disabled,
+.wp-core-ui .button-primary[disabled] {
+  color: #cacaca !important;
+  background: #8e7f83 !important;
+  border-color: #86777b !important; }
+
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-menu-arrow div,
+#adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+.folded #adminmenu li.current.menu-top,
+.folded #adminmenu li.wp-has-current-submenu {
+  background: #827377; }
+
+.wp-core-ui .button.button-primary.button-hero {
+  box-shadow: 0 2px 0 #827377; }
+
+.wp-core-ui .button-primary.focus,
+.wp-core-ui .button-primary.hover,
+.wp-core-ui .button-primary:focus,
+.wp-core-ui .button-primary:hover {
+  background: #827377;
+  border-color: #827377; }
+
+.wp-core-ui .button-primary {
+  background: #8a7b7f;
+  border-color: #827377 #796b6e #796b6e;
+  box-shadow: 0 1px 0 #796b6e;
+  text-shadow: 0 -1px 1px #796b6e, 1px 0 1px #796b6e, 0 1px 1px #796b6e, -1px 0 1px #796b6e; }
+
+.wp-core-ui .button-primary.active,
+.wp-core-ui .button-primary.active:focus,
+.wp-core-ui .button-primary.active:hover,
+.wp-core-ui .button-primary:active {
+  background: #827377;
+  border-color: #796b6e;
+  box-shadow: inset 0 2px 0 #796b6e; }
+
+.wp-core-ui .button-link:focus,
+.wp-core-ui .button-secondary:focus,
+.wp-core-ui .button.focus,
+.wp-core-ui .button:focus {
+  border-color: #bfbfbf;
+  box-shadow: 0 0 3px rgba(130, 115, 119, 0.8); }
+
 .attachment-info .thumbnail,
 .attachment-info .thumbnail img {
   max-width: 0;
@@ -21,5 +108,3 @@ body[class*="sitepress-multilingual-cms"] .wp-color-result::after {
 
 body[class*="sitepress-multilingual-cms"] .language-selector-preview {
   float: left; }
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVwLWFkbWluLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFRSxhQUFhO0VBQ2IsY0FBYyxFQUFFOztBQUVsQjtFQUNFLGFBQWE7RUFDYixXQUFXLEVBQUU7O0FBRWY7RUFDRSxnQkFBZ0I7RUFDaEIsV0FBVztFQUNYLFlBQVksRUFBRTs7QUFFaEI7RUFDRSxhQUFhLEVBQUU7O0FBRWpCO0VBQ0UsZ0JBQWdCO0VBQ2hCLGFBQWEsRUFBRTs7QUFFakI7RUFDRSxZQUFZLEVBQUUiLCJmaWxlIjoiZXAtYWRtaW4uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmF0dGFjaG1lbnQtaW5mbyAudGh1bWJuYWlsLFxuLmF0dGFjaG1lbnQtaW5mbyAudGh1bWJuYWlsIGltZyB7XG4gIG1heC13aWR0aDogMDtcbiAgbWF4LWhlaWdodDogMDsgfVxuXG5ib2R5W2NsYXNzKj1cInNpdGVwcmVzcy1tdWx0aWxpbmd1YWwtY21zXCJdIC53cG1sLW5hdmlnYXRpb24tbGlua3Mge1xuICBmbG9hdDogcmlnaHQ7XG4gIHdpZHRoOiAzNSU7IH1cblxuYm9keVtjbGFzcyo9XCJzaXRlcHJlc3MtbXVsdGlsaW5ndWFsLWNtc1wiXSAud3BtbC1zZWN0aW9uIHtcbiAgbWF4LXdpZHRoOiBub25lO1xuICB3aWR0aDogNjAlO1xuICBjbGVhcjogbm9uZTsgfVxuXG5ib2R5W2NsYXNzKj1cInNpdGVwcmVzcy1tdWx0aWxpbmd1YWwtY21zXCJdIC53cG1sLXNlY3Rpb24tY29udGVudCB7XG4gIHdpZHRoOiA4MjBweDsgfVxuXG5ib2R5W2NsYXNzKj1cInNpdGVwcmVzcy1tdWx0aWxpbmd1YWwtY21zXCJdIC53cC1jb2xvci1yZXN1bHQ6OmFmdGVyIHtcbiAgbWluLXdpZHRoOiA3N3B4O1xuICB3aWR0aDogMTYwcHg7IH1cblxuYm9keVtjbGFzcyo9XCJzaXRlcHJlc3MtbXVsdGlsaW5ndWFsLWNtc1wiXSAubGFuZ3VhZ2Utc2VsZWN0b3ItcHJldmlldyB7XG4gIGZsb2F0OiBsZWZ0OyB9XG4iXX0= */

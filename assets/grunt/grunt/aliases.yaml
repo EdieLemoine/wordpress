@@ -1,0 +1,6 @@
+default:
+    - 'sass:prod'
+deploy:
+    - 'concurrent:scss_dist'
+    - 'concurrent:js_dist'
+    - 'clean:dist'

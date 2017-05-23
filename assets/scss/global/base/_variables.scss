@@ -1,5 +1,10 @@
 @import '../../edit';
 
+$fonts: (
+  body: $body-font,
+  heading: $heading-font
+);
+
 $z-layers: (
   bg: -9999,
   normal: 1,
@@ -16,7 +21,9 @@ $breakpoints: (
   tiny: $breakpoint-tiny,
   small: $breakpoint-small,
   medium: $breakpoint-medium,
-  large: $breakpoint-large
+  large: $breakpoint-large,
+  lumia950xl: 576px,
+  iphone6: 375px
 );
 
 ////////////
@@ -55,13 +62,13 @@ $global-spacing: 2em !default;
 //////////
 // Text //
 //////////
-$heading-font: "Crete Round", serif !default;
+$heading-font: get-map( $fonts, 'heading' ), serif !default;
 $heading-font-external: true !default;
 $heading-font-weight: 400 !default;
 $heading-text-transform: uppercase !default;
 $heading-color: $dark-gray !default;
 
-$body-font: "Open Sans", Helvetica, sans-serif !default;
+$body-font: get-map( $fonts, 'body' ), Helvetica, sans-serif !default;
 $body-font-external: true !default;
 $body-font-size: 16px !default;
 $body-font-style: normal !default;
@@ -89,6 +96,7 @@ $deg: 1.5 !default;
 // Buttons //
 /////////////
 $button-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
+$button-font: 'heading' !default;
 $button-style-transition: none !default; // Grow | Shrink | none
 $button-style-transition-rotation: 0 !default; // Rotation on hover
 $button-border-radius: $global-border-radius !default;
@@ -100,17 +108,17 @@ $button-active-background-color: $secondary-color !default;
 ////////////
 // Inputs //
 ////////////
-$input-text-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
-$input-text-style-transition: none !default; // Grow | Shrink | none
-$input-text-style-transition-rotation: 0 !default; // Rotation on hover
-$input-text-border-radius: $global-border-radius !default;
-$input-text-border-width: $global-border-width !default;
-$input-text-border-color: transparent !default;
-$input-text-active-border-color: $global-border-color !default;
-$input-text-color: $text-color-dark !default;
-$input-text-background-color: $white !default;
-$input-text-active-background-color: $secondary-color !default;
-$input-text-height: 50px !default;
+$input-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
+$input-style-transition: none !default; // Grow | Shrink | none
+$input-style-transition-rotation: 0 !default; // Rotation on hover
+$input-border-radius: $global-border-radius !default;
+$input-border-width: $global-border-width !default;
+$input-border-color: transparent !default;
+$input-active-border-color: $global-border-color !default;
+$input-color: $text-color-dark !default;
+$input-background-color: $white !default;
+$input-active-background-color: $secondary-color !default;
+$input-height: 50px !default;
 
 ////////////
 // Navbar //
@@ -156,17 +164,18 @@ $navbar-brand-circle: false !default;
 $footer-top-padding: 5% !default;
 $footer-top-background-color: $gray !default;
 $footer-top-text-color: $text-color-light !default;
+$footer-top-font-size: $body-font-size !default;
 
 $footer-bottom-padding: 35px !default;
 $footer-bottom-background-color: $secondary-color !default;
 $footer-bottom-text-color: $footer-top-text-color !default;
-
+$footer-bottom-font-size: $body-font-size !default;
 
 ////////////////
 // Contactbox //
 ////////////////
 $contactbox-used: true !default; // If you are using the html contactbox
-$contactbox-size: $input-text-height !default;
+$contactbox-size: $input-height !default;
 $contactbox-background-color: $secondary-color !default;
 $contactbox-hover-background-color: $primary-color !default;
 $contactbox-right-opacity: 1 / 4 !default;

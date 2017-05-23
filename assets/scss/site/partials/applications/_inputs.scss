@@ -1,14 +1,65 @@
 input[type=text],
 input.wpcf7-text {
-  height: $input-text-height;
+  padding-left: $input-height / 3;
+  height: $input-height;
 }
 
 input[type=text],
 input.wpcf7-text,
 textarea {
-  border-color: $input-text-border-color;
-  border-width: $input-text-border-width;
+  // border-radius: $global-border-radius / 2;
+  border: 0;
+  @include fast-transition;
+  background-color: $input-background-color;
+  box-shadow: none;
+  color: $secondary-color;
   &:focus {
-    border-color: $input-text-active-border-color;
+    box-shadow: inset $global-border-width * 2 0px 0px $primary-color;
+  }
+}
+
+textarea {
+  resize: none;
+  padding: $input-height / 4 0 $input-height / 4 $input-height / 3;
+  height: 100%;
+}
+
+form.wpcf7-form span > input {
+  margin-bottom: 0;
+}
+
+.ep-flex {
+  display: flex;
+  align-content: stretch;
+  margin-bottom: $global-spacing / 4;
+  @include break( 'medium' ) {
+    flex-direction: column;
+    & > div:nth-child(2) span {
+      margin-top: $global-spacing / 4;
+      textarea {
+        min-height: $input-height * 2;
+      }
+    }
+  }
+  & > div {
+    flex: 1;
+    display: flex;
+    &:nth-child(1) {
+      @include break( 'medium', 'min' ) {
+        margin-right: $global-spacing / 4;
+      }
+      display: flex;
+      flex-direction: column;
+    }
+    &:nth-child(2) { //  SAFARI FIX
+      display: flex; //
+      & > span { //
+        display: flex; //
+        flex: 1; //
+      }
+    }
+    span:not(:first-of-type) {
+      margin-top: $global-spacing / 4;
+    }
   }
 }

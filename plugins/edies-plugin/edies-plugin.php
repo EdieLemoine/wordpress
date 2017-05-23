@@ -32,3 +32,5 @@ function ep_run_edies_plugin() {
 * Run the plugin
 */
 ep_run_edies_plugin();
+
+// echo 'working';

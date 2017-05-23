@@ -1,0 +1,221 @@
+$color1: $primary-color; // #0073aa
+$color2: darken( $color1, 3.33 ); // #006899
+$color3: lighten( adjust-hue( $color1, -2 ), 3.14 ); // #0084ba
+$color4: lighten( desaturate( adjust-hue( $color1, 9 ), 37.62 ), 27.06 ); // #5b9dd9
+$color5: lighten( adjust-hue( $color1, -5 ), 7.84 ); // #00a0d2
+$color6: lighten( desaturate( adjust-hue( $color1, -2 ), 22.22 ), 64.90 ); // #f7fcfe
+$color7: lighten( desaturate( adjust-hue( $color1, -1 ), 27.27 ), 9.80 ); // #1e8cbe
+$color8: lighten( adjust-hue( $color1, -3 ), 4.71 ); // #008EC2
+$color9: lighten(desaturate(adjust-hue($color1, -5), 30.00), 31.37); // #66c6e4
+$color10: lighten(adjust-hue($color1, -3), 4.71); // #008ec2
+$color11: lighten(adjust-hue($color1, -1), 1.57); // #007cb2
+// $colors: $color1, $color2, $color3, $color4, $color5, $color6;
+//
+// @each $color in $colors {
+//   @debug "#{$color}";
+// }
+
+.plugin-update-tr.active td,
+.plugins .active th.check-column {
+  border-left: $global-border-width solid $color5;
+}
+
+.plugins .active td,
+.plugins .active th {
+  background-color: $color6;
+}
+
+.wrap .add-new-h2,
+.wrap .add-new-h2:active,
+.wrap .page-title-action,
+.wrap .page-title-action:active,
+a {
+  color: $color1;
+}
+
+.wrap .page-title-action:focus {
+  border-color: $color4;
+  box-shadow: 0 0 2px rgba($color7, 0.8);
+}
+
+.wrap .add-new-h2:hover,
+.wrap .page-title-action:hover {
+  border-color: $color8;
+  background: $color5;
+}
+
+a:active,
+a:hover {
+  color: $color5;
+}
+
+.x-customize-description span,
+input[type="radio"]:checked::before {
+  background-color: $color1;
+}
+
+#customize-controls .control-section .accordion-section-title:focus,
+#customize-controls .control-section .accordion-section-title:hover,
+#customize-controls .control-section.open .accordion-section-title,
+#customize-controls .control-section:hover > .accordion-section-title {
+  color: $color1;
+  border-left-color: $color1;
+}
+
+.wp-core-ui .button-primary-disabled,
+.wp-core-ui .button-primary.disabled,
+.wp-core-ui .button-primary:disabled,
+.wp-core-ui .button-primary[disabled] {
+  color: $color9 !important;
+  background: $color10 !important;
+  border-color: $color11 !important;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-menu-arrow div,
+#adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+.folded #adminmenu li.current.menu-top,
+.folded #adminmenu li.wp-has-current-submenu {
+  background: $color1;
+}
+
+.wp-core-ui .button.button-primary.button-hero {
+  box-shadow: 0 2px 0 $color1;
+}
+
+.wp-core-ui .button-primary.focus,
+.wp-core-ui .button-primary.hover,
+.wp-core-ui .button-primary:focus,
+.wp-core-ui .button-primary:hover {
+  background: $color1;
+  border-color: $color1;
+}
+
+.wp-core-ui .button-primary {
+  background: $color3;
+  border-color: $color1 $color2 $color2;
+  box-shadow: 0 1px 0 $color2;
+  text-shadow: 0 -1px 1px $color2,1px 0 1px $color2,0 1px 1px $color2,-1px 0 1px $color2;
+}
+
+.wp-core-ui .button-primary.active,
+.wp-core-ui .button-primary.active:focus,
+.wp-core-ui .button-primary.active:hover,
+.wp-core-ui .button-primary:active {
+  background: $color1;
+  border-color: $color2;
+  box-shadow: inset 0 2px 0 $color2;
+}
+
+.wp-core-ui .button-link:focus,
+.wp-core-ui .button-secondary:focus,
+.wp-core-ui .button.focus,
+.wp-core-ui .button:focus {
+  border-color: $color4;
+  box-shadow: 0 0 3px transparentize($color1, 0.2);
+}
+// #FFFFFF
+// #FDFDFD
+// #FCFCFC
+// #F7FCFE
+// #FBFBFB
+// #FAFAFA
+// #F6FBFD
+// #F9F9F9
+// #F7F7F7
+// #FEF7F1
+// #F5F5F5
+// #FFF8E5
+// #F3F3F3
+// #F1F1F1
+// #E4F2FD
+// #E5F5FA
+// #ECF7ED
+// #FFEBE8
+// #FFE9E9
+// #E9FFE9
+// #FBEAEA
+// #EEEEEE
+// #EAEAEA
+// #CCF3FA
+// #E8E8E8
+// #E5E5E5
+// #E1E1E1
+// #DDDDDD
+// #F6C9CC
+// #FECAC2
+// #F6E2AC
+// #FFE399
+// #D5D2CA
+// #FBC5A9
+// #CCCCCC
+// #AADDDD
+// #C1E1B9
+// #FAAFAA
+// #FFAAAA
+// #AAFFAA
+// #C4C4C4
+// #F1ACB1
+// #F1ADAD
+// #AACCCC
+// #B4B9BE
+// #66C6E4
+// #9999DD
+// #83B4D8
+// #AAAAAA
+// #FFC733
+// #EDC048
+// #FF8573
+// #A0A5AA
+// #F78B53
+// #5B9DD9
+// #999999
+// #FF6666
+// #33B3DB
+// #FFBA00
+// #83C373
+// #FFB900
+// #00B9EB
+// #2EA2CC
+// #E35B5B
+// #888888
+// #82878C
+// #F56E28
+// #E29808
+// #CD5A5A
+// #79BA49
+// #00A0D2
+// #1E8CBE
+// #72777C
+// #D98500
+// #727272
+// #008EC2
+// #DD3D36
+// #46B450
+// #D54E21
+// #DC3232
+// #656A6F
+// #0085BA
+// #666666
+// #CA4A1F
+// #007CB2
+// #0073AA
+// #555D66
+// #0074A2
+// #BB2A2A
+// #555555
+// #006799
+// #464B50
+// #AC1B1B
+// #444444
+// #CC0000
+// #124964
+// #AA0000
+// #32373C
+// #23282D
+// #006505
+// #222222
+// #191E23
+// #000000

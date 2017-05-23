@@ -7,6 +7,14 @@ class EP_Admin extends Edies_Plugin {
     parent::$loader->add_action( 'wp_print_styles', $this, 'print_styles' );
   }
 
+  public function admin_queue() {
+    $this->add_script( 'ep_admin_script', 'ep-admin.js' );
+    $this->add_style( 'ep_admin_style', 'ep-admin.css' );
+
+    wp_enqueue_script( 'ep_admin_script' );
+    wp_enqueue_style( 'ep_admin_style' );
+  }
+
   public function queue() {
     // Use Google Maps]
     if ( API_KEY != '' ) :
@@ -22,25 +30,18 @@ class EP_Admin extends Edies_Plugin {
     endif;
 
     // Register scripts
-    $this->add_script( 'ep_admin_script', 'ep-admin.js' );
     $this->add_script( 'ep_script', 'ep-script.js' );
     $this->add_script( 'isotope', 'isotope.min.js' );
 
     // Register styles
     $this->add_style( 'ep_style', 'ep-style.css' );
-    $this->add_style( 'ep_admin_style', 'ep-admin.css' );
-
-    if ( is_admin() ) : // Admin
-      wp_enqueue_script( 'ep_admin_script' );
-      wp_enqueue_style( 'ep_admin_style' );
-    endif;
 
     wp_enqueue_script( 'ep_script' );
     wp_enqueue_style( 'ep_style' );
   }
 
   public function live_reload() {
-    return '<script src="http://localhost:' . LIVERELOAD_PORT . '/livereload.js" charset="utf-8"></script>';
+    echo '<script src="http://localhost:' . LIVERELOAD_PORT . '/livereload.js" charset="utf-8"></script>';
   }
 
   public function print_scripts() {

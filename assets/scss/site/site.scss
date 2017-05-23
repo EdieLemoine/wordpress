@@ -19,16 +19,21 @@ Template: x
 
 @import '../global/base/classes';
 @import '../global/base/mixins';
+
+@import 'partials/colors';
+
 @import 'partials/base/applications';
-// @import 'partials/base/cornerstone'; // If using edie-plugin
 
 // Own files
+@import 'partials/svg';
 @import 'partials/custom';
+@import 'partials/parallax';
 
 // Plugin files
 @import 'partials/plugins/essentialgrid';
 @import 'partials/plugins/revolutionslider';
 @import 'partials/plugins/wpml';
+@import 'partials/plugins/wpcf7';
 
 // Responsive
 @import 'partials/base/responsive';

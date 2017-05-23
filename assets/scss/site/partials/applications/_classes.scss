@@ -1,7 +1,3 @@
-.x-container {
-  padding: $global-spacing !important;
-}
-
 .ep-container {
   padding: $global-spacing;
 }
@@ -12,30 +8,12 @@
 
 .bg2 {
   @include background( 'dark' );
+  .madog {
+    filter: invert(100%);
+  }
 }
 
 .bg3 {
   @include background();
-}
-
-.x-section.bg1 > .x-container {
-  @include background( 'dark' );
-  &:first-child {
-    @include background();
-  }
-}
-
-.x-section.bg2 > .x-container {
-  @include background( 'light' );
-  &:first-child {
-    @include background();
-  }
-}
-
-.x-section.bg3 > .x-container {
-  // @include background('dark');
-  //
-  // &:first-child {
-  //   @include background( 'light' );
-  // }
+  @include slow-transition;
 }

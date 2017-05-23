@@ -8,8 +8,8 @@ $dark-gray: #333;
 $gray: #6d6e71;
 $light-gray: #fafafa;
 $white: #fff;
-$light-background-color: #fafafa;
-$dark-background-color: #333;
+$background-color-light: #fafafa;
+$background-color-dark: #333;
 $text-color-light: #fff;
 $text-color-dark: #333;
 
@@ -35,7 +35,7 @@ $body-font-style: normal;
 $body-font-weight: 300;
 $body-text-color: $gray;
 $body-line-height: 1.9;
-$body-background-color: $light-background-color;
+$body-background-color: $background-color-light;
 
 // Sections
 $section-padding: 100px;

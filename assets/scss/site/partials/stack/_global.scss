@@ -23,3 +23,15 @@ a {
 .site, .x-site {
   background-color: transparent;
 }
+
+textarea {
+  resize: vertical;
+}
+
+.widget_text a {
+  text-decoration: none;
+}
+
+.widget::before {
+  content: none;
+}

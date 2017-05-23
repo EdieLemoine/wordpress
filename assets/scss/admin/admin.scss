@@ -9,6 +9,7 @@
 
 // Own files
 // @import 'partials/custom';
+@import 'partials/dashboard';
 @import 'partials/media';
 body[class*="sitepress-multilingual-cms"] { // WPML page
   @import 'partials/wpml';

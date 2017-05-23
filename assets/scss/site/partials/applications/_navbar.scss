@@ -1,12 +1,21 @@
 .masthead .x-navbar .x-navbar-inner .x-nav-wrap {
   // All nav types
+  &.desktop > .x-nav {
+    opacity: 0;
+    pointer-events: none;
+    @include fast-transition;
+  }
   .x-nav {
+    margin: 0;
+    display: block;
+    float: right;
     li a {
       // All menu items
       font-size: $navbar-text-font-size;
       font-family: $navbar-text-font;
       text-transform: $navbar-text-transform;
       font-weight: $navbar-font-weight;
+      color: $navbar-text-color;
     }
 
     & > li {
@@ -132,6 +141,9 @@
 // Mobile button //
 ///////////////////
 .masthead .x-navbar .x-navbar-inner .x-btn-navbar {
+  @include break( 'medium', 'min') {
+    display: none;
+  }
   box-shadow: none;
   @if $navbar-link-style == 'fill' {
     padding: ($navbar-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
@@ -156,14 +168,26 @@
 ////////////////////
 
 .masthead .x-navbar .x-navbar-inner .x-brand {
-  margin-top: ($navbar-height - $navbar-brand-height) / 2;
-
+  margin-top: ( $navbar-height - $navbar-brand-height ) / 2;
+  float: left;
   @if $navbar-brand-image == true {
     &.img {
       height: $navbar-brand-height;
+      .full {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .paw {
+        opacity: 0;
+        pointer-events: none;
+      }
+
       & > svg,
       & > img {
-        height: 100%;
+        position: absolute;
+        left: 0;
+        height: $navbar-brand-height;
+        @include fast-transition;
       }
       @if $navbar-brand-center == true {
         position: absolute;
@@ -203,11 +227,11 @@
   // .masthead .x-navbar,
   .x-nav > li > a,
   // .sub-menu,
-  // .x-brand,
+  .x-brand,
   // .x-brand img,
   // .x-logobar,
   // .x-navbar-fixed-top-active .x-navbar-wrap,
-  .x-navbar-inner {
+  .x-navbar {
     @include fast-transition;
 
   }
@@ -231,11 +255,27 @@
             }
           }
           @else {
-            &.img,
-            &.img img {
+            &.img {
+
+            &, & > svg {
               height: $navbar-fixed-brand-height;
             }
+
+              .paw {
+                opacity: 1;
+                pointer-events: all;
+              }
+              .full {
+                opacity: 0;
+                pointer-events: none;
+              }
+              // filter: invert(100%);
+            }
           }
+        }
+        .x-nav-wrap.desktop > .x-nav {
+          opacity: 1;
+          pointer-events: all;
         }
       }
 
@@ -250,6 +290,7 @@
         }
 
         & > a { // Only top level links
+
           @if $navbar-link-style == 'underline' {
             height: $navbar-fixed-height - $navbar-link-accent-width;
           }
@@ -282,9 +323,13 @@
           @elseif $navbar-link-style == 'fill' {
             padding: ($navbar-fixed-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
           }
+          span {
+            color: $navbar-fixed-text-color;
+          }
         }
       }
     }
+
     ////////////////////
     // Fixed + Active //
     ////////////////////
@@ -292,12 +337,12 @@
     .x-nav-wrap .x-nav > li.current-menu-item > a,
     .x-nav-wrap .x-nav > li.x-active > a,
     .x-nav-wrap .x-nav > li.x-active > a > span {
-      color: $navbar-text-hover-color !important;
-
-       > span,
-      > span i {
-        color: $navbar-text-hover-color;
-      }
+      // color: $navbar-text-hover-color !important;
+      //
+      // & > span,
+      // & > span i {
+      //   color: $navbar-text-hover-color;
+      // }
 
       @if $navbar-link-style == 'fill' {
         background-color: $navbar-fixed-link-active-color;
@@ -329,11 +374,11 @@
   &.current-menu-item > a,
   &.x-active > a {
 
-    &,
-    & > span,
-    & > span i {
-      color: $navbar-text-hover-color;
-    }
+    // &,
+    // & > span,
+    // & > span i {
+    //   color: $navbar-text-hover-color;
+    // }
 
     @if $navbar-link-style == 'fill' {
       box-shadow: none;
@@ -436,4 +481,13 @@ body.x-navbar-fixed-top-active .x-navbar-wrap {
       pointer-events: all;
     }
   }
+}
+
+.masthead:hover .x-navbar .x-navbar-inner .x-nav-wrap.desktop > .x-nav {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.masthead {
+  background-color: $background-color-light;
 }

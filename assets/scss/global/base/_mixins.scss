@@ -1,5 +1,32 @@
+@mixin heading-style( $all: false ) {
+  @if $all == 'all' {
+    color: $heading-color;
+  }
+  font-family: $heading-font;
+  font-weight: $heading-font-weight;
+  text-transform: $heading-text-transform;
+  letter-spacing: $heading-letter-spacing;
+}
+
+@mixin body-style( $all: false ) {
+  @if $all == 'all' {
+    color: $body-text-color;
+  }
+  font-size: $body-font-size;
+  font-style: $body-font-style;
+  font-weight: $body-font-weight;
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
 @mixin transition($element, $speed, $timing: ease, $delay: null) {
-  transition: $element $speed $timing !important;
+  transition: $element $speed $timing;
   @if $delay != null {
     transition-delay: $delay;
   }
@@ -70,7 +97,7 @@
     $tint: $text-color-light;
   }
 
-  background-color: $color !important;
+  background-color: $color;
   #{textElements()} {
     color: $tint;
   }
@@ -113,12 +140,12 @@
 
 // Adds an hover animated underline to the object
 // Usage: @include animated-underline;
-@mixin animated-underline {
+@mixin animated-underline( $type: hover, $color: $global-border-color ) {
   position: relative;
   &::after {
     content: ' ';
     height: $global-border-width;
-    background-color: $global-border-color;
+    background-color: $color;
     width: 0;
     position: absolute;
     margin: auto;
@@ -128,8 +155,16 @@
     @include simple-transition;
   }
 
-  &:hover::after {
-    width: 100%;
+  @if $type == focus {
+    &:focus::after {
+      width: 100%;
+    }
+  }
+  @else {
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 }
 

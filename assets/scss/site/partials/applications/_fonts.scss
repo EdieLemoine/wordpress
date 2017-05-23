@@ -17,23 +17,25 @@
     font-style: normal;
   }
 }
+@else {
+  $font1: str-replace( map-get( $fonts, 'heading' ), ' ', '+' );
+  $font2: str-replace( map-get( $fonts, 'body' ), ' ', '+' );
+  $font: $font2 + ':' + $body-font-weight + '|' + $font1 + ':' + $heading-font-weight;
+
+  @import url('https://fonts.googleapis.com/css?family=#{$font}');
+}
 
 #{headings()} {
-  font-family: $heading-font;
-  color: $heading-color;
-  letter-spacing: $heading-letter-spacing;
+  @include heading-style( 'all' );
 }
 
 body {
-  font-size: $body-font-size;
-  font-style: $body-font-style;
-  font-weight: $body-font-weight;
-  color: $body-text-color;
+  @include body-style( 'all' );
   background-color: $body-background-color;
 }
 
 @if $navbar-brand-image == false {
   .x-brand {
-    font-family: $heading-font !important;
+    @include heading-style( 'all' );
   }
 }
