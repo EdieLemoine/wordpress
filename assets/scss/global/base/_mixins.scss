@@ -95,7 +95,7 @@
 
 // Inserts a background image from Lorem Pixel with the dimensions and optionally subject of your choice
 // Usage: @include placeholder()
-@mixin placeholder($width:400px, $height:$width, $subject:null) {
+@mixin placeholder($width:400, $height:$width, $subject:null) {
   background-image: url("http://lorempixel.com/#{$width}/#{$height}/#{$subject}");
 }
 

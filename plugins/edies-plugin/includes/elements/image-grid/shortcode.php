@@ -5,15 +5,9 @@
  */
 $c = new EP_Image_Grid();
 
-if ( $complex == 1 ) :
-	$class .= ' ep-complex ';
-else :
-	$class .= ' ep-simple ';
-endif;
-
 $atts = cs_atts( array(
 	'id' => $id,
-	'class' => trim( 'ep-grid ' . $class)
+	'class' => trim( 'ep-grid ' . ( $complex? 'complex' : 'simple' ) )
 ) );
 
 $args = array(
@@ -37,33 +31,26 @@ if ( $columns_auto == 1 ):
 	endif;
 else:
 	$cols = $columns;
-endif;
-
-$image = the_post_thumbnail_url('large');
-?>
-
-<div <?php echo $atts ?>>
-  <?php if ( $query->have_posts() ) : ?>
-    <div class="ep-grid" posts="<?php echo $count; ?>">
-	    <?php while ( $query->have_posts() ) : $query->the_post();?>
-				<?php if ( $complex == 1 ) : ?>
-					<a class="ep ep-1-<?php echo $cols ?>" href="<?php echo get_permalink() ?>" >
-			      <div class="ep-grid-item">
-							<div class="ep-grid-text-wrap">
-								<h2 class="man"><?php echo get_the_title(); ?></h2>
-			        	<p class="man"><?php echo $c->truncate( wp_strip_all_tags( get_the_excerpt(), true ), 80 ); ?></p>
-							</div>
-							<div class="bg-image"
-							<?php ( $image )?: "style=\"background-image: url($image);\"" ?>>
-								<div class="ep-overlay"></div>
-							</div>
-			      </div>
-					</a>
-				<?php else : ?>
-					<img src="<?php the_post_thumbnail_url('large') ?>">
-				<?php endif; ?>
-	    <?php endwhile; ?>
-		</div>
+endif; ?>
+<div <?php echo $atts ?> ep-x="<?php echo $x; ?>" ep-y="<?php echo $y; ?>">
+  <?php if ( $query->have_posts() ) :
+		while ( $query->have_posts() ) : $query->the_post();
+			$image = get_the_post_thumbnail_url( null, 'large');
+			$content = $c->truncate( wp_strip_all_tags( get_the_excerpt(), true ), 80 );
+			if ( $complex ) : ?>
+				<a class="ep ep_1-<?php echo $cols ?>" href="<?php echo get_permalink() ?>" >
+					<div class="ep-text">
+						<h2><?php echo get_the_title(); ?></h2>
+				    <p><?php echo $content; ?></p>
+					</div>
+					<div class="ep-bg-image" style="background-image: url('<?php echo $image ?>');">
+						<div class="ep-overlay"></div>
+					</div>
+				</a>
+			<?php else : ?>
+				<img src="<?php echo $image ?>">
+			<?php endif; ?>
+    <?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
   <?php endif; ?>
 </div>

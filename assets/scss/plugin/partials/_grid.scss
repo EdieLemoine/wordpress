@@ -14,33 +14,26 @@
 }
 
 .ep {
-  // width: 50%;
-  // float: left;
+  display: flex;
+  flex: 1;
+  align-content: stretch;
   position: relative;
   overflow: hidden;
-  @include break( 'large', 'min' ) {
-    // min-height: 50vh;
-  }
   @include break( 'medium' ) {
     flex-basis: 100% !important;
     padding-top: $section-padding;
     padding-bottom: $section-padding;
   }
-  &[class*=' ep-'] {
-    display: flex;
+  &[class*=' ep_'] {
+    @include border;
     position: relative;
-    align-content: stretch;
-    min-height: 400px;
-    & > .bg-image {
+    // min-height: 400px;
+    .ep-bg-image {
       background-size: cover;
       background-position: center center;
       background-color: transparent;
-      width: 100%;
-      @include placeholder;
-      // min-height: 400px;
-    }
-    & > .bg-image {
       position: absolute;
+      @include placeholder;
       @include pos(0);
     }
   }
@@ -58,7 +51,7 @@
       and ( $b % $a ) % 2 != 0
       and ( $b % $a ) % 3 != 0
       or $a == 1 {
-        &.ep-#{$a}-#{$b} {
+        &.ep_#{$a}-#{$b} {
           flex-basis: 100% / ($b / $a);
         }
       }
