@@ -21,16 +21,23 @@
     }
 
     .x-colophon-content,
-    .x-colophon-content a,
-    .x-nav li a {
+    a {
       @include fast-transition;
       color: $footer-bottom-text-color;
+      &:hover {
+        color: darken( $footer-bottom-text-color, 20% );
+      }
     }
-  }
 
-  &.bottom .x-colophon-content a:hover,
-  &.bottom .x-nav a:hover,
-  .widget a:hover {
-    color: $navbar-text-hover-color;
+    .x-nav {
+      padding: $global-spacing 0;
+      display: flex;
+      li {
+        flex: 1;
+        & + li a {
+          @include border( left );
+        }
+      }
+    }
   }
 }

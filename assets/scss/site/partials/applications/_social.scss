@@ -1,0 +1,22 @@
+.x-social-global {
+  padding: $global-spacing 0;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  a {
+    position: relative;
+    flex: 1 0 15%;
+    padding: $global-spacing / 4;
+    margin: $global-spacing / 8;
+    border: 1px solid transparentize($white, 0.9);
+    &:hover {
+      background-color: transparentize($white, 0.9);
+      border-color: transparent;
+    }
+    i {
+      margin: auto;
+      font-size: $global-spacing;
+    }
+  }
+}
