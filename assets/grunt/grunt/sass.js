@@ -1,7 +1,7 @@
 module.exports = {
 	prod: {
 		options: {
-			// sourceMap: true
+			sourceMap: true
 		},
 		files: {
 			'<%= theme_style_dist %>': '<%= theme_style_prod %>',

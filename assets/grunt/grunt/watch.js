@@ -3,23 +3,24 @@ module.exports = {
     files: [ 'gruntfile.js', 'grunt/**/*.js' ],
     options: {
       reload: true,
+      event: [ 'added', 'deleted', 'changed' ],
     },
   },
 
   scss: {
     files: [ '<%= style_prod %>/**/*.scss' ],
-    tasks: [ 'copy:prod', 'sass:prod', 'postcss' ],
+    tasks: [ 'copy:scss', 'sass:prod', 'postcss' ],
   },
 
   js: {
     files: [ '<%= script_prod %>/**/*.js' ],
-    tasks: [ 'concat', 'uglify:dist' ],
+    tasks: [ 'concat', 'uglify' ],
   },
 
   livereload: {
     options: {
-      livereload: true,
+      livereload: true
     },
-    files: [ '<%= theme %>/**/*.css', '<%= plugin %>/**/*.css' ]
+    files: [ '<%= theme %>/**/*.css', '<%= plugin %>/**/*.css' ],
   }
 };

@@ -4,7 +4,7 @@ module.exports = {
 	},
 	js: {
 		src: '<%= script_prod %>/site/javascript/**/*.js',
-		dest: '<%= theme_script_dist %>/ep-javascript.js',
+		dest: '<%= script_prod %>/site/ep-javascript.js',
 	},
 	jq: {
 		options: {
@@ -12,6 +12,6 @@ module.exports = {
 			footer: '\n});'
 		},
 		src: '<%= script_prod %>/site/jquery/**/*.js',
-		dest: '<%= theme_script_dist %>/ep-jquery.js',
+		dest: '<%= script_prod %>/site/ep-jquery.js',
 	}
 };

@@ -1,8 +1,8 @@
 module.exports = {
-	prod: {
+	scss: {
 		expand: true,
 		src: ['<%= style_prod %>/edit.scss'],
-		dest: '<%= plugin %>/includes/framework',
+		dest: '<%= plugin %>/framework',
 		filter: 'isFile',
 		flatten: true,
 		options: {
@@ -11,4 +11,11 @@ module.exports = {
 			}
 		}
 	}
+	// js: {
+	// 	expand: true,
+	// 	src: ['<%= script_prod %>/plugin/**/*.js'],
+	// 	dest: '<%= plugin %>/js',
+	// 	filter: 'isFile',
+	// 	flatten: true
+	// }
 };
