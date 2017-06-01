@@ -19,7 +19,6 @@
   @return $string;
 }
 
-
 // Easily target all heading elements at once
 @function headings( $all: false ) {
   @if $all == true {
@@ -32,5 +31,14 @@
 
 // Easily target all text elements at once
 @function textElements( $all: false ) {
-  @return unquote( #{headings( $all )} ) + ',' + unquote(' blockquote, p, ul');
+  @return unquote( #{headings( $all )} ) + ',' + unquote(' blockquote, p, ul, span');
+}
+
+@function calculate-color( $color ) {
+  @if lightness( $color ) > 50 {
+    @return $text-color-dark;
+  }
+  @else {
+    @return $text-color-light;
+  }
 }

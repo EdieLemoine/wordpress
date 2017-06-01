@@ -1,40 +1,22 @@
 @import '../../edit';
 
-$fonts: (
-  body: $body-font,
-  heading: $heading-font
-);
-
-$z-layers: (
-  bg: -9999,
-  normal: 1,
-  front: 20,
-  above-header: 1200
-);
-
-$breakpoint-tiny: 339px;
-$breakpoint-small: 443px;
-$breakpoint-medium: 676px;
-$breakpoint-large: 979px;
-
-$breakpoints: (
-  tiny: $breakpoint-tiny,
-  small: $breakpoint-small,
-  medium: $breakpoint-medium,
-  large: $breakpoint-large,
-  lumia950xl: 576px,
-  iphone6: 375px
-);
+/////////////////
+// Breakpoints //
+/////////////////
+$breakpoint-tiny: 339px !default;
+$breakpoint-small: 443px !default;
+$breakpoint-medium: 676px !default;
+$breakpoint-large: 979px !default;
 
 ////////////
 // Colors //
 ////////////
-$primary-color: #8dc63f !default;
+$primary-color: #cc292d !default;
 $secondary-color: lighten($primary-color, 20%) !default;
 
 $black: #000 !default;
-$dark-gray: #333 !default;
-$gray: #6d6e71 !default;
+$dark-gray: #222 !default;
+$gray: #333 !default;
 $light-gray: #ccc !default;
 $white: #fff !default;
 
@@ -43,54 +25,44 @@ $background: #eee !default;
 $background-color-light: $white !default;
 $background-color-dark: $dark-gray !default;
 
-// Vendor
-$vendor-spacing: 15px !default;
-$header-height: 400px !default;
-$profile-size: 180px !default;
-$social-size: 50px !default;
-
 ////////////
 // Global //
 ////////////
 $container-width: 1200px !default;
 $container-max-width: 95% !default;
 $global-border-radius: 0 !default;
-$global-border-color: $primary-color !default;
+$global-border-color: currentColor !default;
 $global-border-width: 2px !default;
 $global-spacing: 2em !default;
 
 //////////
 // Text //
 //////////
-$heading-font: get-map( $fonts, 'heading' ), serif !default;
-$heading-font-external: true !default;
-$heading-font-weight: 400 !default;
-$heading-text-transform: uppercase !default;
-$heading-color: $dark-gray !default;
+$text-color-light: $white !default;
+$text-color-dark: $dark-gray !default;
 
-$body-font: get-map( $fonts, 'body' ), Helvetica, sans-serif !default;
+@import 'functions';
+
+$body-font: 'Open Sans' !default;
 $body-font-external: true !default;
 $body-font-size: 16px !default;
 $body-font-style: normal !default;
 $body-font-weight: 300 !default;
-$body-text-color: $gray !default;
+$body-background-color: $background-color-light !default;
+$body-color: calculate-color( $body-background-color ) !default;
 $body-line-height: 1.9 !default;
-$body-background-color: $white !default;
 
-$text-color-light: $white !default;
-$text-color-dark: $dark-gray !default;
-
-$extra-font: "Amatic SC", serif !default;
+$heading-font: 'Oswald' !default;
+$heading-font-external: true !default;
+$heading-font-weight: 400 !default;
+$heading-color: calculate-color( $body-background-color ) !default;
+$heading-text-transform: uppercase !default;
+$heading-letter-spacing: 0;
 
 //////////////
 // Sections //
 //////////////
-$section-padding: 100px !default;
-
-///////////////////
-// Slanted edges //
-///////////////////
-$deg: 1.5 !default;
+$section-padding: $global-spacing * 4 !default;
 
 /////////////
 // Buttons //
@@ -101,24 +73,22 @@ $button-style-transition: none !default; // Grow | Shrink | none
 $button-style-transition-rotation: 0 !default; // Rotation on hover
 $button-border-radius: $global-border-radius !default;
 $button-border-width: $global-border-width !default;
-$button-color: $text-color-light !default;
 $button-background-color: $primary-color !default;
 $button-active-background-color: $secondary-color !default;
+$button-color: calculate-color( $button-background-color ) !default;
 
 ////////////
 // Inputs //
 ////////////
+$input-height: 50px !default;
 $input-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
-$input-style-transition: none !default; // Grow | Shrink | none
-$input-style-transition-rotation: 0 !default; // Rotation on hover
 $input-border-radius: $global-border-radius !default;
 $input-border-width: $global-border-width !default;
 $input-border-color: transparent !default;
 $input-active-border-color: $global-border-color !default;
-$input-color: $text-color-dark !default;
-$input-background-color: $white !default;
+$input-background-color: $background-color-light !default;
 $input-active-background-color: $secondary-color !default;
-$input-height: 50px !default;
+$input-color: calculate-color( $input-background-color ) !default;
 
 ////////////
 // Navbar //
@@ -137,7 +107,7 @@ $navbar-submenu-padding: 0 !default;
 // Text //
 $navbar-text-font-size: 13px !default;
 $navbar-text-font: $heading-font !default;
-$navbar-text-color: $text-color-dark !default;
+$navbar-text-color: calculate-color( $navbar-background-color ) !default;
 $navbar-text-hover-color: darken($navbar-text-color, 15) !default;
 $navbar-text-transform: $heading-text-transform !default;
 $navbar-font-weight: $heading-font-weight !default;
@@ -155,30 +125,44 @@ $navbar-brand-image: true !default;
 $navbar-brand-height: 76px !default;
 $navbar-fixed-brand-height: $navbar-brand-height !default;
 $navbar-brand-center: false !default;
-$navbar-item-amount: 4 !default;
 $navbar-brand-circle: false !default;
 
 ////////////
 // Footer //
 ////////////
-$footer-top-padding: 5% !default;
-$footer-top-background-color: $gray !default;
-$footer-top-text-color: $text-color-light !default;
+$footer-top-padding: $global-spacing * 4 !default;
+$footer-top-background-color: darken( $secondary-color, 2% ) !default;
+$footer-top-text-color: calculate-color( $footer-top-background-color ) !default;
 $footer-top-font-size: $body-font-size !default;
 
-$footer-bottom-padding: 35px !default;
-$footer-bottom-background-color: $secondary-color !default;
-$footer-bottom-text-color: $footer-top-text-color !default;
+$footer-bottom-padding: $global-spacing * 0.5 !default;
+$footer-bottom-font: 'heading' !default;
+$footer-bottom-background-color: $primary-color !default;
+$footer-bottom-text-color:  calculate-color( $footer-bottom-background-color ) !default;
 $footer-bottom-font-size: $body-font-size !default;
 
-////////////////
-// Contactbox //
-////////////////
-$contactbox-used: true !default; // If you are using the html contactbox
-$contactbox-size: $input-height !default;
-$contactbox-background-color: $secondary-color !default;
-$contactbox-hover-background-color: $primary-color !default;
-$contactbox-right-opacity: 1 / 4 !default;
-$contactbox-text-color: $text-color-light !default;
+//////////
+// Maps //
+//////////
+$fonts: (
+  body: $body-font,
+  heading: $heading-font
+);
+
+$z-layers: (
+  bg: -9999,
+  normal: 1,
+  front: 20,
+  high: 1200
+);
+
+$breakpoints: (
+  tiny: $breakpoint-tiny,
+  small: $breakpoint-small,
+  medium: $breakpoint-medium,
+  large: $breakpoint-large,
+  lumia950xl: 576px,
+  iphone6: 375px
+);
 
 @import 'variable_overrides';

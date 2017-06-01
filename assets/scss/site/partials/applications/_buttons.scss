@@ -60,11 +60,11 @@
 
   // Set font style
   @if $button-font == 'heading' {
-    @include heading-style;
+    @include font( 'heading' );
   }
 
   @elseif $button-font == 'body' {
-    @include body-style;
+    @include font( 'body' );
   }
 
   @if $button-style-transition == 'grow' {

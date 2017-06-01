@@ -24,7 +24,8 @@
       width: 100%;
     }
     .ep-bg-image {
-      @include absolute-center(-20px);
+      margin: auto;
+      @include pos;
     }
     .ep-bg-image,
     .ep-text {

@@ -17,7 +17,7 @@
     padding: $footer-bottom-padding 0;
     font-size: $footer-bottom-font-size;
     @if $footer-bottom-font == 'heading' {
-      @include heading-style();
+      @include font( 'heading' );
     }
 
     .x-colophon-content,

@@ -1,134 +1,129 @@
 ////////////
 // Colors //
 ////////////
-$primary-color: #c83d3d;
-$secondary-color: lighten( $primary-color, 35% );
+// $primary-color: #c83d3d;
+// $secondary-color: lighten( $primary-color, 35% );
 
-$black: #222;
-$dark-gray: #333;
-$gray: #6d6e71;
-$light-gray: #ccc;
-$white: #fff;
+// $black: #222;
+// $dark-gray: #333;
+// $gray: #6d6e71;
+// $light-gray: #ccc;
+// $white: #fff;
 
-$background-color-light: $white;
-$background-color-dark: $black;
+// $background-color-light: $white;
+// $background-color-dark: $black;
 
-$text-color-light: $white;
-$text-color-dark: $dark-gray;
+// $text-color-light: $white;
+// $text-color-dark: $dark-gray;
 
 ////////////
 // Global //
 ////////////
-$container-width: 95%;
-$container-max-width: 1000px;
-$global-border-radius: 100px;
-$global-border-color: $primary-color;
-$global-border-width: 3px;
-$global-spacing: 2em;
+// $container-width: 95%;
+// $container-max-width: 1000px;
+// $global-border-radius: 100px;
+// $global-border-color: $primary-color;
+// $global-border-width: 3px;
+// $global-spacing: 2em;
 
 //////////
 // Text //
 //////////
-$heading-font: "Oswald";
-$heading-font-external: true;
-$heading-font-weight: 300;
-$heading-text-transform: uppercase;
-$heading-color: $text-color-light;
-$heading-letter-spacing: 0;
+// $heading-font: "Oswald";
+// $heading-font-external: true;
+// $heading-font-weight: 300;
+// $heading-text-transform: uppercase;
+// $heading-color: $text-color-light;
+// $heading-letter-spacing: 0;
 
-$body-font: "Lato";
-$body-font-external: true;
-$body-font-size: 20px;
-$body-font-style: normal;
-$body-font-weight: 300;
-$body-text-color: $text-color-light;
-$body-line-height: 1.9;
-$body-background-color: $background-color-dark;
-
-//////////////
-// Sections //
-//////////////
-$section-padding: $global-spacing * 2;
+// $body-font: "Lato";
+// $body-font-external: true;
+// $body-font-size: 20px;
+// $body-font-style: normal;
+// $body-font-weight: 300;
+// $body-color: $text-color-light;
+// $body-line-height: 1.9;
+// $body-background-color: $background-color-dark;
 
 /////////////
 // Buttons //
 /////////////
-$button-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
-$button-font: 'heading';
-$button-style-transition: none; // Grow | Shrink | none
-$button-style-transition-rotation: 0; // Rotation on hover
-$button-border-radius: $global-border-radius;
-$button-border-width: $global-border-width;
-$button-color: $text-color-light;
-$button-background-color: $primary-color;
-$button-active-background-color: $white;
+// $button-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
+// $button-font: 'heading';
+// $button-style-transition: none; // Grow | Shrink | none
+// $button-style-transition-rotation: 0; // Rotation on hover
+// $button-border-radius: $global-border-radius;
+// $button-border-width: $global-border-width;
+// $button-color: $text-color-light;
+// $button-background-color: $primary-color;
+// $button-active-background-color: $white;
 
 ////////////
 // Inputs //
 ////////////
-$input-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
-$input-style-transition: none; // Grow | Shrink | none
-$input-style-transition-rotation: 0; // Rotation on hover
-$input-border-radius: $global-border-radius;
-$input-border-width: $global-border-width;
-$input-border-color: transparent;
-$input-active-border-color: $global-border-color;
-$input-color: $text-color-dark;
-$input-background-color: $white;
-$input-active-background-color: $secondary-color;
-$input-height: $global-spacing * 1.5;
-$input-background-color: $white;
+// $input-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
+// $input-style-transition: none; // Grow | Shrink | none
+// $input-style-transition-rotation: 0; // Rotation on hover
+// $input-border-radius: $global-border-radius;
+// $input-border-width: $global-border-width;
+// $input-border-color: transparent;
+// $input-active-border-color: $global-border-color;
+// $input-color: $text-color-dark;
+// $input-background-color: $white;
+// $input-active-background-color: $secondary-color;
+// $input-height: $global-spacing * 1.5;
+// $input-background-color: $white;
 // $input-background-color: lighten( $secondary-color, 2% );
 
 ////////////
 // Navbar //
 ////////////
 // Colors //
-$navbar-background-color: transparent; //e74b3c - ee3d3d
-$navbar-fixed-background-color: transparent;
-$navbar-submenu-background-color: $navbar-fixed-background-color;
-$navbar-fixed-submenu-background-color: $navbar-fixed-background-color;
+// $navbar-background-color: transparent; //e74b3c - ee3d3d
+// $navbar-fixed-background-color: transparent;
+// $navbar-submenu-background-color: $navbar-fixed-background-color;
+// $navbar-fixed-submenu-background-color: $navbar-fixed-background-color;
 
 // Height //
-$navbar-height: 180px;
-$navbar-fixed-height: $navbar-height * 0.5;
-$navbar-submenu-padding: 0;
+// $navbar-height: 180px;
+// $navbar-fixed-height: $navbar-height * 0.5;
+// $navbar-submenu-padding: 0;
 
 // Text //
-$navbar-text-font-size: 18px;
-$navbar-text-font: $heading-font;
-$navbar-text-color: $text-color-dark;
-$navbar-fixed-text-color: $text-color-light;
-$navbar-text-hover-color: $black;
-$navbar-text-transform: $heading-text-transform;
-$navbar-font-weight: $heading-font-weight;
-$navbar-text-spacing: 10px; // Horizontal padding of list items
+// $navbar-text-font-size: 18px;
+// $navbar-text-font: $heading-font;
+// $navbar-text-color: $text-color-dark;
+// $navbar-fixed-text-color: $text-color-light;
+// $navbar-text-hover-color: $black;
+// $navbar-text-transform: $heading-text-transform;
+// $navbar-font-weight: $heading-font-weight;
+// $navbar-text-spacing: 10px; // Horizontal padding of list items
 
 // Links //
-$navbar-link-style: 'fill'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
-$navbar-link-accent-width: $global-border-width;
-$navbar-link-active-color: $primary-color;
-$navbar-link-border-radius: $global-border-radius;
-$navbar-fixed-link-active-color: $primary-color;
+// $navbar-link-style: 'fill'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+// $navbar-link-accent-width: $global-border-width;
+// $navbar-link-active-color: $primary-color;
+// $navbar-link-border-radius: $global-border-radius;
+// $navbar-fixed-link-active-color: $primary-color;
 
 // Brand //
-$navbar-brand-image: true;
-$navbar-brand-height: $navbar-height * 0.80;
-$navbar-fixed-brand-height: $navbar-fixed-height;
-$navbar-brand-center: false;
-$navbar-item-amount: 4;
-$navbar-brand-circle: false;
+// $navbar-brand-image: true;
+// $navbar-brand-height: $navbar-height * 0.80;
+// $navbar-fixed-brand-height: $navbar-fixed-height;
+// $navbar-brand-center: false;
+// $navbar-item-amount: 4;
+// $navbar-brand-circle: false;
 
 ////////////
 // Footer //
 ////////////
-$footer-top-padding: $global-spacing * 4;
-$footer-top-background-color: darken( $secondary-color, 2% );
-$footer-top-text-color: $text-color-light;
-$footer-top-font-size: $body-font-size;
+// $footer-top-padding: $global-spacing * 4;
+// $footer-top-background-color: darken( $secondary-color, 2% );
+// $footer-top-text-color: $text-color-light;
+// $footer-top-font-size: $body-font-size;
 
-$footer-bottom-padding: $global-spacing * 0.5;
-$footer-bottom-font: 'heading';
-$footer-bottom-background-color: $primary-color;
-$footer-bottom-text-color: $footer-top-text-color;
-$footer-bottom-font-size: $body-font-size;
+// $footer-bottom-padding: $global-spacing * 0.5;
+// $footer-bottom-font: 'heading';
+// $footer-bottom-background-color: $primary-color;
+// $footer-bottom-text-color: $footer-top-text-color;
+// $footer-bottom-font-size: $body-font-size;

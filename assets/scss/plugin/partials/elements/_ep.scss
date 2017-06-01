@@ -11,7 +11,8 @@ header > div:first-child .x-bar-container .x-bar-content-area {
 #ep-logo {
   width: 800px;
   max-width: 95vw;
-  @include absolute-center;
+  @include pos;
+  margin: auto;
   path {
     @include transition( all, 2s );
   }
@@ -19,7 +20,8 @@ header > div:first-child .x-bar-container .x-bar-content-area {
 
 #ep-logo-small {
   width: 200px;
-  @include absolute-center;
+  @include pos;
+  margin: auto;
 }
 
 .wpcf7-form {

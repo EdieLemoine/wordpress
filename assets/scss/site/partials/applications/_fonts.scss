@@ -3,8 +3,6 @@
     font-family: $heading-font;
     src: url('./dist/fonts/' + unquote($heading-font) + '.woff2') format('woff2'),
          url('./dist/fonts/' + unquote($heading-font) + '.woff') format('woff');
-    font-weight: $heading-font-weight;
-    font-style: normal;
   }
 }
 
@@ -13,10 +11,9 @@
     font-family: $body-font;
     src: url('./dist/fonts/' + unquote($body-font) + '.woff2') format('woff2'),
          url('./dist/fonts/' + unquote($body-font) + '.woff') format('woff');
-    font-weight: $body-font-weight;
-    font-style: normal;
   }
 }
+
 @else {
   $font1: str-replace( map-get( $fonts, 'heading' ), ' ', '+' );
   $font2: str-replace( map-get( $fonts, 'body' ), ' ', '+' );
@@ -26,16 +23,16 @@
 }
 
 #{headings()} {
-  @include heading-style( 'all' );
+  @include font( 'heading', true );
 }
 
 body {
-  @include body-style( 'all' );
+  @include font( 'body', true );
   background-color: $body-background-color;
 }
 
 @if $navbar-brand-image == false {
   .x-brand {
-    @include heading-style( 'all' );
+    @include font( 'heading', true );
   }
 }
