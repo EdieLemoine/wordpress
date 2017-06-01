@@ -1,152 +1,194 @@
-.masthead .x-navbar .x-navbar-inner .x-nav-wrap {
-  // All nav types
-  &.desktop > .x-nav {
-    opacity: 0;
-    pointer-events: none;
-    @include fast-transition;
-  }
-  .x-nav {
-    margin: 0;
-    display: block;
-    float: right;
-    li a {
-      // All menu items
-      font-size: $navbar-text-font-size;
-      font-family: $navbar-text-font;
-      text-transform: $navbar-text-transform;
-      font-weight: $navbar-font-weight;
-      color: $navbar-text-color;
-    }
+///////////////////
+// Masthead base //
+///////////////////
+.masthead {
 
-    & > li {
-      // Only top level menu items
+  .x-navbar {
+    width: 100%; // Safari fix
+    padding: 0 $global-spacing;
+    background-color: $navbar-background-color;
 
-      & > .sub-menu {
-        // Only top level sub menu
-        top: $navbar-height;
+    .x-navbar-inner {
+      &, .x-container {
+        min-height: $navbar-height;
       }
-
-      .sub-menu {
-        // All submenus
-        background-color: $navbar-submenu-background-color;
-        color: $navbar-text-color;
-        border: 0;
-        padding: $navbar-submenu-padding;
-
-        li {
-          &:hover {
-            background-color: $navbar-link-active-color;
-          }
-
-          &,
-          span {
-            @include fast-transition;
-          }
-        }
+      .x-container {
+        display: flex;
+        align-items: stretch;
       }
-
-      & > a {
-        padding-top: $navbar-height / 2.4;
-        font-size: $navbar-text-font-size;
-        font-family: $navbar-text-font;
-
-        @if $navbar-link-style == 'fill'
-         or $navbar-link-style == 'fade' {
-          padding: ($navbar-height - $navbar-text-font-size) / 2 0;
-        }
-
-        @if $navbar-link-style == 'fade' {
-          background: linear-gradient(to top, transparent 0%, transparent 100%);
-        }
-
-        @if $navbar-link-style == 'border'
-         or $navbar-link-style == 'pill-border' {
-          $local-spacing: (($navbar-height - $navbar-text-font-size) - ($navbar-link-accent-width * 2)) / 4;
-          border: $navbar-link-accent-width solid transparent;
-          margin: $local-spacing $navbar-text-spacing 0;
-          padding: $local-spacing;
-        }
-
-        @if $navbar-link-style == 'rectangle'
-         or $navbar-link-style == 'pill' {
-          $local-spacing: ($navbar-height - $navbar-text-font-size) / 4;
-          margin: $local-spacing $navbar-text-spacing 0;
-          padding: $local-spacing;
-        }
-
-        @if $navbar-link-style == 'pill'
-         or $navbar-link-style == 'pill-border' {
-          border-radius: $navbar-link-border-radius;
-        }
-
-        &:not(.x-btn-navbar-woocommerce) {
-          padding-left: $navbar-text-spacing;
-          padding-right: $navbar-text-spacing;
-        }
-
-        & > span {
-          padding: 0;
-          font-size: $navbar-text-font-size;
-
-          &,
-          i {
-            @include fast-transition;
-            color: $navbar-text-color;
-          }
-        }
-      }
-      &.menu-item-language .sub-menu {
-        min-width: none; // WPML menu item width fix
-      }
-    }
-    @if $navbar-brand-center {
-      width: 100%;
-
-      & > li:nth-child(-n+#{$navbar-item-amount / 2}) {
-        float: left;
-      }
-
-      & > li:nth-child(1n+#{$navbar-item-amount / 2 + 1}) {
-        float: right;
+      .x-nav-wrap {
+        margin-left: $global-spacing;
       }
     }
   }
 
-  &.x-nav-wrap > li  > a {
-    font-family: $navbar-text-font;
-    letter-spacing: 0;
-    text-transform: $navbar-text-transform;
+  &:hover .x-navbar .x-navbar-inner .x-nav-wrap.desktop {
+    @include visible;
+  }
 
-    & > span {}
+  &.masthead-inline .x-navbar .desktop .sub-menu .sub-menu {
+    top: 0;
+  }
+
+  @if $navbar-background-color == transparent {
+    .x-navbar {
+      pointer-events: none;
+      .x-nav {
+        pointer-events: all;
+      }
+    }
+  }
+
+  @if $navbar-fixed-background-color == transparent {
+    .x-navbar.x-navbar-fixed-top {
+      pointer-events: none;
+      .x-nav {
+        pointer-events: all;
+      }
+    }
   }
 }
 
 //////////////////
 // Desktop menu //
 //////////////////
-.masthead .x-navbar .x-navbar-inner .x-nav-wrap.desktop .x-nav > li {
-  @if $navbar-link-style == 'fill'
-   or $navbar-link-style == 'underline' {
-    &:last-child > a {
-      padding-right: $navbar-text-spacing !important;
-    }
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap.desktop {
+  display: flex;
+  flex: 1;
+  @include visible( false );
+  @include fast-transition;
+
+  & > .x-nav {
+    display: flex;
+    align-items: stretch;
   }
 }
+
 /////////////////
 // Mobile menu //
 /////////////////
-.masthead .x-navbar .x-navbar-inner .x-nav-wrap.mobile {}
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap.mobile {
+  // opacity: 0;
+  // pointer-events: none;
+  // @include fast-transition;
+  //
+  // & > .x-nav {
+  //   display: flex;
+  //   align-items: stretch;
+  // }
+}
+
+///////////////
+// All menus //
+///////////////
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  float: right;
+
+  // Top level li
+  & > li {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    text-align: center;
+    // WPML menu item width fix
+    &.menu-item-language .sub-menu {
+      min-width: none;
+    }
+  }
+
+  // All menu items
+  li a {
+    margin: auto;
+    color: $navbar-text-color;
+    font-size: $navbar-text-font-size;
+    @include fast-transition;
+    @include font( $navbar-text-font );
+
+    &:hover {
+      color: $navbar-text-hover-color;
+    }
+
+    span {
+      margin: auto;
+    }
+  }
+
+  // Only top level menu items
+  & > li > a {
+    @if $navbar-link-style == 'fill'
+    or $navbar-link-style == 'underline' {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    @if $navbar-link-style == 'box'
+    or $navbar-link-style == 'border' {
+      padding: ( $navbar-height - $navbar-link-accent-width ) * 0.15  $navbar-height * 0.25;
+      border-radius: $global-border-radius;
+
+      @if $navbar-link-style == 'border' {
+        border: $navbar-link-accent-width solid transparent;
+      }
+    }
+  }
+}
+
+//////////////
+// Submenus //
+//////////////
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav {
+
+  // All submenus
+  li > .sub-menu {
+    // border-top: 1px solid $navbar-background-color;
+    position: relative;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    color: $navbar-text-color;
+    overflow: hidden;
+    @include simple-transition;
+
+    li {
+      position: relative;
+      a {
+        min-height: $navbar-fixed-height;
+        display: flex;
+      }
+    }
+
+    // Sub submenus
+    .sub-menu {
+      // top: 0;
+    }
+  }
+
+  // Only top level sub menu
+  & > li > .sub-menu {
+    position: absolute;
+    top: $navbar-height;
+    background-color: $navbar-submenu-background-color;
+    width: 100%;
+  }
+}
 
 ///////////////////
 // Mobile button //
 ///////////////////
 .masthead .x-navbar .x-navbar-inner .x-btn-navbar {
+  box-shadow: none;
   @include break( 'medium', 'min') {
     display: none;
   }
-  box-shadow: none;
   @if $navbar-link-style == 'fill' {
-    padding: ($navbar-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
+    // padding: ($navbar-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
     height: auto;
     border-radius: 0;
   }
@@ -156,232 +198,169 @@
     color: $navbar-text-color;
   }
 
-  &:hover {
-    i {
-      color: $navbar-text-hover-color;
-    }
+  &:hover i {
+    color: $navbar-text-hover-color;
   }
 }
-// End of menus
+
 ////////////////////
 // Brand img/text //
 ////////////////////
-
 .masthead .x-navbar .x-navbar-inner .x-brand {
-  margin-top: ( $navbar-height - $navbar-brand-height ) / 2;
+  display: flex;
+  margin: auto;
   float: left;
-  @if $navbar-brand-image == true {
-    &.img {
-      height: $navbar-brand-height;
-      .full {
-        opacity: 1;
-        pointer-events: all;
-      }
-      .paw {
-        opacity: 0;
-        pointer-events: none;
-      }
 
-      & > svg,
-      & > img {
-        position: absolute;
-        left: 0;
-        height: $navbar-brand-height;
-        @include fast-transition;
-      }
-      @if $navbar-brand-center == true {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-      }
-      @if $navbar-brand-circle == true {
-        &.img img {
-          $local-padding: $navbar-height / 3;
-          $local-size: $navbar-height * 2;
-          height: $local-size !important;
-          width: $local-size !important;
-          background-color: $navbar-background-color;
-          border-radius: 100%;
-          padding: $local-padding;
-          left: 0;
-          margin-top: 0;
-          @if $navbar-brand-center != true {
-            // Avoid double output
-            position: absolute;
-          }
-        }
-      }
+  @if $navbar-brand-image == true {
+    &.img > svg,
+    &.img > img {
+      height: $navbar-brand-height;
+      margin: auto;
+      @include fast-transition;
     }
   }
+
   @else {
     &.text {
+      margin: auto;
       font-size: $navbar-brand-height;
     }
   }
 }
-//////////////
-// if fixed //
-//////////////
-@if $navbar-height != $navbar-fixed-height
- or $navbar-background-color != $navbar-fixed-background-color {
-  // .masthead .x-navbar,
-  .x-nav > li > a,
-  // .sub-menu,
-  .x-brand,
-  // .x-brand img,
-  // .x-logobar,
-  // .x-navbar-fixed-top-active .x-navbar-wrap,
-  .x-navbar {
-    @include fast-transition;
 
+//////////////////
+// Fixed Navbar //
+//////////////////
+.masthead .x-navbar.x-navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  @include simple-transition;
+
+  // Only add rules if they actually change
+  @if $navbar-background-color != $navbar-fixed-background-color {
+    background-color: $navbar-fixed-background-color;
   }
 
-  .masthead .x-navbar.x-navbar-fixed-top {
+  @if $navbar-height != $navbar-fixed-height {
+    .x-navbar-inner {
+      @include simple-transition;
 
-    @if $navbar-background-color != $navbar-fixed-background-color {
-      background-color: $navbar-fixed-background-color;
-    }
-
-    @if $navbar-height != $navbar-fixed-height {
-      // If Fixed
-      .x-navbar-inner {
+      &, & > .x-container {
         min-height: $navbar-fixed-height;
-        .x-brand {
-          margin-top: ($navbar-fixed-height - $navbar-fixed-brand-height) / 2;
-
-          @if $navbar-brand-image == false {
-            &.text {
-              font-size: $navbar-fixed-brand-height;
-            }
-          }
-          @else {
-            &.img {
-
-            &, & > svg {
-              height: $navbar-fixed-brand-height;
-            }
-
-              .paw {
-                opacity: 1;
-                pointer-events: all;
-              }
-              .full {
-                opacity: 0;
-                pointer-events: none;
-              }
-              // filter: invert(100%);
-            }
-          }
-        }
-        .x-nav-wrap.desktop > .x-nav {
-          opacity: 1;
-          pointer-events: all;
-        }
       }
 
-      .desktop .x-nav > li {
-        & > .sub-menu { // Only top level submenu
-          top: $navbar-fixed-height;
-        }
-
-        .sub-menu { // All submenus
-          border: none;
-          background-color: $navbar-fixed-submenu-background-color;
-        }
-
-        & > a { // Only top level links
-
-          @if $navbar-link-style == 'underline' {
-            height: $navbar-fixed-height - $navbar-link-accent-width;
-          }
-          @else {
-            height: $navbar-fixed-height;
-          }
-
-          @if $navbar-link-style == 'fill'
-           or $navbar-link-style == 'underline' {
-            margin: 0;
-          }
-
-          @if $navbar-link-style == 'border'
-           or $navbar-link-style == 'pill-border' {
-            $local-spacing: (($navbar-fixed-height - $navbar-text-font-size) - ($navbar-link-accent-width * 2)) / 4;
-            border: $navbar-link-accent-width solid transparent;
-            margin: $local-spacing ($navbar-text-spacing / 2) 0 ($navbar-text-spacing / 2);
-            padding: $local-spacing ($navbar-text-spacing / 2) !important;
-            height: auto;
-          }
-
-          @if $navbar-link-style == 'rectangle'
-           or $navbar-link-style == 'pill' {
-            $local-spacing: ($navbar-fixed-height - $navbar-text-font-size) / 4;
-            margin: $local-spacing $navbar-text-spacing 0;
-            padding: $local-spacing;
-            height: auto;
-          }
-
-          @elseif $navbar-link-style == 'fill' {
-            padding: ($navbar-fixed-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
-          }
-          span {
-            color: $navbar-fixed-text-color;
-          }
+      @if $navbar-brand-image == false {
+        .x-brand.text {
+          font-size: $navbar-fixed-brand-height;
+          @include simple-transition;
         }
       }
-    }
-
-    ////////////////////
-    // Fixed + Active //
-    ////////////////////
-    .x-nav-wrap .x-nav > li > a:hover,
-    .x-nav-wrap .x-nav > li.current-menu-item > a,
-    .x-nav-wrap .x-nav > li.x-active > a,
-    .x-nav-wrap .x-nav > li.x-active > a > span {
-      // color: $navbar-text-hover-color !important;
-      //
-      // & > span,
-      // & > span i {
-      //   color: $navbar-text-hover-color;
-      // }
-
-      @if $navbar-link-style == 'fill' {
-        background-color: $navbar-fixed-link-active-color;
-      }
-
-      @elseif $navbar-link-style == 'underline' {
-        box-shadow: 0 $navbar-link-accent-width 0 0 $navbar-fixed-link-active-color;
-      }
-
-      @elseif $navbar-link-style == 'border'
-       or $navbar-link-style == 'rectangle'
-       or $navbar-link-style == 'pill'
-       or $navbar-link-style == 'pill-border' {
-        border-color: $navbar-fixed-link-active-color;
-
-        @if $navbar-link-style == 'rectangle'
-         or $navbar-link-style == 'pill' {
-          background-color: $navbar-fixed-link-active-color;
+      @else {
+        .x-brand.img > img,
+        .x-brand.img > svg {
+          height: $navbar-fixed-brand-height;
+          @include simple-transition;
         }
       }
     }
   }
 }
-///////////////////
-// Active styles //
-///////////////////
-.x-nav-wrap .x-nav > li {
-  & > a:hover,
-  &.current-menu-item > a,
-  &.x-active > a {
 
-    // &,
-    // & > span,
-    // & > span i {
-    //   color: $navbar-text-hover-color;
-    // }
+///////////////////////////
+// Fixed Navbar: Desktop //
+///////////////////////////
+.masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap.desktop {
+  @include visible;
+
+  .x-nav {
+    & > li > a { // Only top level fixed links
+      @if $navbar-link-style == 'border'
+       or $navbar-link-style == 'box' {
+        padding: ( $navbar-fixed-height - $navbar-link-accent-width ) * 0.25  $navbar-fixed-height * 0.35;
+      }
+    }
+
+    & > li > .sub-menu { // Only top level fixed submenu
+      top: $navbar-fixed-height;
+    }
+
+    & > li .sub-menu { // All fixed submenus
+      background-color: $navbar-fixed-submenu-background-color;
+    }
+  }
+}
+
+//////////////////////
+// Top level Active //
+//////////////////////
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li > a:hover,
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li.current-menu-item > a,
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li.x-active > a {
+  color: $navbar-text-hover-color;
+
+  @if $navbar-link-style == 'fill' {
+    background-color: $navbar-fixed-link-active-color;
+  }
+
+  @elseif $navbar-link-style == 'box'
+       or $navbar-link-style == 'pill'{
+    border-color: currentColor;
+
+    @if $navbar-link-style == 'box'
+     or $navbar-link-style == 'pill' {
+      background-color: $navbar-fixed-link-active-color;
+    }
+  }
+}
+
+//////////////////////////////
+// Top level Fixed + Active //
+//////////////////////////////
+.masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap .x-nav > li > a:hover,
+.masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap .x-nav > li.current-menu-item > a,
+.masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap .x-nav > li.x-active > a {
+  color: $navbar-text-hover-color;
+
+  @if $navbar-link-style == 'fill' {
+    background-color: $navbar-fixed-link-active-color;
+  }
+
+  // @elseif $navbar-link-style == 'underline' {
+  //   box-shadow: inset 0 -$navbar-link-accent-width 0 0 $navbar-fixed-link-active-color;
+  // }
+
+  @elseif $navbar-link-style == 'border'
+       or $navbar-link-style == 'box'
+       or $navbar-link-style == 'pill'
+       or $navbar-link-style == 'pill-border' {
+
+    @if $navbar-link-style == 'box'
+     or $navbar-link-style == 'pill' {
+      background-color: $navbar-fixed-link-active-color;
+    }
+  }
+}
+
+////////////////
+// All active //
+////////////////
+.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav {
+
+  // Active submenu
+  li.x-active > .sub-menu,
+  li > a:hover > .sub-menu {
+    height: 100%;
+  }
+
+  // Active links
+  li.x-active > a,
+  li > a:hover,
+  .current-menu-item > a {
+    color: $navbar-text-hover-color;
 
     @if $navbar-link-style == 'fill' {
-      box-shadow: none;
       background-color: $navbar-link-active-color;
     }
 
@@ -391,103 +370,54 @@
     }
 
     @elseif $navbar-link-style == 'underline' {
-      box-shadow: 0 $navbar-link-accent-width 0 0 $navbar-link-active-color;
+      box-shadow: inset 0 #{ -$navbar-link-accent-width } 0 0 currentColor;
     }
 
     @elseif $navbar-link-style == 'border'
-     or $navbar-link-style == 'rectangle'
-     or $navbar-link-style == 'pill'
-     or $navbar-link-style == 'pill-border' {
-      border-color: $navbar-link-active-color;
+    or $navbar-link-style == 'box' {
 
-      @if $navbar-link-style == 'rectangle'
-       or $navbar-link-style == 'pill' {
+      // border-color: $navbar-link-active-color;
+
+      @if $navbar-link-style == 'box'
+      or $navbar-link-style == 'pill' {
         background-color: $navbar-link-active-color;
       }
     }
   }
-
-  & > a {
-    @if $navbar-link-style == 'fill' {
-      margin: 0;
-      padding: 0;
-      height: $navbar-height;
-    }
-
-    @elseif $navbar-link-style == 'underline' {
-      height: $navbar-height - $navbar-link-accent-width;
-    }
-  }
 }
 
-@elseif $navbar-link-style == 'border'
- or $navbar-link-style == 'rectangle'
- or $navbar-link-style == 'pill'
- or $navbar-link-style == 'pill-border' {
-  .x-navbar .desktop .x-nav > {
-    .current-menu-item > a,
-    .x-active > a,
-    li > a:hover {
-      border-color: $navbar-link-active-color;
+// // Show submenu
+// .masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li.x-active > .sub-menu > li.x-active > .sub-menu {
+//   display: flex;
+// }
 
-      @if $navbar-link-style == 'rectangle'
-       or $navbar-link-style == 'pill' {
-        background-color: $navbar-link-active-color;
-      }
-    }
-
-    & > li > a {
-      border: $navbar-link-accent-width solid transparent;
-      margin: ($navbar-height - ($navbar-text-font-size + (($navbar-height / 6) * 2) + ($navbar-link-accent-width * 2))) / 2 ($navbar-text-spacing / 2);
-      padding: $navbar-height / 6 !important;
-      height: auto;
-
-      @if $navbar-link-style == 'pill' or $navbar-link-style == 'pill-border' {
-        border-radius: 30px;
-      }
-
-      span {
-        padding: 0;
-      }
-    }
-  }
-}
-
-body.x-navbar-fixed-top-active .x-navbar-wrap {
-  height: $navbar-height !important;
-}
-
-.masthead .x-navbar {
-  background-color: $navbar-background-color;
-
-  .x-navbar-inner {
-    min-height: $navbar-height;
-  }
-}
-
-@if $navbar-background-color == transparent {
-  .masthead .x-navbar {
-    pointer-events: none;
-    .x-nav {
-      pointer-events: all;
-    }
-  }
-}
-
-@if $navbar-fixed-background-color == transparent {
-  .masthead .x-navbar.x-navbar-fixed-top {
-    pointer-events: none;
-    .x-nav {
-      pointer-events: all;
-    }
-  }
-}
-
-.masthead:hover .x-navbar .x-navbar-inner .x-nav-wrap.desktop > .x-nav {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.masthead {
-  background-color: $background-color-light;
-}
+// @elseif $navbar-link-style == 'border'
+//      or $navbar-link-style == 'box' {
+//   .x-navbar .desktop .x-nav {
+//
+//     .current-menu-item > a,
+//     .x-active > a,
+//     li > a:hover {
+//
+//       span {
+//         border-color: currentColor;
+//       }
+//
+//       @if $navbar-link-style == 'box'
+//        or $navbar-link-style == 'pill' {
+//         background-color: $navbar-link-active-color;
+//       }
+//     }
+//
+//     & > li > a {
+//       border: $navbar-link-accent-width solid transparent;
+//       // margin: ($navbar-height - ($navbar-text-font-size + (($navbar-height / 6) * 2) + ($navbar-link-accent-width * 2))) / 2 ($navbar-text-spacing / 2);
+//       // padding: $navbar-height / 6 !important;
+//       // height: auto;
+//
+//       @if $navbar-link-style == 'pill' or $navbar-link-style == 'pill-border' {
+//         border-radius: 30px;
+//       }
+//     }
+//   }
+// }

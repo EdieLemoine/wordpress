@@ -1,6 +1,7 @@
 /////////////////
 // X overrides //
 /////////////////
+$fa-font-path: "../x/framework/fonts/font_awesome";
 $accentColor: $primary-color;
 $linkColor: $primary-color;
 $linkColorHover: $secondary-color;
@@ -21,5 +22,4 @@ $baseLineHeight: $body-line-height;
 $baseFontWeight: $body-font-weight;
 $bodyBackground: $body-background-color;
 $textColor: $body-color;
-$fa-font-path: '../../../../../../themes/x/framework/fonts/font_awesome';
 $baseBorderRgba: rgba(0,0,0,0);

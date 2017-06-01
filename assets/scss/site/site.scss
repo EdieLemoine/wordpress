@@ -9,13 +9,14 @@ Template: x
 // This file is only for importing partials.
 // Use only what you need.
 
+
 @import '../global/base/variables';
 
 // Stack; Only use the one you enabled in X.
-// @import 'partials/stack/icon';
+@import 'partials/stack/icon';
 // @import 'partials/stack/renew';
 // @import 'partials/stack/integrity';
-@import 'partials/stack/ethos';
+// @import 'partials/stack/ethos';
 
 @import '../global/base/mixins';
 

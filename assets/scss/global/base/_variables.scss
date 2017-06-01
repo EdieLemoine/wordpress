@@ -94,8 +94,8 @@ $input-color: calculate-color( $input-background-color ) !default;
 // Navbar //
 ////////////
 // Colors //
-$navbar-background-color: $white !default;
-$navbar-fixed-background-color: $navbar-background-color !default;
+$navbar-background-color: $dark-gray !default;
+$navbar-fixed-background-color: transparentize( $navbar-background-color, 0.5 ) !default;
 $navbar-submenu-background-color: $navbar-background-color !default;
 $navbar-fixed-submenu-background-color: $navbar-fixed-background-color !default;
 
@@ -105,8 +105,8 @@ $navbar-fixed-height: $navbar-height !default;
 $navbar-submenu-padding: 0 !default;
 
 // Text //
-$navbar-text-font-size: 13px !default;
-$navbar-text-font: $heading-font !default;
+$navbar-text-font-size: $body-font-size !default;
+$navbar-text-font: 'heading' !default;
 $navbar-text-color: calculate-color( $navbar-background-color ) !default;
 $navbar-text-hover-color: darken($navbar-text-color, 15) !default;
 $navbar-text-transform: $heading-text-transform !default;
@@ -114,7 +114,7 @@ $navbar-font-weight: $heading-font-weight !default;
 $navbar-text-spacing: 10px !default; // Horizontal padding of list items
 
 // Links //
-$navbar-link-style: 'border' !default; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+$navbar-link-style: 'fill' !default; // Underline | Fill | Border | Rectangle | Pill | Pill-border
 $navbar-link-accent-width: $global-border-width !default;
 $navbar-link-active-color: $primary-color !default;
 $navbar-link-border-radius: $global-border-radius !default;
@@ -131,14 +131,14 @@ $navbar-brand-circle: false !default;
 // Footer //
 ////////////
 $footer-top-padding: $global-spacing * 4 !default;
-$footer-top-background-color: darken( $secondary-color, 2% ) !default;
+$footer-top-background-color: $primary-color !default;
 $footer-top-text-color: calculate-color( $footer-top-background-color ) !default;
 $footer-top-font-size: $body-font-size !default;
 
-$footer-bottom-padding: $global-spacing * 0.5 !default;
+$footer-bottom-padding: $global-spacing !default;
 $footer-bottom-font: 'heading' !default;
-$footer-bottom-background-color: $primary-color !default;
-$footer-bottom-text-color:  calculate-color( $footer-bottom-background-color ) !default;
+$footer-bottom-background-color: darken( $footer-top-background-color, 15% ) !default;
+$footer-bottom-text-color: calculate-color( $footer-bottom-background-color ) !default;
 $footer-bottom-font-size: $body-font-size !default;
 
 //////////
@@ -164,5 +164,3 @@ $breakpoints: (
   lumia950xl: 576px,
   iphone6: 375px
 );
-
-@import 'variable_overrides';
