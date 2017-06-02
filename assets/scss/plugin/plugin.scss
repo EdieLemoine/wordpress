@@ -1,12 +1,14 @@
 @import '../global/base/variables';
-
 @import '../global/base/mixins';
 
-
 // Base files
+@import 'partials/page';
 @import 'partials/grid';
 
 // Elements
-@import 'partials/elements/ep';
-@import 'partials/elements/ep-grid';
-@import 'partials/elements/ep-contactbox';
+@import "partials/elements/ep-contactbox";
+@import "partials/elements/ep-grid";
+@import "partials/elements/ep-kaart";
+@import "partials/elements/ep-lightbox";
+@import "partials/elements/ep-parallax";
+@import "partials/elements/ep-slider";

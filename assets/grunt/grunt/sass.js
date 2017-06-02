@@ -1,7 +1,8 @@
 module.exports = {
 	prod: {
 		options: {
-			sourceMap: true
+			sourceMap: true,
+			require: ['sass-globbing']
 		},
 		files: {
 			'<%= theme_style_dist %>': '<%= theme_style_prod %>',

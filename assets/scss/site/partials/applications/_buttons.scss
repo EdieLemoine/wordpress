@@ -168,7 +168,7 @@
     &:focus,
     &:hover {
       border-color: $button-active-background-color;
-      color: $input-active-border-color;
+      color: calculate-color( $button-active-background-color );
 
       @if $button-style == 'transparent' {
         background-color: $button-active-background-color;

@@ -5,12 +5,33 @@
   }
 }
 
-.ep-grid {
+.ep-text {
+  padding: $global-spacing * 2 $global-spacing;
   display: flex;
-  flex-wrap: wrap;
+  hyphens: auto;
 }
 
-.ep-wrap {
+.ep-bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 50vh;
+  @include break( 'large') {
+    min-height: 600px;
+  }
+  display: flex;
+  flex: 1;
+}
+
+.ep-subtitle {
+  margin: 0;
+  color: transparentize( $primary-color, 0 );
+  font-size: $body-font-size;
+}
+
+.ep-heading {
+  margin: 0;
+  font-size: $body-font-size * 2;
+  hyphens: auto;
 }
 
 .ep {
@@ -19,23 +40,15 @@
   align-content: stretch;
   position: relative;
   overflow: hidden;
+  min-height: 50vh;
   @include break( 'medium' ) {
     flex-basis: 100% !important;
     padding-top: $section-padding;
     padding-bottom: $section-padding;
   }
-  &[class*=' ep_'] {
-    @include border;
-    position: relative;
-    // min-height: 400px;
-    .ep-bg-image {
-      background-size: cover;
-      background-position: center center;
-      background-color: transparent;
-      position: absolute;
-      @include placeholder;
-      @include pos(0);
-    }
+  @include break( 'large' ) {
+    min-height: none;
+    width: 100%;
   }
 
   // Create grid structure
@@ -46,12 +59,12 @@
       // $a is smaller than $b ( 3-2 -> over 100% )
       // You can simplify the fractions ( 2-4, 3-9 -> 50%, 33% )
       // But do output 1-1 to 1-12
+      // and ( $b % $a ) % 2 != 0
+      // and ( $b % $a ) % 3 != 0
       @if $a != $b
       and $a < $b
-      and ( $b % $a ) % 2 != 0
-      and ( $b % $a ) % 3 != 0
       or $a == 1 {
-        &.ep_#{$a}-#{$b} {
+        &.ep-#{$a}-#{$b} {
           flex-basis: 100% / ($b / $a);
         }
       }

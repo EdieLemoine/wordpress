@@ -1,4 +1,5 @@
-.site, .x-site {
+.site,
+.x-site {
   background-color: $body-background-color !important;
 }
 
@@ -15,8 +16,4 @@
 .x-section {
   padding: $section-padding 0;
   margin: 0;
-}
-
-.page-template-template-blank-4-php .x-main, .page-template-template-blank-5-php .x-main, .page-template-template-blank-6-php .x-main, .page-template-template-blank-8-php .x-main {
-  background-color: transparent;
 }

@@ -1,0 +1,25 @@
+#ep-lightbox {
+  display: flex;
+  position: fixed; /* keeps the lightbox window in the current viewport */
+  width: 100%;
+  height: 100%;
+  background: transparentize( $black, 0.5 );
+  text-align: center;
+  @include pos(0);
+  z-index: 9999;
+}
+
+#ep-lightbox-content {
+  max-height: 95%;
+  max-width: 95%;
+  margin: auto;
+  overflow: hidden;
+  img {
+    height: 100%;
+    // filter: drop-shadow( 2px 2px 10px transparentize( $black, 0.5 ));
+  }
+}
+
+.ep-lightbox-trigger {
+  flex: 1;
+}

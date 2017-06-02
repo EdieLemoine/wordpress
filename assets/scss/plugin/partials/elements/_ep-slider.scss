@@ -1,0 +1,80 @@
+.ep-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  & > div {
+    z-index: 100;
+    display: flex;
+    position: absolute;
+    background: $primary-color;
+    color: $text-color-light;
+    opacity: 0.5;
+    cursor: pointer;
+    @include fast-transition;
+    @include size( $global-spacing );
+    @include break( 'large' ) {
+      top: 0;
+    }
+
+    @include break( 'large', 'min' ) {
+      bottom: 0;
+    }
+
+    &::before,
+    &::after {
+      margin: auto;
+    }
+
+    &.prev {
+      @include triangle( left );
+      &::before {
+        margin-right: $global-spacing / 8 * 3;
+      }
+    }
+
+    &.next {
+      right: 0;
+      @include triangle( right, after );
+      &::after {
+        margin-right: $global-spacing / 8 * 3;
+      }
+    }
+  }
+
+  &:hover > div {
+    opacity: 1;
+  }
+
+  @include break( 'large' ) {
+    min-height: 500px;
+  }
+  
+  ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+    // overflow: hidden;
+    display: flex;
+    max-width: 100%;
+    flex-basis: 100%;
+    left: 0;
+    min-height: 50vh;
+  }
+
+  .ep-slide {
+    float: left;
+    height: 100%;
+    width: 100%;
+    flex: 1 0 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+    display: flex;
+    a {
+      flex: 1;
+    }
+  }
+}

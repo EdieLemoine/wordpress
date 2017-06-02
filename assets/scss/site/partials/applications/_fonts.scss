@@ -14,11 +14,24 @@
   }
 }
 
-@else {
-  $font1: str-replace( map-get( $fonts, 'heading' ), ' ', '+' );
-  $font2: str-replace( map-get( $fonts, 'body' ), ' ', '+' );
-  $font: $font2 + ':' + $body-font-weight + '|' + $font1 + ':' + $heading-font-weight;
+@if $body-font-external == true or $heading-font-external == true {
+  $separator: '';
+  $body-font-string: '';
+  $heading-font-string: '';
 
+  @if $body-font-external == true  {
+    $body: str-replace( map-get( $fonts, 'body' ), ' ', '+' );
+    $body-font-string: $body + ':' + $body-font-weight;
+  }
+  @if $heading-font-external == true {
+    $heading: str-replace( map-get( $fonts, 'heading' ), ' ', '+' );
+    $heading-font-string: $heading + ':' + $heading-font-weight;
+  }
+  @if $body-font-external == true and $heading-font-external == true {
+    $separator: '|';
+  }
+
+  $font: $body-font-string + $separator + $heading-font-string;
   @import url('https://fonts.googleapis.com/css?family=#{$font}');
 }
 

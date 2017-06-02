@@ -30,14 +30,14 @@ class Edies_Plugin {
     // Directories
     define( 'DIR_CSS', URL . 'css/' );
     define( 'DIR_JS', URL . 'js/' );
-    define( 'DIR_CLASSES', PATH . 'classes/' );
-    define( 'DIR_SHORTCODES', PATH . 'shortcodes/' );
-    define( 'DIR_TEMPLATES', PATH . 'templates/' );
-    define( 'DIR_ELEMENTS', PATH . 'elements/' );
     define( 'DIR_FRAMEWORK', PATH . 'framework/' );
+    define( 'DIR_CLASSES', DIR_FRAMEWORK . 'classes/' );
+    define( 'DIR_SHORTCODES', DIR_FRAMEWORK . 'shortcodes/' );
+    define( 'DIR_TEMPLATES', DIR_FRAMEWORK . 'templates/' );
+    define( 'DIR_ELEMENTS', DIR_FRAMEWORK . 'elements/' );
 
     // Other options
-    define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
+    // define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
     define( 'LIVERELOAD_PORT', 35729 );
 
     define( 'ADMIN', is_admin() );
@@ -59,6 +59,8 @@ class Edies_Plugin {
   }
 
   private function load_dependencies( $ver ) {
+    require_once DIR_FRAMEWORK . 'ep-global-functions.php';
+
     require_once DIR_CLASSES . 'ep-class-loader.php';
     require_once DIR_CLASSES . 'ep-class-dashboard.php';
     require_once DIR_CLASSES . 'ep-class-admin.php';

@@ -1,6 +1,20 @@
 
+.ep-col[class*="ep-1-"] {
+  @include break('small') {
+    width: 100%;
+  }
+  @include break('medium') {
+    width: 50%;
+  }
+  @include break('large') {
+    width: calc(100% / 3);
+    h2 {
+      font-size: 200%;
+    }
+  }
+}
 
-.ep-grid > .simple > .ep-grid-list {
+.ep-grid.ep-simple > .ep-grid-list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -8,43 +22,51 @@
   font-size: 0;
 }
 
-.ep-grid.complex {
-  margin: -$global-spacing / 8;
-  .ep {
-    display: flex;
-    // height: 300px;
+.ep-grid.ep-complex > .ep-grid-list {
+  list-style: none;
+  margin: 0;
+  & > .ep-col {
+    float: left;
+    // display: block;
+  }
+  .ep-grid-item {
+    height: 300px;
     position: relative;
     overflow: hidden;
-    margin: $global-spacing / 8;
-    .ep-text {
-      z-index: 10;
+    .ep-grid-text-wrap {
+      z-index: z('front');
       position: absolute;
       bottom: -100%;
       padding: 10px;
       width: 100%;
     }
-    .ep-bg-image {
+    .ep-grid-image {
       margin: auto;
-      @include pos;
+      @include pos( -20px );
+      background-position: center;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
     }
-    .ep-bg-image,
-    .ep-text {
+    .ep-grid-image,
+    .ep-grid-text-wrap {
       @include fast-transition;
     }
     .ep-overlay {
-      z-index: 9;
       height: 100%;
       @include transition( all, 0.5s, ease, 0.1s );
     }
-
-    &:hover .ep-bg-image {
+    h2,
+    p {
+      color: white;
+    }
+    &:hover .ep-grid-image {
       background-size: auto 125%;
       filter: blur(7.5px);
-      & + .ep-overlay {
+      .ep-overlay {
         background-color: transparentize($black, 0.5);
       }
     }
-    &:hover .ep-text {
+    &:hover .ep-grid-text-wrap {
       bottom: 0;
     }
   }

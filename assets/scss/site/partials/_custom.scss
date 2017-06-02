@@ -27,32 +27,7 @@ html {
   }
 }
 
-#ep-top .x-container {
-  padding: $section-padding 0;
-}
-a:not(.x-btn) {
-  @include animated-underline;
-}
 
-#ep-top .svg-background {
-  position: absolute;
-  z-index: -1;
-  width: auto;
-  top: -150px;
-  left: -150px;
-  right: -150px;
-  filter: blur(150px);
-  height: 100%; // Safari fix
-  & .cls-1 {
-    fill: $primary-color;
-  }
-}
-
-#ep-content {
-  display: flex;
-  flex-direction: column;
-  background-color: $secondary-color;
-}
 
 #top h1 {
   margin-top: 0;

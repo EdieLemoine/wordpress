@@ -16,7 +16,9 @@ class EP_Element_Base extends EP_Theme {
     if ( $title == null ) :
       $title = ucwords( $type );
     endif;
-    
+    if ( $type == 'icon' ) :
+      $type .= '-choose';
+    endif;
     // Check if it's a select control
     if ( $type == 'post_type' OR $type == 'post' ) :
       $array = $this->get_post_types( $type, $title, $post_types );

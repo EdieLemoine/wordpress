@@ -1,6 +1,25 @@
-$contactbox-used: true; // If you are using the html contactbox
-$contactbox-size: $input-height;
-$contactbox-background-color: $secondary-color;
-$contactbox-hover-background-color: $primary-color;
-$contactbox-right-opacity: 1 / 4;
-$contactbox-text-color: $text-color-light;
+.ep-contactbox {
+  display: flex;
+  flex-direction: column;
+}
+.ep-contactbox-item {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  color: $text-color-light;
+  & + & {
+    margin-top: $global-spacing / 4;
+  }
+  .ep-cb-left {
+    @include size( $input-height );
+    background-color: transparentize( $primary-color, 0.5 );
+  }
+  .ep-cb-right {
+    flex: 1;
+    display: flex;
+    background-color: $primary-color;
+    span {
+      margin: auto 0 auto $global-spacing / 2;
+    }
+  }
+}
