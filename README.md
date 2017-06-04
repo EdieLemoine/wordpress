@@ -1,9 +1,9 @@
-# Basic x-child template with Grunt
+# Custom Plugin + Child theme for X 5
 
 ####Grunt plugins:
 
 * [load-grunt-config](https://github.com/firstandthird/load-grunt-config) | Allows for separate files per task instead of one large unreadable gruntfile. Includes [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks).
-* [grunt-sass](https://github.com/sindresorhus/grunt-sass) | Compiles SCSS into CSS.
+* [grunt-sass](https://github.com/sindresorhus/grunt-sass) | Compiles SCSS into CSS. I use this instead of grunt-contrib-css because this one is way faster.
 * [grunt-postcss](https://github.com/nDmitry/grunt-postcss) with [Autoprefixer](https://github.com/postcss/autoprefixer) | Adds vendor prefixes with data from [caniuse.com](http://caniuse.com/).
 * [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin) | Minifies CSS files.
 * [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat) | Merges JS files into concatenated.js.
@@ -16,7 +16,7 @@
 
 ###Usage
 
-Open this folder in your preferred command line utility and type
+Open assets/grunt in your preferred command line utility and types
 
     $ npm install
 
@@ -36,22 +36,16 @@ To do this in WordPress uncomment the "insert_in_footer" function in functions.p
 
 ####assets/scss:
 
-* style.scss | The main scss file. I recommend only importing other files here and doing all the styling in partials.
-* /partials/\_header.scss | Example
-* /partials/\_footer.scss | Example
-* /partials/base/\_variables.scss | Change or add your variables here
-* /partials/base/\_classes.scss | Extendable classes
-* /partials/base/\_mixins.scss | Preset mixins that are included by default
-* /partials/base/\_applications.scss | Where many variables get assigned to what they're meant for.
-* /partials/base/\_responsive.scss | Imports partials from /responsive folder
-* /partials/base/responsive/\_\*.scss | Files specific to viewport size and print style
-* /partials/plugins/\_essentialgrid.scss | Template to modify Essential Grid
-* /partials/plugins/\_revolutionslider.scss | Template to modify Revolution Slider
-* /partials/stack/\_\*.scss | Quick fixes for each X stack, only use the one you have enabled in X, obviously.
+* /global/ | Inside are all the global mixins, functions and variables used in all three other folders
+* /site/ | Here are all the site specific styles
+    * /partials/ | I recommend using \_custom.scss and adding more (and importing them through ./site.scss) in this folder
+* /plugin/ | This is for custom elements and classes used in templates
+* /admin/ | These files are for the admin panel
+* /edit.scss | These are all global variables. Change any one you like in this file.
 
 ####assets/js:
 
-* script.min.js | This is your final, compiled, concatenated JS file, which is already enqueued via the default functions.php
+*
 
 ####dist/images:
 
@@ -73,22 +67,19 @@ To do this in WordPress uncomment the "insert_in_footer" function in functions.p
 
 ###What NOT to upload
 
-These files are only for production. When you upload a site to it's final destination these files are not needed and will only take up valuable disk space.
+These files are only for production. When you upload a site to its final destination these files are not needed and will only take up valuable disk space.
 
 * /.git/ | Git files
+* .gitignore | Git's ignore file
 * /node-modules/ | Node Modules
 * /.sass-cache/ | Sass Cache
-* /grunt/ | Folder with gruntfile "partials"
-* /assets/ | This is only used for production, the final files go either in the root or in /dist
-* gruntfile.js | Gruntfile
-* package.json | Tells npm what to do
+* /assets/ | This is only used for production, the final files end up in either the plugin or the theme
 * README.md | This very readme
-* watch.bat | Easy batch script to run grunt watch
-* .gitignore | Git's ignore file
+* watch.bat & watch.command | Easy scripts to run grunt watch
 
 Add this to your file transfer application filter to skip these files.
 
-    node_modules|gruntfile\.js|package\.json|assets|README\.md|.*\.map|grunt|\.sass-cache|watch\.bat
+    node_modules|gruntfile\.js|package\.json|assets|README\.md|\.\*|\.sass-cache
 
 To erase all these files easily you can use
 
@@ -116,4 +107,4 @@ To erase all these files easily you can use
 * Medium (m)
 * Large (l)
 
-Example: Give a h3 the class "mtn" in Cornerstone, this class sets the margin (m) top (t) to 0/none (n).
+Example: Give any element the class "mtn", this class sets the margin (m) top (t) to 0/none (n).
