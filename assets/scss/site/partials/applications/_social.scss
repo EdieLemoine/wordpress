@@ -10,6 +10,7 @@
     padding: $global-spacing / 4;
     margin: $global-spacing / 8;
     border: 1px solid transparentize($white, 0.9);
+    border-radius: $global-border-radius;
     &:hover {
       background-color: transparentize($white, 0.9);
       border-color: transparent;
