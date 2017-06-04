@@ -57,7 +57,7 @@ $heading-font-external: true !default;
 $heading-font-weight: 400 !default;
 $heading-color: calculate-color( $body-background-color ) !default;
 $heading-text-transform: uppercase !default;
-$heading-letter-spacing: 0;
+$heading-letter-spacing: 0 !default;
 
 //////////////
 // Sections //

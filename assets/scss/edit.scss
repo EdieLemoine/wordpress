@@ -31,14 +31,14 @@ $global-border-radius: 10px;
 //////////
 // $heading-font: "Oswald";
 // $heading-font-external: true;
-// $heading-font-weight: 300;
-// $heading-text-transform: uppercase;
+$heading-font-weight: 100;
+$heading-text-transform: lowercase;
 // $heading-color: $text-color-light;
-// $heading-letter-spacing: 0;
+$heading-letter-spacing: 2px;
 
-// $body-font: "Lato";
+$body-font: "Ubuntu Mono";
 // $body-font-external: true;
-// $body-font-size: 20px;
+$body-font-size: 18px;
 // $body-font-style: normal;
 // $body-font-weight: 300;
 // $body-color: $text-color-light;
