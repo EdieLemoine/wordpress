@@ -8,13 +8,10 @@ $atts = cs_atts( array(
 	'href' => $link
 ) );
 
-if ( $icon ) :
-	$icon = 'fa-' . $icon;
-endif;
 ?>
 
 <a <?php echo $atts ?>>
-	<div class="ep-cb-left"><i class="fa fa-fw <?php echo $icon ?>"></i></div>
+	<div class="ep-cb-left"><i class="fa <?php echo $icon ?>"></i></div>
 	<div class="ep-cb-right">
 		<?php if ( $ani_bar_toggle ) : ?>
 			<div class="ep-cb-ani-bar"></div>

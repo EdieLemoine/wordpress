@@ -9,19 +9,39 @@
   color: $text-color-light;
   border-radius: $global-border-radius;
   overflow: hidden;
+
   & + & {
-    margin-top: $global-spacing / 4;
+    margin-top: $global-spacing / 8;
   }
+
   .ep-cb-left {
     @include size( $input-height );
-    background-color: transparentize( $primary-color, 0.5 );
   }
+
   .ep-cb-right {
+    position: relative;
     flex: 1;
     display: flex;
     background-color: $primary-color;
     span {
       margin: auto 0 auto $global-spacing / 2;
+      z-index: z( 'front' );
     }
+  }
+
+  .ep-cb-left,
+  .ep-cb-ani-bar {
+    background-color: lighten( $primary-color, 15% );
+  }
+
+  .ep-cb-ani-bar {
+    width: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    @include fast-transition;
+  }
+  &:hover .ep-cb-ani-bar {
+    width: 100%;
   }
 }
