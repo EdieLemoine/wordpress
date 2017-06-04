@@ -14,33 +14,33 @@ $primary-color: #CC292D;
 // $background-color-dark: $black;
 
 // $text-color-light: $white;
-// $text-color-dark: $dark-gray;
+// $text-color-dark: $gray;
 
 ////////////
 // Global //
 ////////////
-// $container-width: 95%;
-// $container-max-width: 1000px;
+$container-width: 900px;
+$container-max-width: 90%;
 $global-border-radius: 10px;
 // $global-border-color: $primary-color;
 // $global-border-width: 3px;
-// $global-spacing: 2em;
+$global-spacing: 2em;
 
 //////////
 // Text //
 //////////
-// $heading-font: "Oswald";
-// $heading-font-external: true;
-$heading-font-weight: 100;
-$heading-text-transform: lowercase;
+$heading-font: "Dosis";
+// $heading-font-external: false;
+$heading-font-weight: 500;
+// $heading-text-transform: none;
 // $heading-color: $text-color-light;
-$heading-letter-spacing: 2px;
+// $heading-letter-spacing: 2px;
 
-$body-font: "Ubuntu Mono";
+$body-font: "Lato";
 // $body-font-external: true;
 $body-font-size: 18px;
 // $body-font-style: normal;
-// $body-font-weight: 300;
+$body-font-weight: 400;
 // $body-color: $text-color-light;
 // $body-line-height: 1.9;
 // $body-background-color: $background-color-dark;
@@ -48,15 +48,12 @@ $body-font-size: 18px;
 /////////////
 // Buttons //
 /////////////
-// $button-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
-// $button-font: 'heading';
-// $button-style-transition: none; // Grow | Shrink | none
-// $button-style-transition-rotation: 0; // Rotation on hover
-// $button-border-radius: $global-border-radius;
-// $button-border-width: $global-border-width;
+$button-style: 'transparent-invert'; // Transparent | Fill | Transparent-invert
+// $button-font: 'body';
 // $button-color: $text-color-light;
-// $button-background-color: $primary-color;
-// $button-active-background-color: $white;
+$button-background-color: $primary-color;
+$button-active-background-color: lighten( $button-background-color, 10% );
+$button-arrow: true;
 
 ////////////
 // Inputs //
@@ -64,8 +61,6 @@ $body-font-size: 18px;
 // $input-style: 'transparent'; // Transparent | Fill | Border-Fill | 3D
 // $input-style-transition: none; // Grow | Shrink | none
 // $input-style-transition-rotation: 0; // Rotation on hover
-// $input-border-radius: $global-border-radius;
-// $input-border-width: $global-border-width;
 // $input-border-color: transparent;
 // $input-active-border-color: $global-border-color;
 // $input-color: $text-color-dark;
@@ -101,9 +96,7 @@ $body-font-size: 18px;
 
 // Links //
 // $navbar-link-style: 'fill'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
-// $navbar-link-accent-width: $global-border-width;
 // $navbar-link-active-color: $primary-color;
-// $navbar-link-border-radius: $global-border-radius;
 // $navbar-fixed-link-active-color: $primary-color;
 
 // Brand //
@@ -120,10 +113,8 @@ $body-font-size: 18px;
 // $footer-top-padding: $global-spacing * 4;
 $footer-top-background-color: #222;
 // $footer-top-text-color: $text-color-light;
-// $footer-top-font-size: $body-font-size;
 
 // $footer-bottom-padding: $global-spacing * 0.5;
 // $footer-bottom-font: 'heading';
 // $footer-bottom-background-color: $primary-color;
 // $footer-bottom-text-color: $footer-top-text-color;
-// $footer-bottom-font-size: $body-font-size;

@@ -1,3 +1,10 @@
+@mixin active() {
+  &:active,
+  &:hover {
+    @content;
+  }
+}
+
 @mixin visible( $bool: true ) {
   @if $bool {
     opacity: 1;
@@ -28,7 +35,7 @@
   @if $all == true {
     color: $color;
   }
-  font-family: map-get( $fonts, $which );
+  font-family: map-get( $fonts, $which ), sans-serif;
   font-weight: $font-weight;
 }
 
@@ -150,17 +157,18 @@
 
 // Apply same border to varying sides of objects
 // Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
-@mixin border ( $sides... ) {
-  $style: $global-border-width solid $global-border-color;
-  @if ( $sides == '' ){
-    border: $style;
-  }
-  @else {
+@mixin border ( $color, $sides: '' ) {
+  $style: $global-border-width solid $color;
+  @warn $sides;
+  @if $sides != '' {
     @each $side in $sides {
-      @if ($side == 'top' or $side == 'right' or $side == 'bottom' or $side == 'left') {
+      @if $side == 'top' or $side == 'right' or $side == 'bottom' or $side == 'left' {
         border-#{$side}: $style;
       }
     }
+  }
+  @else {
+    border: $style;
   }
 }
 

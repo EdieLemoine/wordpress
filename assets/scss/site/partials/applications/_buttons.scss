@@ -2,183 +2,107 @@
   display: flex;
   align-content: stretch;
   flex-wrap: wrap;
-  @include break( 'medium', 'min' ) {
-    margin: -$global-spacing / 3;
+  .x-btn {
+    flex: 1 0 30%;
+    max-width: none;
+    margin: $global-spacing / 6;
+    @include break( 'medium' ) {
+      margin: $global-spacing / 8 0;
+      flex: 1 0 100%;
+    }
   }
-}
-.x-btn {
-  color: $button-color;
+  @include break( 'medium', 'min' ) {
+    margin: -$global-spacing / 6;
+  }
 }
 
 .x-btn {
   font-size: $body-font-size;
   line-height: normal;
   flex: 1;
-  max-width: $container-max-width / 2;
   display: block;
   padding: $global-spacing / 3 $global-spacing / 2;
+  border-radius: $global-border-radius;
   @include font( $button-font );
-
-  .ep-btn-group & {
-    flex: 1 0 30%;
-    max-width: none;
-    margin: $global-spacing / 3;
-  }
-
-
   @include fast-transition;
-  @include break( 'medium' ) {
-    .ep-btn-group & {
-      margin: $global-spacing / 4 0;
-      flex: 1 0 100%;
-    }
-  }
-
-  &::after {
-    content: ' ';
-    opacity: 0;
-    border-top: $global-border-width solid currentColor;
-    border-right: $global-border-width solid currentColor;
-    transform: rotate(45deg);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    @include size( $body-font-size );
-    @include fast-transition;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    padding-left: 0;
+  @if $button-arrow == true {
     &::after {
-      opacity: 1;
-      right: $global-spacing / 2;
+      content: ' ';
+      opacity: 0;
+      border-top: $global-border-width solid currentColor;
+      border-right: $global-border-width solid currentColor;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      @include size( $body-font-size * 0.75 );
+      @include fast-transition;
+    }
+
+    @include active {
+      padding-left: 0;
+      &::after {
+        opacity: 1;
+        right: $global-spacing / 2;
+      }
     }
   }
 
+  $button-invert-color: calculate-color( $button-background-color );
 
-  @if $button-style-transition == 'grow' {
-    &:active,
-    &:focus,
-    &:hover {
-      transform: scale(1.1) rotate(unquote($button-style-transition-rotation + 'deg'));
-    }
-  }
-
-  @elseif $button-style-transition == 'shrink' {
-    &:active,
-    &:focus,
-    &:hover {
-      transform: scale(0.9) rotate(unquote($button-style-transition-rotation + 'deg'));
-    }
-  }
-
-  @if $button-style == 'transparent' or $button-style == 'border-fill' {
+  @if $button-style == 'transparent' {
+    color: $button-background-color;
+    background-color: transparent;
     border-color: $button-background-color;
     border-width: $button-border-width;
-    border-radius: $button-border-radius;
-
-    @if $button-style == 'transparent' {
-      color: $button-background-color;
-      background-color: transparent;
+    .bg3 & {
+      color: $button-invert-color;
+      border-color: $button-invert-color;
     }
-    @else {
+    @include active {
+      color: $button-invert-color;
       background-color: $button-background-color;
-    }
-    @if $button-border-radius != 0 {
-      border-radius: $button-border-radius;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      color: $text-color-light;
-      // text-shadow: 0px 0px 3px transparentize($black, 0.5);
       border-color: $button-background-color;
-
-      @if $button-style == 'transparent' {
-        background-color: $button-background-color;
-      }
-      @else {
-        background-color: $button-active-background-color;
+      .bg3 & {
+        color: $button-background-color;
+        border-color: $button-invert-color;
       }
     }
   }
 
-  @elseif $button-style == 'fill' {
+  @if $button-style == 'transparent-invert' {
+    color: calculate-color( $button-background-color );
     background-color: $button-background-color;
+    @include border( $button-background-color );
+    @include active {
+      background-color: transparent;
+      color: $button-background-color;
+      border-color: $button-background-color; // Avoid override by x
+    }
+    .bg3 & {
+      color: $button-background-color;
+      background-color: $button-invert-color;
+      @include border( $button-invert-color );
+      @include active {
+        background-color: transparent;
+        color: $button-invert-color;
+      }
+    }
+  }
+
+  @if $button-style == 'fill' {
     border: none;
-    @if $button-border-radius != 0 {
-      border-radius: $button-border-radius;
+    color: calculate-color( $button-background-color );
+    background-color: $button-background-color;
+    .bg3 & {
+      color: $button-background-color;
+      background-color: $button-invert-color;
     }
+    @include active {
 
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: $button-active-background-color;
-    }
-  }
-}
-
-.x-scroll-top i {
-  line-height: 1;
-}
-
-.bg3 .x-btn {
-  $button-active-background-color: calculate-color( $primary-color );
-
-  @if $button-style == 'transparent' or $button-style == 'border-fill' {
-    border-color: $button-active-background-color;
-
-    @if $button-style == 'transparent' {
-      color: $button-active-background-color;
-    }
-    @else {
-      background-color: $button-active-background-color;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      border-color: $button-active-background-color;
-      color: calculate-color( $button-active-background-color );
-
-      @if $button-style == 'transparent' {
-        background-color: $button-active-background-color;
-      }
-      @else {
-        background-color: $button-active-background-color;
-      }
     }
   }
 
-  @elseif $button-style == 'fill' {
-    background-color: $button-active-background-color;
-
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: $button-active-background-color;
-    }
-  }
-
-  @elseif $button-style == '3D' {
-    $button-active-color1: lighten(desaturate(adjust-hue($button-active-background-color, 1.6391), 3.9715), 18.4314);
-    $button-active-color2: darken(desaturate(adjust-hue($button-active-background-color, -1.4903), 10.6695), 2.7451);
-    $button-active-color3: lighten(saturate(adjust-hue($button-active-background-color, -1.6925), 2.4568), 12.1569);
-    $button-active-color4: darken(desaturate(adjust-hue($button-active-background-color, -1.4903), 10.6695), 2.7451);
-    box-shadow: 0 1px 0 0 $button-active-color1 inset;
-    border: $button-border-width solid $button-active-background-color;
-    background: $button-active-color3 linear-gradient(to bottom, $button-active-color3 5%, $button-active-color4 100%) repeat scroll 0 0;
-    border-radius: $button-border-radius;
-
-    &:active,
-    &:focus,
-    &:hover {
-      background: $button-active-color2 linear-gradient(to bottom, $button-active-color2 5%, $button-active-color3 100%) repeat scroll 0 0;
-    }
-  }
 }

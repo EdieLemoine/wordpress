@@ -12,10 +12,9 @@
   position: relative;
   overflow: hidden;
   min-height: 50vh;
+  padding: $global-spacing * 2 0;
   @include break( 'medium' ) {
     flex-basis: 100% !important;
-    padding-top: $section-padding;
-    padding-bottom: $section-padding;
   }
   @include break( 'large' ) {
     min-height: none;

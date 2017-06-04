@@ -13,11 +13,23 @@
     border-radius: $global-border-radius;
     &:hover {
       background-color: transparentize($white, 0.9);
+      color: $white !important;
       border-color: transparent;
     }
     i {
       margin: auto;
       font-size: $global-spacing;
+    }
+  }
+}
+
+@each $site, $icon in $social {
+  a[class*="#{$site}"] {
+    &:hover {
+      background-color: map-get( $icon, color );
+    }
+    & i:before {
+      content: map-get( $icon, char );
     }
   }
 }
