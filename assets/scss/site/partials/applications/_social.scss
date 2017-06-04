@@ -9,13 +9,7 @@
     flex: 1 0 15%;
     padding: $global-spacing / 4;
     margin: $global-spacing / 8;
-    border: 1px solid transparentize($white, 0.9);
     border-radius: $global-border-radius;
-    &:hover {
-      background-color: transparentize($white, 0.9);
-      color: $white !important;
-      border-color: transparent;
-    }
     i {
       margin: auto;
       font-size: $global-spacing;
@@ -24,12 +18,25 @@
 }
 
 @each $site, $icon in $social {
+  $color: map-get( $icon, color );
+
   a[class*="#{$site}"] {
-    &:hover {
-      background-color: map-get( $icon, color );
+    i:before {
+      content: map-get( $icon, icon );
     }
-    & i:before {
-      content: map-get( $icon, char );
+    @if $social-style == 'fill' {
+      &:hover {
+        background-color: $color;
+        color: white !important;
+      }
+    }
+    @if $social-style == 'border' {
+      @include border;
+      &:hover {
+        background-color: transparentize( $white, 0.9 );
+        border-color: $color;
+        color: $color !important;
+      }
     }
   }
 }

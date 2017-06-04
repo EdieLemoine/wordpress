@@ -1,0 +1,98 @@
+//////////
+// Maps //
+//////////
+$fonts: (
+  body: $body-font,
+  heading: $heading-font
+);
+
+$z-layers: (
+  bg: -9999,
+  normal: 1,
+  front: 20,
+  high: 1200
+);
+
+$breakpoints: (
+  tiny: $breakpoint-tiny,
+  small: $breakpoint-small,
+  medium: $breakpoint-medium,
+  large: $breakpoint-large,
+  lumia950xl: 576px,
+  iphone6: 375px
+);
+
+$social: (
+  facebook: (
+    icon: "\f09a",
+    color: #3b5998
+  ),
+  twitter: (
+    icon: "\f099",
+    color: #55acee
+  ),
+  google-plus: (
+    icon: "\f0d5",
+    color: #DC4A38
+  ),
+  linkedin: (
+    icon: "\f0e1",
+    color: #0977b5
+  ),
+  xing: (
+    icon: '\f168',
+    color: #00605E
+  ),
+  foursquare: (
+    icon: '\f180',
+    color: #FA4778
+  ),
+  youtube: (
+    icon: '\f167',
+    color: #CD201F
+  ),
+  vimeo: (
+    icon: '\f27d',
+    color: #00ADEF
+  ),
+  instagram: (
+    icon: '\f16d',
+    color: #E02C70
+  ),
+  pinterest: (
+    icon: '\f231',
+    color: #BD081B
+  ),
+  dribbble: (
+    icon: "\f17d",
+    color: #ea4c89
+  ),
+  flickr: (
+    icon: '\f16e',
+    color: #0063C8
+  ),
+  github: (
+    icon: "\f09b",
+    color: #231f20
+  ),
+  behance: (
+    icon: '\f1b4',
+    color: #0B7CFF
+  ),
+  tumblr: (
+    icon: '\f173',
+    color: #39475D
+  ),
+  whatsapp: (
+    icon: '\f232',
+    color: #3EBE2B
+  ),
+  soundcloud: (
+    icon: '\f1be',
+    color: #FF5510
+  ),
+  rss: (
+    icon: "\f09e",
+    color: #ff6600
+  )
+);

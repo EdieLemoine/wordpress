@@ -157,7 +157,7 @@
 
 // Apply same border to varying sides of objects
 // Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
-@mixin border ( $color, $sides: '' ) {
+@mixin border ( $color: $global-border-color, $sides: '' ) {
   $style: $global-border-width solid $color;
   @warn $sides;
   @if $sides != '' {
