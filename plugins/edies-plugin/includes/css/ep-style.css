@@ -15,41 +15,6 @@
         -ms-flex-align: stretch;
             align-items: stretch; } }
 
-.ep-text {
-  padding: 4em 2em;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto; }
-
-.ep-bg-image {
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 50vh;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
-  @media (max-width: 979px) {
-    .ep-bg-image {
-      min-height: 600px; } }
-
-.ep-subtitle {
-  margin: 0;
-  color: #cc292d;
-  font-size: 16px; }
-
-.ep-heading {
-  margin: 0;
-  font-size: 32px;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto; }
-
 .ep {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -365,7 +330,7 @@
   .ep-contactbox-item .ep-cb-left {
     width: 50px;
     height: 50px;
-    background-color: rgba(204, 41, 45, 0.5); }
+    background-color: rgba(239, 72, 62, 0.5); }
   .ep-contactbox-item .ep-cb-right {
     -webkit-flex: 1;
         -ms-flex: 1;
@@ -373,7 +338,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    background-color: #cc292d; }
+    background-color: #EF483E; }
     .ep-contactbox-item .ep-cb-right span {
       margin: auto 0 auto 1em; }
 
@@ -546,7 +511,7 @@
     display: -ms-flexbox;
     display: flex;
     position: absolute;
-    background: #cc292d;
+    background: #EF483E;
     color: #fff;
     opacity: 0.5;
     cursor: pointer;

@@ -1,5 +1,11 @@
 <?php
 
+function ep_atts( $atts ) {
+  foreach ( $atts as $key => $value ) {
+    echo $key . "=\"$value\"" . PHP_EOL;
+  }
+}
+
 function ep_part( $part ) {
   $file = DIR_FRAMEWORK . '/parts/ep-' . $part . '.php';
 
@@ -20,5 +26,5 @@ function ep_button( $link = null, $text = "Bewerken" ) {
     endif;
   endif;
 
-  echo do_shortcode( "[x_button class='x-btn x-btn-global' href='$link']" . $text . "[/x_button]" );
+  echo do_shortcode( "[x_button class='x-btn' href='$link']" . $text . "[/x_button]" );
 }

@@ -1,4 +1,3 @@
-style.css
 .DS_Store
 node_modules
 .sass-cache
@@ -6,3 +5,5 @@ style.css.map
 test.html
 dist/js/script.min.js
 x
+**/*.css
+**/*.map
