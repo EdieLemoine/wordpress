@@ -1,12 +1,12 @@
 
 .ep-col[class*="ep-1-"] {
-  @include break('small') {
+  @include break('s') {
     width: 100%;
   }
-  @include break('medium') {
+  @include break('m') {
     width: 50%;
   }
-  @include break('large') {
+  @include break('l') {
     width: calc(100% / 3);
     h2 {
       font-size: 200%;

@@ -1,7 +1,11 @@
 .ep-row {
-  @include break( 'large', 'min' ) {
+  overflow: hidden;
+  @include break( 'l', 'min' ) {
     display: flex;
     align-items: stretch;
+  }
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
   }
 }
 
@@ -11,16 +15,16 @@
   align-content: stretch;
   position: relative;
   overflow: hidden;
-  min-height: 50vh;
-  padding: $global-spacing * 2 0;
-  @include break( 'medium' ) {
+  @include break( 'l', 'min' ) {
+    min-height: 50vh;
+  }
+  @include break( 'm' ) {
+    width: 100%;
     flex-basis: 100% !important;
   }
-  @include break( 'large' ) {
-    min-height: none;
-    width: 100%;
+  .x-container {
+    margin: auto;
   }
-
   // Create grid structure
   @for $a from 1 through 12 {
     @for $b from 1 through 12 {

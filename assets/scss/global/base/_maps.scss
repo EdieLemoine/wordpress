@@ -14,10 +14,12 @@ $z-layers: (
 );
 
 $breakpoints: (
-  tiny: $breakpoint-tiny,
-  small: $breakpoint-small,
-  medium: $breakpoint-medium,
-  large: $breakpoint-large,
+  xs: 339px,
+  s: 443px,
+  m: 676px,
+  l: 979px,
+  xl: 1400px,
+  xxl: 2160px,
   lumia950xl: 576px,
   iphone6: 375px
 );

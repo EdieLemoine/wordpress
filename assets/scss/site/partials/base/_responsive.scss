@@ -1,17 +1,25 @@
-@include break( 'tiny' ) {
-  @import '../responsive/breakpoint-tiny';
+@include break( 'xs' ) {
+  @import '../responsive/breakpoint-xs';
 }
 
-@include break( 'small' ) {
-  @import '../responsive/breakpoint-small';
+@include break( 's' ) {
+  @import '../responsive/breakpoint-s';
 }
 
-@include break( 'medium' ) {
-  @import '../responsive/breakpoint-medium';
+@include break( 'm' ) {
+  @import '../responsive/breakpoint-m';
 }
 
-@include break( 'large' ) {
-  @import '../responsive/breakpoint-large';
+@include break( 'l' ) {
+  @import '../responsive/breakpoint-l';
+}
+
+@include break( 'xl' ) {
+  @import '../responsive/breakpoint-xl';
+}
+
+@include break( 'xxl' ) {
+  @import '../responsive/breakpoint-xxl';
 }
 
 @media print {

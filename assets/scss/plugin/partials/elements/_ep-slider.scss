@@ -8,16 +8,16 @@
     display: flex;
     position: absolute;
     background: $primary-color;
-    color: $text-color-light;
+    color: $base-color-light;
     opacity: 0.5;
     cursor: pointer;
     @include fast-transition;
     @include size( $global-spacing );
-    @include break( 'large' ) {
+    @include break( 'l' ) {
       top: 0;
     }
 
-    @include break( 'large', 'min' ) {
+    @include break( 'l', 'min' ) {
       bottom: 0;
     }
 
@@ -46,7 +46,7 @@
     opacity: 1;
   }
 
-  @include break( 'large' ) {
+  @include break( 'l' ) {
     min-height: 500px;
   }
   
