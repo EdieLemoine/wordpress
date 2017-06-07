@@ -92,17 +92,16 @@ class EP_Templates extends Edies_Plugin {
 	}
 
 	public function set_single_template( $template ) {
-		if ( get_post_type() == 'ep-kraam' OR get_post_type() == 'ep-winkel' ) {
-      $template = 'ep-vendor-template.php';
-			$template = DIR_TEMPLATES . $template;
-    }
+		// if ( get_post_type() == '' ) {
+    //   $template = DIR_TEMPLATES . 'ep-single.php';
+    // }
     return $template;
 	}
+
 	public function set_archive_template( $template ) {
-		if ( is_tax( 'winkel-cat' ) OR is_tax( 'kraam-cat' ) ) {
-      $template = 'ep-category-template.php';
-			$template = DIR_TEMPLATES . $template;
-    }
+		// if ( is_tax( 'tax' ) ) {
+    //   $template = DIR_TEMPLATES . 'ep-archive.php';
+    // }
     return $template;
 	}
 }
