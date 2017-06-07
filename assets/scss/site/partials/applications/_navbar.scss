@@ -102,12 +102,12 @@
   // All menu items
   li a {
     margin: auto;
-    color: $navbar-text-color;
-    font-size: $navbar-text-font-size;
+    color: $navbar-color;
+    font-size: $navbar-font-size;
     @include fast-transition;
-    @include font( $navbar-text-font );
+    @include font( $navbar-font );
     @include active {
-      color: $navbar-text-hover-color;
+      color: $navbar-hover-color;
     }
 
     span {
@@ -151,7 +151,7 @@
     flex-direction: column;
     list-style: none;
     margin: 0;
-    color: $navbar-text-color;
+    color: $navbar-color;
     overflow: hidden;
     @include simple-transition;
 
@@ -183,20 +183,20 @@
 ///////////////////
 .masthead .x-navbar .x-navbar-inner .x-btn-navbar {
   box-shadow: none;
-  @include break( 'medium', 'min') {
+  @include break( 'm', 'min') {
     display: none;
   }
   @if $navbar-link-style == 'fill' {
-    // padding: ($navbar-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
+    // padding: ($navbar-height - $navbar-font-size) / 2 $navbar-text-spacing;
     height: auto;
     border-radius: 0;
   }
 
   i {
-    font-size: $navbar-text-font-size;
-    color: $navbar-text-color;
+    font-size: $navbar-font-size;
+    color: $navbar-color;
     @include active {
-      color: $navbar-text-hover-color;
+      color: $navbar-hover-color;
     }
   }
 }
@@ -296,7 +296,7 @@
 .masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li > a:hover,
 .masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li.current-menu-item > a,
 .masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav > li.x-active > a {
-  color: $navbar-text-hover-color;
+  color: $navbar-hover-color;
 
   @if $navbar-link-style == 'fill' {
     background-color: $navbar-fixed-link-active-color;
@@ -319,7 +319,7 @@
 .masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap .x-nav > li > a:hover,
 .masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap .x-nav > li.current-menu-item > a,
 .masthead .x-navbar.x-navbar-fixed-top .x-navbar-inner .x-nav-wrap .x-nav > li.x-active > a {
-  color: $navbar-text-hover-color;
+  color: $navbar-hover-color;
 
   @if $navbar-link-style == 'fill' {
     background-color: $navbar-fixed-link-active-color;
@@ -356,7 +356,7 @@
   li.x-active > a,
   li > a:hover,
   .current-menu-item > a {
-    color: $navbar-text-hover-color;
+    color: $navbar-hover-color;
 
     @if $navbar-link-style == 'fill' {
       background-color: $navbar-link-active-color;
@@ -409,7 +409,7 @@
 //
 //     & > li > a {
 //       border: $global-border-width solid transparent;
-//       // margin: ($navbar-height - ($navbar-text-font-size + (($navbar-height / 6) * 2) + ($global-border-width * 2))) / 2 ($navbar-text-spacing / 2);
+//       // margin: ($navbar-height - ($navbar-font-size + (($navbar-height / 6) * 2) + ($global-border-width * 2))) / 2 ($navbar-text-spacing / 2);
 //       // padding: $navbar-height / 6 !important;
 //       // height: auto;
 //

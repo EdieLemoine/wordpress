@@ -1,51 +1,37 @@
-@if $heading-font-external == false {
-  @font-face {
-    font-family: $heading-font;
-    src: url('./dist/fonts/' + unquote($heading-font) + '.woff2') format('woff2'),
-         url('./dist/fonts/' + unquote($heading-font) + '.woff') format('woff');
+@each $type, $attr in $fonts {
+  @if map-get( $attr, "google" ) == true {
+    $atts: map-get( $attr, "atts" );
+    $font: to_lower_case( str-replace( map-get( $attr, "family" ), " ", "+" ) ) + ":" + map-get( $atts, "font-weight" );
+    @import url( "https://fonts.googleapis.com/css?family=#{$font}" );
   }
-}
-
-@if $body-font-external == false {
-  @font-face {
-    font-family: $body-font;
-    src: url('./dist/fonts/' + unquote($body-font) + '.woff2') format('woff2'),
-         url('./dist/fonts/' + unquote($body-font) + '.woff') format('woff');
+  @else {
+    $file: to_lower_case( str-replace( map-get( $attr, "family" ), ' ', '-' ) );
+    @font-face {
+      font-family: map-get( $attr, "family" );
+      src: url( "dist/fonts/" + $file + ".woff2" ) format( "woff2" ),
+           url( "dist/fonts/" + $file + ".woff" ) format( "woff" );
+    }
   }
-}
-
-@if $body-font-external == true or $heading-font-external == true {
-  $separator: '';
-  $body-font-string: '';
-  $heading-font-string: '';
-
-  @if $body-font-external == true  {
-    $body: str-replace( map-get( $fonts, 'body' ), ' ', '+' );
-    $body-font-string: $body + ':' + $body-font-weight;
-  }
-  @if $heading-font-external == true {
-    $heading: str-replace( map-get( $fonts, 'heading' ), ' ', '+' );
-    $heading-font-string: $heading + ':' + $heading-font-weight;
-  }
-  @if $body-font-external == true and $heading-font-external == true {
-    $separator: '|';
-  }
-
-  $font: $body-font-string + $separator + $heading-font-string;
-  @import url('https://fonts.googleapis.com/css?family=#{$font}');
 }
 
 #{headings()} {
-  @include font( 'heading', true );
+  @include font( 'heading' );
 }
 
 body {
-  @include font( 'body', true );
+  @include font( 'body' );
   background-color: $body-background-color;
+  font-size: font-attr( "body", "font-size" );
+  @include break( 'l' ) {
+    font-size: font-attr( "body", "font-size" ) * 0.85;
+  }
+  @include break( 'xxl', 'min' ) {
+    font-size: font-attr( "body", "font-size" ) * 1.25;
+  }
 }
 
 @if $navbar-brand-image == false {
   .x-brand {
-    @include font( 'heading', true );
+    @include font( 'heading' );
   }
 }

@@ -32,7 +32,7 @@ form.wpcf7-form span > input {
   display: flex;
   align-content: stretch;
   margin-bottom: $global-spacing / 4;
-  @include break( 'medium' ) {
+  @include break( 'm' ) {
     flex-direction: column;
     & > div:nth-child(2) span {
       margin-top: $global-spacing / 4;
@@ -45,7 +45,7 @@ form.wpcf7-form span > input {
     flex: 1;
     display: flex;
     &:nth-child(1) {
-      @include break( 'medium', 'min' ) {
+      @include break( 'm', 'min' ) {
         margin-right: $global-spacing / 4;
       }
       display: flex;

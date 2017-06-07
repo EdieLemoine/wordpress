@@ -8,42 +8,26 @@ html {
   }
 }
 
-
 // .ep-row:hover .madog-paw .cls-1 {
 //   fill: $black;
 // }
 
-.ep-row:nth-child(2n) .madog-paw {
-  right: 0;
-}
 
-@include break( 'large', 'min' ) {
-  #ep-top {
-    display: flex;
-    flex-direction: column;
-  }
-  #ep-top .x-container {
-    margin: auto;
-  }
-}
 
 
 
 #top h1 {
   margin-top: 0;
   font-size: $global-spacing * 1.5;
-  @include break('large') {
+  @include break('l') {
     font-size: $global-spacing;
   }
-  @include break('small') {
+  @include break('s') {
     font-size: $global-spacing * 0.9;
   }
 }
 
 body {
-  @include break('large') {
-    font-size: $body-font-size * 0.85;
-  }
 }
 
 #ep-top .bg3 {

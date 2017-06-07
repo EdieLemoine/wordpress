@@ -1,3 +1,8 @@
+// Quickly get attr from chosen font type
+@function font-attr( $type, $attr ) {
+  @return map-get( map-get( map-get( $fonts, $type ), "atts"), $attr);
+}
+
 // Get preset z-index from map
 // Usage: z-index: z( above-header );
 @function z($key) {
@@ -12,7 +17,7 @@
 // Usage: str-replace( 'this is a string', ' ', '-' );
 // Output: 'this-is-a-string'
 @function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
+  $index: str-index( $string, $search );
   @if $index {
     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
@@ -36,9 +41,9 @@
 
 @function calculate-color( $color ) {
   @if lightness( $color ) > 50 {
-    @return $text-color-dark;
+    @return $base-color-dark;
   }
   @else {
-    @return $text-color-light;
+    @return $base-color-light;
   }
 }

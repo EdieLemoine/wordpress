@@ -6,8 +6,8 @@
   align-content: stretch;
   a {
     position: relative;
-    flex: 1 0 15%;
-    padding: $global-spacing / 4;
+    flex: 1 0 10%;
+    padding: $global-spacing / 2 $global-spacing / 4;
     margin: $global-spacing / 8;
     border-radius: $global-border-radius;
     i {

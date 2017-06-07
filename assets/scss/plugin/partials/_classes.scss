@@ -1,35 +1,60 @@
 .ep-text {
   display: flex;
   hyphens: auto;
+  padding: $global-spacing * 2 0;
 }
 
 .ep-subtitle {
   margin: 0;
   color: transparentize( $primary-color, 0 );
-  font-size: $body-font-size;
+  font-size: font-attr( "body", "font-size" );
 }
 
 .ep-heading {
   margin: 0;
-  font-size: $body-font-size * 2.5;
+  font-size: font-attr( "body", "font-size" ) * 2.5;
   hyphens: auto;
 }
 
-.ep-bg-image {
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 50vh;
-  @include break( 'large') {
-    min-height: 600px;
-  }
+.ep-bg-image-wrapper {
+  min-height: 500px;
   display: flex;
   flex: 1;
-  & > a {
+  overflow: hidden;
+  @include simple-transition;
+  a {
     flex: 1;
     display: flex;
   }
   .ep-heading {
     margin: auto;
     color: $white;
+    z-index: z( 'front' );
+    @include fast-transition;
   }
+  a::after {
+    content: ' ';
+    position: absolute;
+    background-color: transparent;
+    @include pos;
+    @include simple-transition;
+  }
+  &:hover {
+    transform: scale( 1.35 );
+  }
+  &:hover a {
+    .ep-heading {
+      transform: scale(1.25);
+    }
+    &::after {
+      background-color: transparentize( $black, 0.5 );
+    }
+  }
+}
+
+.ep-bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  @include pos;
 }

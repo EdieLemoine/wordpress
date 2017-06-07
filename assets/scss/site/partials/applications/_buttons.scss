@@ -6,21 +6,22 @@
     flex: 1 0 30%;
     max-width: none;
     margin: $global-spacing / 6;
-    @include break( 'medium' ) {
+    @include break( 'm' ) {
       margin: $global-spacing / 8 0;
       flex: 1 0 100%;
     }
   }
-  @include break( 'medium', 'min' ) {
+  @include break( 'm', 'min' ) {
     margin: -$global-spacing / 6;
   }
 }
 
 .x-btn {
-  font-size: $body-font-size;
+  font-size: font-attr( "body", "font-size" );
   line-height: normal;
   flex: 1;
   display: block;
+  align-content: center;
   padding: $global-spacing / 3 $global-spacing / 2;
   border-radius: $global-border-radius;
   @include font( $button-font );
@@ -37,7 +38,7 @@
       bottom: 0;
       right: 0;
       margin: auto;
-      @include size( $body-font-size * 0.75 );
+      @include size( font-attr( "body", "font-size" ) * 0.75 );
       @include fast-transition;
     }
 

@@ -17,26 +17,12 @@
 }
 
 // Fonts
-@mixin font( $which, $all: false ) {
-  $color: null;
-  $font-weight: null;
-  @if $which == 'heading' {
-    $color: $heading-color;
-    $font-weight: $heading-font-weight;
-    text-transform: $heading-text-transform;
-    letter-spacing: $heading-letter-spacing;
+@mixin font( $type ) {
+  $map: map-get( $fonts, $type );
+  font-family: unquote( map-get( $map, "family" ) + ", " + map-get( $map, "fallback" ) );
+  @each $var, $val in map-get( $map, "atts" ) {
+    #{$var}: $val;
   }
-  @elseif $which == 'body' {
-    $color: $body-color;
-    $font-weight: $body-font-weight;
-    font-size: $body-font-size;
-    font-style: $body-font-style;
-  }
-  @if $all == true {
-    color: $color;
-  }
-  font-family: map-get( $fonts, $which ), sans-serif;
-  font-weight: $font-weight;
 }
 
 // Media Query
@@ -74,9 +60,9 @@
 
 @mixin background( $color: $primary-color, $tint: null, $all: false) {
   @if $color == 'dark' {
-    $color: $background-color-dark;
+    $color: $base-color-dark;
   } @elseif $color == 'light' {
-    $color: $background-color-light;
+    $color: $base-color-light;
   }
 
   @if $tint == null {
@@ -159,7 +145,6 @@
 // Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
 @mixin border ( $color: $global-border-color, $sides: '' ) {
   $style: $global-border-width solid $color;
-  @warn $sides;
   @if $sides != '' {
     @each $side in $sides {
       @if $side == 'top' or $side == 'right' or $side == 'bottom' or $side == 'left' {

@@ -2,9 +2,26 @@
 // Maps //
 //////////
 $fonts: (
-  body: $body-font,
-  heading: $heading-font
-);
+  heading: (
+    family: "Oswald",
+    google: true,
+    fallback: serif,
+    atts: (
+      font-weight: 400,
+      letter-spacing: 2px,
+      text-transform: uppercase
+    )
+  ),
+  body: (
+    family: "Roboto Condensed",
+    google: true,
+    fallback: sans-serif,
+    atts: (
+      font-weight: 300,
+      font-size: 16px
+    )
+  )
+) !default;
 
 $z-layers: (
   bg: -9999,

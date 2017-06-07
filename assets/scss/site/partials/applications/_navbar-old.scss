@@ -11,11 +11,11 @@
     float: right;
     li a {
       // All menu items
-      font-size: $navbar-text-font-size;
-      font-family: $navbar-text-font;
+      font-size: $navbar-font-size;
+      font-family: $navbar-font;
       text-transform: $navbar-text-transform;
       font-weight: $navbar-font-weight;
-      color: $navbar-text-color;
+      color: $navbar-color;
     }
 
     & > li {
@@ -29,7 +29,7 @@
       .sub-menu {
         // All submenus
         background-color: $navbar-submenu-background-color;
-        color: $navbar-text-color;
+        color: $navbar-color;
         border: 0;
         padding: $navbar-submenu-padding;
 
@@ -47,12 +47,12 @@
 
       & > a {
         padding-top: $navbar-height / 2.4;
-        font-size: $navbar-text-font-size;
-        font-family: $navbar-text-font;
+        font-size: $navbar-font-size;
+        font-family: $navbar-font;
 
         @if $navbar-link-style == 'fill'
          or $navbar-link-style == 'fade' {
-          padding: ($navbar-height - $navbar-text-font-size) / 2 0;
+          padding: ($navbar-height - $navbar-font-size) / 2 0;
         }
 
         @if $navbar-link-style == 'fade' {
@@ -61,7 +61,7 @@
 
         @if $navbar-link-style == 'border'
          or $navbar-link-style == 'pill-border' {
-          $local-spacing: (($navbar-height - $navbar-text-font-size) - ($global-border-width * 2)) / 4;
+          $local-spacing: (($navbar-height - $navbar-font-size) - ($global-border-width * 2)) / 4;
           border: $global-border-width solid transparent;
           margin: $local-spacing $navbar-text-spacing 0;
           padding: $local-spacing;
@@ -69,7 +69,7 @@
 
         @if $navbar-link-style == 'rectangle'
          or $navbar-link-style == 'pill' {
-          $local-spacing: ($navbar-height - $navbar-text-font-size) / 4;
+          $local-spacing: ($navbar-height - $navbar-font-size) / 4;
           margin: $local-spacing $navbar-text-spacing 0;
           padding: $local-spacing;
         }
@@ -86,12 +86,12 @@
 
         & > span {
           padding: 0;
-          font-size: $navbar-text-font-size;
+          font-size: $navbar-font-size;
 
           &,
           i {
             @include fast-transition;
-            color: $navbar-text-color;
+            color: $navbar-color;
           }
         }
       }
@@ -113,7 +113,7 @@
   }
 
   &.x-nav-wrap > li  > a {
-    font-family: $navbar-text-font;
+    font-family: $navbar-font;
     letter-spacing: 0;
     text-transform: $navbar-text-transform;
 
@@ -141,24 +141,24 @@
 // Mobile button //
 ///////////////////
 .masthead .x-navbar .x-navbar-inner .x-btn-navbar {
-  @include break( 'medium', 'min') {
+  @include break( 'm', 'min') {
     display: none;
   }
   box-shadow: none;
   @if $navbar-link-style == 'fill' {
-    padding: ($navbar-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
+    padding: ($navbar-height - $navbar-font-size) / 2 $navbar-text-spacing;
     height: auto;
     border-radius: 0;
   }
 
   i {
-    font-size: $navbar-text-font-size;
-    color: $navbar-text-color;
+    font-size: $navbar-font-size;
+    color: $navbar-color;
   }
 
   &:hover {
     i {
-      color: $navbar-text-hover-color;
+      color: $navbar-hover-color;
     }
   }
 }
@@ -305,7 +305,7 @@
 
           @if $navbar-link-style == 'border'
            or $navbar-link-style == 'pill-border' {
-            $local-spacing: (($navbar-fixed-height - $navbar-text-font-size) - ($global-border-width * 2)) / 4;
+            $local-spacing: (($navbar-fixed-height - $navbar-font-size) - ($global-border-width * 2)) / 4;
             border: $global-border-width solid transparent;
             margin: $local-spacing ($navbar-text-spacing / 2) 0 ($navbar-text-spacing / 2);
             padding: $local-spacing ($navbar-text-spacing / 2) !important;
@@ -314,14 +314,14 @@
 
           @if $navbar-link-style == 'rectangle'
            or $navbar-link-style == 'pill' {
-            $local-spacing: ($navbar-fixed-height - $navbar-text-font-size) / 4;
+            $local-spacing: ($navbar-fixed-height - $navbar-font-size) / 4;
             margin: $local-spacing $navbar-text-spacing 0;
             padding: $local-spacing;
             height: auto;
           }
 
           @elseif $navbar-link-style == 'fill' {
-            padding: ($navbar-fixed-height - $navbar-text-font-size) / 2 $navbar-text-spacing;
+            padding: ($navbar-fixed-height - $navbar-font-size) / 2 $navbar-text-spacing;
           }
           span {
             color: $navbar-fixed-text-color;
@@ -337,11 +337,11 @@
     .x-nav-wrap .x-nav > li.current-menu-item > a,
     .x-nav-wrap .x-nav > li.x-active > a,
     .x-nav-wrap .x-nav > li.x-active > a > span {
-      // color: $navbar-text-hover-color !important;
+      // color: $navbar-hover-color !important;
       //
       // & > span,
       // & > span i {
-      //   color: $navbar-text-hover-color;
+      //   color: $navbar-hover-color;
       // }
 
       @if $navbar-link-style == 'fill' {
@@ -377,7 +377,7 @@
     // &,
     // & > span,
     // & > span i {
-    //   color: $navbar-text-hover-color;
+    //   color: $navbar-hover-color;
     // }
 
     @if $navbar-link-style == 'fill' {
@@ -438,7 +438,7 @@
 
     & > li > a {
       border: $global-border-width solid transparent;
-      margin: ($navbar-height - ($navbar-text-font-size + (($navbar-height / 6) * 2) + ($global-border-width * 2))) / 2 ($navbar-text-spacing / 2);
+      margin: ($navbar-height - ($navbar-font-size + (($navbar-height / 6) * 2) + ($global-border-width * 2))) / 2 ($navbar-text-spacing / 2);
       padding: $navbar-height / 6 !important;
       height: auto;
 
@@ -489,5 +489,5 @@ body.x-navbar-fixed-top-active .x-navbar-wrap {
 }
 
 .masthead {
-  background-color: $background-color-light;
+  background-color: $base-color-light;
 }

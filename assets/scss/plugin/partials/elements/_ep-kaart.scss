@@ -1,7 +1,7 @@
 .gm-style-mtc > div { // Map/Satellite buttons
-  background-color: $background-color-dark !important;
-  color: $text-color-light !important;
-  // background: $background-color-dark !important;
+  background-color: $base-color-dark !important;
+  color: $base-color-light !important;
+  // background: $base-color-dark !important;
 }
 
 .gm-style-cc {
@@ -13,7 +13,7 @@
   width: 500px;
   max-width: 60vw;
   h2, p {
-    color: $text-color-dark;
+    color: $base-color-dark;
   }
   h2 {
     hyphens: auto;

@@ -1,17 +1,10 @@
+@import "maps";
 @import '../../edit';
-
-/////////////////
-// Breakpoints //
-/////////////////
-$breakpoint-tiny: 339px !default;
-$breakpoint-small: 443px !default;
-$breakpoint-medium: 676px !default;
-$breakpoint-large: 979px !default;
 
 ////////////
 // Colors //
 ////////////
-$primary-color: #cc292d !default;
+$primary-color: #CC292D !default;
 $secondary-color: lighten($primary-color, 20%) !default;
 
 $black: #000 !default;
@@ -20,10 +13,9 @@ $gray: #333 !default;
 $light-gray: #ccc !default;
 $white: #fff !default;
 
-$background: #eee !default;
-
-$background-color-light: $white !default;
-$background-color-dark: $dark-gray !default;
+$base-color-light: $white !default;
+$base-color-dark: $dark-gray !default;
+@import 'functions';
 
 ////////////
 // Global //
@@ -38,17 +30,7 @@ $global-spacing: 2em !default;
 //////////
 // Text //
 //////////
-$text-color-light: $white !default;
-$text-color-dark: $dark-gray !default;
-
-@import 'functions';
-
-$body-font: 'Open Sans' !default;
-$body-font-external: true !default;
-$body-font-size: 16px !default;
-$body-font-style: normal !default;
-$body-font-weight: 300 !default;
-$body-background-color: $background-color-light !default;
+$body-background-color: $base-color-light !default;
 $body-color: calculate-color( $body-background-color ) !default;
 $body-line-height: 1.9 !default;
 
@@ -81,7 +63,7 @@ $input-height: 50px !default;
 $input-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
 $input-border-color: transparent !default;
 $input-active-border-color: $global-border-color !default;
-$input-background-color: $background-color-light !default;
+$input-background-color: $base-color-light !default;
 $input-active-background-color: $secondary-color !default;
 $input-color: calculate-color( $input-background-color ) !default;
 
@@ -100,13 +82,10 @@ $navbar-fixed-height: $navbar-height !default;
 $navbar-submenu-padding: 0 !default;
 
 // Text //
-$navbar-text-font-size: $body-font-size !default;
-$navbar-text-font: 'heading' !default;
-$navbar-text-color: calculate-color( $navbar-background-color ) !default;
-$navbar-text-hover-color: darken($navbar-text-color, 15) !default;
-$navbar-text-transform: $heading-text-transform !default;
-$navbar-font-weight: $heading-font-weight !default;
-$navbar-text-spacing: 10px !default; // Horizontal padding of list items
+$navbar-font-size: font-attr( "body", "font-size" ) !default;
+$navbar-font: 'heading' !default;
+$navbar-color: calculate-color( $navbar-background-color ) !default;
+$navbar-hover-color: darken($navbar-color, 15) !default;
 
 // Links //
 $navbar-link-style: 'fill' !default; // Underline | Fill | Border | Rectangle | Pill | Pill-border
@@ -115,10 +94,8 @@ $navbar-fixed-link-active-color: $navbar-link-active-color !default;
 
 // Brand //
 $navbar-brand-image: true !default;
-$navbar-brand-height: 76px !default;
-$navbar-fixed-brand-height: $navbar-brand-height !default;
-$navbar-brand-center: false !default;
-$navbar-brand-circle: false !default;
+$navbar-brand-height: $navbar-height * 0.75 !default;
+$navbar-fixed-brand-height: $navbar-fixed-height * 0.95 !default;
 
 ////////////
 // Footer //
@@ -126,11 +103,9 @@ $navbar-brand-circle: false !default;
 $footer-top-padding: $global-spacing * 4 !default;
 $footer-top-background-color: $primary-color !default;
 $footer-top-text-color: calculate-color( $footer-top-background-color ) !default;
-$footer-top-font-size: $body-font-size !default;
+$footer-top-font-size: font-attr( "body", "font-size" ) !default;
 
 $footer-bottom-padding: $global-spacing !default;
 $footer-bottom-font: 'heading' !default;
 $footer-bottom-background-color: darken( $footer-top-background-color, 15% ) !default;
 $footer-bottom-text-color: calculate-color( $footer-bottom-background-color ) !default;
-
-@import "maps";

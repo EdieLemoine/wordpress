@@ -16,9 +16,6 @@ $primary-color: #CC292D;
 
 
 
-
-
-
 $container-width: 900px;
 $container-max-width: 90%;
 $global-border-radius: 10px;
@@ -29,18 +26,28 @@ $global-spacing: 2em;
 
 
 
-$heading-font: "Dosis";
+$fonts: (
+  heading: (
+    family: "Dosis",
+    google: true,
+    fallback: serif,
+    atts: (
+      font-weight: 400,
+      letter-spacing: 2px,
+      text-transform: uppercase
+    )
+  ),
+  body: (
+    family: "Lato",
+    google: true,
+    fallback: sans-serif,
+    atts: (
+      font-weight: 300,
+      font-size: 16px
+    )
+  )
+);
 
-$heading-font-weight: 500;
-
-
-
-
-$body-font: "Lato";
-
-$body-font-size: 18px;
-
-$body-font-weight: 400;
 
 
 
@@ -53,7 +60,7 @@ $button-style: 'transparent-invert';
 
 $button-background-color: $primary-color;
 $button-active-background-color: lighten( $button-background-color, 10% );
-$button-arrow: true;
+$button-arrow: false;
 
 
 
@@ -86,12 +93,7 @@ $button-arrow: true;
 
 
 
-
-
-
-
-
-
+$navbar-font: 'heading';
 
 
 

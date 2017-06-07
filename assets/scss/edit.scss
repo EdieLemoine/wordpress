@@ -10,11 +10,8 @@ $primary-color: #CC292D;
 // $light-gray: #ccc;
 // $white: #fff;
 
-// $background-color-light: $white;
-// $background-color-dark: $black;
-
-// $text-color-light: $white;
-// $text-color-dark: $gray;
+// $base-color-light: $white;
+// $base-color-dark: $black;
 
 ////////////
 // Global //
@@ -29,31 +26,41 @@ $global-spacing: 2em;
 //////////
 // Text //
 //////////
-$heading-font: "Dosis";
-// $heading-font-external: false;
-$heading-font-weight: 500;
-// $heading-text-transform: none;
-// $heading-color: $text-color-light;
-// $heading-letter-spacing: 2px;
+$fonts: (
+  heading: (
+    family: "Dosis",
+    google: true,
+    fallback: serif,
+    atts: (
+      font-weight: 400,
+      letter-spacing: 2px,
+      text-transform: uppercase
+    )
+  ),
+  body: (
+    family: "Lato",
+    google: true,
+    fallback: sans-serif,
+    atts: (
+      font-weight: 300,
+      font-size: 16px
+    )
+  )
+);
 
-$body-font: "Lato";
-// $body-font-external: true;
-$body-font-size: 18px;
-// $body-font-style: normal;
-$body-font-weight: 400;
-// $body-color: $text-color-light;
+// $body-color: $base-color-light;
 // $body-line-height: 1.9;
-// $body-background-color: $background-color-dark;
+// $body-background-color: $base-color-dark;
 
 /////////////
 // Buttons //
 /////////////
 $button-style: 'transparent-invert'; // Transparent | Fill | Transparent-invert
 // $button-font: 'body';
-// $button-color: $text-color-light;
+// $button-color: $base-color-light;
 $button-background-color: $primary-color;
 $button-active-background-color: lighten( $button-background-color, 10% );
-$button-arrow: true;
+$button-arrow: false;
 
 ////////////
 // Inputs //
@@ -63,7 +70,7 @@ $button-arrow: true;
 // $input-style-transition-rotation: 0; // Rotation on hover
 // $input-border-color: transparent;
 // $input-active-border-color: $global-border-color;
-// $input-color: $text-color-dark;
+// $input-color: $base-color-dark;
 // $input-background-color: $white;
 // $input-active-background-color: $secondary-color;
 // $input-height: $global-spacing * 1.5;
@@ -85,13 +92,11 @@ $button-arrow: true;
 // $navbar-submenu-padding: 0;
 
 // Text //
-// $navbar-text-font-size: 18px;
-// $navbar-text-font: $heading-font;
-// $navbar-text-color: $text-color-dark;
-// $navbar-fixed-text-color: $text-color-light;
-// $navbar-text-hover-color: $black;
-// $navbar-text-transform: $heading-text-transform;
-// $navbar-font-weight: $heading-font-weight;
+// $navbar-font-size: 18px;
+$navbar-font: 'heading';
+// $navbar-color: $base-color-dark;
+// $navbar-fixed-text-color: $base-color-light;
+// $navbar-hover-color: $black;
 // $navbar-text-spacing: 10px; // Horizontal padding of list items
 
 // Links //
@@ -103,16 +108,13 @@ $button-arrow: true;
 // $navbar-brand-image: true;
 // $navbar-brand-height: $navbar-height * 0.80;
 // $navbar-fixed-brand-height: $navbar-fixed-height;
-// $navbar-brand-center: false;
-// $navbar-item-amount: 4;
-// $navbar-brand-circle: false;
 
 ////////////
 // Footer //
 ////////////
 // $footer-top-padding: $global-spacing * 4;
 $footer-top-background-color: #222;
-// $footer-top-text-color: $text-color-light;
+// $footer-top-text-color: $base-color-light;
 
 // $footer-bottom-padding: $global-spacing * 0.5;
 // $footer-bottom-font: 'heading';

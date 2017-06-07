@@ -6,16 +6,16 @@
       display: block;
       padding: 10px 15px;
       font-size: 128.6%;
-      background-color: $background-color-light;
+      background-color: $base-color-light;
       cursor: pointer;
       & > span {
         @include turbo-transition;
-        color: $text-color-dark;
+        color: $base-color-dark;
       }
       &:hover {
         background-color: $primary-color;
         & > span, &::before {
-          color: $text-color-light;
+          color: $base-color-light;
         }
       }
       &.collapsed::before {
@@ -27,9 +27,9 @@
         position: relative;
         display: inline-block;
         bottom: 0.25em;
-        font-size: $body-font-size;
+        font-size: font-attr( "body", "font-size" );
         margin-right: 10px;
-        color: $text-color-dark;
+        color: $base-color-dark;
         transform: rotate(45deg);
         font-family: "FontAwesome" !important;
         @include turbo-transition;

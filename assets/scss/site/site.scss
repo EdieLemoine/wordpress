@@ -9,7 +9,6 @@ Template: x
 // This file is only for importing partials.
 // Use only what you need.
 
-
 @import '../global/base/variables';
 
 // Stack; Only use the one you enabled in X.
@@ -23,11 +22,6 @@ Template: x
 // @import 'partials/colors';
 
 @import 'partials/base/applications';
-
-// Own files
-// @import 'partials/svg';
-// @import 'partials/custom';
-// @import 'partials/parallax';
 
 // Plugin files
 @import 'partials/plugins/essentialgrid';
