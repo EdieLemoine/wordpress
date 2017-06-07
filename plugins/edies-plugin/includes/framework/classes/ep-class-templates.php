@@ -31,24 +31,22 @@ class EP_Templates extends Edies_Plugin {
 			array( $this, 'view_project_template')
 		);
 
-		$this->templates = array(
-			'madog-home-template.php' => 'MADOG Homepage',
-			'destijl-home-template.php' => 'De Stijl Homepage',
-			'blocks-template.php' => 'Blocks'
-		);
+		$files = glob( DIR_TEMPLATES . '*.php' );
+		foreach ( $files as $file ) {
+			$this->templates = array_merge(
+				array(
+					basename( $file ) => basename( $file )
+				),
+				$this->templates
+			);
+		}
 	}
-	/**
-	 * Adds our template to the page dropdown for v4.7+
-	 *
-	 */
+
 	public function add_new_template( $posts_templates ) {
 		$posts_templates = array_merge( $posts_templates, $this->templates );
 		return $posts_templates;
 	}
-	/**
-	 * Adds our template to the pages cache in order to trick WordPress
-	 * into thinking the template file exists where it doens't really exist.
-	 */
+
 	public function register_project_templates( $atts ) {
 
 		$cache_key = 'page_templates-' . md5( get_theme_root() . '/' . get_stylesheet() );
@@ -68,9 +66,7 @@ class EP_Templates extends Edies_Plugin {
 		wp_cache_add( $cache_key, $templates, 'themes', 1800 );
 		return $atts;
 	}
-	/**
-	 * Checks if the template is assigned to the page
-	 */
+
 	public function view_project_template( $template ) {
 
 		global $post;
