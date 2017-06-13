@@ -7,8 +7,8 @@
   flex: 1;
   width: 100%;
   color: $base-color-light;
-  border-radius: $global-border-radius;
   overflow: hidden;
+  @include border-radius;
 
   & + & {
     margin-top: $global-spacing / 8;

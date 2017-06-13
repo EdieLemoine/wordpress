@@ -23,9 +23,10 @@
   display: block;
   align-content: center;
   padding: $global-spacing / 3 $global-spacing / 2;
-  border-radius: $global-border-radius;
   @include font( $button-font );
   @include fast-transition;
+  @include border-radius;
+
   @if $button-arrow == true {
     &::after {
       content: ' ';
@@ -56,8 +57,9 @@
   @if $button-style == 'transparent' {
     color: $button-background-color;
     background-color: transparent;
-    border-color: $button-background-color;
-    border-width: $button-border-width;
+    // border-color: $button-background-color;
+    // border-width: $global-border-width;
+    @include border( $button-background-color );
     .bg3 & {
       color: $button-invert-color;
       border-color: $button-invert-color;
@@ -69,6 +71,7 @@
       .bg3 & {
         color: $button-background-color;
         border-color: $button-invert-color;
+        background-color: $button-invert-color;
       }
     }
   }
@@ -87,7 +90,7 @@
       background-color: $button-invert-color;
       @include border( $button-invert-color );
       @include active {
-        background-color: transparent;
+        background-color: $button-background-color;
         color: $button-invert-color;
       }
     }
@@ -105,5 +108,4 @@
 
     }
   }
-
 }

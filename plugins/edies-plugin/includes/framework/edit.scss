@@ -18,7 +18,8 @@ $primary-color: #CC292D;
 
 $container-width: 900px;
 $container-max-width: 90%;
-$global-border-radius: 10px;
+$global-border-radius: 10px 0 10px 0;
+$global-corners: 'top-left', 'bottom-right';
 
 
 $global-spacing: 2em;
@@ -55,7 +56,7 @@ $fonts: (
 
 
 
-$button-style: 'transparent-invert'; 
+$button-style: 'transparent'; 
 
 
 $button-background-color: $primary-color;

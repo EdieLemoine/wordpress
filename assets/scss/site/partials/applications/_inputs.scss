@@ -7,12 +7,12 @@ input.wpcf7-text {
 input[type=text],
 input.wpcf7-text,
 textarea {
-  // border-radius: $global-border-radius / 2;
   border: 0;
-  @include fast-transition;
   background-color: $input-background-color;
   box-shadow: none;
   color: $secondary-color;
+  @include fast-transition;
+  @include border-radius;
   &:focus {
     box-shadow: inset $global-border-width * 2 0px 0px $primary-color;
   }

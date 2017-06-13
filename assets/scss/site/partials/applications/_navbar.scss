@@ -128,7 +128,7 @@
     @if $navbar-link-style == 'box'
     or $navbar-link-style == 'border' {
       padding: ( $navbar-height - $global-border-width ) * 0.15  $navbar-height * 0.25;
-      border-radius: $global-border-radius;
+      @include border-radius;
 
       @if $navbar-link-style == 'border' {
         border: $global-border-width solid transparent;

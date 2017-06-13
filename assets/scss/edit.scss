@@ -18,7 +18,8 @@ $primary-color: #CC292D;
 ////////////
 $container-width: 900px;
 $container-max-width: 90%;
-$global-border-radius: 10px;
+$global-border-radius: 10px 0 10px 0;
+$global-corners: 'top-left', 'bottom-right';
 // $global-border-color: $primary-color;
 // $global-border-width: 3px;
 $global-spacing: 2em;
@@ -55,7 +56,7 @@ $fonts: (
 /////////////
 // Buttons //
 /////////////
-$button-style: 'transparent-invert'; // Transparent | Fill | Transparent-invert
+$button-style: 'transparent'; // Transparent | Fill | Transparent-invert
 // $button-font: 'body';
 // $button-color: $base-color-light;
 $button-background-color: $primary-color;
