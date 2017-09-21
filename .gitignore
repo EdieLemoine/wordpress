@@ -4,6 +4,5 @@ node_modules
 style.css.map
 test.html
 dist/js/script.min.js
-x
 **/*.css
 **/*.map
