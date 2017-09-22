@@ -1,7 +1,7 @@
 ////////////
 // Colors //
 ////////////
-$primary-color: #CC292D;
+$primary-color: #543570;
 // $secondary-color: lighten( $primary-color, 35% );
 
 // $black: #222;
@@ -17,7 +17,7 @@ $primary-color: #CC292D;
 // Global //
 ////////////
 $container-width: 900px;
-$container-max-width: 90%;
+$container-max-width: 94%;
 $global-border-radius: 10px 0 10px 0;
 $global-corners: 'top-left', 'bottom-right';
 // $global-border-color: $primary-color;
@@ -30,7 +30,7 @@ $global-spacing: 2em;
 $fonts: (
   heading: (
     family: "Dosis",
-    google: true,
+    source: "Google",
     fallback: serif,
     atts: (
       font-weight: 400,
@@ -40,7 +40,7 @@ $fonts: (
   ),
   body: (
     family: "Lato",
-    google: true,
+    source: "Google",
     fallback: sans-serif,
     atts: (
       font-weight: 300,
