@@ -1,12 +1,12 @@
 <?php
 
 class EP_Dashboard extends Edies_Plugin {
-  
+
   protected $css;
   protected $js;
 
   public function __construct() {
-    
+
   }
 
   public function add_menu_pages() {

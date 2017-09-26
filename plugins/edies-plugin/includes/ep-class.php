@@ -37,7 +37,7 @@ class Edies_Plugin {
     define( 'DIR_ELEMENTS', DIR_FRAMEWORK . 'elements/' );
 
     // Other options
-    // define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
+    define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
     define( 'LIVERELOAD_PORT', 35729 );
 
     define( 'ADMIN', is_admin() );
@@ -86,13 +86,14 @@ class Edies_Plugin {
 
     // Admin
     $this::$loader->add_action( 'wp_enqueue_scripts', $this->admin, 'queue' ); // Enqueue custom styles
+    $this::$loader->add_action( 'wp_print_scripts', $this->admin, 'print_scripts' ); // Enqueue custom styles
 
     if ( $this->live_reload ) {
       $this::$loader->add_action( 'wp_footer', $this->admin, 'live_reload' );
     }
 
     if ( is_admin() ) :
-      $this::$loader->add_action( 'admin_enqueue_scripts', $this->admin, 'admin_queue' ); // Enqueue custom styles
+      $this::$loader->add_action( 'init', $this->admin, 'print_scripts' ); // Add post types
     endif;
 
     // Templates

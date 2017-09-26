@@ -2,10 +2,7 @@
 
 class EP_Admin extends Edies_Plugin {
 
-  public function __construct() {
-    parent::$loader->add_action( 'wp_print_scripts', $this, 'print_scripts' );
-    parent::$loader->add_action( 'wp_print_styles', $this, 'print_styles' );
-  }
+  public function __construct() { }
 
   public function admin_queue() {
     $this->add_script( 'ep_admin_script', 'ep-admin.js' );
@@ -47,19 +44,15 @@ class EP_Admin extends Edies_Plugin {
 
   public function print_scripts() {
     if ( is_user_logged_in() ) :
+
       global $wp_scripts;
+      global $wp_styles;
+
       echo PHP_EOL . '<!-- Enqueued scripts: ';
       foreach( $wp_scripts->queue as $script ) :
         echo $script . ' || ';
       endforeach;
-      echo ' -->' . PHP_EOL;
-    endif;
-  }
-
-  public function print_styles() {
-    if ( is_user_logged_in() ) :
-      global $wp_styles;
-      echo PHP_EOL . '<!-- Enqueued styles: ';
+      echo ' -->' . PHP_EOL . '<!-- Enqueued styles: ';
       foreach ( $wp_styles->queue as $style ) :
         echo $style . ' || ';
       endforeach;
