@@ -5,11 +5,15 @@
  */
 
 class EP_Advanced_Accordion_Item extends EP_Advanced_Accordion {
-	public static $staticID = 0;
+	static $staticID;
+
+	public function __construct() {
+		$this->getStaticID();
+	}
 
 	public function ui() {
 		return array(
-      'title'       => __( 'Advanced Accordion Item', 'edies-plugin' ),
+      'title' => __( 'Advanced Accordion Item', 'edies-plugin' ),
       'autofocus' => array(
 				'height' => '',
     	),
@@ -17,10 +21,8 @@ class EP_Advanced_Accordion_Item extends EP_Advanced_Accordion {
     );
 	}
 
-	public function staticID() {
-		$this->staticID++;
-		
-		return $this->staticID;
+	public function getStaticID() {
+		return 'ep-advanced-accordion-' . $this::$staticID++;
 	}
 
 	public function flags() {
@@ -30,10 +32,11 @@ class EP_Advanced_Accordion_Item extends EP_Advanced_Accordion {
 	}
 
 	public function update_build_shortcode_atts( $atts, $parent ) {
-
 		if ( ! is_null( $parent ) ) {
 			$atts['title_toggle'] = $parent['title_toggle'];
 			$atts['columns'] = $parent['columns'];
+			$atts['type'] = $parent['type'];
+			$atts['direction'] = $parent['direction'];
     }
     return $atts;
 	}

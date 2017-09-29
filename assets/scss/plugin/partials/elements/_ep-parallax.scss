@@ -1,35 +1,14 @@
-@include break( 'l', 'min') {
-  #ep-parallax-outer {
-    overflow: hidden;
-    #ep-parallax-inner {
-      width: 100%;
-      left: 0;
-      position: fixed;
-      .ep-parallax-wrapper {
-        margin-top: 100%;
-        margin-bottom: 300px;
-        #ep-top {
-          width: 100%;
-          height: 100%;
-          top: 0;
-          position: fixed;
-          z-index: -1;
-        }
+#ep-top {
+  background-color: $body-background-color;
+  position: relative;
+	z-index: 1;
+  box-shadow: #000 0 7px 35px 0;
+}
 
-        #ep-content {
-          position: relative;
-          z-index: 1;
-          background-color: $body-background-color;
-          box-shadow: 0px 0px $global-spacing rgba(0, 0, 0, 0.25);
-        }
-
-        #ep-footer {
-          width: 100%;
-          bottom: -100%;
-          position: fixed;
-          z-index: -1;
-        }
-      }
-    }
-  }
+#ep-footer {
+	position: fixed;
+	z-index: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }

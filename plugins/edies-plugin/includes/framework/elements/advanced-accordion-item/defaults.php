@@ -7,11 +7,12 @@
 return array(
 	'id' => '',
 	'class' => '',
-	'title' => '',
+	'title' => 'Accordion Item',
 	'content' => '',
 	'image_toggle' => false,
 	'link_toggle' => false,
 	'title_toggle' => false,
 	'image' => '',
-	'link' => ''
+	'link' => '',
+	'type' => false
 );

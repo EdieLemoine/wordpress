@@ -1,0 +1,24 @@
+////////////////////
+// Brand img/text //
+////////////////////
+.masthead .x-navbar .x-navbar-inner .x-brand {
+  display: flex;
+  margin: auto;
+  float: left;
+
+  @if $navbar-brand-image == true {
+    &.img > svg,
+    &.img > img {
+      height: $navbar-brand-height;
+      margin: auto;
+      @include fast-transition;
+    }
+  }
+
+  @else {
+    &.text {
+      margin: auto;
+      font-size: $navbar-brand-height;
+    }
+  }
+}

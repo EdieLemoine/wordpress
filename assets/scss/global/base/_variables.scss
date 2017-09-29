@@ -23,6 +23,7 @@ $base-color-dark: $dark-gray !default;
 $container-width: 1200px !default;
 $container-max-width: 95% !default;
 $global-border-radius: 0 !default;
+$global-corners: 'top-left', 'bottom-right';
 $global-border-color: currentColor !default;
 $global-border-width: 2px !default;
 $global-spacing: 2em !default;
@@ -33,13 +34,7 @@ $global-spacing: 2em !default;
 $body-background-color: $base-color-light !default;
 $body-color: calculate-color( $body-background-color ) !default;
 $body-line-height: 1.9 !default;
-
-$heading-font: 'Oswald' !default;
-$heading-font-external: true !default;
-$heading-font-weight: 400 !default;
 $heading-color: calculate-color( $body-background-color ) !default;
-$heading-text-transform: uppercase !default;
-$heading-letter-spacing: 0 !default;
 
 //////////////
 // Sections //
@@ -70,6 +65,7 @@ $input-color: calculate-color( $input-background-color ) !default;
 ////////////
 // Navbar //
 ////////////
+$navbar-mobile-breakpoint: 'm';
 // Colors //
 $navbar-background-color: $dark-gray !default;
 $navbar-fixed-background-color: transparentize( $navbar-background-color, 0.5 ) !default;
@@ -96,6 +92,11 @@ $navbar-fixed-link-active-color: $navbar-link-active-color !default;
 $navbar-brand-image: true !default;
 $navbar-brand-height: $navbar-height * 0.75 !default;
 $navbar-fixed-brand-height: $navbar-fixed-height * 0.95 !default;
+
+////////////
+// Social //
+////////////
+$social-style: 'fill';
 
 ////////////
 // Footer //

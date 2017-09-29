@@ -1,14 +1,14 @@
-#ep-content {
-  display: flex;
-  flex-direction: column;
-}
+// #ep-content {
+//   display: flex;
+//   flex-direction: column;
+// }
 
 @include break( 'l', 'min' ) {
-  #ep-top {
-    display: flex;
-    flex-direction: column;
-  }
-  #ep-top .x-container {
-    margin: auto;
-  }
+  // #ep-top {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  // #ep-top .x-container {
+  //   margin: auto;
+  // }
 }

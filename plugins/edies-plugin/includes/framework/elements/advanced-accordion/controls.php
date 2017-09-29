@@ -21,13 +21,9 @@ return array(
       'newTitle' => $c->__('Accordion item %s'),
       'floor'   => 1,
       'title_field' => 'title'
-    ),
-    'context' => 'content',
-    'suggest' => array(
-      array( 'title' => 'First Item', 'content' => 'Test content' ),
-      array( 'title' => 'Second Item', 'content' => 'Test content' )
     )
   ),
   'title_toggle' => $c->control( 'toggle', 'Toggle Heading' ),
-  'columns' => $c->control( 'number', 'Columns' )
+  'type' => $c->control( 'toggle', 'Multiple/single' ),
+  'direction' => $c->control( 'toggle', 'Vertical/horizontal' )
 );

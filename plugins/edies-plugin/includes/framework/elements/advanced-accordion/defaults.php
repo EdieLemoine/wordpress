@@ -9,5 +9,6 @@ return array(
 	'class' => '',
 	'title' => '',
 	'title_toggle' => false,
-	'columns' => 1
+	'columns' => 1,
+	'content' => ''
 );

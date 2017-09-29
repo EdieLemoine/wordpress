@@ -3,6 +3,33 @@
   @return map-get( map-get( map-get( $fonts, $type ), "atts"), $attr);
 }
 
+@function map-get-deep($map, $keys...) {
+  @if length($keys) == 1 {
+    $keys: nth($keys, 1);
+  }
+  $warn: "#{nth($keys, 1)}";
+  $length: length($keys);
+  $get: map-get($map, nth($keys, 1));
+
+  @if $length > 1 {
+    @for $i from 2 through $length {
+      @if $get != null and type-of($get) == 'map' {
+        $warn: $warn + "->#{nth($keys, $i)}";
+        $get: map-get($get, nth($keys, $i));
+
+        @if $get == null {
+          @return map-get-deep-warning($warn, $get, nth($keys, $i));
+        }
+      }
+      @else {
+        @return map-get-deep-warning($warn, $get, nth($keys, $i));
+      }
+    }
+  }
+
+  @return $get;
+}
+
 // Get preset z-index from map
 // Usage: z-index: z( above-header );
 @function z($key) {
@@ -40,7 +67,7 @@
 }
 
 @function calculate-color( $color ) {
-  @if lightness( $color ) > 50 {
+  @if lightness( $color ) > 58 {
     @return $base-color-dark;
   }
   @else {

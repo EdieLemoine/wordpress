@@ -3,18 +3,18 @@
 //////////
 $fonts: (
   heading: (
-    family: "Oswald",
-    google: true,
+    family: "Fjalla One",
+    source: "Google",
     fallback: serif,
     atts: (
       font-weight: 400,
       letter-spacing: 2px,
-      text-transform: uppercase
+      text-transform: none
     )
   ),
   body: (
-    family: "Roboto Condensed",
-    google: true,
+    family: "Lato",
+    source: "Google",
     fallback: sans-serif,
     atts: (
       font-weight: 300,
@@ -36,9 +36,7 @@ $breakpoints: (
   m: 676px,
   l: 979px,
   xl: 1400px,
-  xxl: 2160px,
-  lumia950xl: 576px,
-  iphone6: 375px
+  xxl: 2160px
 );
 
 $social: (

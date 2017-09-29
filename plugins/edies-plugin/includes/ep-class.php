@@ -30,7 +30,9 @@ class Edies_Plugin {
     // Directories
     define( 'DIR_CSS', URL . 'css/' );
     define( 'DIR_JS', URL . 'js/' );
+
     define( 'DIR_FRAMEWORK', PATH . 'framework/' );
+
     define( 'DIR_CLASSES', DIR_FRAMEWORK . 'classes/' );
     define( 'DIR_SHORTCODES', DIR_FRAMEWORK . 'shortcodes/' );
     define( 'DIR_TEMPLATES', DIR_FRAMEWORK . 'templates/' );
@@ -39,8 +41,6 @@ class Edies_Plugin {
     // Other options
     define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
     define( 'LIVERELOAD_PORT', 35729 );
-
-    define( 'ADMIN', is_admin() );
 
     $this->set_options();
   }
@@ -81,25 +81,21 @@ class Edies_Plugin {
 
   private function define_hooks() {
     // Dashboard
-    $this::$loader->add_action( 'init', $this->dashboard, 'add_post_types' ); // Add post types
-    $this::$loader->add_action( 'admin_menu', $this->dashboard, 'add_menu_pages' ); // Add menu pages
+    $this::$loader->add_action( 'init', $this->dashboard, 'add_post_types' );
+    $this::$loader->add_action( 'admin_menu', $this->dashboard, 'add_menu_pages' );
 
     // Admin
-    $this::$loader->add_action( 'wp_enqueue_scripts', $this->admin, 'queue' ); // Enqueue custom styles
-    $this::$loader->add_action( 'wp_print_scripts', $this->admin, 'print_scripts' ); // Enqueue custom styles
+    $this::$loader->add_action( 'wp_enqueue_scripts', $this->admin, 'queue', 999999 );
+    if ( $this->live_reload ) : $this::$loader->add_action( 'wp_footer', $this->admin, 'live_reload' ); endif;
 
-    if ( $this->live_reload ) {
-      $this::$loader->add_action( 'wp_footer', $this->admin, 'live_reload' );
-    }
+    $this::$loader->add_action( 'wp_print_scripts', $this->admin, 'print_scripts' );
 
-    if ( is_admin() ) :
-      $this::$loader->add_action( 'init', $this->admin, 'print_scripts' ); // Add post types
-    endif;
+    if ( is_admin() ) : $this::$loader->add_action( 'init', $this->admin, 'admin_queue' ); endif;
 
     // Templates
     $this::$loader->add_action( 'plugins_loaded', $this->templates, 'add_templates' );
-    $this::$loader->add_filter( 'single_template', $this->templates, 'set_single_template' ); // Change single page template
-    $this::$loader->add_filter( 'archive_template', $this->templates, 'set_archive_template' ); // Change archive page template
+    $this::$loader->add_filter( 'single_template', $this->templates, 'set_single_template' );
+    $this::$loader->add_filter( 'archive_template', $this->templates, 'set_archive_template' );
 
     $this::$loader->add_action( 'ep_notification', $this, 'notification' );
 
@@ -138,12 +134,6 @@ class Edies_Plugin {
 
   public function dash( $string ) {
     return str_replace('-', '_', $string);
-  }
-
-  public function pretty_print($string) {
-    echo '<pre>';
-    print_r( $string );
-    echo '</pre>';
   }
 
   public function get_version() {

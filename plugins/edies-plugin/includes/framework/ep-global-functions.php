@@ -28,3 +28,9 @@ function ep_button( $link = null, $text = "Bewerken" ) {
 
   echo do_shortcode( "[x_button class='x-btn' href='$link']" . $text . "[/x_button]" );
 }
+
+function pretty_print($string) {
+  echo '<pre>';
+  print_r( $string );
+  echo '</pre>';
+}

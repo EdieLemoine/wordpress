@@ -1,0 +1,54 @@
+//////////////////
+// Fixed Navbar //
+//////////////////
+.masthead .x-navbar.x-navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  @include simple-transition;
+
+
+  // Adds offset for the WP admin bar
+  body.admin-bar & {
+    top: 32px;
+  }
+
+  // Only add rules if they actually change
+  @if $navbar-background-color != $navbar-fixed-background-color {
+    background-color: $navbar-fixed-background-color;
+  }
+
+  @if $navbar-color != $navbar-fixed-color {
+    .x-navbar-inner .x-nav li a,
+    .x-navbar-inner .x-btn-navbar i {
+      color: $navbar-fixed-color;
+      @include active {
+        color: darken( $navbar-fixed-color, 10% );
+      }
+    }
+  }
+
+  @if $navbar-height != $navbar-fixed-height {
+    .x-navbar-inner {
+      @include simple-transition;
+
+      &, & > .x-container {
+        min-height: $navbar-fixed-height;
+      }
+
+      @if $navbar-brand-image == false {
+        .x-brand.text {
+          font-size: $navbar-fixed-brand-height;
+          @include simple-transition;
+        }
+      }
+      @else {
+        .x-brand.img > img,
+        .x-brand.img > svg {
+          height: $navbar-fixed-brand-height;
+          @include simple-transition;
+        }
+      }
+    }
+  }
+}
