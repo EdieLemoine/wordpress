@@ -1,0 +1,26 @@
+.scrolled .intro-inner {
+  // background-color: black;
+  margin: $navbar-fixed-size;
+  height: calc( 100vh - (#{$navbar-fixed-size} * 2) );
+}
+
+.intro-inner {
+  @include simple-transition;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: $primary-color;
+  margin: 0;
+}
+
+#ep-intro {
+  @include simple-transition;
+  padding: 0;
+  display: flex;
+  .intro {
+    width: 100%;
+    padding: 20px;
+    margin: auto 0;
+    color: #fff;
+  }
+}

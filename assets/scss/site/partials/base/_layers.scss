@@ -1,0 +1,21 @@
+.masthead {
+  z-index: z('high');
+}
+
+#ep-top {
+  z-index: z('normal');
+}
+#ep-content {
+  z-index: z('normal');
+}
+
+#ep-footer {
+  z-index: z('base');
+}
+
+.x-nav-wrap.mobile {
+  z-index: z( 'higher' );
+}
+.x-btn-navbar {
+  z-index: z( 'highest' );
+}

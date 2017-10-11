@@ -1,20 +1,34 @@
 .masthead .x-navbar.x-navbar-fixed-top .x-nav-wrap.mobile {
-  top: $navbar-fixed-height;
+  top: $navbar-fixed-size;
+}
+
+// Mobile
+.x-btn-navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.x-nav-wrap.mobile {
+  position: relative;
+  // display: block;
+  // overflow: hidden;
+  & > ul {
+    // height: auto;
+    visibility: visible !important;
+  }
+}
+
+.masthead .x-container {
+  position: relative;
 }
 
 .masthead .x-navbar .x-nav-wrap.mobile {
-  background-color: lighten($navbar-background-color, 5%);
   margin: auto;
-  top: $navbar-height;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: z( front );
   ul {
     flex-direction: column;
     display: flex;
     position: relative;
-    height: 100%;
+    // height: 100%;
     li a {
       min-height: 60px;
     }
@@ -29,12 +43,10 @@
       .sub-menu {
         position: relative;
         top: 0;
-        background-color: rgba(#ffffff, 0.25);
-        margin: auto !important;
-        display: flex;
+        display: block;
         li a {
           min-height: 50px;
-          font-size: $navbar-font-size * 0.9;
+          font-size: $navbar-font-size * 0.85;
         }
       }
     }
@@ -47,17 +59,27 @@
 .masthead .x-navbar .x-navbar-inner .x-btn-navbar {
   box-shadow: none;
   @if $navbar-link-style == 'fill' {
-    // padding: ($navbar-height - $navbar-font-size) / 2 $navbar-text-spacing;
+    // padding: ( $navbar-size - $navbar-font-size ) / 2 $navbar-text-spacing;
     height: auto;
     border-radius: 0;
   }
 
   i {
     font-size: $navbar-font-size * 1.8;
-    // color: $navbar-color;
     // @include fast-transition;
     // @include active {
     //   color: $navbar-hover-color;
     // }
+  }
+}
+
+// Chrome z-index fix
+@include break( $mobile-breakpoint ) {
+  .x-navbar-wrap,
+  .x-navbar {
+    background-color: inherit;
+  }
+  .x-navbar {
+    z-index: z( 'high' );
   }
 }

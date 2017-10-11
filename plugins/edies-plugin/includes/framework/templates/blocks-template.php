@@ -1,4 +1,7 @@
-<?php x_get_view( 'global', '_header' );
+<?php
+
+get_header();
+ep_part( 'parallax' );
 
 $args = array(
   'post_type' => 'post',
@@ -9,16 +12,13 @@ $args = array(
 
 $query = new WP_Query( $args ); ?>
 
-<?php // ep_part( 'parallax' ) ?>
-
   <div id="ep-top">
     <?php while ( have_posts() ) : the_post(); ?>
       <?php the_content(); ?>
       <?php x_link_pages(); ?>
     <?php endwhile;
     wp_reset_postdata(); ?>
-  </div>
-  <div id="ep-content">
+
 
     <?php $i = 0;
 

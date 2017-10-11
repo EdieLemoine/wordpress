@@ -8,12 +8,12 @@
     & > li > a { // Only top level fixed links
       @if $navbar-link-style == 'border'
        or $navbar-link-style == 'box' {
-        padding: ( $navbar-fixed-height - $global-border-width ) * 0.25  $navbar-fixed-height * 0.35;
+        padding: ( $navbar-fixed-size - $global-border-width ) * 0.25  $navbar-fixed-size * 0.35;
       }
     }
 
     & > li > .sub-menu { // Only top level fixed submenu
-      top: $navbar-fixed-height;
+      top: $navbar-fixed-size;
     }
 
     & > li .sub-menu { // All fixed submenus

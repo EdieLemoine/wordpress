@@ -1,7 +1,7 @@
 
+@import 'presets/template-2';
 
 
-$primary-color: #CC292D;
 
 
 
@@ -16,38 +16,12 @@ $primary-color: #CC292D;
 
 
 
-$container-width: 900px;
-$container-max-width: 90%;
-$global-border-radius: 10px 0 10px 0;
-$global-corners: 'top-left', 'bottom-right';
 
 
-$global-spacing: 2em;
 
 
 
 
-$fonts: (
-  heading: (
-    family: "Dosis",
-    google: true,
-    fallback: serif,
-    atts: (
-      font-weight: 400,
-      letter-spacing: 2px,
-      text-transform: uppercase
-    )
-  ),
-  body: (
-    family: "Lato",
-    google: true,
-    fallback: sans-serif,
-    atts: (
-      font-weight: 300,
-      font-size: 16px
-    )
-  )
-);
 
 
 
@@ -56,12 +30,8 @@ $fonts: (
 
 
 
-$button-style: 'transparent'; 
 
 
-$button-background-color: $primary-color;
-$button-active-background-color: lighten( $button-background-color, 10% );
-$button-arrow: false;
 
 
 
@@ -94,7 +64,6 @@ $button-arrow: false;
 
 
 
-$navbar-font: 'heading';
 
 
 
@@ -114,7 +83,6 @@ $navbar-font: 'heading';
 
 
 
-$footer-top-background-color: #222;
 
 
 
@@ -122,4 +90,39 @@ $footer-top-background-color: #222;
 
 
 
-$social-style: 'fill';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,4 @@
-.masthead .x-navbar .x-navbar-inner .x-nav-wrap .x-nav {
-  display: flex;
-  width: 100%;
-  margin: 0;
-  float: right;
+.masthead .x-nav {
 
   // Top level li
   & > li {
@@ -20,6 +16,9 @@
   li a {
     margin: auto;
     font-size: $navbar-font-size;
+    @if $navbar-menu-flex != 'true' {
+      // padding: 0 $global-spacing / 4;
+    }
     @include font( $navbar-font );
     span {
       margin: auto;
@@ -29,7 +28,7 @@
   // Only top level menu items
   & > li > a {
     @if $navbar-link-style == 'fill'
-    or $navbar-link-style == 'underline' {
+    or $navbar-link-style == 'line-bottom' {
       flex: 1;
       height: 100%;
       display: flex;
@@ -38,7 +37,7 @@
 
     @if $navbar-link-style == 'box'
     or $navbar-link-style == 'border' {
-      padding: ( $navbar-height - $global-border-width ) * 0.12  $navbar-height * 0.15;
+      padding: ( $navbar-size - $global-border-width ) * 0.12  $navbar-size * 0.15;
       @include border-radius;
 
       @if $navbar-link-style == 'border' {

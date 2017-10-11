@@ -17,7 +17,7 @@ div.wpcf7 .ajax-loader {
 }
 
 span.wpcf7-not-valid-tip {
-  font-size: font-attr( "body", "font-size" );
+  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
 }
 
 .x-alert, .wpcf7-response-output, .buddypress #message, .bbp-template-notice {
@@ -27,7 +27,7 @@ span.wpcf7-not-valid-tip {
 div.wpcf7-validation-errors {
   border-width: $global-border-width;
   border-color: currentColor;
-  font-size: font-attr( "body", "font-size" );
+  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
 }
 
 .ep-flex + p {

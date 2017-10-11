@@ -1,13 +1,11 @@
 #ep-top {
   background-color: $body-background-color;
   position: relative;
-	z-index: 1;
   box-shadow: #000 0 7px 35px 0;
 }
 
 #ep-footer {
 	position: fixed;
-	z-index: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;

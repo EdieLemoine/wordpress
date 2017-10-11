@@ -1,49 +1,52 @@
 .masthead {
+  // position: fixed;
+  // height: 0;
+  // width: 100%;
+
+  @include simple-transition;
+
   .x-navbar-wrap {
-    height: $navbar-height;
-    background-color: $navbar-background-color;
+    // height: $navbar-size;
+    display: flex;
+    // background-color: $navbar-background-color;
   }
 
   .x-navbar {
     width: 100%; // Safari fix
-    padding: 0 $global-spacing;
-    background-color: $navbar-background-color;
-    z-index: z(front);
+    // background-color: $navbar-background-color;
 
+    &,
+    .x-navbar-inner {
+      height: 100%;
+    }
 
     .x-navbar-inner {
-      &,
-      .x-container {
-        min-height: $navbar-height;
-      }
-      .x-container {
-        display: flex;
-        align-items: stretch;
-      }
-      .x-nav-wrap {
-        margin-left: $global-spacing;
-      }
+      position: relative;
+      display: flex;
+      // &,
+      // .x-container {
+      //   min-height: $navbar-size;
+      // }
+      // .x-container {
+      //   display: flex;
+      //   align-items: stretch;
+      // }
+      // .x-nav-wrap {
+      //   margin-left: $global-spacing;
+      // }
 
-      .x-nav li a,
-      .x-btn-navbar i {
-        color: $navbar-color;
-        @include fast-transition;
-        @include active {
-          color: darken( $navbar-color, 10% );
-        }
-      }
 
       // Responsive switch to mobile button and menu
-      @include break( $navbar-mobile-breakpoint, 'min') {
+      @include break( $mobile-breakpoint, 'min') {
         .x-btn-navbar {
           display: none;
         }
         .x-nav-wrap.desktop {
-          display: flex;
+          // display: flex;
         }
       }
 
-      @include break( $navbar-mobile-breakpoint ) {
+      @include break( $mobile-breakpoint ) {
         .x-btn-navbar {
           display: block;
         }
@@ -52,10 +55,6 @@
         }
       }
     }
-  }
-
-  &.masthead-inline .x-navbar .desktop .sub-menu .sub-menu {
-    top: 0;
   }
 
   // Transparent fixes

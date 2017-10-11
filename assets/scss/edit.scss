@@ -1,7 +1,10 @@
+// @import 'presets/otl';
+@import 'presets/template-2';
+
 ////////////
 // Colors //
 ////////////
-$primary-color: #543570;
+// $primary-color: #543570;
 // $secondary-color: lighten( $primary-color, 35% );
 
 // $black: #222;
@@ -16,38 +19,38 @@ $primary-color: #543570;
 ////////////
 // Global //
 ////////////
-$container-width: 900px;
-$container-max-width: 94%;
-$global-border-radius: 10px 0 10px 0;
-$global-corners: 'top-left', 'bottom-right';
+// $container-width: 900px;
+// $container-max-width: 94%;
+// $global-border-radius: 10px 0 10px 0;
+// $global-corners: 'top-left', 'bottom-right';
 // $global-border-color: $primary-color;
 // $global-border-width: 3px;
-$global-spacing: 2em;
+// $global-spacing: 2em;
 
 //////////
 // Text //
 //////////
-$fonts: (
-  heading: (
-    family: "Dosis",
-    source: "Google",
-    fallback: serif,
-    atts: (
-      font-weight: 400,
-      letter-spacing: 2px,
-      text-transform: uppercase
-    )
-  ),
-  body: (
-    family: "Lato",
-    source: "Google",
-    fallback: sans-serif,
-    atts: (
-      font-weight: 300,
-      font-size: 16px
-    )
-  )
-);
+// $fonts: (
+//   heading: (
+//     family: "Dosis",
+//     source: "Google",
+//     fallback: serif,
+//     atts: (
+//       font-weight: 400,
+//       letter-spacing: 2px,
+//       text-transform: uppercase
+//     )
+//   ),
+//   body: (
+//     family: "Lato",
+//     source: "Google",
+//     fallback: sans-serif,
+//     atts: (
+//       font-weight: 300,
+//       font-size: 16px
+//     )
+//   )
+// );
 
 // $body-color: $base-color-light;
 // $body-line-height: 1.9;
@@ -56,12 +59,12 @@ $fonts: (
 /////////////
 // Buttons //
 /////////////
-$button-style: 'transparent'; // Transparent | Fill | Transparent-invert
+// $button-style: 'transparent'; // Transparent | Fill | Transparent-invert
 // $button-font: 'body';
 // $button-color: $base-color-light;
-$button-background-color: $primary-color;
-$button-active-background-color: lighten( $button-background-color, 10% );
-$button-arrow: false;
+// $button-background-color: $primary-color;
+// $button-active-background-color: lighten( $button-background-color, 10% );
+// $button-arrow: false;
 
 ////////////
 // Inputs //
@@ -88,15 +91,15 @@ $button-arrow: false;
 // $navbar-fixed-submenu-background-color: $navbar-fixed-background-color;
 
 // Height //
-// $navbar-height: 180px;
-// $navbar-fixed-height: $navbar-height * 0.5;
+// $navbar-size: 180px;
+// $navbar-fixed-size: $navbar-size * 0.5;
 // $navbar-submenu-padding: 0;
 
 // Text //
 // $navbar-font-size: 18px;
-$navbar-font: 'heading';
+// $navbar-font: 'heading';
 // $navbar-color: $base-color-dark;
-// $navbar-fixed-text-color: $base-color-light;
+// $navbar-fixed-color: $base-color-light;
 // $navbar-hover-color: $black;
 // $navbar-text-spacing: 10px; // Horizontal padding of list items
 
@@ -107,14 +110,14 @@ $navbar-font: 'heading';
 
 // Brand //
 // $navbar-brand-image: true;
-// $navbar-brand-height: $navbar-height * 0.80;
-// $navbar-fixed-brand-height: $navbar-fixed-height;
+// $navbar-brand-height: $navbar-size * 0.80;
+// $navbar-fixed-brand-height: $navbar-fixed-size;
 
 ////////////
 // Footer //
 ////////////
 // $footer-top-padding: $global-spacing * 4;
-$footer-top-background-color: #222;
+// $footer-top-background-color: #222;
 // $footer-top-text-color: $base-color-light;
 
 // $footer-bottom-padding: $global-spacing * 0.5;
@@ -122,4 +125,4 @@ $footer-top-background-color: #222;
 // $footer-bottom-background-color: $primary-color;
 // $footer-bottom-text-color: $footer-top-text-color;
 
-$social-style: 'fill';
+// $social-style: 'fill';

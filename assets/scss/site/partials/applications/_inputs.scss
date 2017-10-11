@@ -1,65 +1,101 @@
-input[type=text],
-input.wpcf7-text {
-  padding-left: $input-height / 3;
-  height: $input-height;
-}
+// @import "inputs/buttons";
+// @import "inputs/text";
 
-input[type=text],
-input.wpcf7-text,
-textarea {
-  border: 0;
-  background-color: $input-background-color;
-  box-shadow: none;
-  color: $secondary-color;
-  @include fast-transition;
-  @include border-radius;
-  &:focus {
-    box-shadow: inset $global-border-width * 2 0px 0px $primary-color;
+$inputs: (
+  text: (
+    atts: (
+      font-size: 20px,
+      height: 50px,
+      border: 2px solid green
+    ),
+    pseudo: (
+      focus: (
+        border-color: red
+      )
+    )
+  ),
+  email: (
+    copy: 'text',
+    atts: (
+      font-size: 30px
+    )
+  ),
+  tel: (
+    copy: 'text'
+  ),
+  password: (
+    copy: 'email'
+  ),
+  submit: (
+    atts: (
+      border-color: red,
+      border-width: 4px,
+      background-color: yellow
+    )
+  )
+);
+
+// function
+$types: ();
+@each $type, $attr in $inputs {
+  @if map-has-key( $attr, 'copy' ) {
+    $new: (
+      $type: map-get( $attr, 'copy' )
+    );
+    $types: map-merge( $types, $new );
+    // $types: append( $types, $type );
   }
 }
-
-textarea {
-  resize: none;
-  padding: $input-height / 4 0 $input-height / 4 $input-height / 3;
-  height: 100%;
-}
-
-form.wpcf7-form span > input {
-  margin-bottom: 0;
-}
-
-.ep-flex {
-  display: flex;
-  align-content: stretch;
-  margin-bottom: $global-spacing / 4;
-  @include break( 'm' ) {
-    flex-direction: column;
-    & > div:nth-child(2) span {
-      margin-top: $global-spacing / 4;
-      textarea {
-        min-height: $input-height * 2;
-      }
-    }
-  }
-  & > div {
-    flex: 1;
-    display: flex;
-    &:nth-child(1) {
-      @include break( 'm', 'min' ) {
-        margin-right: $global-spacing / 4;
-      }
-      display: flex;
-      flex-direction: column;
-    }
-    &:nth-child(2) { //  SAFARI FIX
-      display: flex; //
-      & > span { //
-        display: flex; //
-        flex: 1; //
-      }
-    }
-    span:not(:first-of-type) {
-      margin-top: $global-spacing / 4;
-    }
-  }
-}
+// @warn $types;
+//
+// $amount: 0;
+// @each $type, $copy in $types {
+//   $amount: $amount + 1;
+// }
+// @for $i from 1 to $amount {
+//   #{}
+// }
+//
+// @each $type, $attr in $inputs {
+//   $attributes: ();
+//   $pseudo-attributes: ();
+//
+//   $atts: map-get( $attr, 'atts' );
+//
+//   @if map-has-key( $attr, 'copy' ) {
+//     $copy: map-get( $attr, 'copy' );
+//     $atts: map-get-deep( $inputs, $copy, 'atts' );
+//     // $atts: map-get( $parent, 'atts' );
+//
+//     @if map-has-key( $attr, 'atts' ) {
+//       $atts: map-merge( $atts, map-get( $attr, "atts" ) );
+//     }
+//   }
+//
+//   @each $var, $val in $atts {
+//     $attributes: (
+//       #{$var}: $val
+//     );
+//   }
+//
+//   @if map-has-key( $attr, 'pseudo' ) {
+//     $pseudo: map-get( $attr, 'pseudo' );
+//
+//     @each $var in $pseudo {
+//       &#{$var} {
+//         @each $one, $two in map-get($pseudo, $var) {
+//           $pseudo-attributes: (
+//             #{$one}: $two
+//           );
+//         }
+//       }
+//     }
+//   }
+//
+//   $output: map-merge( $attributes, $pseudo-attributes );
+//   input[type='#{$type}'] {
+//     @each $val, $var in $output {
+//       #{$val}: $var;
+//     }
+//   }
+// }

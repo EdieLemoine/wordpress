@@ -24,12 +24,12 @@
 body {
   @include font( 'body' );
   background-color: $body-background-color;
-  font-size: font-attr( "body", "font-size" );
+  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
   @include break( 'l' ) {
-    font-size: font-attr( "body", "font-size" ) * 0.85;
+    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.85;
   }
   @include break( 'xxl', 'min' ) {
-    font-size: font-attr( "body", "font-size" ) * 1.25;
+    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 1.25;
   }
 }
 

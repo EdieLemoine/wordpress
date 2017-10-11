@@ -10,6 +10,7 @@ Template: x
 // Use only what you need.
 
 @import '../global/base/variables';
+// @import 'partials/base/base';
 
 // Stack; Only use the one you enabled in X.
 @import 'partials/stack/icon';
@@ -20,7 +21,6 @@ Template: x
 @import '../global/base/mixins';
 
 // @import 'partials/colors';
-
 @import 'partials/base/applications';
 
 // Plugin files
@@ -29,5 +29,10 @@ Template: x
 @import 'partials/plugins/wpml';
 @import 'partials/plugins/wpcf7';
 
+@import 'partials/base/layers';
+
 // Responsive
 @import 'partials/base/responsive';
+
+// Custom SCSS
+@import 'partials/custom';

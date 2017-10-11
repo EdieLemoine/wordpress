@@ -28,12 +28,12 @@
     }
   }
 
-  @if $navbar-height != $navbar-fixed-height {
+  @if $navbar-size != $navbar-fixed-size {
     .x-navbar-inner {
       @include simple-transition;
 
       &, & > .x-container {
-        min-height: $navbar-fixed-height;
+        min-height: $navbar-fixed-size;
       }
 
       @if $navbar-brand-image == false {

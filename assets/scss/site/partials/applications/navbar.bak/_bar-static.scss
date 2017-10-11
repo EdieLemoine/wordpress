@@ -7,7 +7,7 @@
 
     .x-navbar-inner {
       &, .x-container {
-        min-height: $navbar-height;
+        min-height: $navbar-size;
       }
       .x-container {
         display: flex;

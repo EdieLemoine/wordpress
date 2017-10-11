@@ -18,7 +18,7 @@
 
 input[type=submit] {
   min-width:
-  font-size: font-attr( "body", "font-size" );
+  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
   line-height: normal;
   flex: 1;
   display: block;
@@ -40,7 +40,7 @@ input[type=submit] {
       bottom: 0;
       right: 0;
       margin: auto;
-      @include size( font-attr( "body", "font-size" ) * 0.75 );
+      @include size( map-get-deep( $fonts, "body", "atts", "font-size" ) * 0.75  );
       @include fast-transition;
     }
 

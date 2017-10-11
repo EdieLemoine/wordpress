@@ -1,0 +1,117 @@
+$background-fill:  map-get-deep( $navbar-colors, "background", "fill" );
+$background-fixed-fill: transparent;
+$background-submenu-fill: transparent;
+$background-fixed-submenu-fill: transparent;
+
+$text-links:  map-get-deep( $navbar-colors, "text", "links" );
+$text-active: map-get-deep( $navbar-colors, "text", "active" );
+$text-submenu-links: inherit;
+$text-submenu-active: inherit;
+
+$text-fixed-links: inherit;
+$text-fixed-active: inherit;
+$text-fixed-submenu-links: inherit;
+$text-fixed-submenu-active: inherit;
+
+@if map-get-deep( $navbar-colors, "background", "submenu" ) {
+  $background-submenu-fill:  map-get-deep( $navbar-colors, "background", "submenu", "fill" );
+  $background-submenu-links: map-get-deep( $navbar-colors, "background", "submenu", "links" );
+}
+
+@if map-has-key-deep( $navbar-colors, "text", "submenu" ) {
+  $text-submenu-links:  map-get-deep( $navbar-colors, "text", "submenu", "links" );
+  $text-submenu-active: map-get-deep( $navbar-colors, "text", "submenu", "active" );
+}
+
+@if map-get-deep( $navbar-colors, "background", "fixed", "submenu" ) {
+  $background-fixed-submenu-fill:  map-get-deep( $navbar-colors, "background", "fixed", "submenu", "fill" );
+  $background-fixed-submenu-links: map-get-deep( $navbar-colors, "background", "fixed", "submenu", "links" );
+}
+
+@if map-get-deep( $navbar-colors, "background", "fixed", "fill" ) {
+  $background-fixed-fill: map-get-deep( $navbar-colors, "background", "fixed", "fill" );
+}
+
+@if map-has-key-deep( $navbar-colors, "text", "fixed", "links" ) {
+  $text-fixed-links:  map-get-deep( $navbar-colors, "text", "fixed", "links" );
+  $text-fixed-active: map-get-deep( $navbar-colors, "text", "fixed", "active" );
+}
+
+@if map-has-key-deep( $navbar-colors, "text", "fixed", "submenu" ) {
+  $text-fixed-submenu-links:  map-get-deep( $navbar-colors, "text", "fixed", "submenu", "links" );
+  $text-fixed-submenu-active: map-get-deep( $navbar-colors, "text", "fixed", "submenu", "active" );
+}
+
+// Static
+.masthead {
+  background-color: $background-fill;
+
+  .x-nav > li a {
+    color: $text-links;
+    @include active {
+      color: $text-active;
+
+      @if $navbar-link-style == "fill"
+       or $navbar-link-style == "pill"
+       or $navbar-link-style == "box" {
+        background-color: $text-active;
+        color: calculate-color( $text-active );
+      }
+
+      @elseif $navbar-link-style == "box-border"
+           or $navbar-link-style == "pill-border" {
+        border-color: $text-active;
+      }
+    }
+  }
+
+  .x-nav > li ul {
+    @if map-has-key-deep( $navbar-colors, "background", "submenu" ) {
+      background-color: $background-submenu-fill;
+    }
+    @if map-has-key-deep( $navbar-colors, "text", "submenu" ) {
+      a {
+        color: $text-submenu-links;
+        @include active {
+          color: $text-submenu-active;
+        }
+      }
+    }
+  }
+}
+
+
+.scrolled .masthead {
+  background-color: $background-fixed-fill;
+
+  .x-nav > li a span {
+    color: $text-fixed-links;
+    @include active {
+      color: $text-fixed-active;
+
+      @if $navbar-link-style == "fill"
+       or $navbar-link-style == "pill"
+       or $navbar-link-style == "box" {
+        background-color: $text-fixed-active;
+        color: calculate-color( $text-fixed-active );
+      }
+
+      @elseif $navbar-link-style == "box-border"
+           or $navbar-link-style == "pill-border" {
+        border-color: $text-fixed-active;
+      }
+    }
+  }
+
+  @if map-has-key-deep( $navbar-colors, "background", "submenu" ) {
+    .x-nav > li ul {
+      background-color: $background-fixed-submenu-fill;
+      a {
+        color: $text-fixed-submenu-links;
+        @include active {
+          color: $text-fixed-submenu-active;
+        }
+      }
+    }
+  }
+}

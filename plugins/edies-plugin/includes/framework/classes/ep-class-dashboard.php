@@ -5,9 +5,7 @@ class EP_Dashboard extends Edies_Plugin {
   protected $css;
   protected $js;
 
-  public function __construct() {
-
-  }
+  public function __construct() { }
 
   public function add_menu_pages() {
     add_menu_page(
@@ -43,6 +41,21 @@ class EP_Dashboard extends Edies_Plugin {
           'name' => $this->__( 'Portfolio Items' ),
           'menu_name' => $this->__( 'Portfolio' ),
           'singular_name' => $this->__( 'Portfolio Item' ),
+        ),
+        'public' => true,
+        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+        'menu_icon' => 'dashicons-portfolio',
+        'show_in_nav_menus' => false,
+        'show_in_menu' => 'edies-plugin/edies-plugin-admin.php',
+      )
+    );
+    register_post_type(
+      'otl-klanten',
+      array(
+        'labels' => array(
+          'name' => $this->__( 'Klanten' ),
+          'menu_name' => $this->__( 'Klanten' ),
+          'singular_name' => $this->__( 'Klant' ),
         ),
         'public' => true,
         'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),

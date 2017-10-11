@@ -1,0 +1,125 @@
+////////////
+// Colors //
+////////////
+$primary-color: #EF483E;
+$secondary-color: lighten( adjust_hue($primary-color, 10%), 40%);
+
+$black: #222;
+$dark-gray: #333;
+$gray: #ccc;
+$light-gray: #fafafa;
+$white: #fff;
+
+$base-color-light: $white;
+$base-color-dark: $black;
+
+////////////
+// Global //
+////////////
+$container-width: 1100px;
+$container-max-width: 95%;
+$global-border-radius: 3px;
+$global-corners: none;
+$global-border-color: $primary-color;
+$global-border-width: 1px;
+$global-spacing: 4em;
+
+//////////
+// Text //
+//////////
+$fonts: (
+  heading: (
+    family: "Roboto Condensed",
+    source: "Google",
+    fallback: serif,
+    atts: (
+      font-weight: 700,
+      text-transform: lowercase
+    )
+  ),
+  body: (
+    family: "Open Sans",
+    source: "Google",
+    fallback: sans-serif,
+    atts: (
+      font-weight: 300,
+      font-size: 16px
+    )
+  )
+);
+
+// $body-color: $base-color-light;
+// $body-line-height: 1.9;
+// $body-background-color: $base-color-dark;
+
+/////////////
+// Buttons //
+/////////////
+$button-style: 'fill'; // Transparent | Fill | Transparent-invert
+$button-font: 'body';
+// $button-color: $base-color-light;
+$button-background-color: $primary-color;
+$button-active-background-color: lighten( $button-background-color, 10% );
+$button-arrow: true;
+
+////////////
+// Inputs //
+////////////
+$input-style: 'fill'; // Transparent | Fill | Border-Fill | 3D
+$input-style-transition: none; // Grow | Shrink | none
+$input-style-transition-rotation: 0; // Rotation on hover
+$input-border-color: transparent;
+$input-active-border-color: $global-border-color;
+$input-color: $base-color-dark;
+$input-background-color: $white;
+$input-active-background-color: $secondary-color;
+$input-height: $global-spacing * 1.5;
+$input-background-color: $white;
+$input-background-color: lighten( $secondary-color, 2% );
+
+////////////
+// Navbar //
+////////////
+// Colors //
+$navbar-background-color: transparent; //e74b3c - ee3d3d
+$navbar-fixed-background-color: $white;
+$navbar-submenu-background-color: $navbar-fixed-background-color;
+$navbar-fixed-submenu-background-color: $navbar-fixed-background-color;
+
+// Height //
+$navbar-size: 80px;
+$navbar-fixed-size: $navbar-size;
+$navbar-submenu-padding: 0;
+
+// Text //
+$navbar-font-size: 18px;
+$navbar-font: 'body';
+$navbar-color: $base-color-light;
+$navbar-fixed-color: $base-color-light;
+$navbar-hover-color: $navbar-color;
+
+// Links //
+$navbar-link-style: 'fill'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+$navbar-link-active-color: $primary-color;
+$navbar-fixed-link-active-color: $primary-color;
+
+// Brand //
+$navbar-brand-image: true;
+$navbar-brand-height: $navbar-size * 0.80;
+$navbar-fixed-brand-height: $navbar-fixed-size;
+
+////////////
+// Footer //
+////////////
+// $footer-top-padding: $global-spacing * 4;
+$footer-top-background-color: #222;
+// $footer-top-text-color: $base-color-light;
+
+// $footer-bottom-padding: $global-spacing * 0.5;
+// $footer-bottom-font: 'heading';
+// $footer-bottom-background-color: $primary-color;
+// $footer-bottom-text-color: $footer-top-text-color;
+
+$social-style: 'fill';
+
+@import "otl/navbar";

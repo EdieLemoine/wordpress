@@ -3,7 +3,6 @@
 ////////////////////
 .masthead .x-navbar .x-navbar-inner .x-brand {
   display: flex;
-  margin: auto;
   float: left;
 
   @if $navbar-brand-image == true {
@@ -21,4 +20,17 @@
       font-size: $navbar-brand-height;
     }
   }
+}
+
+.x-brand svg {
+  display: block;
+  width: auto;
+  float: left;
+  path {
+    @include simple-transition;
+  }
+}
+
+.x-nav-wrap {
+  float: right;
 }

@@ -24,7 +24,7 @@
       background: linear-gradient(to top, $navbar-link-active-color 0%, transparent 100%);
     }
 
-    @elseif $navbar-link-style == 'underline' {
+    @elseif $navbar-link-style == 'line-bottom' {
       box-shadow: inset 0 #{ -$global-border-width } 0 0 currentColor;
     }
 
@@ -76,7 +76,7 @@
     background-color: $navbar-fixed-link-active-color;
   }
 
-  // @elseif $navbar-link-style == 'underline' {
+  // @elseif $navbar-link-style == 'line-bottom' {
   //   box-shadow: inset 0 -$global-border-width 0 0 $navbar-fixed-link-active-color;
   // }
 

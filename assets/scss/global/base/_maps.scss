@@ -23,11 +23,49 @@ $fonts: (
   )
 ) !default;
 
+$navbar-colors: (
+  text: (
+    links: $base-color-light,
+    active: $primary-color
+    // submenu: (
+    //   links: yellow,
+    //   active: orange
+    // )
+    // fixed: (
+    //   links: gray,
+    //   active: brown,
+    //   submenu: (
+    //     links: slateblue,
+    //     active: cyan
+    //   )
+    // )
+  ),
+  background: (
+    fill: darken( $primary-color, 10% ),
+    submenu: (
+      fill: lime,
+      links: red
+    )
+    // fixed: (
+    //   fill: pink,
+    //   submenu: (
+    //     fill: tomato,
+    //     links: orange,
+    //     active: black
+    //   )
+    // )
+  )
+) !default;
+
 $z-layers: (
-  bg: -9999,
+  lowest: -1000,
+  lower: -100,
+  low: -50,
   normal: 1,
-  front: 20,
-  high: 1200
+  base: 0,
+  high: 50,
+  higher: 100,
+  highest: 1000
 );
 
 $breakpoints: (

@@ -7,7 +7,7 @@ $linkColor: $primary-color;
 $linkColorHover: $secondary-color;
 $sansFontFamily: map-get( map-get( $fonts, "body" ), "family" );
 $altFontFamily: map-get( map-get( $fonts, "heading" ), "family" );
-$navbarHeight: $navbar-height;
+$navbarHeight: $navbar-size;
 $navbarFontSize: $navbar-font-size;
 $navbarBackground: $navbar-background-color;
 $navbarLinkColor: $navbar-color;

@@ -27,7 +27,7 @@
         position: relative;
         display: inline-block;
         bottom: 0.25em;
-        font-size: font-attr( "body", "font-size" );
+        font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
         margin-right: 10px;
         color: $base-color-dark;
         transform: rotate(45deg);

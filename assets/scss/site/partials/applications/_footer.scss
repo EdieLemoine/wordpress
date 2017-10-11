@@ -1,10 +1,17 @@
 .x-colophon {
   // Top Footer
+  a {
+    @include fast-transition;
+    &:hover {
+      color: darken( $footer-bottom-text-color, 20% );
+    }
+  }
+
   &.top {
     &:not(.bg3) {
       background-color: $footer-top-background-color;
     }
-    padding: $footer-top-padding 0;
+    padding: $global-spacing 0;
     // #{textElements()}, .textwidget {
     //   color: $footer-top-text-color;
     //   font-size: $footer-top-font-size;
@@ -12,30 +19,32 @@
   }
   // Bottom Footer
   &.bottom {
-    text-align: center;
     background-color: $footer-bottom-background-color;
-    padding: $footer-bottom-padding 0;
-    // font-size: $footer-bottom-font-size;
+    padding: $global-spacing / 2 0;
     @include font( $footer-bottom-font );
 
-    .x-colophon-content,
-    a {
-      @include fast-transition;
-      color: $footer-bottom-text-color;
-      &:hover {
-        color: darken( $footer-bottom-text-color, 20% );
-      }
-    }
-
     .x-nav {
-      padding: $global-spacing 0;
       display: flex;
+      margin: 0;
       li {
-        flex: 1;
-        & + li a {
-          @include border( left );
+      flex: 1;
+      text-align: center;
+        a {
+          display: inline;
         }
       }
+    }
+  }
+
+  &.bar {
+    text-align: center;
+    background-color: #333;
+    padding: $global-spacing / 4 0;
+    @include font( $footer-bottom-font );
+
+    .x-colophon-content {
+      margin: 0;
+      color: $footer-bottom-text-color;
     }
   }
 }

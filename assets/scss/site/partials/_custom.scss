@@ -2,39 +2,11 @@ html {
   overflow-x: hidden;
 }
 
-.x-colophon form {
-  span {
-    clear: both;
-  }
+.x-btn-widgetbar,
+.x-header-landmark {
+  display: none;
 }
 
-// .ep-row:hover .madog-paw .cls-1 {
-//   fill: $black;
-// }
-
-
-
-
-
-#top h1 {
-  margin-top: 0;
-  font-size: $global-spacing * 1.5;
-  @include break('l') {
-    font-size: $global-spacing;
-  }
-  @include break('s') {
-    font-size: $global-spacing * 0.9;
-  }
-}
-
-body {
-}
-
-#ep-top .bg3 {
-  display: flex;
-  width: 100%;
-  padding: $global-spacing / 2 0;
-  a {
-    margin: auto;
-  }
+html, body {
+  min-height: 100%;
 }

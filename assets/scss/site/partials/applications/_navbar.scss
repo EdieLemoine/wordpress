@@ -1,9 +1,9 @@
 @import "navbar/bar-base";
-@import "navbar/bar-static";
-@import "navbar/brand";
-@import "navbar/bar-fixed";
+@import "navbar/pos-top";
+@import "navbar/pos-fixed-top";
+@import "navbar/pos-left";
 @import "navbar/nav-buttons";
-@import "navbar/nav-buttons-active";
 @import "navbar/nav-submenus";
-@import "navbar/desktop";
+@import "navbar/brand";
 @import "navbar/mobile";
+@import "navbar/all-colors";
