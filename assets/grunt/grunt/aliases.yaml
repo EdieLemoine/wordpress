@@ -3,4 +3,6 @@ default:
 deploy:
     - 'concurrent:scss_dist'
     - 'concurrent:js_dist'
+    - 'svgmin'
     - 'clean:dist'
+    

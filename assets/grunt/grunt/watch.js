@@ -7,9 +7,19 @@ module.exports = {
     },
   },
 
+  img: {
+    files: [ '<%= img_prod %>/**/*.{jpg,png,gif}' ],
+    tasks: [ 'imagemin' ],
+  },
+
+  svg: {
+    files: [ '<%= svg_prod %>/**/*.svg' ],
+    tasks: [ 'svgmin' ],
+  },
+
   scss: {
     files: [ '<%= style_prod %>/**/*.scss' ],
-    tasks: [ 'copy:scss', 'sass:prod', 'postcss' ],
+    tasks: [ /*'copy:scss',*/ 'sass:prod', 'postcss' ],
   },
 
   js: {

@@ -11,6 +11,8 @@ module.exports = {
 			}
 		}
 	}
+
+
 	// js: {
 	// 	expand: true,
 	// 	src: ['<%= script_prod %>/plugin/**/*.js'],

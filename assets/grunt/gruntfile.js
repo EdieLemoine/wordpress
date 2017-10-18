@@ -12,6 +12,8 @@ module.exports = function(grunt) {
 			theme: '../../themes/x-child',
 			plugin: '../../plugins/edies-plugin/includes',
 
+			img_prod: '../../assets/images',
+			svg_prod: '../../assets/svg',
 			style_prod: '../../assets/scss',
 			script_prod: '../../assets/js',
 
@@ -23,6 +25,8 @@ module.exports = function(grunt) {
 			admin_style_dist: '<%= plugin %>/css/ep-admin.css',
 			plugin_style_dist: '<%= plugin %>/css/ep-style.css',
 
+			img_dist: '<%= theme %>/dist/images',
+			svg_dist: '<%= theme %>/dist/svg',
 			theme_script_dist: '<%= theme %>/dist/js'
 		}
 	});
