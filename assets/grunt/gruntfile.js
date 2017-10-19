@@ -25,8 +25,10 @@ module.exports = function(grunt) {
 			admin_style_dist: '<%= plugin %>/css/ep-admin.css',
 			plugin_style_dist: '<%= plugin %>/css/ep-style.css',
 
-			img_dist: '<%= theme %>/dist/images',
-			svg_dist: '<%= theme %>/dist/svg',
+			theme_img_dist: '<%= theme %>/dist/images',
+			theme_svg_dist: '<%= theme %>/dist/svg',
+			plugin_img_dist: '<%= plugin %>/images',
+			plugin_svg_dist: '<%= plugin %>/svg',
 			theme_script_dist: '<%= theme %>/dist/js'
 		}
 	});

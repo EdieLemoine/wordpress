@@ -1,4 +1,7 @@
 module.exports = {
+  options: {
+    force: true
+  },
   dist: [
     '<%= theme %>/**/*.map',
     '<%= plugin %>/**/*.map',
@@ -17,5 +20,9 @@ module.exports = {
     '<%= theme %>/**/*.map',
     '<%= plugin %>/**/*.map',
     'gruntfile.js'
+  ],
+  svg: [
+    '<%= theme_svg_dist %>/**/*.svg',
+    '<%= plugin_svg_dist %>/**/*.svg',
   ]
 };

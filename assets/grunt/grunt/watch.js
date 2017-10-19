@@ -14,12 +14,17 @@ module.exports = {
 
   svg: {
     files: [ '<%= svg_prod %>/**/*.svg' ],
-    tasks: [ 'svgmin' ],
+    tasks: [ 'clean:svg', 'svgmin:plugin', 'svgmin:theme' ],
   },
 
   scss: {
     files: [ '<%= style_prod %>/**/*.scss' ],
     tasks: [ /*'copy:scss',*/ 'sass:prod', 'postcss' ],
+  },
+
+  less: {
+    files: [ '<%= style_prod %>/edit.scss' ],
+    tasks: [ 'copy:less' ],
   },
 
   js: {
