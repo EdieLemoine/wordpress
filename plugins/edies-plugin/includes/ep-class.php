@@ -110,6 +110,7 @@ class Edies_Plugin {
 
     // Shortcodes
     $this->shortcodes->register_shortcodes();
+    $this::$loader->add_filter( 'do_shortcode_tag', $this->shortcodes, 'shortcode_filter', 9999, 3 );    
 
     // global $wp_filter;
     // $this->pretty_print( $wp_filter );
