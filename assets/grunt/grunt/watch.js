@@ -7,21 +7,45 @@ module.exports = {
     },
   },
 
+  // Images
   img: {
     files: [ '<%= img_prod %>/**/*.{jpg,png,gif}' ],
     tasks: [ 'imagemin' ],
   },
 
+  // SVG
   svg: {
     files: [ '<%= svg_prod %>/**/*.svg' ],
     tasks: [ 'clean:svg', 'svgmin:plugin', 'svgmin:theme' ],
   },
 
-  scss: {
-    files: [ '<%= style_prod %>/**/*.scss' ],
-    tasks: [ /*'copy:scss',*/ 'sass:prod', 'postcss' ],
+  // Sass
+  scss_theme: {
+    files: [
+      '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/theme/**/*.scss',
+      '<%= style_prod %>/edit.scss',
+    ],
+    tasks: [ 'sass:theme', 'postcss:theme' ],
+  },
+  scss_plugin: {
+    files: [
+      '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/plugin/**/*.scss',
+      '<%= style_prod %>/edit.scss',
+    ],
+    tasks: [ 'sass:plugin', 'postcss:plugin' ],
+  },
+  scss_admin: {
+    files: [
+      '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/admin/**/*.scss',
+      '<%= style_prod %>/edit.scss',
+    ],
+    tasks: [ 'sass:admin', 'postcss:admin' ],
   },
 
+  // Less
   less: {
     files: [ '<%= style_prod %>/edit.scss' ],
     tasks: [ 'copy:less' ],
