@@ -26,7 +26,7 @@ class EP_Element_Base extends EP_Theme {
       $array = array(
         'type' => $type,
         'ui' => array(
-          'title' => $this->__( $title )
+          'title' => __ep( $title )
         )
       );
     endif;
@@ -105,7 +105,7 @@ class EP_Element_Base extends EP_Theme {
       'type' => 'select',
       'context' => 'content',
       'ui' => array(
-        'title' => $this->__( $title )
+        'title' => __ep( $title )
       ),
       'options' => array(
         'choices' => $choices

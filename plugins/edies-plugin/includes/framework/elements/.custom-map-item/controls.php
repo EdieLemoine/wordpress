@@ -16,7 +16,7 @@ return array(
   'title' => array(
     'type' => 'title',
 		'ui' => array(
-			'title' => __( 'Title', 'edies-plugin' )
+			'title' => __ep( 'Title', 'edies-plugin' )
 		),
 		'context' => 'title'
   ),
@@ -24,22 +24,22 @@ return array(
   'item_type' => array(
     'type' => 'select',
     'ui' => array(
-      'title' => __( 'Item Type', 'edies-plugin' )
+      'title' => __ep( 'Item Type', 'edies-plugin' )
     ),
     'suggest' => 'marker',
     'options' => array(
       'choices' => array(
         array(
           'value' => 'marker',
-          'name' => __( 'Map Marker', 'edies-plugin' )
+          'name' => __ep( 'Map Marker', 'edies-plugin' )
         ),
         array(
           'value' => 'road',
-          'name' => __( 'Road Highlight', 'edies-plugin' )
+          'name' => __ep( 'Road Highlight', 'edies-plugin' )
         ),
         array(
           'value' => 'polygon',
-          'name' => __( 'Polygon Highlight', 'edies-plugin' )
+          'name' => __ep( 'Polygon Highlight', 'edies-plugin' )
         )
       )
     )
@@ -48,7 +48,7 @@ return array(
   'polygon' => array(
     'type' => 'textarea',
     'ui' => array(
-      'title' => __( 'Polygon Coordinates', 'edies-plugin' )
+      'title' => __ep( 'Polygon Coordinates', 'edies-plugin' )
     ),
     'condition' => array(
       'item_type' => 'polygon'

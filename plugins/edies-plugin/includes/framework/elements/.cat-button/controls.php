@@ -11,7 +11,7 @@ return array(
 	'subtitle' => array(
 		'type' => 'text',
 		'ui' => array(
-			'title' => __( 'Subtitel', 'albertcuyp' )
+			'title' => __ep( 'Subtitel', 'albertcuyp' )
 		),
 		'context' => 'subtitle'
 	),

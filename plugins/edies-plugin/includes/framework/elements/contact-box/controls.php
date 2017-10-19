@@ -13,11 +13,11 @@ return array(
   'elements' => array(
     'type' => 'sortable',
     'ui' => array(
-      'title' => $c->__( 'Contact boxes')
+      'title' => __ep( 'Contact boxes')
     ),
     'options' => array(
       'element' => 'contact-box-item',
-      'newTitle' => $c->__( 'Contact box %s'),
+      'newTitle' => __ep( 'Contact box %s'),
       'floor'   => 0,
     )
   ),

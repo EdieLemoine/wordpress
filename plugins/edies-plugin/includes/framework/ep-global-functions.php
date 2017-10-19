@@ -34,3 +34,16 @@ function pretty_print($string) {
   print_r( $string );
   echo '</pre>';
 }
+
+function __ep( $string, $slug = null ) {
+
+  if ( $slug == null ) :
+    $slug = "edies-plugin";
+  endif;
+
+  return __( $string, $slug );
+}
+
+function convert_dash( $string ) {
+  return str_replace('-', '_', $string);
+}

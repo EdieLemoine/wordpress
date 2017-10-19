@@ -32,25 +32,3 @@ function ep_run_edies_plugin() {
 * Run the plugin
 */
 ep_run_edies_plugin();
-//
-// function queue() {
-//   wp_enqueue_script( 'ep-parallax', plugin_dir_url( __FILE__ ) . 'js/ep-parallax.min.js', '', null, true );
-// }
-//
-// add_action( 'wp_enqueue_scripts', 'queue');
-//
-//
-// echo plugin_dir_url( __FILE__ ) . 'includes/js/ep-parallax.min.js';
-//
-// $scripts = array( 'ep-parallax', 'ep-custom-map', 'ep-slider', 'ep-lightbox');
-//
-// foreach ($scripts as $s) {
-//   $arr[$s] = array(
-//     'enqueued' => wp_script_is( $s ),
-//     'registered' => wp_script_is( $s, 'registered' ),
-//     'to do' => wp_script_is( $s, 'to_do' ),
-//     'done' => wp_script_is( $s, 'done' )
-//   );
-// }
-//
-// pretty_print($arr);

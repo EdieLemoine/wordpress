@@ -10,7 +10,7 @@ class EP_Masonry_Grid extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title' => $this->__( 'Masonry Grid' ),
+      'title' => __ep( 'Masonry Grid' ),
     	'icon_group' => $this->icon_group
     );
 	}

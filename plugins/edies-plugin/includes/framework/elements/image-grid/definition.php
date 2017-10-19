@@ -8,7 +8,7 @@ class EP_Image_Grid extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title' => $this->__( 'Image Grid' ),
+      'title' => __ep( 'Image Grid' ),
       'autofocus' => array(
 				'categorie' => '',
     	),

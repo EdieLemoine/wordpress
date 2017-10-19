@@ -13,7 +13,7 @@ $array = array(
   'button_style' => array(
     'type' => 'select',
     'ui' => array(
-      'title' => __( 'Button style', 'edies-plugin' )
+      'title' => __ep( 'Button style', 'edies-plugin' )
     ),
     'options' => array(
       'choices' => array(
@@ -25,12 +25,12 @@ $array = array(
   'link_type' => array(
     'type' => 'select',
     'ui' => array(
-      'title' => __( 'Link type', 'edies-plugin' )
+      'title' => __ep( 'Link type', 'edies-plugin' )
     ),
     'options' => array(
       'choices' => array(
-        array( 'label' => __( 'Post', 'edies-plugin' ), 'value' => 'post' ),
-        array( 'label' => __( 'Custom', 'edies-plugin' ), 'value' => 'custom' ),
+        array( 'label' => __ep( 'Post', 'edies-plugin' ), 'value' => 'post' ),
+        array( 'label' => __ep( 'Custom', 'edies-plugin' ), 'value' => 'custom' ),
       )
     )
   ),

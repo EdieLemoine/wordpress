@@ -8,7 +8,7 @@ class EP_Contact_Box extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title' => $this->__( 'Contact box group' ),
+      'title' => __ep( 'Contact box group' ),
       'autofocus' => array(
 				'height' => '',
     	),

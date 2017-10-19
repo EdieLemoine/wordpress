@@ -14,7 +14,7 @@ $array = array(
     'type' => 'select',
     'context' => 'content',
     'ui' => array(
-      'title' => $c->__( 'Post type' )
+      'title' => __ep( 'Post type' )
     ),
     'options' => array()
   ),
@@ -23,8 +23,8 @@ $array = array(
   //   'type' => 'multi-choose',
   //   'context' => 'content',
   //   'ui' => array(
-  //     'title' => $c->__( 'Categories' ),
-  //     'tooltip' => $c->__( 'Leave empty to select all' )
+  //     'title' => __ep( 'Categories' ),
+  //     'tooltip' => __ep( 'Leave empty to select all' )
   //   ),
   //   'options' => array()
   // ),

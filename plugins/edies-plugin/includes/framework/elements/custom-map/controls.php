@@ -20,8 +20,8 @@ $array = array(
   'snazzy_style' => array(
     'type' => 'textarea',
 		'ui' => array(
-			'title' => $c->__( 'Snazzy JSON' ),
-      'tooltip' => $c->__( 'Paste JSON code from snazzymaps here.' )
+			'title' => __ep( 'Snazzy JSON' ),
+      'tooltip' => __ep( 'Paste JSON code from snazzymaps here.' )
 		),
 		'context' => 'content',
     'monospace' => true

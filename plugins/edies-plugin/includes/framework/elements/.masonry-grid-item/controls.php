@@ -16,7 +16,7 @@ return array(
   'title' => array(
     'type' => 'title',
   	'ui' => array(
-  		'title' => __( 'Title', 'waterlands-goed' )
+  		'title' => __ep( 'Title', 'waterlands-goed' )
   	),
   	'context' => 'title'
   ),
@@ -24,7 +24,7 @@ return array(
   'content' => array(
     'type' => 'editor',
 		'ui' => array(
-			'title' => __( 'Content', 'waterlands-goed' )
+			'title' => __ep( 'Content', 'waterlands-goed' )
 		),
 		'context' => 'content'
   ),
@@ -32,21 +32,21 @@ return array(
   'image_toggle' => array(
     'type' => 'toggle',
     'ui' => array(
-      'title' => __( 'Image', 'waterlands-goed' )
+      'title' => __ep( 'Image', 'waterlands-goed' )
     )
   ),
 
   'link_toggle' => array(
     'type' => 'toggle',
     'ui' => array(
-      'title' => __( 'Link', 'waterlands-goed' )
+      'title' => __ep( 'Link', 'waterlands-goed' )
     )
   ),
 
   'image' => array(
     'type' => 'image',
     'ui' => array(
-      'title' => __( 'Image', 'waterlands-goed' )
+      'title' => __ep( 'Image', 'waterlands-goed' )
     ),
     'condition' => array(
       'image_toggle' => true
@@ -57,7 +57,7 @@ return array(
   'link' => array(
     'type' => 'text',
 		'ui' => array(
-			'title' => __( 'Link', 'waterlands-goed' )
+			'title' => __ep( 'Link', 'waterlands-goed' )
 		),
     'condition' => array(
       'link_toggle' => true

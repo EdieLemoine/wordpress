@@ -8,7 +8,7 @@ class EP_Contact_Box_Item extends EP_Contact_Box {
 
 	public function ui() {
 		return array(
-      'title'       => __( 'Contact box', 'edies-plugin' ),
+      'title'       => __ep( 'Contact box', 'edies-plugin' ),
       'autofocus' => array(
 				'height' => '',
     	),

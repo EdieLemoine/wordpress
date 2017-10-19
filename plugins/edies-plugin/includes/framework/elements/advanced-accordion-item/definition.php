@@ -13,7 +13,7 @@ class EP_Advanced_Accordion_Item extends EP_Advanced_Accordion {
 
 	public function ui() {
 		return array(
-      'title' => __( 'Advanced Accordion Item', 'edies-plugin' ),
+      'title' => __ep( 'Advanced Accordion Item', 'edies-plugin' ),
       'autofocus' => array(
 				'height' => '',
     	),

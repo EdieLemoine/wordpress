@@ -8,7 +8,7 @@ class EP_Kraam extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title'       => __( 'Kraam', 'albertcuyp' ),
+      'title'       => __ep( 'Kraam', 'albertcuyp' ),
       'autofocus' => array(
 				'categorie' => '',
     	),

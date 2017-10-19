@@ -46,7 +46,7 @@ foreach ($taxonomies as $taxonomy) {
     'type' => 'select',
     'context' => 'content',
     'ui' => array(
-      'title' => __($taxonomy['id'], 'albertcuyp')
+      'title' => __ep($taxonomy['id'], 'albertcuyp')
     ),
     'options' => array()
   );

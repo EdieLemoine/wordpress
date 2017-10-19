@@ -8,7 +8,7 @@ class EP_Masonry_Grid_Item extends EP_Masonry_Grid {
 
 	public function ui() {
 		return array(
-      'title' => $this->__('Advanced Accordion Item'),
+      'title' => __ep('Advanced Accordion Item'),
       'autofocus' => array(
 				'height' => '',
     	),

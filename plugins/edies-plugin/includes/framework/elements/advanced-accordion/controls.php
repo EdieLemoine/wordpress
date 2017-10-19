@@ -14,11 +14,11 @@ return array(
   'elements' => array(
     'type' => 'sortable',
     'ui' => array(
-      'title' => $c->__('Accordion Items')
+      'title' => __ep('Accordion Items')
     ),
     'options' => array(
       'element' => 'advanced-accordion-item',
-      'newTitle' => $c->__('Accordion item %s'),
+      'newTitle' => __ep('Accordion item %s'),
       'floor'   => 1,
       'title_field' => 'title'
     )

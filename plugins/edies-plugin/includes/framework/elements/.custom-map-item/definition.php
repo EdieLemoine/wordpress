@@ -8,7 +8,7 @@ class EP_Custom_Map_Item {
 
 	public function ui() {
 		return array(
-      'title'       => __( 'Custom map item', 'edies-plugin' ),
+      'title'       => __ep( 'Custom map item', 'edies-plugin' ),
       'autofocus' => array(
 				'height' => '',
     	),

@@ -13,7 +13,7 @@ class EP_Custom_Map extends EP_Element_Base {
 
 	public function ui() {
 		return array(
-      'title'       => __( 'Custom Map', 'edies-plugin' ),
+      'title'       => __ep( 'Custom Map', 'edies-plugin' ),
       'autofocus' => array(
 				'height' => '',
     	),

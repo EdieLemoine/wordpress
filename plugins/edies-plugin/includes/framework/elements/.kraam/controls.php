@@ -26,7 +26,7 @@ foreach ($post_types as $post_type) {
     'type' => 'select',
     'context' => 'content',
     'ui' => array(
-      'title' => __($post_type['id'], 'edies-plugin')
+      'title' => __ep($post_type['id'], 'edies-plugin')
     ),
     'options' => array()
   );
