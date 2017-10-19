@@ -18,8 +18,6 @@ class Edies_Plugin {
 
     $this->load_dependencies( $this->get_version() );
     $this->define_hooks();
-
-    $this->variables = $this->theme->variables;
   }
 
   private function set_definitions() {
@@ -29,7 +27,9 @@ class Edies_Plugin {
 
     // Directories
     define( 'DIR_CSS', URL . 'css/' );
+    define( 'DIR_IMG', URL . 'images/' );
     define( 'DIR_JS', URL . 'js/' );
+    define( 'DIR_SVG', URL . 'svg/' );
 
     define( 'DIR_FRAMEWORK', PATH . 'framework/' );
 
@@ -41,21 +41,13 @@ class Edies_Plugin {
     // Other options
     define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
     define( 'LIVERELOAD_PORT', 35729 );
+    define( 'LOGO', DIR_SVG . 'de-creatieve-hoek-logo.svg' );
 
-    $this->set_options();
-  }
-
-  private function set_options() {
-    $this->disable_theme = true;
     $this->live_reload = true;
 
-    if ( wp_get_theme() == 'X Pro' ) :
-      $this->disable_theme = false;
+    if ( parse_url( $_SERVER['HTTP_HOST'] )['port'] != null ) :
+      $this->live_reload = true;
     endif;
-    //
-    // if ( parse_url( $_SERVER['HTTP_HOST'] )['port'] != null ) :
-    //   $this->live_reload = true;
-    // endif;
   }
 
   private function load_dependencies( $ver ) {

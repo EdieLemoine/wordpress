@@ -13,6 +13,8 @@ class EP_Theme extends Edies_Plugin {
 
   public function __construct() {
     $this->load_variables();
+
+    $this->change_logo( LOGO );
   }
 
   public function load_variables() {
@@ -29,12 +31,13 @@ class EP_Theme extends Edies_Plugin {
 
   public function disable_theme() {
     remove_action( 'wp_head', 'x_output_generated_styles', 9998 ); // Remove customizer output
+    remove_action( 'wp_enqueue_scripts', 'x_enqueue_site_scripts' );
     remove_action( 'wp_enqueue_scripts', 'x_legacy_cranium_enqueue_styles', 99999 ); // Remove legacy customizer output
     remove_action( 'wp_enqueue_scripts', 'x_enqueue_site_styles' );
 
     // $cornerstone_front_end = new Cornerstone_Front_End( $this->slug );
     // remove_action( 'wp_enqueue_scripts', array( Cornerstone_Front_End::$instance, 'scripts' ) );
-    // remove_action( 'wp_enqueue_scripts', array( $cornerstone_front_end, 'styles' ) );
+    // remove_action( 'wp_enqueue_scripts', array( Cornerstone_Front_End::$instance, 'styles' ) );
   }
 
   public function disable_cranium() {
@@ -56,6 +59,10 @@ class EP_Theme extends Edies_Plugin {
     if ( $cranium_footers ) {
       require_once( $lgcy_path . '/cranium/footers/setup.php' );
     }
+  }
+
+  public function change_logo( $logo ) {
+    update_option( 'x_logo', $logo);
   }
 
   public function get_variables( $loc ) {
