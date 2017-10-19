@@ -23,7 +23,7 @@ module.exports = {
   scss_theme: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
-      '<%= style_prod %>/theme/**/*.scss',
+      '<%= style_prod %>/site/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
     tasks: [ 'sass:theme', 'postcss:theme' ],

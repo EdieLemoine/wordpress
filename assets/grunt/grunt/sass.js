@@ -10,7 +10,7 @@ module.exports = {
 
 	plugin: {
 		'<%= plugin_style_dist %>': '<%= plugin_style_prod %>'
-	}
+	},
 
 	dist: {
 		options: {
