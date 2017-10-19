@@ -9,8 +9,8 @@ class EP_Dashboard extends Edies_Plugin {
 
   public function add_menu_pages() {
     add_menu_page(
-      $this->__( 'Overview' ),
-      $this->__( 'Edie&#39;s Plugin' ),
+      __ep( 'Overview' ),
+      __ep( 'Edie&#39;s Plugin' ),
       'manage_options',
       'edies-plugin/edies-plugin-admin.php',
       '',
@@ -24,8 +24,8 @@ class EP_Dashboard extends Edies_Plugin {
       'ep-slides',
       array(
         'labels' => array(
-          'name' => $this->__( 'Slides' ),
-          'singular_name' => $this->__( 'Slide' ),
+          'name' => __ep( 'Slides' ),
+          'singular_name' => __ep( 'Slide' ),
         ),
         'public' => true,
         'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
@@ -38,9 +38,9 @@ class EP_Dashboard extends Edies_Plugin {
       'ep-portfolio',
       array(
         'labels' => array(
-          'name' => $this->__( 'Portfolio Items' ),
-          'menu_name' => $this->__( 'Portfolio' ),
-          'singular_name' => $this->__( 'Portfolio Item' ),
+          'name' => __ep( 'Portfolio Items' ),
+          'menu_name' => __ep( 'Portfolio' ),
+          'singular_name' => __ep( 'Portfolio Item' ),
         ),
         'public' => true,
         'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
@@ -53,9 +53,9 @@ class EP_Dashboard extends Edies_Plugin {
       'otl-klanten',
       array(
         'labels' => array(
-          'name' => $this->__( 'Klanten' ),
-          'menu_name' => $this->__( 'Klanten' ),
-          'singular_name' => $this->__( 'Klant' ),
+          'name' => __ep( 'Klanten' ),
+          'menu_name' => __ep( 'Klanten' ),
+          'singular_name' => __ep( 'Klant' ),
         ),
         'public' => true,
         'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
