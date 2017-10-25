@@ -1,11 +1,9 @@
 <?php
 
 /**
- * Defaults Values
- */
+	* Default Values
+*/
 
-return array(
-	'title' => '',
-	'icon' => '',
-	'ani_bar_toggle' => true
-);
+$c = new EP_Contact_Box_Item();
+
+return $c->defaults;

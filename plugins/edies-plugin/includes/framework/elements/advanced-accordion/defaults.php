@@ -1,14 +1,9 @@
 <?php
 
 /**
- * Defaults Values
- */
+	* Default Values
+*/
 
-return array(
-	'id' => '',
-	'class' => '',
-	'title' => '',
-	'title_toggle' => false,
-	'columns' => 1,
-	'content' => ''
-);
+$c = new EP_Advanced_Accordion();
+
+return $c->defaults;

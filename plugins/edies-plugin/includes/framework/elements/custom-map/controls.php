@@ -1,31 +1,9 @@
 <?php
 
 /**
- * Element Controls
- */
+	* Element Controls
+*/
 
-$c = new EP_Custom_Map();
+$c = new EP_Image_Grid();
 
-$array = array(
-  'common' => array(
-    '!style'
-  ),
-  'post_type' => $c->control( 'post_type' ),
-  'zoom' => $c->control( 'number', 'Zoom level' ),
-  'scroll' => $c->control( 'toggle', 'Scroll' ),
-  'spinner_toggle' => $c->control( 'toggle', 'Spinner' ),
-  'spinner' => $c->control( 'text', 'Spinner URL', 'spinner_toggle' ),
-  'center' => $c->control( 'text', 'Center' ),
-  'height' => $c->control( 'text', 'Height' ),
-  'snazzy_style' => array(
-    'type' => 'textarea',
-		'ui' => array(
-			'title' => __ep( 'Snazzy JSON' ),
-      'tooltip' => __ep( 'Paste JSON code from snazzymaps here.' )
-		),
-		'context' => 'content',
-    'monospace' => true
-  )
-);
-
-return $array;
+return $c->controls;

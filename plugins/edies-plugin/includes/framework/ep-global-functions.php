@@ -47,3 +47,7 @@ function __ep( $string, $slug = null ) {
 function convert_dash( $string ) {
   return str_replace('-', '_', $string);
 }
+
+function truncate( $string, $length, $dots = "..." ) {
+  return ( strlen( $string ) > $length ) ? substr( $string, 0, $length - strlen( $dots ) ) . $dots : $string;
+}

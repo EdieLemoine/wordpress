@@ -1,15 +1,9 @@
 <?php
 
 /**
- * Defaults Values
- */
+	* Default Values
+*/
 
-return array(
-	'id' => '',
-	'class' => '',
-	'link_type' => 'post',
-	'post_type' => '',
-	'link' => '',
-	'post' => '',
-	'button_style' => 'simple'
-);
+$c = new EP_Advanced_Button();
+
+return $c->defaults;

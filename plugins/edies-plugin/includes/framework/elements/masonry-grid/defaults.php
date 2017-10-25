@@ -1,13 +1,9 @@
 <?php
 
 /**
- * Defaults Values
- */
+	* Default Values
+*/
 
-return array(
-	'id' => '',
-	'class' => '',
-	'title' => '',
-	'title_toggle' => false,
-	'columns' => 1
-);
+$c = new EP_Masonry_Grid();
+
+return $c->defaults;

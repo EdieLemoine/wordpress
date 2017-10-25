@@ -1,18 +1,9 @@
 <?php
 
 /**
- * Defaults Values
- */
+	* Default Values
+*/
 
-return array(
-	'id' => '',
-	'class' => '',
-	'title' => 'Accordion Item',
-	'content' => '',
-	'image_toggle' => false,
-	'link_toggle' => false,
-	'title_toggle' => false,
-	'image' => '',
-	'link' => '',
-	'type' => false
-);
+$c = new EP_Advanced_Accordion_Item();
+
+return $c->defaults;
