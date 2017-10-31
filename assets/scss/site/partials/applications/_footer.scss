@@ -1,28 +1,28 @@
 .x-colophon {
-  // Top Footer
   a {
     @include fast-transition;
+    color: inherit;
     &:hover {
-      color: darken( $footer-bottom-text-color, 20% );
+      color: darken( $footer-bottom-color, 20% );
     }
   }
+  // Top Footer
 
   &.top {
-    &:not(.bg3) {
+    color: $footer-top-color;
+    font-size: $footer-top-font-size;
+    padding: $footer-top-padding 0;
+
+    &:not(.bg-color) {
       background-color: $footer-top-background-color;
     }
-    padding: $global-spacing 0;
-    // #{textElements()}, .textwidget {
-    //   color: $footer-top-text-color;
-    //   font-size: $footer-top-font-size;
-    // }
   }
   // Bottom Footer
   &.bottom {
     background-color: $footer-bottom-background-color;
-    padding: $global-spacing / 2 0;
+    padding: $footer-bottom-padding 0;
+    color: $footer-bottom-color;
     @include font( $footer-bottom-font );
-
     .x-nav {
       display: flex;
       margin: 0;
@@ -38,13 +38,13 @@
 
   &.bar {
     text-align: center;
-    background-color: #333;
+    background-color: $footer-bar-background-color;
     padding: $global-spacing / 4 0;
     @include font( $footer-bottom-font );
 
     .x-colophon-content {
       margin: 0;
-      color: $footer-bottom-text-color;
+      color: white;
     }
   }
 }

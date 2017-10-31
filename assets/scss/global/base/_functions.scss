@@ -2,6 +2,21 @@
 @import 'functions/lists';
 @import 'functions/maps';
 
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke( $stroke, $color ) {
+  $shadow: ();
+  $from: $stroke * -1;
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append( $shadow, $i * 1px $j * 1px 0 $color, comma );
+    }
+  }
+  @return $shadow;
+}
+
 // Get preset z-index from map
 // Usage: z-index: z( above-header );
 @function z( $key ) {
@@ -27,13 +42,40 @@
    @return unquote( #{headings( $all )} ) +',' + unquote( ' blockquote, p, ul, span' );
 }
 
-// Select light or dark color based on input color lightness
-// Usage: calculate-color( red );
-@function calculate-color( $color ) {
-  @if lightness( $color ) > 58 {
-    @return $base-color-dark;
+// Quick image url
+@function img( $file ) {
+  @return url('#{$image-dir}#{$file}');
+}
+
+
+@function createList( $input ) {
+  $list: ();
+
+  @each $item in $input {
+    $list: append( $list, unquote('#{$item},'));
   }
-  @else {
-     @return $base-color-light;
+
+  $list: str-slice( quote( $list ), 1, str-length( quote( $list ) ) - 1);
+
+  @return $list;
+}
+
+// Target all inputs of a given type
+// Usage: #{inputs( 'text' )} { @content }
+@function inputs( $type ) {
+  $inputs: ();
+  $list: ();
+
+  @if $type == "text" {
+    $inputs: ( 'text', 'email', 'phone' );
   }
+  @else if $type == "buttons" {
+    $inputs: ('button', 'submit', 'reset');
+  }
+
+  @each $input in $inputs {
+    $list: append( $list, 'input[type="#{$input}"]');
+  }
+
+  @return createList( $list );
 }

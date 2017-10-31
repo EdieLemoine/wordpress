@@ -23,6 +23,7 @@ module.exports = {
   scss_theme: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/presets/**/*.scss',
       '<%= style_prod %>/site/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
@@ -31,6 +32,7 @@ module.exports = {
   scss_plugin: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/presets/**/*.scss',
       '<%= style_prod %>/plugin/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
@@ -39,6 +41,7 @@ module.exports = {
   scss_admin: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/presets/**/*.scss',
       '<%= style_prod %>/admin/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
@@ -51,6 +54,7 @@ module.exports = {
     tasks: [ 'copy:less' ],
   },
 
+  // Javascript
   js: {
     files: [ '<%= script_prod %>/**/*.js' ],
     tasks: [ 'concat', 'uglify' ],
@@ -60,6 +64,6 @@ module.exports = {
     options: {
       livereload: true
     },
-    files: [ '<%= theme %>/**/*.css', '<%= plugin %>/**/*.css' ],
+    files: [ '<%= theme %>/**/*.css', '<%= plugin %>/includes/css/**/*.css' ],
   }
 };

@@ -1,28 +1,35 @@
-.masthead .x-navbar.x-navbar-fixed-top .x-nav-wrap.mobile {
+.masthead .mobile {
   top: $navbar-fixed-size;
 }
 
-// Mobile
 .x-btn-navbar {
   position: absolute;
   top: 0;
   right: 0;
-}
-.x-nav-wrap.mobile {
-  position: relative;
-  // display: block;
-  // overflow: hidden;
-  & > ul {
-    // height: auto;
-    visibility: visible !important;
+  height: 100%;
+  display: flex;
+  @include stroke( 2, $white );
+  & > i {
+    margin: auto;
   }
 }
 
-.masthead .x-container {
+.masthead .mobile {
   position: relative;
+  opacity: 0;
+  pointer-events: none;
+  @include fast-transition;
+  & > ul {
+    margin: 0;
+    ul {
+      border-width: 1px 0;
+      border-color: #eee;
+      border-style: solid;
+    }
+  }
 }
 
-.masthead .x-navbar .x-nav-wrap.mobile {
+.masthead .mobile {
   margin: auto;
   ul {
     flex-direction: column;
@@ -31,6 +38,7 @@
     // height: 100%;
     li a {
       min-height: 60px;
+      display: flex;
     }
     & > li {
       flex: 1;

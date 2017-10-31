@@ -5,22 +5,13 @@ Author: Edie
 Template: x
 
 */
-@warn 'Compiling site';
-
 $image-dir: '../../themes/x-child/dist/images/';
-// This file is only for importing partials.
-// Use only what you need.
 
 @import '../global/base/functions';
 @import '../global/base/mixins';
 
 // Import global variables
 @import '../global/base/variables';
-
-// Mixins and functions using variables
-@import '../global/base/var-functions';
-@import '../global/base/var-mixins';
-
 // @import 'partials/base/base';
 
 // Stack; Only use the one you enabled in X.
@@ -29,7 +20,16 @@ $image-dir: '../../themes/x-child/dist/images/';
 // @import 'partials/stack/integrity';
 // @import 'partials/stack/ethos';
 
+// Reloading functions and mixins to override x's
+@import '../global/base/functions';
+@import '../global/base/mixins';
+
+// Mixins and functions using variables
+@import '../global/base/var-functions';
+@import '../global/base/var-mixins';
+
 // @import 'partials/colors';
+@import '../font-awesome/font-awesome';
 @import 'partials/base/applications';
 
 // Plugin files

@@ -1,9 +1,16 @@
+@warn 'Compiling admin';
+
 // This file is only for importing partials.
 // Use only what you need.
 
-@import '../global/base/variables'; // Always import these variables first
-
+@import '../global/base/functions';
 @import '../global/base/mixins';
+
+@import '../global/base/variables';
+
+@import '../global/base/var-functions';
+@import '../global/base/var-mixins';
+
 // @import 'partials/base/applications';
 
 // Own files

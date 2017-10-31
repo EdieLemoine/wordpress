@@ -1,3 +1,11 @@
+// Transitions
+@mixin transition( $element, $speed, $timing: ease, $delay: null ) {
+  transition: $element $speed $timing;
+  @if $delay != null {
+    transition-delay: $delay;
+  }
+}
+
 @mixin active() {
   &:active,
   &:hover {
@@ -13,30 +21,6 @@
   @else {
     opacity: 0;
     pointer-events: none;
-  }
-}
-
-// Fonts
-@mixin font( $type ) {
-  $map: map-get( $fonts, $type );
-  font-family: unquote( map-get( $map, "family" ) + ", " + map-get( $map, "fallback" ) );
-  @each $var, $val in map-get( $map, "atts" ) {
-    #{$var}: $val;
-  }
-}
-
-// Media Query
-@mixin break( $size, $type: max ) {
-  @media ( #{$type}-width: map-get($breakpoints, $size) ) {
-    @content;
-  }
-}
-
-// Transitions
-@mixin transition( $element, $speed, $timing: ease, $delay: null ) {
-  transition: $element $speed $timing;
-  @if $delay != null {
-    transition-delay: $delay;
   }
 }
 
@@ -56,23 +40,6 @@
 // Usage @include turbo-transition;
 @mixin turbo-transition {
   @include transition(all, 0.1s);
-}
-
-@mixin background( $color: $primary-color, $tint: null, $all: false) {
-  @if $color == 'dark' {
-    $color: $base-color-dark;
-  } @elseif $color == 'light' {
-    $color: $base-color-light;
-  }
-
-  @if $tint == null {
-    $tint: calculate_color( $color );
-  }
-
-  background-color: $color !important;
-  #{textElements( $all )} {
-    color: $tint;
-  }
 }
 
 // Quick size
@@ -97,106 +64,10 @@
   background-image: url("http://lorempixel.com/#{$width}/#{$height}/#{$subject}");
 }
 
-// Makes object transparent with primary color text and border, fills on hover.
-@mixin hollow {
-  background-color: transparent;
-  color: $primary-color;
-  @include fast-transition;
-  @include border();
-
-  &:focus,
-  &:hover {
-    color: white;
-    background-color: $primary-color;
-    border-color: $primary-color;
-  }
-}
-
-// Adds an hover animated underline to the object
-// Usage: @include animated-underline;
-@mixin animated-underline( $type: hover, $color: $global-border-color ) {
-  position: relative;
-  &::after {
-    content: ' ';
-    height: $global-border-width;
-    background-color: $color;
-    width: 0;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    @include simple-transition;
-  }
-
-  @if $type == focus {
-    &:focus::after {
-      width: 100%;
-    }
-  }
-  @else {
-    &:hover::after {
-      width: 100%;
-    }
-  }
-}
-
-@mixin border-radius ( $sides: $global-border-radius ) {
-  border-radius: $global-border-radius;
-  @include fast-transition;
-  @include active {
-    border-radius: invert-list( $global-border-radius );
-  }
-}
-
-// Apply same border to varying sides of objects
-// Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
-@mixin border ( $color: $global-border-color, $corners: $global-corners, $sides: '' ) {
-  $style: $global-border-width solid $color;
-  @if $sides != '' {
-    @each $side in $sides {
-      @if $side == 'top'
-       or $side == 'right'
-       or $side == 'bottom'
-       or $side == 'left' {
-        border-#{$side}: $style;
-      }
-    }
-  }
-  @else {
-    border: $style;
-  }
-}
-
-// Creates pure css triangle
-@mixin triangle( $direction:null, $type: before, $size: $global-spacing / 4 ) {
-  $deg: null;
-  @if $direction == left {
-    $deg: -45deg;
-  }
-  @elseif $direction == right {
-    $deg: 135deg;
-  }
-  @elseif $direction == top {
-    $deg: 90deg;
-  }
-  @elseif $direction == bottom {
-    $deg: -90deg;
-  }
-
-  &::#{$type} {
-    content: ' ';
-    border-top: $global-border-width solid $global-border-color;
-    border-left: $global-border-width solid $global-border-color;
-    transform: rotate( $deg );
-    display: block;
-    @include size( $size );
-  }
-}
-
-@mixin style-3D( $color: $button-background-color ) {
-  box-shadow:inset 0px 39px 0px ( -$global-spacing / 8 ) lighten(desaturate(adjust-hue($color, -1), 1.73), 4.71);
-  background-color: $color;
-  text-shadow:0px 1px 0px darken(desaturate(adjust-hue($color, -1), 17.32), 17.65);
-
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
 }

@@ -2,14 +2,14 @@
   padding: $global-spacing;
 }
 
-.bg1 {
+.bg-light {
   @include background( 'light' );
 }
 
-.bg2 {
+.bg-dark {
   @include background( 'dark' );
 }
 
-.bg3 {
+.bg-color {
   @include background();
 }

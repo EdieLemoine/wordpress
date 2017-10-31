@@ -105,8 +105,8 @@ $navbar-fixed-link-active-color: $primary-color;
 
 // Brand //
 $navbar-brand-image: true;
-$navbar-brand-height: $navbar-size * 0.80;
-$navbar-fixed-brand-height: $navbar-fixed-size;
+$navbar-brand-size: $navbar-size * 0.80;
+$navbar-fixed-brand-size: $navbar-fixed-size;
 
 ////////////
 // Footer //
@@ -121,5 +121,3 @@ $footer-top-background-color: #222;
 // $footer-bottom-text-color: $footer-top-text-color;
 
 $social-style: 'fill';
-
-@import "otl/navbar";

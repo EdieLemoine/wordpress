@@ -1,7 +1,7 @@
-$background-fill:  map-get-deep( $navbar-colors, "background", "fill" );
+$background-fill: map-get-deep( $navbar-colors, "background", "fill" );
 $background-fixed-fill: transparent;
-$background-submenu-fill: transparent;
-$background-fixed-submenu-fill: transparent;
+$background-submenu-fill: $background-fill;
+$background-fixed-submenu-fill: $background-fixed-fill;
 
 $text-links:  map-get-deep( $navbar-colors, "text", "links" );
 $text-active: map-get-deep( $navbar-colors, "text", "active" );
@@ -48,6 +48,7 @@ $text-fixed-submenu-active: inherit;
 
   .x-nav > li a {
     color: $text-links;
+    @include fast-transition;
     @include active {
       color: $text-active;
 
@@ -64,10 +65,11 @@ $text-fixed-submenu-active: inherit;
       }
     }
   }
-
-  .x-nav > li ul {
+  .mobile,
+  .desktop li ul {
     @if map-has-key-deep( $navbar-colors, "background", "submenu" ) {
       background-color: $background-submenu-fill;
+      box-shadow: 1px 1px 3px $global-shadow;
     }
     @if map-has-key-deep( $navbar-colors, "text", "submenu" ) {
       a {
@@ -80,12 +82,20 @@ $text-fixed-submenu-active: inherit;
   }
 }
 
-
 .scrolled .masthead {
   background-color: $background-fixed-fill;
-
-  .x-nav > li a span {
+  @if $background-fixed-fill == transparent {
+    pointer-events: none;
+    .x-container > * {
+      pointer-events: all;
+    }
+  }
+  .mobile {
+    top: $navbar-fixed-size;
+  }
+  .x-nav > li a {
     color: $text-fixed-links;
+    @include fast-transition;
     @include active {
       color: $text-fixed-active;
 
@@ -98,14 +108,16 @@ $text-fixed-submenu-active: inherit;
 
       @elseif $navbar-link-style == "box-border"
            or $navbar-link-style == "pill-border" {
-        border-color: $text-fixed-active;
+        border-color: $text-active;
       }
     }
   }
 
-  @if map-has-key-deep( $navbar-colors, "background", "submenu" ) {
-    .x-nav > li ul {
+  .x-nav > li ul {
+    @if map-has-key-deep( $navbar-colors, "background", "fixed", "submenu" ) {
       background-color: $background-fixed-submenu-fill;
+    }
+    @if map-has-key-deep( $navbar-colors, "text", "fixed", "submenu" ) {
       a {
         color: $text-fixed-submenu-links;
         @include active {
@@ -115,3 +127,38 @@ $text-fixed-submenu-active: inherit;
     }
   }
 }
+
+// .scrolled .masthead {
+//   background-color: $background-fixed-fill;
+//
+//   .x-nav > li a span {
+//     color: $text-fixed-links;
+//     @include active {
+//       color: $text-fixed-active;
+//
+//       @if $navbar-link-style == "fill"
+//        or $navbar-link-style == "pill"
+//        or $navbar-link-style == "box" {
+//         background-color: $text-fixed-active;
+//         color: calculate-color( $text-fixed-active );
+//       }
+//
+//       @elseif $navbar-link-style == "box-border"
+//            or $navbar-link-style == "pill-border" {
+//         border-color: $text-fixed-active;
+//       }
+//     }
+//   }
+//
+//   @if map-has-key-deep( $navbar-colors, "background", "submenu" ) {
+//     .x-nav > li ul {
+//       background-color: $background-fixed-submenu-fill;
+//       a {
+//         color: $text-fixed-submenu-links;
+//         @include active {
+//           color: $text-fixed-submenu-active;
+//         }
+//       }
+//     }
+//   }
+// }

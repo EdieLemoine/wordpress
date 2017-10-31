@@ -1,15 +1,19 @@
 @if $navbar-position == 'top'
  or $navbar-position == 'fixed-top' {
   .masthead {
+    height: $navbar-size;
     position: relative;
-    height: 0;
-    width: 100%;
-    padding: 0 $navbar-fixed-size;
+    .x-navbar-wrap {
+      width: 100%;
+    }
+    .x-container {
+      height: 100%;
+    }
     // @include simple-transition;
     ul li a {
-      padding: 0 $global-spacing / 4;
+      padding: 0 $global-spacing / 6;
       & + ul {
-        top: $navbar-submenu-offset;
+        top: $navbar-size;
       }
     }
 
@@ -20,8 +24,7 @@
       list-style: none;
       margin: 0;
       // padding: 0 $global-border-width $global-border-width $global-border-width;
-      box-shadow: 1px 1px 3px $global-shadow;
-
+      
       @include fast-transition;
       @if $navbar-menu-flex == true {
         width: 100%;
@@ -70,8 +73,10 @@
     .x-brand {
       height: 100%;
     }
+
     .x-navbar-wrap {
       height: $navbar-size;
+      @include fast-transition;
       // display: flex;
     }
 

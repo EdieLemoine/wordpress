@@ -1,5 +1,12 @@
-@import '../global/base/variables';
+@warn 'Compiling plugin';
+
+@import '../global/base/functions';
 @import '../global/base/mixins';
+
+@import '../global/base/variables';
+
+@import '../global/base/var-functions';
+@import '../global/base/var-mixins';
 
 // Base files
 @import 'partials/page';
@@ -7,10 +14,12 @@
 @import 'partials/classes';
 
 // Elements
+@import "partials/elements/ep-svg-border";
 @import "partials/elements/ep-contactbox";
 @import "partials/elements/ep-grid";
 @import "partials/elements/ep-kaart";
 @import "partials/elements/ep-advanced-accordion";
 @import "partials/elements/ep-lightbox";
 @import "partials/elements/ep-parallax";
+@import "partials/elements/ep-opening-hours";
 @import "partials/elements/ep-slider";

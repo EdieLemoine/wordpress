@@ -1,7 +1,7 @@
 #ep-top {
   background-color: $body-background-color;
   position: relative;
-  box-shadow: #000 0 7px 35px 0;
+  filter: drop-shadow( 0 0 10px rgba( #000, 0.5 ) );
 }
 
 #ep-footer {

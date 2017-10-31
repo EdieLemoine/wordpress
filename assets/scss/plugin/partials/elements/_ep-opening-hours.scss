@@ -1,0 +1,16 @@
+.ep-opening-hours {
+  .table {
+    display: table;
+    table-layout: fixed;
+  }
+  .ep-day {
+    display: table-row;
+    div {
+      display: table-cell;
+      padding-right: $global-spacing / 4;
+    }
+  }
+  .today {
+    font-weight: 700;
+  }
+}

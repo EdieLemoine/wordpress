@@ -1,26 +1,33 @@
 //////////////
 // Submenus //
 //////////////
-.masthead .x-navbar .x-nav {
-
-  li.menu-item-has-children > a > span::after {
-    content: ' +';
+.masthead .desktop .x-nav {
+  .menu-item-has-children > a > span::after {
+    content: '\f0d7';
+    font-family: 'fontawesome';
+    margin-left: $global-spacing / 8;
+    transform: rotate(0);
+    position: absolute;
+    @include fast-transition;
   }
-  li.menu-item-has-children:hover > a > span::after {
-    content: ' x';
+  .menu-item-has-children > a:hover > span::after {
+    transform: rotate(180deg);
   }
+}
 
+.masthead .x-nav {
   // All submenus
   li:hover > .sub-menu {
     display: flex;
   }
-  
+
   li > .sub-menu {
     display: none;
 
     flex-direction: column;
     list-style: none;
     margin: 0;
+    top: $navbar-size;
     // padding: 0 $global-border-width $global-border-width $global-border-width;
     @include fast-transition;
 

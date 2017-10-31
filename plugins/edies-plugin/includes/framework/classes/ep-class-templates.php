@@ -92,9 +92,10 @@ class EP_Templates extends Edies_Plugin {
 	}
 
 	public function set_single_template( $template ) {
-		// if ( get_post_type() == '' ) {
-    //   $template = DIR_TEMPLATES . 'ep-single.php';
-    // }
+		if ( get_post_type() == 'ep-partners' ) {
+      $template = DIR_TEMPLATES . 'decreatievehoek-partner.php';
+    }
+
     return $template;
 	}
 

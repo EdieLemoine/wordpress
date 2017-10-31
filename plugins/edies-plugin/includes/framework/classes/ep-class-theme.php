@@ -7,24 +7,11 @@
 */
 
 class EP_Theme extends Edies_Plugin {
-  private $var_class;
-  public $variables;
-  public $vars;
 
   public function __construct() {
-    $this->load_variables();
-
     $this->change_logo( LOGO );
   }
-
-  public function load_variables() {
-    include_once DIR_FRAMEWORK . 'ep-scss-variables.php';
-    $this->var_class = new EP_Variables();
-
-    $this->variables = get_object_vars($this->var_class);
-    // $this->vars = $this->get_variables( DIR_FRAMEWORK . 'edit.scss' );
-  }
-
+  
   public function register_cornerstone_integration() {
     cornerstone_register_integration( $this->slug, 'EP_Cornerstone' );
   }
@@ -63,32 +50,5 @@ class EP_Theme extends Edies_Plugin {
 
   public function change_logo( $logo ) {
     update_option( 'x_logo', $logo);
-  }
-
-  public function get_variables( $loc ) {
-
-    $file = file_get_contents( $loc );
-    preg_replace( '/;.*\/\/$/', $file, $file );
-
-    $arr = explode( '// ', $file );
-    $newArr = '';
-
-    foreach ( $arr as $key ) :
-      preg_match_all( '/\$.*/', $key, $content  );
-
-      $title = preg_replace( '/\$.*/', '', $key );
-      $content = array_filter( $content );
-      $title = trim( str_replace( '/', '', $title ) );
-
-      if ( !empty( $content ) ) :
-        $newArr[ $title ] = array();
-        foreach ( $content[0] as $val  ) :
-          $newval = explode(':', $val);
-          $output = str_replace(';', '', $newval );
-          $newArr[ trim( $output[0] ) ] = trim( $output[1] ); // $title ][
-        endforeach;
-      endif;
-    endforeach;
-    return $newArr;
   }
 }

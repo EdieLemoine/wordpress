@@ -6,26 +6,21 @@
   @each $key in $keys {
     @if type_of( $key ) == 'list' {
       @each $list-item in $key {
-        // @debug '1: #{map-get( $value, $list-item )}';
         $bool: map-has-key( $value, $list-item );
 
         @if $bool {
           $value: map-get( $value, $list-item );
         }
-        // @debug '#{$list-item} exists in #{value}';
       }
     }
     @else {
       $bool: map-has-key( $value, $key );
-      // @debug '2: #{map-get( $value, $key )}';
+
       @if $bool {
         $value: map-get( $value, $key );
       }
-      // @debug '#{$key} exists in #{value}';
-
     }
   }
-
   @return $value;
 }
 
@@ -53,7 +48,3 @@
 
   @return map-has-key( map-get-deep( $map, $list ), $value );
 }
-
-// @warn map-has-key-deep( $navbar-colors, "background", "submenu", "fixed", "background" );
-// @warn map-has-key-deep( $navbar-colors, "background", "submenu", "background" );
-// @warn map-has-key-deep( $navbar-colors, "background", "submenu" );

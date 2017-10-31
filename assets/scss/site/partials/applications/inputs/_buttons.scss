@@ -16,43 +16,19 @@
   }
 }
 
-input[type=submit] {
-  min-width:
-  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
+
+a.x-btn,
+#{inputs( 'buttons' )} {
+  min-width: 200px;
+  font-size: map-get-deep( $fonts, "body", "atts", "font-size" );
   line-height: normal;
   flex: 1;
   display: block;
   align-content: center;
   padding: $global-spacing / 3 $global-spacing / 2;
+  border-radius: $global-border-radius;
   @include font( $button-font );
   @include fast-transition;
-  @include border-radius;
-
-  @if $button-arrow == true {
-    &::after {
-      content: ' ';
-      opacity: 0;
-      border-top: $global-border-width solid currentColor;
-      border-right: $global-border-width solid currentColor;
-      transform: rotate(45deg);
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      @include size( map-get-deep( $fonts, "body", "atts", "font-size" ) * 0.75  );
-      @include fast-transition;
-    }
-
-    @include active {
-      padding-left: 0;
-      &::after {
-        opacity: 1;
-        right: $global-spacing / 2;
-      }
-    }
-  }
-
   $button-invert-color: calculate-color( $button-background-color );
 
   @if $button-style == 'transparent' {
@@ -61,7 +37,7 @@ input[type=submit] {
     // border-color: $button-background-color;
     // border-width: $global-border-width;
     @include border( $button-background-color );
-    .bg3 & {
+    .bg-color & {
       color: $button-invert-color;
       border-color: $button-invert-color;
     }
@@ -69,7 +45,7 @@ input[type=submit] {
       color: $button-invert-color;
       background-color: $button-background-color;
       border-color: $button-background-color;
-      .bg3 & {
+      .bg-color & {
         color: $button-background-color;
         border-color: $button-invert-color;
         background-color: $button-invert-color;
@@ -86,7 +62,7 @@ input[type=submit] {
       color: $button-background-color;
       border-color: $button-background-color; // Avoid override by x
     }
-    .bg3 & {
+    .bg-color & {
       color: $button-background-color;
       background-color: $button-invert-color;
       @include border( $button-invert-color );
@@ -101,7 +77,7 @@ input[type=submit] {
     border: none;
     color: calculate-color( $button-background-color );
     background-color: $button-background-color;
-    .bg3 & {
+    .bg-color & {
       color: $button-background-color;
       background-color: $button-invert-color;
     }
@@ -109,4 +85,29 @@ input[type=submit] {
 
     }
   }
+}
+
+@if $button-arrow == true {
+  a.x-btn::after {
+    content: ' ';
+    opacity: 0;
+    border-top: $global-border-width solid currentColor;
+    border-right: $global-border-width solid currentColor;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    @include size( map-get-deep( $fonts, "body", "atts", "font-size" ) * 0.75  );
+    @include fast-transition;
+  }
+
+  // @include active {
+  //   padding-left: 0;
+  //   a.x-btn::after {
+  //     opacity: 1;
+  //     right: $global-spacing / 2;
+  //   }
+  // }
 }

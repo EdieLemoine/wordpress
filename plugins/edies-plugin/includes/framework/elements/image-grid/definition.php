@@ -61,8 +61,11 @@ class EP_Image_Grid extends EP_Element_Base {
 				'condition' => 'complex',
 				'default' => 3
 			)),
-		  'orderby' => $this->control(array(
+			'orderby' => $this->control(array(
 				'type' => 'order_by'
+			)),
+			'order' => $this->control(array(
+				'type' => 'order'
 			))
 		);
 

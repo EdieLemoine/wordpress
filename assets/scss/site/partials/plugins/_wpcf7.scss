@@ -6,10 +6,6 @@ div.wpcf7 .ajax-loader {
   top: 0;
   bottom: 0;
   margin: auto;
-  background-image: url('../../uploads/loader.svg');
-  .yellow & {
-    background-image: url('../../uploads/loader-dark.svg');
-  }
 }
 
 .wpcf7-response-output {

@@ -1,0 +1,60 @@
+$fa-version: "4.7.0";
+$fa-font-path: "../x-child/dist/fonts/font-awesome";
+$fa-font-size-base: map-get-deep( $fonts, "body", "atts", "font-size" );
+$fa-line-height-base: $body-line-height;
+$fa-border-color: $global-border-color;
+$fa-inverse: calculate-color( $body-color );
+$fa-li-width: $global-spacing;
+
+/////////////////
+// X overrides //
+/////////////////
+$accentColor: $primary-color;
+$linkColor: $primary-color;
+$linkColorHover: $secondary-color;
+
+$sansFontFamily: map-get-deep( $fonts, "body", "family" );
+$altFontFamily: map-get-deep( $fonts, "heading", "family" );
+
+$navbarHeight: $navbar-size;
+$navbarFontSize: $navbar-font-size;
+$navbarBackground: map-get-deep( $navbar-colors, "background", "fill" );
+$navbarLinkColor: map-get-deep( $navbar-colors, "text", "links" );
+$navbarLinkColorHover: map-get-deep( $navbar-colors, "text", "active" );
+$navbarLinkColorActive: map-get-deep( $navbar-colors, "text", "active" );
+
+$headingsFontWeight: map-get-deep( $fonts, "heading", "font-weight" );
+$headingsColor: $heading-color;
+
+$tableBorder: $global-border-color;
+
+$inputBorder: $global-border-color;
+$inputBackground: $input-background-color;
+
+$baseLineHeight: $body-line-height;
+$baseFontWeight: map-get-deep( $fonts, "body", "atts", "font-weight" );
+
+$bodyBackground: $body-background-color;
+
+$textColor: $body-color;
+
+$baseBorderRgba: $global-border-color;
+
+$btnBackground: $button-background-color;
+$btnBackgroundHover: $button-active-background-color;
+$btnBorder: $button-background-color;
+$btnBorderHover: $button-active-background-color;
+
+$btnRenewBackground: $btnBackground;
+$btnRenewBackgroundHover: $btnBackgroundHover;
+$btnRenewBorder: $accentColor;
+$btnRenewBorderHover: $btnBorderHover;
+$btnRenewColor: calculate-color( $btnRenewBackground );
+$btnRenewColorHover: calculate-color( $btnRenewBackgroundHover );
+
+$btnIconBackground: $btnBackground;
+$btnIconBackgroundHover: $btnBackgroundHover;
+$btnIconBorder: $accentColor;
+$btnIconBorderHover: $btnBorderHover;
+$btnIconColor: calculate-color( $btnIconBackground );
+$btnIconColorHover: calculate-color( $btnIconBackgroundHover );

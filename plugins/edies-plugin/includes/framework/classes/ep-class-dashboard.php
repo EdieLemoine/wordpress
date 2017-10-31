@@ -1,10 +1,6 @@
 <?php
 
 class EP_Dashboard extends Edies_Plugin {
-
-  protected $css;
-  protected $js;
-
   public function __construct() { }
 
   public function add_menu_pages() {
@@ -50,18 +46,22 @@ class EP_Dashboard extends Edies_Plugin {
       )
     );
     register_post_type(
-      'otl-klanten',
+      'ep-partners',
       array(
         'labels' => array(
-          'name' => __ep( 'Klanten' ),
-          'menu_name' => __ep( 'Klanten' ),
-          'singular_name' => __ep( 'Klant' ),
+          'name' => __ep( 'Partners' ),
+          'menu_name' => __ep( 'Partners' ),
+          'singular_name' => __ep( 'Partner' ),
         ),
         'public' => true,
-        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
-        'menu_icon' => 'dashicons-portfolio',
-        'show_in_nav_menus' => false,
+        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail' ),
+        'menu_icon' => 'dashicons-id-alt',
+        // 'show_in_nav_menus' => false,
         'show_in_menu' => 'edies-plugin/edies-plugin-admin.php',
+        'rewrite' => array(
+          'slug' => 'partners'
+        )
       )
     );
   }

@@ -1,4 +1,3 @@
-
 .ep-col[class*="ep-1-"] {
   @include break('s') {
     width: 100%;
@@ -14,12 +13,58 @@
   }
 }
 
-.ep-grid.ep-simple > .ep-grid-list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100vw;
-  font-size: 0;
+.ep-grid.ep-simple {
+  .ep-row {
+    display: flex;
+    // justify-content: space-between;
+    margin: -($global-spacing / 8);
+    flex-wrap: wrap;
+  }
+  .ep-grid-item {
+    // flex-grow: 1;
+    padding: $global-spacing / 8;
+    // display: flex;
+
+    .ep-grid-item-inner {
+      filter: grayscale(100%);
+      @include fast-transition;
+      height: 100%;
+      display: flex;
+      padding: 10%;
+      // max-height: 250px;
+      // flex: 0 1 250px;
+      position: relative;
+      background-color: $white;
+      border: $global-border-width * 4 solid $light-gray;
+      margin: auto;
+      color: $light-gray;
+      @include active {
+        filter: grayscale(0);
+        border-color: $white;
+        color: $gray;
+      }
+    }
+
+    h3 {
+      font-size: map-get-deep( $fonts, 'body', 'atts', 'font-size' ) * 1.5;
+      margin: auto;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 4px;
+      color: inherit;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 250px;
+      max-height: 250px;
+      margin: auto;
+      display: block;
+      pointer-events: none;
+    }
+  }
 }
 
 .ep-grid.ep-complex > .ep-grid-list {

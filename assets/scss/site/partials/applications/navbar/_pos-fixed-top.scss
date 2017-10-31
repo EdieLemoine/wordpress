@@ -1,43 +1,56 @@
 @if $navbar-position == 'fixed-top' {
-  .masthead {
-    position: fixed;
-  }
-
-  .scrolled {
-    .masthead {
-      height: $navbar-fixed-size;
+  @include break( $mobile-breakpoint, 'min' ) {
+    .scrolled .masthead .x-navbar-wrap {
+      position: fixed;
     }
   }
 
-  .scrolled .masthead .x-navbar {
-
+  .scrolled .masthead {
     @if $navbar-size != $navbar-fixed-size {
       .x-navbar-inner {
-        @include simple-transition;
 
-        &, & > .x-container {
-          min-height: $navbar-fixed-size;
-        }
+        // &, & > .x-container {
+        //   min-height: $navbar-fixed-size;
+        // }
 
         @if $navbar-brand-image == false {
           .x-brand.text {
-            font-size: $navbar-fixed-brand-height;
+            font-size: $navbar-fixed-brand-size;
             @include simple-transition;
           }
         }
         @else {
           .x-brand.img > img,
           .x-brand.img > svg {
-            height: $navbar-fixed-brand-height;
+            height: $navbar-fixed-brand-size;
             @include simple-transition;
           }
         }
       }
     }
+
+    ul li a + ul {
+      top: $navbar-fixed-size;
+    }
   }
 
-  .scrolled .masthead .x-navbar .x-navbar-inner .x-nav-wrap.desktop {
-    @include visible;
+  @if $navbar-size != $navbar-fixed-size {
+    .scrolled .masthead .x-navbar-wrap {
+      height: $navbar-fixed-size;
+    }
+  }
+  @if $navbar-brand-size != $navbar-fixed-brand-size {
+    .scrolled .masthead .x-brand.img > svg,
+    .scrolled .masthead .x-brand.img > img{
+      height: $navbar-fixed-brand-size;
+    }
+    .scrolled .masthead .x-brand.text {
+      font-size: $navbar-fixed-brand-size;
+    }
+  }
+
+  .scrolled .masthead .x-nav-wrap.desktop {
+    // @include visible;
 
     .x-nav {
       & > li > a { // Only top level fixed links
@@ -48,9 +61,9 @@
         }
       }
 
-      & > li > .sub-menu { // Only top level fixed submenu
-        top: $navbar-fixed-size;
-      }
+      // & > li > .sub-menu { // Only top level fixed submenu
+      //   top: $navbar-fixed-size;
+      // }
     }
-}
+  }
 }

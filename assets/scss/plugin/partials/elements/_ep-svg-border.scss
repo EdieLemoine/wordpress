@@ -1,0 +1,25 @@
+.ep-svg-before,
+.ep-svg-after {
+  position: relative;
+}
+
+.ep-svg-border-before,
+.ep-svg-border-after {
+  position: absolute;
+  fill: inherit;
+  z-index: 0;
+  pointer-events: none;
+
+  path,
+  polygon {
+    fill: inherit;
+  }
+}
+
+.ep-svg-border-before {
+  top: -100px;
+}
+
+.ep-svg-border-after {
+  bottom: -80px;
+}

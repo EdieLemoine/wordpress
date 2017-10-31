@@ -3,6 +3,22 @@
   // height: 0;
   // width: 100%;
 
+  .x-container {
+    position: relative;
+  }
+
+  // Responsive switch to mobile button and menu
+  @include break( $mobile-breakpoint, 'min') {
+    .x-btn-navbar {
+      // display: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .x-nav-wrap.desktop {
+      // display: flex;
+    }
+  }
+
   @include simple-transition;
 
   .x-navbar-wrap {
@@ -36,19 +52,10 @@
       // }
 
 
-      // Responsive switch to mobile button and menu
-      @include break( $mobile-breakpoint, 'min') {
-        .x-btn-navbar {
-          display: none;
-        }
-        .x-nav-wrap.desktop {
-          // display: flex;
-        }
-      }
 
       @include break( $mobile-breakpoint ) {
         .x-btn-navbar {
-          display: block;
+          display: flex;
         }
         .x-nav-wrap.desktop {
           display: none;
@@ -58,24 +65,21 @@
   }
 
   // Transparent fixes
-  @if $navbar-background-color == transparent {
-    .x-navbar {
-      pointer-events: none;
-      .x-nav {
-        pointer-events: all;
-      }
-    }
-  }
-
-  @if $navbar-fixed-background-color == transparent {
-    .x-navbar.x-navbar-fixed-top {
-      pointer-events: none;
-      .x-nav {
-        pointer-events: all;
-      }
-    }
-  }
+  // @if $navbar-background-color == transparent {
+  //   .x-navbar {
+  //     pointer-events: none;
+  //     .x-nav {
+  //       pointer-events: all;
+  //     }
+  //   }
+  // }
   //
-
-
+  // @if $navbar-fixed-background-color == transparent {
+  //   .x-navbar.x-navbar-fixed-top {
+  //     pointer-events: none;
+  //     .x-nav {
+  //       pointer-events: all;
+  //     }
+  //   }
+  // }
 }

@@ -1,0 +1,151 @@
+////////////
+// Colors //
+////////////
+$primary-color: #af3933;
+$secondary-color: lighten( adjust_hue($primary-color, 10%), 40%);
+
+$black: #221c1b;
+$dark-gray: lighten( $black, 10 / 3 );
+$gray: lighten( $dark-gray, 10 / 3 );
+$light-gray: #fafafa;
+$white: #fff;
+
+$base-color-light: $white;
+$base-color-dark: $black;
+
+$base-background-color-light: #FFF5EE;
+$base-background-color-dark: $black;
+
+////////////
+// Global //
+////////////
+$container-width: 1000px;
+$container-max-width: 95%;
+$global-border-radius: 5px;
+$global-corners: none;
+$global-border-color: $primary-color;
+$global-border-width: 2px;
+$global-spacing: 3.5em;
+
+//////////
+// Text //
+//////////
+$fonts: (
+  heading: (
+    family: "Quicksand",
+    source: "Google",
+    fallback: serif,
+    atts: (
+      font-weight: 300,
+      // text-transform: lowercase
+    )
+  ),
+  body: (
+    family: "Open Sans",
+    source: "Google",
+    fallback: sans-serif,
+    atts: (
+      font-weight: 300,
+      font-size: 17px
+    )
+  )
+);
+
+$navbar-colors: (
+  text: (
+    links: $base-color-dark,
+    active: $primary-color
+    // submenu: (
+    //   links: yellow,
+    //   active: orange
+    // )
+    // fixed: (
+    //   links: gray,
+    //   active: brown,
+    //   submenu: (
+    //     links: slateblue,
+    //     active: cyan
+    //   )
+    // )
+  ),
+  background: (
+    fill: darken( adjust_hue( $primary-color, 20% ), 20% )
+    // submenu: (
+    //   fill: lime,
+    //   links: red
+    // )
+    // fixed: (
+    //   fill: pink,
+    //   submenu: (
+    //     fill: tomato,
+    //     links: orange,
+    //     active: black
+    //   )
+    // )
+  )
+);
+
+
+// $body-color: $base-color-light;
+// $body-line-height: 1.9;
+$body-background-color: $black;
+
+/////////////
+// Buttons //
+/////////////
+$button-style: 'fill'; // Transparent | Fill | Transparent-invert
+$button-font: 'body';
+// $button-color: $base-color-light;
+$button-background-color: $primary-color;
+$button-active-background-color: lighten( $button-background-color, 10% );
+$button-arrow: true;
+
+////////////
+// Inputs //
+////////////
+$input-style: 'fill'; // Transparent | Fill | Border-Fill | 3D
+$input-style-transition: none; // Grow | Shrink | none
+$input-style-transition-rotation: 0; // Rotation on hover
+$input-border-color: transparent;
+$input-active-border-color: $global-border-color;
+$input-color: $base-color-dark;
+$input-background-color: $white;
+$input-active-background-color: $secondary-color;
+$input-height: $global-spacing * 1.5;
+$input-background-color: $white;
+$input-background-color: lighten( $secondary-color, 2% );
+
+////////////
+// Navbar //
+////////////
+// Height //
+$navbar-size: 200px;
+$navbar-fixed-size: $navbar-size;
+$navbar-submenu-padding: 0;
+
+// Text //
+$navbar-font-size: map-get-deep( $fonts, "body", "atts", "font-size" ) * 1.5;
+$navbar-font: 'heading';
+
+// Links //
+$navbar-link-style: 'line-right'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+
+// Brand //
+$navbar-brand-image: true;
+$navbar-brand-size: $navbar-size * 0.80;
+$navbar-fixed-brand-size: $navbar-fixed-size;
+
+////////////
+// Footer //
+////////////
+$footer-top-padding: $global-spacing * 2;
+$footer-top-background-color: $gray;
+$footer-top-color: calculate-color( $footer-top-background-color );
+
+$footer-bottom-padding: $global-spacing * 0.5;
+// $footer-bottom-font: 'heading';
+$footer-bottom-background-color: $dark-gray;
+$footer-bar-background-color: $black;
+$footer-bottom-color: calculate-color( $footer-bottom-background-color );
+
+$social-style: 'fill';

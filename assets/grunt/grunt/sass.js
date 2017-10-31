@@ -1,15 +1,24 @@
 module.exports = {
+	options: {
+		sourceMap: true,
+	},
 
 	theme: {
-		'<%= theme_style_dist %>': '<%= theme_style_prod %>'
+		files: {
+			'<%= theme_style_dist %>': '<%= theme_style_prod %>'
+		}
 	},
 
 	admin: {
-		'<%= admin_style_dist %>': '<%= admin_style_prod %>'
+		files: {
+			'<%= admin_style_dist %>': '<%= admin_style_prod %>'
+		}
 	},
 
 	plugin: {
-		'<%= plugin_style_dist %>': '<%= plugin_style_prod %>'
+		files: {
+			'<%= plugin_style_dist %>': '<%= plugin_style_prod %>'
+		}
 	},
 
 	dist: {

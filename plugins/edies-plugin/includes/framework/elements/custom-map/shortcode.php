@@ -3,6 +3,7 @@
 /**
  * Shortcode handler
 */
+
 $c = new EP_Custom_Map();
 
 $atts = cs_atts( array(
@@ -11,7 +12,8 @@ $atts = cs_atts( array(
 	'scroll' => $c->convert_bool( $scroll ),
 	'center' => $center,
 	'zoom' => $zoom,
-	'height' => $height
+	'height' => $height,
+	'snazzy_style' => strip_tags($snazzy_style)
 ));
 
 echo do_shortcode('[ep-custom-map ' . $atts . ']');

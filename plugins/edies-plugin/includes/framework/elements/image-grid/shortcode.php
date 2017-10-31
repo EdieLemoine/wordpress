@@ -14,7 +14,8 @@ $atts = cs_atts( array(
 $args = array(
   'post_type' => $post_type,
   'posts_per_page' => $per_page,
-	'orderby' => $orderby
+	'orderby' => $orderby,
+	'order' => $order
 );
 
 $query = new WP_Query($args);

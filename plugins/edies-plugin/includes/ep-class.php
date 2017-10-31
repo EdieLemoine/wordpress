@@ -39,15 +39,15 @@ class Edies_Plugin {
     define( 'DIR_ELEMENTS', DIR_FRAMEWORK . 'elements/' );
 
     // Other options
-    define( 'API_KEY', 'AIzaSyAgcvh-TKAlWWBVmX2izp_jmJR-0g_hpnY' );
+    define( 'API_KEY', 'AIzaSyDCywvmP4BjEml40H-o5rtkSTtZ_SRxlic' );
     define( 'LIVERELOAD_PORT', 35729 );
     define( 'LOGO', DIR_SVG . 'de-creatieve-hoek-logo.svg' );
 
-    $this->live_reload = true;
+    $this->live_reload = false;
 
-    if ( parse_url( $_SERVER['HTTP_HOST'] )['port'] != null ) :
-      $this->live_reload = true;
-    endif;
+    // if ( parse_url( $_SERVER['HTTP_HOST'] )['port'] != null ) :
+    //   $this->live_reload = true;
+    // endif;
   }
 
   private function load_dependencies( $ver ) {
@@ -105,7 +105,7 @@ class Edies_Plugin {
     $this->shortcodes->register_shortcodes();
     $this::$loader->add_filter( 'do_shortcode_tag', $this->shortcodes, 'shortcode_filter', 9999, 3 );
   }
-  
+
   public function get_version() {
     return $this->version;
   }

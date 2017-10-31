@@ -110,19 +110,19 @@ $navbar-fixed-link-active-color: $primary-color;
 
 // Brand //
 $navbar-brand-image: true;
-$navbar-brand-height: $navbar-size * 0.80;
-$navbar-fixed-brand-height: $navbar-fixed-size;
+$navbar-brand-size: $navbar-size * 0.80;
+$navbar-fixed-brand-size: $navbar-fixed-size;
 
 ////////////
 // Footer //
 ////////////
 // $footer-top-padding: $global-spacing * 4;
 $footer-top-background-color: #222;
-// $footer-top-text-color: $base-color-light;
+// $footer-top-color: $base-color-light;
 
 // $footer-bottom-padding: $global-spacing * 0.5;
 // $footer-bottom-font: 'heading';
 // $footer-bottom-background-color: $primary-color;
-// $footer-bottom-text-color: $footer-top-text-color;
+// $footer-bottom-color: $footer-top-color;
 
 $social-style: 'fill';

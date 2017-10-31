@@ -15,23 +15,23 @@ class EP_Scripts extends Edies_Plugin {
     $this->add_script( 'ep-lightbox', 'ep-lightbox.min.js' );
 
     // Use Google Maps
-    if ( defined( API_KEY ) ) :
+    if ( defined( 'API_KEY' ) ) :
       add_filter( 'acf/fields/google_map/api', API_KEY ); // Registers API with ACF Pro
 
       $this->api_key = esc_attr( API_KEY );
       $script_url = add_query_arg( array( 'key' => $this->api_key ), 'https://maps.googleapis.com/maps/api/js?v=3' );
 
-      wp_register_script( 'google-maps', $script_url, array( 'jQuery' ), true );
-      $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', 'google-maps', true );
+      wp_register_script( 'google-maps', $script_url, array( 'jquery' ), true );
+      $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps' ) );
     endif;
 
     // Register styles
     $this->add_style( 'ep_style', 'ep-style.css' );
 
     // Enqueue scripts
-    if ( wp_script_is( 'ep-custom-map', 'registered' ) ) :
-      wp_enqueue_script( 'google-maps' );
-    endif;
+    // if ( wp_script_is( 'ep-custom-map', 'registered' ) ) :
+    //   wp_enqueue_script( 'google-maps' );
+    // endif;
 
     wp_enqueue_style( 'ep_style' );
   }

@@ -14,7 +14,6 @@ $white: #fff !default;
 
 $base-color-light: $white !default;
 $base-color-dark: $dark-gray !default;
-@import 'functions';
 
 ////////////
 // Global //
@@ -66,6 +65,7 @@ $input-color: calculate-color( $input-background-color ) !default;
 ////////////
 $navbar-position: 'left' !default;
 $mobile-breakpoint: 'm' !default;
+$navbar-submenu-offset: 0 !default;
 // Colors //
 // $navbar-background-color: $dark-gray !default;
 // $navbar-fixed-background-color: transparentize( $navbar-background-color, 0.5 ) !default;
@@ -81,18 +81,14 @@ $navbar-menu-flex: false !default;
 // Text //
 $navbar-font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) !default;
 $navbar-font: 'heading' !default;
-// $navbar-color: calculate-color( $navbar-background-color ) !default;
-// $navbar-hover-color: darken($navbar-color, 15) !default;
 
 // Links //
 $navbar-link-style: 'line-bottom' !default; // line-{place} | Fill | Border | Rectangle | Pill | Pill-border
-// $navbar-link-active-color: $primary-color !default;
-$navbar-fixed-link-active-color: $navbar-link-active-color !default;
 
 // Brand //
 $navbar-brand-image: true !default;
-$navbar-brand-height: $navbar-size * 0.75 !default;
-$navbar-fixed-brand-height: $navbar-fixed-size * 0.95 !default;
+$navbar-brand-size: $navbar-size * 0.75 !default;
+$navbar-fixed-brand-size: $navbar-fixed-size * 0.95 !default;
 
 ////////////
 // Social //
@@ -104,12 +100,12 @@ $social-style: 'fill';
 ////////////
 $footer-top-padding: $global-spacing * 4 !default;
 $footer-top-background-color: $primary-color !default;
-$footer-top-text-color: calculate-color( $footer-top-background-color ) !default;
+$footer-top-color: calculate-color( $footer-top-background-color ) !default;
 $footer-top-font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) !default;
 
 $footer-bottom-padding: $global-spacing !default;
 $footer-bottom-font: 'heading' !default;
 $footer-bottom-background-color: darken( $footer-top-background-color, 15% ) !default;
-$footer-bottom-text-color: calculate-color( $footer-bottom-background-color ) !default;
+$footer-bottom-color: calculate-color( $footer-bottom-background-color ) !default;
 
 @import "maps";

@@ -4,9 +4,7 @@
   }
 
   @include break( $mobile-breakpoint, 'min' ) {
-    #ep-top,
-    #ep-content,
-    #ep-footer {
+    .x-main {
       float: right;
       width: calc( 100% - #{$navbar-size} );
     }
@@ -23,7 +21,6 @@
       top: 0;
       bottom: 0;
       float: left;
-      padding-top: $global-spacing / 4;
     }
 
     .x-brand {
@@ -33,21 +30,21 @@
 
     .masthead .x-container.max.width {
       max-width: 100%;
+      padding-top: $global-spacing / 4;
     }
 
     .sub-menu {
       height: 0;
       overflow: hidden;
     }
-
   }
+
   @include break( $mobile-breakpoint ) {
     .x-brand > * {
       max-height: 12vh;
       padding: $global-spacing / 4 0;
     }
   }
-
 
   .x-nav-wrap {
     width: 100%;
@@ -79,5 +76,4 @@
   ul li a {
     width: 100%;
   }
-
 }
