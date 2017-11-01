@@ -1,0 +1,156 @@
+////////////
+// Colors //
+////////////
+$primary-color: #A4C309; //#C0C428; //
+$secondary-color: lighten( adjust_hue($primary-color, 10%), 40%);
+
+$black: #1D1D1B;
+$dark-gray: lighten( $black, 10 / 3 );
+$gray: lighten( $dark-gray, 10 / 3 );
+$light-gray: #a9a8a9;
+$white: #fff;
+
+$base-color-light: $white;
+$base-color-dark: $black;
+
+$base-background-color-light: $white;
+$base-background-color-dark: $black;
+
+$mobile-breakpoint: 'l';
+@import '../global/base/var-functions';
+
+////////////
+// Global //
+////////////
+$container-width: 97.5vw; // Percentage
+$container-max-width: 1150px; // Pixels
+// $global-border-radius: 5px;
+// $global-corners: none;
+// $global-border-color: $primary-color;
+$global-border-width: 4px;
+$global-spacing: 4.5em;
+$global-shadow: transparentize( $black, 0.75 );
+
+//////////
+// Text //
+//////////
+$fonts: (
+  heading: (
+    family: "Oswald",
+    source: "google",
+    fallback: serif,
+    atts: (
+      font-weight: 400,
+      text-transform: uppercase
+    )
+  ),
+  body: (
+    family: "Oswald",
+    source: "google",
+    fallback: sans-serif,
+    atts: (
+      font-weight: 400,
+      font-size: 17px,
+      text-transform: uppercase
+    )
+  )
+);
+
+$navbar-colors: (
+  text: (
+    links: $base-color-dark,
+    active: $light-gray
+    // submenu: (
+    //   links: yellow,
+    //   active: orange
+    // )
+    // fixed: (
+    //   links: gray,
+    //   active: brown,
+    //   submenu: (
+    //     links: slateblue,
+    //     active: cyan
+    //   )
+    // )
+  ),
+  background: (
+    fill: #fafafa,
+    submenu: (
+      fill: $white
+    )
+    // fixed: (
+    //   fill: pink,
+    //   submenu: (
+    //     fill: tomato,
+    //     links: orange,
+    //     active: black
+    //   )
+    // )
+  )
+);
+
+$body-color: $base-color-dark;
+// $body-line-height: 1.9;
+$body-background-color: $base-background-color-light;
+
+/////////////
+// Buttons //
+/////////////
+// $button-style: 'fill'; // Transparent | Fill | Transparent-invert
+// $button-font: 'body';
+// $button-color: $base-color-light;
+// $button-background-color: $primary-color;
+// $button-active-background-color: lighten( $button-background-color, 10% );
+// $button-arrow: true;
+
+////////////
+// Inputs //
+////////////
+// $input-style: 'fill'; // Transparent | Fill | Border-Fill | 3D
+// $input-style-transition: none; // Grow | Shrink | none
+// $input-style-transition-rotation: 0; // Rotation on hover
+// $input-border-color: transparent;
+// $input-active-border-color: $global-border-color;
+// $input-color: $base-color-dark;
+// $input-background-color: $white;
+// $input-active-background-color: $secondary-color;
+// $input-height: $global-spacing * 1.5;
+// $input-background-color: $white;
+// $input-background-color: lighten( $secondary-color, 2% );
+
+////////////
+// Navbar //
+////////////
+$navbar-position: 'top';
+
+// Height //
+// $navbar-size: 200px;
+// $navbar-fixed-size: 120px;
+// $navbar-submenu-padding: 0;
+
+// Text //
+// $navbar-font-size: map-get-deep( $fonts, "body", "atts", "font-size" ) * 1.5;
+// $navbar-font: 'heading';
+
+// Links //
+// $navbar-link-style: 'line-right'; // Underline | Fill | Border | Rectangle | Pill | Pill-border
+
+// Brand //
+// $navbar-brand-image: true;
+// $navbar-brand-size: 80%;
+// $navbar-fixed-brand-size: 90%;
+
+////////////
+// Footer //
+////////////
+$footer-top-padding: $global-spacing * 2;
+$footer-top-background-color: $gray;
+$footer-top-color: calculate-color( $footer-top-background-color );
+
+$footer-bottom-padding: $global-spacing * 0.5;
+$footer-bottom-font: 'heading';
+$footer-bottom-background-color: $dark-gray;
+$footer-bar-background-color: $black;
+$footer-bottom-color: calculate-color( $footer-bottom-background-color );
+
+// $social-style: 'fill';
