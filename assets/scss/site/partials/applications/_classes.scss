@@ -2,14 +2,58 @@
   padding: $global-spacing;
 }
 
-.bg-light {
-  @include background( 'light' );
-}
-
 .bg-dark {
   @include background( 'dark' );
 }
 
 .bg-color {
   @include background();
+}
+
+.bg-light {
+  @include background( 'light' );
+}
+
+.slant {
+  position: relative;
+  z-index: z('normal');
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: z('low');
+    background-color: inherit;
+    height: 50%;
+    left: 0;
+    right: 0;
+  }
+
+  &.top::before {
+    content: " ";
+    top: 0;
+  }
+
+  &.bottom::after {
+    content: " ";
+    bottom: 0;
+  }
+
+  &.right::before,
+  &.right::after {
+    transform-origin: 0;
+  }
+
+  &.left::before,
+  &.left::after {
+    transform-origin: 100%;
+  }
+
+  &.left::before,
+  &.right::after {
+    transform: skewY(2.5deg);
+  }
+
+  &.left::after,
+  &.right::before {
+    transform: skewY(-2.5deg);
+  }
 }
