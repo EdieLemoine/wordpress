@@ -24,12 +24,26 @@
 body {
   @include font( 'body' );
   background-color: $body-background-color;
-  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
-  @include break( 'l' ) {
-    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.85;
-  }
   @include break( 'xxl', 'min' ) {
     font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 1.25;
+  }
+  @include break( 'l' ) {
+    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.9;
+  }
+  @include break( 'm' ) {
+    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.85;
+  }
+  @include break( 's' ) {
+    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.8;
+  }
+  @include break( 'xs' ) {
+    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.75;
+  }
+}
+
+@for $i from 1 to 6 {
+  h#{$i}, .h#{$i} {
+    font-size: 1em + ( 5 * 0.5 / $i );
   }
 }
 
