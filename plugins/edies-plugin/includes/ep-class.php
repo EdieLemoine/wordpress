@@ -79,6 +79,7 @@ class Edies_Plugin {
     // Admin
     $this::$loader->add_action( 'ep_notification', $this->admin, 'notification' );
     $this::$loader->add_action( 'wp_print_scripts', $this->admin, 'print_scripts' );
+    $this::$loader->add_action( 'wp_footer', $this->admin, 'live_reload' );
 
     // Dashboard
     $this::$loader->add_action( 'init', $this->dashboard, 'add_post_types' );
