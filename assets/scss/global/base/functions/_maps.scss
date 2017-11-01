@@ -24,6 +24,64 @@
   @return $value;
 }
 
+// Get $nth value in a map or list
+@function value( $map, $nth, $strip:false ) {
+  $value: "";
+  @if type_of( $map ) == 'map' {
+    $map: map-values( $map );
+    $value: nth( $map, $nth );
+  }
+  @elseif type_of( $map ) == 'list' {
+    $value: nth( $map, $nth );
+  }
+  @else {
+    @warn 'Argument 1 must be either a map or a list';
+  }
+
+  @if $strip == true {
+    $value: strip-unit( $value );
+  }
+
+  @return $value;
+}
+
+// Get the first value in a map or list
+@function first-value( $map, $strip:false ) {
+  @return value( $map, 1, $strip );
+}
+
+// Get the last value in a map or list
+@function last-value( $map, $strip:false ) {
+  @return value( $map, length( $map ), $strip );
+}
+
+@function map-reverse( $map ) {
+  $result: null;
+
+  @if type-of( $map ) == "map" {
+    $keys: map-keys( $map );
+    $map-reversed: ();
+
+    @for $i from length( $keys ) through 1 {
+      $map-reversed: map-merge(
+        $map-reversed,
+        ( nth( $keys, $i ): map-get( $map, nth( $keys, $i ) ) )
+      );
+    }
+
+    @if type-of( $map-reversed ) == "map" {
+      $result: $map-reversed;
+    } @else {
+      @warn 'There was an error reversing the order of "#{$map}"';
+    }
+  } @else {
+    @warn '"#{$map}" is not a valid map';
+  }
+
+  @return $result;
+}
+
+
 // See if map has deep value
 // Usage: map-has-key-deep( $fonts, 'body', 'atts', 'color' );
 @function map-has-key-deep( $map, $keys... ) {

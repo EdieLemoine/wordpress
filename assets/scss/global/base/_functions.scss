@@ -2,6 +2,14 @@
 @import 'functions/lists';
 @import 'functions/maps';
 
+@function strip-unit( $number ) {
+  @if type-of( $number ) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 /// Stroke font-character
 /// @param  {Integer} $stroke - Stroke width
 /// @param  {Color}   $color  - Stroke color
