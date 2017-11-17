@@ -53,10 +53,14 @@ class EP_Scripts extends Edies_Plugin {
 
   // Private functions
   private function add_script( $name, $file, $deps = array( 'jquery' ), $footer = true ) {
-    return wp_register_script( $name, DIR_JS . $file, $deps, null, $footer );
+    // Cache busting
+    $time = !filemtime( PATH_JS . $file ) ? "" : '?date=' . filemtime( PATH_JS . $file );
+    return wp_register_script( $name, URL_JS . $file . $time, $deps, null, $footer );
   }
 
   private function add_style( $name, $file ) {
-    return wp_register_style( $name, DIR_CSS . $file );
+    // Cache busting
+    $time = !filemtime( PATH_CSS . $file ) ? "" : '?date=' . filemtime( PATH_CSS . $file );
+    return wp_register_style( $name, URL_CSS . $file . $time );
   }
 }
