@@ -10,16 +10,31 @@ class EP_Scripts extends Edies_Plugin {
   // Enqueue scripts and styles
   public function queue() {
     // Register scripts
-    $this->add_script( 'ep-parallax', 'ep-parallax.min.js' );
-    $this->add_script( 'ep-slider', 'ep-slider.min.js' );
-    $this->add_script( 'ep-lightbox', 'ep-lightbox.min.js' );
+    foreach ( glob( PATH_JS . '*' ) as $file ) :
+      if ( !is_dir( $file ) ) :
+        $files[] = array( basename( $file, '.min.js'), basename( $file ) );
+      else :
+        foreach ( glob( trailingslashit( $file ) . '*' ) as $subfile ) :
+          if ( !is_dir( $subfile ) ) :
+            $files[] = array(
+              basename( $subfile, '.min.js'),
+              trailingslashit( basename( $file ) ) . basename( $subfile )
+            );
+          endif;
+        endforeach;
+      endif;
+    endforeach;
 
-    // Use Google Maps
+    foreach ( $files as $file ) :
+      $this->add_script( $file[0], $file[1] );
+    endforeach;
+
+    // Add Google Maps
     if ( defined( 'API_KEY' ) ) :
       add_filter( 'acf/fields/google_map/api', API_KEY ); // Registers API with ACF Pro
 
       $this->api_key = esc_attr( API_KEY );
-      $script_url = add_query_arg( array( 'key' => $this->api_key ), 'https://maps.googleapis.com/maps/api/js?v=3' );
+      $script_url = add_query_arg( array( 'key' => $this->api_key ), 'https://maps.googleapis.com/maps/api/js' );
 
       wp_register_script( 'google-maps', $script_url, array( 'jquery' ), true );
       $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps' ) );
@@ -29,16 +44,14 @@ class EP_Scripts extends Edies_Plugin {
     $this->add_style( 'ep_style', 'ep-style.css' );
 
     // Enqueue scripts
-    // if ( wp_script_is( 'ep-custom-map', 'registered' ) ) :
-    //   wp_enqueue_script( 'google-maps' );
-    // endif;
+    wp_enqueue_script( 'outdatedbrowser' );
 
     wp_enqueue_style( 'ep_style' );
   }
 
   // Enqueue admin scripts and styles
   public function admin_queue() {
-    $this->add_script( 'ep_admin_script', 'ep-admin.js' );
+    $this->add_script( 'ep_admin_script', 'ep-admin.min.js' );
     $this->add_style( 'ep_admin_style', 'ep-admin.css' );
 
     wp_enqueue_script( 'ep_admin_script' );
