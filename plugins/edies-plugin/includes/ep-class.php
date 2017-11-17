@@ -9,9 +9,6 @@ class Edies_Plugin {
   protected $variables;
   static $loader;
 
-  private $disable_theme;
-  private $live_reload;
-
   public function __construct() {
     $this->version = '0.1.1';
     $this->set_definitions();
@@ -21,47 +18,53 @@ class Edies_Plugin {
   }
 
   private function set_definitions() {
-    // Base path/url
-    define( 'PATH', plugin_dir_path( __FILE__ ) );
-    define( 'URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+    // Base path and url
+    define( 'PATH_INCLUDES', plugin_dir_path( __FILE__ ) );
+    define( 'URL_INCLUDES', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-    // Directories
-    define( 'DIR_CSS', URL . 'css/' );
-    define( 'DIR_IMG', URL . 'images/' );
-    define( 'DIR_JS', URL . 'js/' );
-    define( 'DIR_SVG', URL . 'svg/' );
+    // File paths
+    define( 'PATH_CSS', PATH_INCLUDES . 'css/' );
+    define( 'PATH_JS', PATH_INCLUDES . 'js/' );
+    define( 'PATH_IMG', PATH_INCLUDES . 'images/' );
+    define( 'PATH_SVG', PATH_INCLUDES . 'svg/' );
 
-    define( 'DIR_FRAMEWORK', PATH . 'framework/' );
+    // File URLS
+    define( 'URL_CSS', URL_INCLUDES . 'css/' );
+    define( 'URL_JS', URL_INCLUDES . 'js/' );
+    define( 'URL_IMG', URL_INCLUDES . 'images/' );
+    define( 'URL_SVG', URL_INCLUDES . 'svg/' );
 
-    define( 'DIR_CLASSES', DIR_FRAMEWORK . 'classes/' );
-    define( 'DIR_SHORTCODES', DIR_FRAMEWORK . 'shortcodes/' );
-    define( 'DIR_TEMPLATES', DIR_FRAMEWORK . 'templates/' );
-    define( 'DIR_ELEMENTS', DIR_FRAMEWORK . 'elements/' );
+    // Plugin paths
+    define( 'PATH_FRAMEWORK', PATH_INCLUDES . 'framework/' );
 
-    // Other options
+    define( 'PATH_CLASSES', PATH_FRAMEWORK . 'classes/' );
+    define( 'PATH_SHORTCODES', PATH_FRAMEWORK . 'shortcodes/' );
+    define( 'PATH_TEMPLATES', PATH_FRAMEWORK . 'templates/' );
+    define( 'PATH_ELEMENTS', PATH_FRAMEWORK . 'elements/' );
+
+    // Options
     define( 'API_KEY', 'AIzaSyDCywvmP4BjEml40H-o5rtkSTtZ_SRxlic' );
     define( 'LIVERELOAD_PORT', 35729 );
-    define( 'LOGO', DIR_SVG . 'de-creatieve-hoek-logo.svg' );
 
-    $this->live_reload = false;
-
-    // if ( parse_url( $_SERVER['HTTP_HOST'] )['port'] != null ) :
-    //   $this->live_reload = true;
-    // endif;
+    if ( array_key_exists( 'port', parse_url( $_SERVER['HTTP_HOST'] ) ) ) :
+      define( 'LIVERELOAD', true );
+    else :
+      define( 'LIVERELOAD', false );
+    endif;
   }
 
   private function load_dependencies( $ver ) {
-    require_once DIR_FRAMEWORK . 'ep-global-functions.php';
+    require_once PATH_FRAMEWORK . 'ep-global-functions.php';
 
-    require_once DIR_CLASSES . 'ep-class-loader.php';
-    require_once DIR_CLASSES . 'ep-class-dashboard.php';
-    require_once DIR_CLASSES . 'ep-class-admin.php';
-    require_once DIR_CLASSES . 'ep-class-scripts.php';
-    require_once DIR_CLASSES . 'ep-class-templates.php';
-    require_once DIR_CLASSES . 'ep-class-theme.php';
-    require_once DIR_CLASSES . 'ep-class-shortcodes.php';
-    require_once DIR_CLASSES . 'ep-class-cornerstone.php';
-    require_once DIR_CLASSES . 'ep-class-plugins.php';
+    require_once PATH_CLASSES . 'ep-class-loader.php';
+    require_once PATH_CLASSES . 'ep-class-dashboard.php';
+    require_once PATH_CLASSES . 'ep-class-admin.php';
+    require_once PATH_CLASSES . 'ep-class-scripts.php';
+    require_once PATH_CLASSES . 'ep-class-templates.php';
+    require_once PATH_CLASSES . 'ep-class-theme.php';
+    require_once PATH_CLASSES . 'ep-class-shortcodes.php';
+    require_once PATH_CLASSES . 'ep-class-cornerstone.php';
+    require_once PATH_CLASSES . 'ep-class-plugins.php';
 
     // Initiate classes
     $this::$loader    = new EP_Loader( $ver );
@@ -90,7 +93,6 @@ class Edies_Plugin {
     $this::$loader->add_action( 'wp_enqueue_scripts', $this->scripts, 'dequeue', 9999 );
     !is_admin() ?: $this::$loader->add_action( 'init', $this->scripts, 'admin_queue' );
 
-    if ( $this->live_reload ) : $this::$loader->add_action( 'wp_footer', $this->admin, 'live_reload' ); endif;
 
     // Templates
     $this::$loader->add_action( 'plugins_loaded', $this->templates, 'add_templates' );
@@ -115,5 +117,3 @@ class Edies_Plugin {
     $this::$loader->run();
   }
 }
-
-?>

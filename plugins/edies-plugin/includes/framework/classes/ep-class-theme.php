@@ -8,10 +8,8 @@
 
 class EP_Theme extends Edies_Plugin {
 
-  public function __construct() {
-    $this->change_logo( LOGO );
-  }
-  
+  public function __construct() { }
+
   public function register_cornerstone_integration() {
     cornerstone_register_integration( $this->slug, 'EP_Cornerstone' );
   }
@@ -46,9 +44,5 @@ class EP_Theme extends Edies_Plugin {
     if ( $cranium_footers ) {
       require_once( $lgcy_path . '/cranium/footers/setup.php' );
     }
-  }
-
-  public function change_logo( $logo ) {
-    update_option( 'x_logo', $logo);
   }
 }

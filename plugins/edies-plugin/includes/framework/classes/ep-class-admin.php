@@ -4,17 +4,9 @@ class EP_Admin extends Edies_Plugin {
 
   public function __construct() {}
 
-  public function notification() {
-    $output = '';
-    $output .= '<br />admin: ' . ADMIN . is_admin();
-    $output .= '<br />disable theme: ' . get_option( 'ep_load_theme' );
-    $output .= '<br />livereload: ' . get_option( 'ep_live_reload' );
-    // $output .= 'string';
-    echo $output;
-  }
-
-  public function live_reload() {
-    echo '<script src="http://localhost:' . LIVERELOAD_PORT . '/livereload.js" charset="utf-8"></script>';
+  public function footer_content() {
+    if ( wp_script_is( 'outdatedbrowser' ) ) : echo '<div id="outdated"></div>'; endif;
+    if ( LIVERELOAD ) : echo '<script src="http://localhost:' . LIVERELOAD_PORT . '/livereload.js" charset="utf-8"></script>'; endif;
   }
 
   public function print_scripts() {

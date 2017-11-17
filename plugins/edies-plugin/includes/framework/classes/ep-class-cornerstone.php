@@ -20,13 +20,13 @@ class EP_Cornerstone extends EP_Theme {
   }
 
   public function icon_map( $icon_map ) {
-    $icon_map['edies-plugin'] = DIR_ELEMENTS . 'icon-map.svg';
+    $icon_map['edies-plugin'] = PATH_ELEMENTS . 'icon-map.svg';
     return $icon_map;
   }
 
   // Private
   private function initialize_base() {
-    include_once DIR_FRAMEWORK . '/ep-element-base.php';
+    include_once PATH_FRAMEWORK . '/ep-element-base.php';
 
     $this->element_base = new EP_Element_Base();
   }
@@ -35,12 +35,12 @@ class EP_Cornerstone extends EP_Theme {
     $i = 0;
     $elements = array();
 
-    $items = preg_grep( '/^\./', glob( DIR_ELEMENTS . '*', GLOB_ONLYDIR ), PREG_GREP_INVERT); // Only select dirs not starting with .
+    $items = preg_grep( '/^\./', glob( PATH_ELEMENTS . '*', GLOB_ONLYDIR ), PREG_GREP_INVERT); // Only select dirs not starting with .
 
     foreach ( $items as $item ) :
       $elements[$i]['folder'] = basename( $item );
       $elements[$i]['class'] = 'EP_' . str_replace( '- ', '_', ucwords( str_replace( "-", "- ", basename( $item ) ) ) ); // Capitalizes class and replaces hyphens
-      $elements[$i]['dir'] = DIR_ELEMENTS . basename( $item );
+      $elements[$i]['dir'] = PATH_ELEMENTS . basename( $item );
       $i++;
     endforeach;
 
@@ -48,7 +48,7 @@ class EP_Cornerstone extends EP_Theme {
   }
 
   private function write_svg() {
-    $icon_map = DIR_ELEMENTS . 'icon-map.svg';
+    $icon_map = PATH_ELEMENTS . 'icon-map.svg';
     $o = '';
 
     $o .= '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL . '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' . PHP_EOL . '<svg xmlns="http://www.w3.org/2000/svg">' . PHP_EOL;

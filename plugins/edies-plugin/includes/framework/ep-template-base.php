@@ -11,7 +11,7 @@ class EP_Template_Base extends EP_Templates {
   }
 
   public static function part( $part ) {
-    $file = DIR_FRAMEWORK . '/parts/ep-' . $part . '.php';
+    $file = PATH_FRAMEWORK . '/parts/ep-' . $part . '.php';
 
     if ( file_exists( $file ) ) :
       require_once $file;
@@ -23,5 +23,4 @@ class EP_Template_Base extends EP_Templates {
   public static function button( $link, $text ) {
     echo do_shortcode( "[x_button class='x-btn x-btn-global' href='$link']$text[/x_button]" );
   }
-
 }

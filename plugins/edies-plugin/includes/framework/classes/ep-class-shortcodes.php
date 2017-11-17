@@ -8,7 +8,7 @@ class EP_Shortcodes extends EP_Theme {
   }
 
   public function register_shortcodes() {
-    $files = glob( DIR_SHORTCODES . "*.php" );
+    $files = glob( PATH_SHORTCODES . "*.php" );
 
     foreach( $files as $file ) {
       include_once $file;

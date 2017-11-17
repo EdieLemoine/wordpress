@@ -18,7 +18,8 @@ if ( ! defined( 'WPINC' ) ) {
 /**
 * Main class file
 */
-require_once plugin_dir_path( __FILE__ ) . 'includes/ep-class.php';
+define( "PLUGIN_PATH", plugin_dir_path( __FILE__ ) );
+require_once PLUGIN_PATH . 'includes/ep-class.php';
 
 /**
 * Function for running entire plugin

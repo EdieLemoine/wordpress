@@ -7,7 +7,7 @@ function ep_atts( $atts ) {
 }
 
 function ep_part( $part ) {
-  $file = DIR_FRAMEWORK . '/parts/ep-' . $part . '.php';
+  $file = PATH_FRAMEWORK . '/parts/ep-' . $part . '.php';
 
   if ( file_exists( $file ) ) :
     require_once $file;

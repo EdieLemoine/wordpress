@@ -31,7 +31,7 @@ class EP_Templates extends Edies_Plugin {
 			array( $this, 'view_project_template')
 		);
 
-		$files = glob( DIR_TEMPLATES . '*.php' );
+		$files = glob( PATH_TEMPLATES . '*.php' );
 		foreach ( $files as $file ) {
 			$this->templates = array_merge(
 				array(
@@ -80,7 +80,7 @@ class EP_Templates extends Edies_Plugin {
 		)] ) ) {
 			return $template;
 		}
-		$file = DIR_TEMPLATES . get_post_meta(
+		$file = PATH_TEMPLATES . get_post_meta(
 			$post->ID, '_wp_page_template', true
 		);
 
@@ -93,7 +93,7 @@ class EP_Templates extends Edies_Plugin {
 
 	public function set_single_template( $template ) {
 		if ( get_post_type() == 'ep-partners' ) {
-      $template = DIR_TEMPLATES . 'decreatievehoek-partner.php';
+      $template = PATH_TEMPLATES . 'decreatievehoek-partner.php';
     }
 
     return $template;
@@ -101,7 +101,7 @@ class EP_Templates extends Edies_Plugin {
 
 	public function set_archive_template( $template ) {
 		// if ( is_tax( 'tax' ) ) {
-    //   $template = DIR_TEMPLATES . 'ep-archive.php';
+    //   $template = PATH_TEMPLATES . 'ep-archive.php';
     // }
     return $template;
 	}
