@@ -20,6 +20,7 @@ module.exports = {
   		flatten: true
     }]
   },
+  
   theme: {
     files: [{
       expand: true,

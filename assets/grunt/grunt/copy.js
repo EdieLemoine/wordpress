@@ -1,29 +1,38 @@
 module.exports = {
-	scss: {
-		expand: true,
-		src: ['<%= style_prod %>/edit.scss'],
-		dest: '<%= plugin %>/framework',
-		filter: 'isFile',
-		flatten: true,
-		options: {
-			process: function (content, srcpath) {
-				return content.replace(/\/\/.*$/mg, '');
-			}
-		}
-	},
+	// scss: {
+	// 	expand: true,
+	// 	src: ['<%= style_prod %>/edit.scss'],
+	// 	dest: '<%= plugin %>/framework',
+	// 	filter: 'isFile',
+	// 	flatten: true,
+	// 	options: {
+	// 		process: function (content, srcpath) {
+	// 			return content.replace(/\/\/.*$/mg, '');
+	// 		}
+	// 	}
+	// },
 
-	less: {
+	// less: {
+	// 	expand: true,
+	// 	src: ['<%= style_prod %>/edit.scss', '<%= style_prod %>/**/_variables.scss'],
+	// 	dest: '../less',
+	// 	filter: 'isFile',
+	// 	flatten: true,
+	// 	ext: '.less',
+	// 	options: {
+	// 		process: function ( content, srcpath ) {
+	// 			return content.replace( /\$/g, '@' );
+	// 		}
+	// 	}
+	// },
+
+	ini: {
 		expand: true,
-		src: ['<%= style_prod %>/edit.scss', '<%= style_prod %>/**/_variables.scss'],
-		dest: '../less',
 		filter: 'isFile',
 		flatten: true,
-		ext: '.less',
-		options: {
-			process: function ( content, srcpath ) {
-				return content.replace( /\$/g, '@' );
-			}
-		}
+		src: [ '../../settings.ini' ],
+		dest: '<%= plugin_path %>',
+		filter: 'isFile',
 	}
 
 

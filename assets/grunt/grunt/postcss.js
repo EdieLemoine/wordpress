@@ -18,5 +18,8 @@ module.exports = {
 
 	plugin: {
 	  src: '<%= plugin_style_dist %>'
+	},
+	global: {
+	  src: '<%= global_style_dist %>'
 	}
 };

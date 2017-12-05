@@ -20,14 +20,14 @@ module.exports = {
   },
 
   // Sass
-  scss_theme: {
+  scss_admin: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
       '<%= style_prod %>/presets/**/*.scss',
-      '<%= style_prod %>/site/**/*.scss',
+      '<%= style_prod %>/admin/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
-    tasks: [ 'sass:theme', 'postcss:theme' ],
+    tasks: [ 'sass:admin', 'postcss:admin' ],
   },
   scss_plugin: {
     files: [
@@ -38,20 +38,27 @@ module.exports = {
     ],
     tasks: [ 'sass:plugin', 'postcss:plugin' ],
   },
-  scss_admin: {
+  scss_theme: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
       '<%= style_prod %>/presets/**/*.scss',
-      '<%= style_prod %>/admin/**/*.scss',
+      '<%= style_prod %>/site/**/*.scss',
+      '<%= style_prod %>/thirdparty/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
-    tasks: [ 'sass:admin', 'postcss:admin' ],
+    tasks: [ 'sass:theme', 'postcss:theme' ],
+  },
+  scss_global: {
+    files: [
+      '<%= style_prod %>/global/**/*.scss',
+    ],
+    tasks: [ 'sass:global', 'postcss:global' ],
   },
 
-  // Less
-  less: {
-    files: [ '<%= style_prod %>/edit.scss' ],
-    tasks: [ 'copy:less' ],
+
+  ini: {
+    files: ['../../*.ini'],
+    tasks: [ 'copy:ini' ]
   },
 
   // Javascript

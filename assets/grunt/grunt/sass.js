@@ -21,6 +21,12 @@ module.exports = {
 		}
 	},
 
+	global: {
+		files: {
+			'<%= global_style_dist %>': '<%= global_style_prod %>'
+		}
+	},
+
 	dist: {
 		options: {
 			sourceMap: 'none'
