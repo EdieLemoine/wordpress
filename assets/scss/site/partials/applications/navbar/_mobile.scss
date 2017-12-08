@@ -1,4 +1,7 @@
 .masthead .mobile {
+  top: $navbar-size;
+}
+.scrolled .masthead .mobile {
   top: $navbar-fixed-size;
 }
 
@@ -7,17 +10,20 @@
   top: 0;
   right: 0;
   height: 100%;
-  display: flex;
+  display: block;
   @include stroke( 2, $white );
   & > i {
-    margin: auto;
+    display: flex;
+    &::before {
+      margin: auto;
+    }
   }
 }
 
 .masthead .mobile {
   position: relative;
-  opacity: 0;
-  pointer-events: none;
+  // opacity: 0;
+  // pointer-events: none;
   @include fast-transition;
   & > ul {
     margin: 0;

@@ -51,6 +51,7 @@ module.exports = {
   scss_global: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
+      '<%= style_prod %>/thirdparty/**/*.scss',
     ],
     tasks: [ 'sass:global', 'postcss:global' ],
   },

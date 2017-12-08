@@ -1,3 +1,20 @@
+// WooCommerce
+$woocommerce: #a46497;
+
+$primary: $primary-color; // Primary color for buttons (alt)
+$primarytext: desaturate(lighten($primary, 50%), 18%); // Text on primary color bg
+
+$secondary: desaturate(lighten($primary, 40%), 21%) ; // Secondary buttons
+$secondarytext: desaturate(darken($secondary, 60%), 21%) ;// Text on secondary color bg
+
+$highlight: $primary-color; // Prices, In stock labels, sales flash
+$highlightext: desaturate(lighten($highlight, 50%), 18%); // Text on highlight color bg
+
+$contentbg: $white; // Content BG - Tabs (active state)
+$subtext: $dark-gray; // small, breadcrumbs etc
+
+// Font Awesome
+$fa-css-prefix: fa;
 $fa-version: "4.7.0";
 $fa-font-path: "../x-child/dist/fonts/font-awesome";
 $fa-font-size-base: map-get-deep( $fonts, "body", "atts", "font-size" );
@@ -33,6 +50,7 @@ $inputBackground: $input-background-color;
 
 $baseLineHeight: $body-line-height;
 $baseFontWeight: map-get-deep( $fonts, "body", "atts", "font-weight" );
+$baseBorderWidth: $global-border-width;
 
 $bodyBackground: $body-background-color;
 

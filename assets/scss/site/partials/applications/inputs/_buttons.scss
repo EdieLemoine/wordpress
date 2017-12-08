@@ -1,3 +1,5 @@
+@import "button-styles";
+
 .ep-btn-group {
   display: flex;
   align-content: stretch;
@@ -18,14 +20,15 @@
 
 
 a.x-btn,
+button,
 #{inputs( 'buttons' )} {
-  min-width: 200px;
+  // min-width: 200px;
   font-size: map-get-deep( $fonts, "body", "atts", "font-size" );
   line-height: normal;
   flex: 1;
   display: block;
   align-content: center;
-  padding: $global-spacing / 3 $global-spacing / 2;
+  // padding: $global-spacing / 3 $global-spacing / 2;
   border-radius: $global-border-radius;
   @include font( $button-font );
   @include fast-transition;
@@ -110,4 +113,8 @@ a.x-btn,
   //     right: $global-spacing / 2;
   //   }
   // }
+}
+
+button:hover {
+  background-color: $button-active-background-color;
 }

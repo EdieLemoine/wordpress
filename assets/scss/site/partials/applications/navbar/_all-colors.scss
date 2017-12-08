@@ -87,11 +87,8 @@ $text-fixed-submenu-active: inherit;
   @if $background-fixed-fill == transparent {
     pointer-events: none;
     .x-container > * {
-      pointer-events: all;
+      pointer-events: auto !important;
     }
-  }
-  .mobile {
-    top: $navbar-fixed-size;
   }
   .x-nav > li a {
     color: $text-fixed-links;

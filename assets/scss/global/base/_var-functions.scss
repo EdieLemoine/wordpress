@@ -1,7 +1,7 @@
 // Select light or dark color based on input color lightness
 // Usage: calculate-color( red );
-@function calculate-color( $color ) {
-  @if lightness( $color ) > 58 {
+@function calculate-color( $color, $limit: 58 ) {
+  @if lightness( $color ) >= $limit {
     @return $base-color-dark;
   }
   @else {

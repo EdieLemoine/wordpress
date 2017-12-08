@@ -6,24 +6,25 @@
 // Outputs the widget areas for the footer.
 // =============================================================================
 
-$n = x_get_option( 'x_footer_widget_areas' );
+$n = ep_get_option( 'footer__top_widgets' ); ?>
 
-?>
+<?php if ( ep_get_option( 'footer__top_enabled') ) : ?>
 
-<?php if ( $n != 0 ) : ?>
-
-  <footer class="x-colophon top" role="contentinfo">
-    <div class="x-container max width">
+  <footer id="footer" class="x-colophon top" role="contentinfo">
+    <div class="ep-row ep-l-fd-col-rev">
+      <?php if ( ep_get_option_check( 'footer__top_parts', 'map' ) ) : ?>
+        <?php $n = $n + 1; ?>
+        <div class="ep-1-<?php echo $n; ?>">
+          <?php echo do_shortcode('[ep-custom-map]'); ?>
+        </div>
+      <?php endif; ?>
       <?php
-
 
       $i = 0; while ( $i < $n ) : $i++;
 
-        $last = ( $i == $n ) ? ' last' : '';
-
-        echo '<div class="x-column x-md x-1-' . $n . $last . '">';
+        echo '<div class="ep-1-' . $n . '"><div class="x-container max width">';
           dynamic_sidebar( 'footer-' . $i );
-        echo '</div>';
+        echo '</div></div>';
 
       endwhile;
 
@@ -31,26 +32,49 @@ $n = x_get_option( 'x_footer_widget_areas' );
     </div>
   </footer>
 
-  <footer class="x-colophon bottom">
+<?php endif; ?>
+
+<?php $n = ep_get_option( 'footer__bottom_widgets' ); ?>
+
+<?php if ( ep_get_option( 'footer__bottom_enabled') ) : ?>
+
+  <footer id="footer-bottom" class="x-colophon bottom">
+    <?php if ( $n != 0 ) : ?>
       <div class="x-container max width">
         <?php
-        if ( x_get_option( 'x_footer_social_display' ) == '1' ) :
-          x_social_global();
-        endif;
+        $i = 4; while ( $i < $n + 4 ) : $i++;
 
-        if ( x_get_option( 'x_footer_menu_display' ) == '1' ) :
-          x_get_view( 'global', '_nav', 'footer' );
-        endif;
+          echo '<div class="ep-1-' . $n . '"><div class="x-container max width">';
+            dynamic_sidebar( 'footer-' . $i );
+          echo '</div></div>';
+
+        endwhile;
         ?>
       </div>
+    <?php endif; ?>
+    <?php if ( ep_get_option_check( 'footer__bottom_parts', 'social' ) or ep_get_option_check( 'footer__bottom_parts', 'menu' ) ) : ?>
+      <div class="x-container max width">
+        <?php
+
+        if ( ep_get_option_check( 'footer__bottom_parts', 'social' ) ) :
+          echo do_shortcode( '[ep-social]' );
+        endif;
+
+        if ( ep_get_option_check( 'footer__bottom_parts', 'menu' ) ) :
+          x_get_view( 'global', '_nav', 'footer' );
+        endif;
+
+        ?>
+      </div>
+    <?php endif; ?>
   </footer>
 
+<?php endif; ?>
+
+<?php if ( ep_get_option( 'footer__bar_enabled') ) : ?>
   <footer class="x-colophon bar">
-    <div class="x-container max width">
-      <div class="x-colophon-content">
-        <?php echo __( "Ontworpen en gerealiseerd door <a href='http://demediagroep.nl/'>De Media Groep</a>",'edie-custom' ) ?>
-      </div>
+    <div class="x-colophon-content">
+      <?php echo do_shortcode( ep_get_option( 'footer__bar_content' ) ); ?>
     </div>
   </footer>
-
 <?php endif; ?>

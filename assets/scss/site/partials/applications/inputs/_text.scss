@@ -1,38 +1,48 @@
+#{inputs('text')} {
+  display: inline-block;
+}
+
 textarea,
 #{inputs('text')} {
-  // color: red;
-  min-height: $global-spacing;
+  border: 0;
   background-color: transparent;
-  padding: 0 $global-spacing / 4;
+  @include border( $input-border-color, $input-borders );
+  border-radius: $input-border-radius;
   @include fast-transition;
-  @include border( transparent, 'bottom' );
   @include font( 'body' );
   &:focus {
     background-color: transparentize( $white, 0.25 );
     border-color: $gray;
-    border-width: $global-border-width * 2;
   }
+}
+
+textarea,
+button,
+.x-btn,
+#{inputs('buttons')},
+#{inputs('text')} {
+  min-height: 2.5em;
+  padding: 0 $global-spacing / 4;
 }
 
 textarea {
   resize: none;
   padding: $global-spacing / 4;
 }
-
-#{inputs('buttons')} {
-  // color: red;
-  min-height: $global-spacing;
-  background-color: transparent;
-  padding: 0 $global-spacing / 4;
-  @include fast-transition;
-  @include border( transparent, 'bottom' );
-  @include font( 'body' );
-  &:focus {
-    background-color: transparentize( $white, 0.25 );
-    border-color: $gray;
-    border-width: $global-border-width * 2;
-  }
-}
+// #{inputs('buttons')} {
+//   // color: red;
+//   min-height: $global-spacing;
+//   background-color: transparent;
+//   padding: 0 $global-spacing / 4;
+//   @include fast-transition;
+//   @include border( transparent, 'bottom' );
+//   @include font( 'body' );
+//   &:focus {
+//     background-color: transparentize( $white, 0.25 );
+//     border-color: $gray;
+//     border-width: $global-border-width * 2;
+//   }
+// }
 
 
 //

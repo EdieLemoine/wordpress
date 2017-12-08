@@ -1,0 +1,141 @@
+.wp-admin .ep-settings-page {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  textarea {
+    font-family: monospace;
+  }
+  p.submit {
+    padding: 0;
+    clear: both;
+    text-align: center;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.75em;
+  }
+
+  section {
+    margin: 2em 0;
+    // box-shadow: 2px 2px 5px rgba(#000, 0.25);
+    padding: 4em;
+    background-color: $off-white;
+  }
+  th, td {
+    padding: 0;
+  }
+  .form-table th {
+    line-height: 2.5;
+    vertical-align: top;
+    padding: 0.5em 0;
+  }
+  .group-title {
+    font-size: 2em;
+  }
+  // #{headings()} {
+  //   @include font('heading');
+  // }
+  .group-row {
+    display: flex;
+    position: relative;
+    margin: -2em;
+    flex-wrap: wrap;
+    & > div {
+      // max-width: calc(50% - 4em);;
+      flex: 1 0 45%;
+      padding: 2em;
+      & > div {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  tr + tr {
+    border-top: 1px solid #eee;
+
+  }
+  select,
+  textarea,
+  #{inputs('text')} {
+    box-shadow: none;
+    width: 100%;
+    // border-radius: 0 !important;
+    min-height: 2.5em;
+    display: block;
+    border: 0;
+  }
+  select,
+  button,
+  #{inputs('text')} {
+    height: 2.5em;
+  }
+  input[type=submit] {
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    height: 3.5em;
+    font-size: 1.5em;
+    border-radius: 0;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  .settings-section {
+    display: none;
+    // min-height: 50vh;
+    &.active-section {
+      display: block;
+    }
+  }
+
+  .ep-settings-tab {
+    display: block;
+    background-color: darken($off-white, 10%);
+    color: $light-gray;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    &.header {
+      @include background;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      background-color: darken($off-white, 5%);
+    }
+    &.active {
+      background-color: $off-white;
+      color: $black;
+    }
+    & + & {
+      border-top: 1px solid;
+    }
+  }
+  #ep-settings-tabs {
+    padding: 0;
+  }
+
+  @include break( 'l' ) {
+    section {
+      padding: 2em;
+    }
+    .group-row {
+      flex-direction: column;
+    }
+  }
+  @include break( 'm', 'min' ) {
+    #ep-settings-tabs {
+      width: 250px;
+      float: left;
+    }
+    #ep-settings-output {
+      float:left;
+      width: calc( 100% - 250px );
+    }
+  }
+}

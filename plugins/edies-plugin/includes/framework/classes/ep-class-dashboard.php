@@ -1,18 +1,44 @@
 <?php
 
 class EP_Dashboard extends Edies_Plugin {
-  public function __construct() { }
+  
+  public function __construct() {
+  }
 
+  // PAGES
   public function add_menu_pages() {
     add_menu_page(
       __ep( 'Overview' ),
       __ep( 'Edie&#39;s Plugin' ),
       'manage_options',
       'edies-plugin/edies-plugin-admin.php',
-      '',
+      array( new EP_Settings, 'page_callback'),
       'dashicons-carrot',
       3
     );
+  }
+
+  public function add_sidebars() {
+    $areas = [
+      "top" => ep_get_option( 'footer__top_widgets' ),
+      "bottom" => ep_get_option( 'footer__bottom_widgets' )
+    ];
+
+    foreach ($areas as $area => $num) {
+      for ($i=1; $i <= $num; $i++) {
+        register_sidebar(
+          array (
+            'name' => __ep( ucwords( $area ) . " footer" ) . ' ' . $i,
+            'id' => "ep-$area-footer-" . $i,
+            'description' => __ep( "Widgetized $area footer area" ) . ' ' . $i
+            // 'before_widget' => '<div class="widget-content">',
+            // 'after_widget' => "</div>",
+            // 'before_title' => '<h3 class="widget-title">',
+            // 'after_title' => '</h3>',
+          )
+        );
+      }
+    }
   }
 
   public function add_post_types() {
@@ -57,7 +83,6 @@ class EP_Dashboard extends Edies_Plugin {
         'has_archive' => true,
         'supports' => array( 'title', 'editor', 'thumbnail' ),
         'menu_icon' => 'dashicons-id-alt',
-        // 'show_in_nav_menus' => false,
         'show_in_menu' => 'edies-plugin/edies-plugin-admin.php',
         'rewrite' => array(
           'slug' => 'partners'

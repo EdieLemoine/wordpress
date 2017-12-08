@@ -7,6 +7,7 @@ Template: x
 */
 $image-dir: '../../themes/x-child/dist/images/';
 
+
 @import '../global/base/functions';
 @import '../global/base/mixins';
 
@@ -15,10 +16,6 @@ $image-dir: '../../themes/x-child/dist/images/';
 // @import 'partials/base/base';
 
 // Stack; Only use the one you enabled in X.
-@import 'partials/stack/icon';
-// @import 'partials/stack/renew';
-// @import 'partials/stack/integrity';
-// @import 'partials/stack/ethos';
 
 // Reloading functions and mixins to override x's
 @import '../global/base/functions';
@@ -28,9 +25,15 @@ $image-dir: '../../themes/x-child/dist/images/';
 @import '../global/base/var-functions';
 @import '../global/base/var-mixins';
 
+@import 'partials/stack/icon';
+// @import 'partials/stack/renew';
+// @import 'partials/stack/integrity';
+// @import 'partials/stack/ethos';
+
 // @import 'partials/colors';
-@import '../font-awesome/font-awesome';
 @import 'partials/base/applications';
+
+@import 'partials/base/layers';
 
 // Plugin files
 @import 'partials/plugins/essentialgrid';
@@ -38,7 +41,10 @@ $image-dir: '../../themes/x-child/dist/images/';
 @import 'partials/plugins/wpml';
 @import 'partials/plugins/wpcf7';
 
-@import 'partials/base/layers';
+// Third party plugins
+@import '../thirdparty/woocommerce/woocommerce';
+@import '../thirdparty/font-awesome/font-awesome';
+@import '../thirdparty/outdatedbrowser/outdatedbrowser';
 
 // Responsive
 @import 'partials/base/responsive';

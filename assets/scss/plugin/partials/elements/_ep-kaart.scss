@@ -1,3 +1,5 @@
+@import "../../../thirdparty/snazzy-info-window/snazzy-info-window";
+
 .gm-style-mtc > div { // Map/Satellite buttons
   background-color: $base-color-dark !important;
   color: $base-color-light !important;
@@ -8,25 +10,25 @@
   display: none;
 }
 
-#ep-infobox {
-  padding: $global-spacing / 2;
-  width: 500px;
-  max-width: 60vw;
-  h2, p {
-    color: $base-color-dark;
-  }
-  h2 {
-    hyphens: auto;
-    white-space: normal;
-  }
-  p {
-    text-align: justify;
-    @include font( 'body' );
-  }
-  a {
-    width: 100%;
-  }
-}
+// #ep-infobox {
+//   // padding: $global-spacing / 2;
+//   // width: 500px;
+//   // max-width: 60vw;
+//   h2, p {
+//     color: $base-color-dark;
+//   }
+//   h2 {
+//     hyphens: auto;
+//     white-space: normal;
+//   }
+//   p {
+//     text-align: justify;
+//     @include font( 'body' );
+//   }
+//   a {
+//     width: 100%;
+//   }
+// }
 
 .gm-style-iw {
   div {

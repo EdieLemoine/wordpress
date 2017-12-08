@@ -1,26 +1,26 @@
-@include break( 'xs' ) {
-  @import '../responsive/breakpoint-xs';
-}
-
-@include break( 's' ) {
-  @import '../responsive/breakpoint-s';
-}
-
-@include break( 'm' ) {
-  @import '../responsive/breakpoint-m';
-}
-
-@include break( 'l' ) {
-  @import '../responsive/breakpoint-l';
-}
-
-@include break( 'xl' ) {
-  @import '../responsive/breakpoint-xl';
-}
-
-@include break( 'xxl' ) {
-  @import '../responsive/breakpoint-xxl';
-}
+// @include break( 'xs' ) {
+//   @import '../responsive/breakpoint-xs';
+// }
+//
+// @include break( 's' ) {
+//   @import '../responsive/breakpoint-s';
+// }
+//
+// @include break( 'm' ) {
+//   @import '../responsive/breakpoint-m';
+// }
+//
+// @include break( 'l' ) {
+//   @import '../responsive/breakpoint-l';
+// }
+//
+// @include break( 'xl' ) {
+//   @import '../responsive/breakpoint-xl';
+// }
+//
+// @include break( 'xxl' ) {
+//   @import '../responsive/breakpoint-xxl';
+// }
 
 @media print {
   @import '../responsive/print';

@@ -1,0 +1,32 @@
+.sides {
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px 8px 30px;
+	height: calc(1em + 20px);
+
+	line-height: calc(1em + 20px);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
+  &::before{
+  	content: ' ';
+  	width: 0;
+  	height: 0;
+  	border-top: 38px solid transparent;
+  	border-bottom: 1em solid transparent;
+  	border-right: 1em solid backgroundColor;
+  	position: absolute;
+  	left: calc(-1em - 1px);
+  	top: 0px;
+    background-color: inherit;
+  }
+  &::after{
+  	content: ' ';
+  	width: 0;
+  	height: 0;
+  	border-top: 38px solid transparent;
+  	border-bottom: 1em solid transparent;
+  	border-left: 1em solid black;
+  	position: absolute;
+  	right: calc(-1em - 1px);
+  	top: 0px;
+  }
+}

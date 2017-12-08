@@ -39,7 +39,7 @@
       margin: auto;
       color: $light-gray;
       @include active {
-        filter: grayscale(0);
+        filter: grayscale(10);
         border-color: $white;
         color: $gray;
       }

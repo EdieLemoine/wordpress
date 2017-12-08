@@ -5,7 +5,10 @@
  */
 class EP_Scripts extends Edies_Plugin {
 
-  function __construct() {}
+  function __construct() {
+    if ( ep_get_option( 'googlemaps__global_enabled') and ep_get_option( 'googlemaps__global_api' ) )
+      define( 'API_KEY', ep_get_option( 'googlemaps__global_api' ) );
+  }
 
   // Enqueue scripts and styles
   public function queue() {
@@ -31,13 +34,15 @@ class EP_Scripts extends Edies_Plugin {
 
     // Add Google Maps
     if ( defined( 'API_KEY' ) ) :
-      add_filter( 'acf/fields/google_map/api', API_KEY ); // Registers API with ACF Pro
+      if ( defined( 'ACTIVE_ACF' ) ) 
+        add_filter( 'acf/fields/google_map/api', API_KEY ); // Registers API with ACF Pro
 
       $this->api_key = esc_attr( API_KEY );
       $script_url = add_query_arg( array( 'key' => $this->api_key ), 'https://maps.googleapis.com/maps/api/js' );
 
       wp_register_script( 'google-maps', $script_url, array( 'jquery' ), true );
-      $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps' ) );
+      $this->add_script( 'snazzy-info-window', 'snazzy-info-window/snazzy-info-window.min.js', array( 'google-maps' ) );
+      $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps', 'snazzy-info-window' ) );
     endif;
 
     // Register styles

@@ -12,6 +12,11 @@ $gray: #333 !default;
 $light-gray: #ccc !default;
 $white: #fff !default;
 
+$green: #7ad03a !default;
+$red: #a00 !default;
+$orange: #ffba00 !default;
+$blue: #2ea2cc !default;
+
 $base-color-light: $white !default;
 $base-color-dark: $dark-gray !default;
 
@@ -93,7 +98,8 @@ $navbar-fixed-brand-size: $navbar-fixed-size * 0.95 !default;
 ////////////
 // Social //
 ////////////
-$social-style: 'fill';
+$social-text: true !default;
+$social-style: 'fill' !default;
 
 ////////////
 // Footer //
@@ -101,11 +107,14 @@ $social-style: 'fill';
 $footer-top-padding: $global-spacing * 4 !default;
 $footer-top-background-color: $primary-color !default;
 $footer-top-color: calculate-color( $footer-top-background-color ) !default;
-$footer-top-font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) !default;
+$footer-top-font-size: 1em !default;
 
 $footer-bottom-padding: $global-spacing !default;
 $footer-bottom-font: 'heading' !default;
 $footer-bottom-background-color: darken( $footer-top-background-color, 15% ) !default;
 $footer-bottom-color: calculate-color( $footer-bottom-background-color ) !default;
+
+$admin-bar-height: 32px !default;
+$admin-bar-mobile-height: 46px !default;
 
 @import "maps";

@@ -23,7 +23,7 @@
 
 	.update-plugins .update-count  {
 		background-color: #d54e21;
-		border-radius: 10px;
+		border-radius: $global-border-radius;
 		color: #fff;
 		display: inline-block;
 		font-size: 9px;
@@ -73,7 +73,7 @@
 
 	.addons-banner-block-item {
 		border: 1px solid #e6e6e6;
-		border-radius: 3px;
+		border-radius: $global-border-radius;
 		flex: 1 1 200px;
 		margin: 10px;
 		max-width: 350px;
@@ -291,7 +291,7 @@
 	}
 
 	.addons-button {
-		border-radius: 3px;
+		border-radius: $global-border-radius;
 		cursor: pointer;
 		display: block;
 		height: 37px;
@@ -635,7 +635,7 @@ table.wc_status_table--tools {
 		margin: 0;
 		height: 300px;
 		padding: 20px;
-		border-radius: 0;
+		border-radius: $global-border-radius;
 		resize: none;
 		font-size: 12px;
 		line-height: 20px;
@@ -659,7 +659,7 @@ table.wc_status_table--tools {
 		text-align: center;
 		white-space: nowrap;
 		vertical-align: baseline;
-		border-radius: .2em;
+		border-radius: $global-border-radius;
 
 		&:empty {
 			display: none;
@@ -841,7 +841,7 @@ ul.wc_coupon_list {
 			-webkit-box-shadow: 0 1px 0 #dfdfdf;
 			box-shadow: 0 1px 0 #dfdfdf;
 
-			border-radius: 4px;
+			border-radius: $global-border-radius;
 			margin-right: 5px;
 			margin-top: 5px;
 
@@ -2943,7 +2943,7 @@ table.wc-shipping-zones, table.wc-shipping-zone-methods, table.wc-shipping-class
 	background-color: #935687;
 	display: inline-block;
 	text-indent: -9999px;
-	border-radius: 10em;
+	border-radius: $global-border-radius;
 	position: relative;
 
 	&:before {
@@ -2955,7 +2955,7 @@ table.wc-shipping-zones, table.wc-shipping-zone-methods, table.wc-shipping-class
 		position: absolute;
 		top: 0;
 		right: 0;
-		border-radius: 100%;
+		border-radius: $global-border-radius;
 	}
 
 	&.woocommerce-input-toggle--disabled {
@@ -3215,7 +3215,7 @@ img.help_tip {
 			display: none;
 			position: absolute;
 			border: 1px solid #ccc;
-			border-radius: 3px;
+			border-radius: $global-border-radius;
 			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
 			.ui-slider {
@@ -3371,7 +3371,7 @@ img.help_tip {
 							@include icon_dashicons( '\f153' );
 							color: #999;
 							background: #fff;
-							border-radius: 50%;
+							border-radius: $global-border-radius;
 							height: 1em;
 							width: 1em;
 							line-height: 1em;
@@ -4477,7 +4477,7 @@ img.tips {
 	max-width: 150px;
 	background: #333;
 	text-align: center;
-	border-radius: 3px;
+	border-radius: $global-border-radius;
 	padding: 0.618em 1em;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
@@ -4755,7 +4755,7 @@ img.ui-datepicker-trigger {
 					}
 
 					&:last-of-type {
-						border-radius: 0 0 3px 3px;
+						border-radius: $global-border-radius;
 					}
 				}
 
@@ -4911,7 +4911,7 @@ img.ui-datepicker-trigger {
 			padding: 12px;
 			position: relative;
 			border: 1px solid #dfdfdf;
-			border-radius: 3px;
+			border-radius: $global-border-radius;
 		}
 
 		.main .chart-legend {
@@ -5061,7 +5061,7 @@ table.bar_chart {
 				display: block;
 				line-height: 24px;
 				height: 24px;
-				border-radius: 3px;
+				border-radius: $global-border-radius;
 			}
 
 			span.alt {
@@ -5568,7 +5568,7 @@ table.bar_chart {
 	}
 	.select2-selection--multiple  {
 		min-height: 28px;
-		border-radius: 0;
+		border-radius: $global-border-radius;
 		line-height: 1.5;
 		li {
 			margin: 0;
@@ -5647,7 +5647,7 @@ table.bar_chart {
 		li::before {
 			content: '';
 			border: 4px solid #ccc;
-			border-radius: 100%;
+			border-radius: $global-border-radius;
 			width: 4px;
 			height: 4px;
 			position: absolute;
@@ -5681,7 +5681,7 @@ table.bar_chart {
 		margin-right: 0.5em;
 		margin-bottom: 2px;
 		height: auto !important;
-		border-radius: 4px;
+		border-radius: $global-border-radius;
 		background-color: #bb77ae;
 		border-color: #a36597;
 		-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597;
@@ -5835,7 +5835,7 @@ table.bar_chart {
 			display: none;
 			background: #f5f5f5;
 			border: 2px solid #eee;
-			border-radius: 4px;
+			border-radius: $global-border-radius;
 			padding: 0;
 			box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
 		}
@@ -5843,13 +5843,13 @@ table.bar_chart {
 		progress::-webkit-progress-bar {
 			background: transparent none;
 			border: 0;
-			border-radius: 4px;
+			border-radius: $global-border-radius;
 			padding: 0;
 			box-shadow: none;
 		}
 
 		progress::-webkit-progress-value {
-			border-radius: 3px;
+			border-radius: $global-border-radius;
 			box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
 			background: #A46497;
 			background: linear-gradient( top, #A46497, #66405F ), #A46497;
@@ -5857,7 +5857,7 @@ table.bar_chart {
 		}
 
 		progress::-moz-progress-bar {
-			border-radius: 3px;
+			border-radius: $global-border-radius;
 			box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
 			background: #A46497;
 			background: linear-gradient( top, #A46497, #66405F ), #A46497;
@@ -5865,7 +5865,7 @@ table.bar_chart {
 		}
 
 		progress::-ms-fill {
-			border-radius: 3px;
+			border-radius: $global-border-radius;
 			box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
 			background: #A46497;
 			background: linear-gradient( to bottom, #A46497, #66405F ), #A46497;

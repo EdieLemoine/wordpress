@@ -5,21 +5,18 @@ function ep_custom_map( $atts ) {
     'id' => 'ep-map',
     'post_types' => false,
     'scroll' => false,
-    'center' => '52.356226, 4.893825',
-    'marker' => '52.3574162, 4.8904397',
+    'center' => '52.509614, 4.944798',
+    'marker' => '52.509614, 4.944798',
     'markerName' => '',
     'zoom' => '17',
     'height' => '600px',
-    'markers' => false,
-    'snazzy_style' => ''
+    'markers' => false
+    // 'snazzy_style' => ''
   ), $atts );
 
-  // $var = $c->variables['variables'];
+  // echo ep_get_option( 'googlemaps__global_style' );
 
-  // htmlspecialchars( wp_json_encode( $params ), ENT_QUOTES, 'UTF-8' );
-
-
-  $snazzy_style = $a['snazzy_style'] ;
+  $snazzy_style = json_decode( ep_get_option( 'googlemaps__global_style' ) );
 
   // Create usable array from string input
   $center = explode( ',', str_replace( ' ', '', $a['center'] ) );
@@ -31,7 +28,8 @@ function ep_custom_map( $atts ) {
     'id' => $a['id'],
     'zoom' => intval($a['zoom']),
     'scroll' => $a['scroll'],
-    'snazzy_style' => htmlspecialchars( wp_json_encode( $snazzy_style ), ENT_QUOTES, 'UTF-8' ),
+    'snazzy_style' => $snazzy_style,
+    // 'snazzy_style' => htmlspecialchars( wp_json_encode( $snazzy_style ), ENT_QUOTES, 'UTF-8' ),
     'center' => array(
       'lat' => floatval( $center[0] ),
       'lng' => floatval( $center[1] )
@@ -97,14 +95,13 @@ function ep_custom_map( $atts ) {
     wp_localize_script( 'ep-custom-map', 'mapData', $map_data ); // Register map data variable with js
 
     wp_script_is( 'google-maps' ) ?: wp_enqueue_script( 'google-maps' );
+    wp_script_is( 'snazzy-info-window' ) ?: wp_enqueue_script( 'snazzy-info-window' );
     wp_script_is( 'ep-custom-map' ) ?: wp_enqueue_script( 'ep-custom-map' );
   else :
     echo 'Map can\'t load: No API key defined.';
   endif;
 
   $output = '<div class="ep-map-wrapper"><div id="' . $map_data['id'] . '" style="height:' . $a['height'] . ';"></div></div>';
-
-  $output .= 'PHP: ' . $snazzy_style;
 
   return $output;
 }

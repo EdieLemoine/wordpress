@@ -20,6 +20,8 @@
     ?>
   <!-- </div>
 </div> -->
+
+
   <div class="x-main full" role="main">
     <?php while ( have_posts() ) : the_post(); ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -27,17 +29,17 @@
 
           <div class="x-container max width">
             <div class="ep-row">
-              <h1 class="h2"><?php echo the_title(); ?></h1>
+              <div class="ep-col ep-1-1">
+                <h1 class="h2"><?php echo the_title(); ?></h1>
+                <?php if ( get_field( 'website' ) ) :
+                  $url = trailingslashit( get_field('website') );
+                  echo '<p class="url"><a href="' . $url . '">' . $url . '</a></p>';
+                endif; ?>
+              </div>
             </div>
             <div class="ep-row">
-
-              <div class="ep-col ep-4-5">
+              <div class="ep-col ep-1-1">
                 <?php echo the_content(); ?>
-              </div>
-              <div class="ep-col ep-1-5">
-                <?php if ( get_field( 'website' ) ) :
-                  echo '<i class="fa fa-fw fa-link"></i><a href="' . trailingslashit( get_field('website') ) . '">' . parse_url( get_field( 'website' ) )[ 'host' ] . '</a>';
-                endif; ?>
               </div>
             </div>
           </div>

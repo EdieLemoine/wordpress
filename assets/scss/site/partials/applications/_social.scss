@@ -1,42 +1,93 @@
 .x-social-global {
-  // padding: $global-spacing 0;
-  margin: auto;
   display: flex;
   flex-wrap: wrap;
-  align-content: stretch;
-  a {
-    position: relative;
-    flex: 1 0 10%;
-    padding: $global-spacing / 2 $global-spacing / 4;
-    margin: $global-spacing / 8;
-    @include border-radius;
-    i {
+  justify-content: center;
+  margin: -0.5em;
+  .social-icon {
+    display: flex;
+    padding: 0.5em;
+    &.style-border {
+
+    }
+    &.style-fill {
+      i {
+        @include border;
+        &:hover {
+          background-color: transparentize( $white, 0.9 );
+        }
+      }
+    }
+
+    a {
       margin: auto;
-      font-size: $global-spacing;
+      position: relative;
+      padding: 1em;
+      @include border-radius;
+      // span.text {
+      //   display: block;
+      //   padding: 0.1em;
+      // }
+
+      i {
+        @include font-awesome;
+        margin: auto;
+        font-size: 2em;
+
+        @if $social-style == 'fill' {
+          &:hover {
+            color: white;
+          }
+        }
+        @if $social-style == 'border' {
+          @include border;
+          &:hover {
+            background-color: transparentize( $white, 0.9 );
+          }
+        }
+      }
+
+
+      @each $site, $icon in $social {
+        $color: map-get( $icon, color );
+
+        &[class*="#{$site}"] {
+
+          i:before {
+            content: map-get( $icon, icon );
+          }
+
+          &:hover {
+            @if $social-style == 'fill' {
+              background-color: $color;
+              color: white !important;
+            }
+            @if $social-style == 'border' {
+              border-color: $color;
+              color: $color !important;
+            }
+          }
+        }
+      }
+      // end @each
     }
   }
-}
 
-@each $site, $icon in $social {
-  $color: map-get( $icon, color );
+  &.text {
+    a {
+      display: flex;
+    }
 
-  a[class*="#{$site}"] {
-    i:before {
-      content: map-get( $icon, icon );
+    &.top a::before,
+    &.left a::before,
+    &.bottom a::after,
+    &.right a::after {
+      content: attr(title);
+      margin: auto;
+      padding: 0.5em;
     }
-    @if $social-style == 'fill' {
-      &:hover {
-        background-color: $color;
-        color: white !important;
-      }
-    }
-    @if $social-style == 'border' {
-      @include border;
-      &:hover {
-        background-color: transparentize( $white, 0.9 );
-        border-color: $color;
-        color: $color !important;
-      }
+    &.top a,
+    &.bottom a {
+      flex-direction: column;
     }
   }
 }

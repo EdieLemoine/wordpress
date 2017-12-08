@@ -2,9 +2,7 @@
 class EP_Templates extends Edies_Plugin {
 	protected $templates;
 
-	public function __construct() {
-
-	}
+	public function __construct() {}
 
 	public function add_templates() {
 		$this->templates = array();
@@ -92,9 +90,14 @@ class EP_Templates extends Edies_Plugin {
 	}
 
 	public function set_single_template( $template ) {
-		if ( get_post_type() == 'ep-partners' ) {
-      $template = PATH_TEMPLATES . 'decreatievehoek-partner.php';
-    }
+		switch ( get_post_type() ) {
+			case 'ep-partners':
+				$template = PATH_TEMPLATES . 'decreatievehoek-partner.php';
+				break;
+			case 'product' :
+				$template = PATH_TEMPLATES . 'floorworld-product-template.php';
+				break;
+		}
 
     return $template;
 	}
@@ -104,5 +107,16 @@ class EP_Templates extends Edies_Plugin {
     //   $template = PATH_TEMPLATES . 'ep-archive.php';
     // }
     return $template;
+	}
+
+	public function set_woocommerce_template_part( $template, $slug, $name ) {
+		// look in plugin/woocommerce/slug-name.php or plugin/woocommerce/slug.php
+    if ( $name ) {
+        $path = PATH_TEMPLATES . WC()->template_path() . "{$slug}-{$name}.php";
+    } else {
+        $path = PATH_TEMPLATES . WC()->template_path() . "{$slug}.php";
+    }
+		// echo $path;
+    return file_exists( $path ) ? $path : $template;
 	}
 }

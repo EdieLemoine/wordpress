@@ -18,4 +18,4 @@
   </header>
 
   <?php x_get_view( 'global', '_slider-below' ); ?>
-  
+  <?php // x_get_view( 'renew', '_landmark-header' ); ?>

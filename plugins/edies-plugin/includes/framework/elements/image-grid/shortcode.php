@@ -43,7 +43,7 @@ endif; ?>
 				$image = get_the_post_thumbnail_url( null, 'large');
 				$content = truncate( wp_strip_all_tags( get_the_excerpt(), true ), 80 );
 				if ( $complex ) : ?>
-					<a class="ep ep-1-<?php echo $cols ?>" href="<?php echo get_permalink() ?>" >
+					<a class="ep ep-l-1-<?php echo $cols ?>" href="<?php echo get_permalink() ?>" >
 						<div class="ep-grid-inner">
 							<div class="ep-text">
 								<h2><?php echo get_the_title(); ?></h2>
@@ -55,7 +55,7 @@ endif; ?>
 						</div>
 					</a>
 				<?php else : ?>
-					<div class="ep-grid-item  ep-1-<?php echo $cols ?>">
+					<div class="ep-grid-item ep-s-1-<?php echo $cols - 2 ?> ep-m-1-<?php echo $cols - 1 ?> ep-1-<?php echo $cols ?>">
 						<a href="<?php echo get_permalink() ?>" class="ep-grid-item-inner">
 							<h3><?php echo get_the_title(); ?></h3>
 							<img src="<?php echo $image ?>">

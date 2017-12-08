@@ -63,23 +63,12 @@
       }
     }
   }
+}
 
-  // Transparent fixes
-  // @if $navbar-background-color == transparent {
-  //   .x-navbar {
-  //     pointer-events: none;
-  //     .x-nav {
-  //       pointer-events: all;
-  //     }
-  //   }
-  // }
-  //
-  // @if $navbar-fixed-background-color == transparent {
-  //   .x-navbar.x-navbar-fixed-top {
-  //     pointer-events: none;
-  //     .x-nav {
-  //       pointer-events: all;
-  //     }
-  //   }
-  // }
+body.admin-bar {
+  @include break( $mobile-breakpoint, 'min' ) {
+    .scrolled .masthead .x-navbar-wrap {
+      top: $admin-bar-height;
+    }
+  }
 }

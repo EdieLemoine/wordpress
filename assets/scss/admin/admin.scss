@@ -1,5 +1,3 @@
-@warn 'Compiling admin';
-
 // This file is only for importing partials.
 // Use only what you need.
 
@@ -11,10 +9,13 @@
 @import '../global/base/var-functions';
 @import '../global/base/var-mixins';
 
+@import "variables";
+@import "../thirdparty/wordpress/admin";
 // @import 'partials/base/applications';
 
 // Own files
 // @import 'partials/custom';
+@import 'partials/settings';
 @import 'partials/dashboard';
 @import 'partials/media';
 body[class*="sitepress-multilingual-cms"] { // WPML page

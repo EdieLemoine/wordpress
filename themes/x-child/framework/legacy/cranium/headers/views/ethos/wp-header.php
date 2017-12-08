@@ -16,6 +16,8 @@
     <?php x_get_view( 'ethos', '_post', 'carousel' ); ?>
     <?php x_get_view( 'global', '_topbar' ); ?>
     <?php x_get_view( 'global', '_navbar' ); ?>
+    <?php x_get_view( 'ethos', '_breadcrumbs' ); ?>
   </header>
 
   <?php x_get_view( 'global', '_slider-below' ); ?>
+  <?php // x_get_view( 'ethos', '_landmark-header' ); ?>

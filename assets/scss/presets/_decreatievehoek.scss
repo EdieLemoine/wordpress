@@ -5,8 +5,8 @@ $primary-color: #1d1d1b;
 $secondary-color: lighten( adjust_hue($primary-color, 10%), 40%);
 
 $black: $primary-color;
-$dark-gray: lighten( $black, 10 / 3 );
-$gray: lighten( $dark-gray, 10 / 3 );
+$dark-gray: #4C4B4A;
+$gray: #7A7A7A;
 $light-gray: #a9a8a9;
 $white: #fff;
 
@@ -21,7 +21,7 @@ $base-background-color-dark: $black;
 ////////////
 // Global //
 ////////////
-$container-width: 97.5vw; // Percentage
+$container-width: 95%; // Percentage
 $container-max-width: 1000px; // Pixels
 $global-border-radius: 5px;
 $global-corners: none;
@@ -127,7 +127,7 @@ $navbar-fixed-size: 120px;
 $navbar-submenu-padding: 0;
 
 // Text //
-$navbar-font-size: map-get-deep( $fonts, "body", "atts", "font-size" ) * 1.5;
+$navbar-font-size: 1.5em;
 $navbar-font: 'heading';
 
 // Links //
@@ -141,8 +141,8 @@ $navbar-fixed-brand-size: 90%;
 ////////////
 // Footer //
 ////////////
-$footer-top-padding: $global-spacing * 2;
-$footer-top-background-color: $gray;
+$footer-top-padding: 8em;
+$footer-top-background-color: $dark-gray;
 $footer-top-color: calculate-color( $footer-top-background-color );
 
 $footer-bottom-padding: $global-spacing * 0.5;

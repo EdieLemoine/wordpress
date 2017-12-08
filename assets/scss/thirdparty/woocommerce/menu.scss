@@ -114,7 +114,7 @@ span.mce_woocommerce_shortcodes_button {
 }
 
 .wc_untested_extensions_modal_container {
-	border-radius: 4px;
+	border-radius: $global-border-radius;
 	padding: 0;
 
 	#TB_closeAjaxWindow {

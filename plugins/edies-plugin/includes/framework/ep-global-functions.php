@@ -44,10 +44,25 @@ function __ep( $string, $slug = null ) {
   return __( $string, $slug );
 }
 
+function _eep( $string, $slug = null ) {
+  echo __ep( $string, $slug );
+}
 function convert_dash( $string ) {
   return str_replace('-', '_', $string);
 }
 
 function truncate( $string, $length, $dots = "..." ) {
   return ( strlen( $string ) > $length ) ? substr( $string, 0, $length - strlen( $dots ) ) . $dots : $string;
+}
+
+function ep_get_option( $option ) {
+  return get_option( "ep_settings_" . $option );
+}
+
+function ep_option( $option ) {
+  echo ep_get_option( $option );
+}
+
+function ep_get_option_check( $option, $part ) {
+  return (ep_get_option( $option ) and array_key_exists( $part, ep_get_option( $option ) ));
 }

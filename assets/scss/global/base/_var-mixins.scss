@@ -31,8 +31,13 @@
 
 // Media Query
 @mixin break( $size, $type: max ) {
-  @media ( #{$type}-width: map-get( $breakpoints, $size ) ) {
+  @if $size == "" {
     @content;
+  }
+  @else {
+    @media ( #{$type}-width: map-get( $breakpoints, $size ) ) {
+      @content;
+    }
   }
 }
 

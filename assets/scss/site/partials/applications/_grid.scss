@@ -1,0 +1,136 @@
+.ep-row {
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+.ep-row-l {
+  margin: -2em;
+  & > div {
+    padding: 2em;
+  }
+}
+.ep-row-m {
+  margin: -1em;
+  & > div {
+    padding: 1em;
+  }
+}
+.ep-row-flex {
+  @extend .ep-row;
+  flex-wrap: wrap;
+  margin: -($global-spacing / 8);
+}
+
+.ep-col-flex {
+  padding: $global-spacing / 8;
+}
+
+.ep {
+  position: relative;
+  .x-container {
+    margin: auto;
+  }
+}
+
+// Create grid structure
+// @for $a from 1 through 8 {
+//   @for $b from 1 through 8 {
+//     $left: $b % $a;
+//     @if $left == 1 {
+//       $left: 100;
+//     }
+//     @if $a != $b
+//     and $left != 0
+//     and $left > 0
+//     and ( $a % $left ) != 0
+//     and $a < $b
+//     or $a == 1 {
+//       .ep-#{$a}-#{$b} {
+//         flex-basis: 100% / ( $b / $a );
+//       }
+//     }
+//   }
+// }
+
+// Create grid structure for each breakpoint in $breakpoints
+// Reverse map if the order of breakpoints would override each other the wrong way
+@if last-value( $breakpoints, true ) > first-value( $breakpoints, true ) {
+  $breakpoints: map-reverse( $breakpoints );
+}
+
+$breakpointlist: ();
+@each $breakpoint in map-keys( $breakpoints ) {
+  $breakpointlist: join( $breakpoint, $breakpointlist );
+}
+// Make sure the empty value gets added to the top of the stack so it doesn't override the others
+$breakpointlist: join( "", $breakpointlist );
+
+// @warn $breakpointlist;
+@each $breakpoint in $breakpointlist {
+  // @debug $breakpoint;
+  @include break( $breakpoint ) {
+    @if $breakpoint != "" {
+      $breakpoint: "-" + $breakpoint;
+    }
+    .ep#{$breakpoint}-pan {
+      padding: 0 !important;
+    }
+    .ep#{$breakpoint}-pvn,
+    .ep#{$breakpoint}-pyn {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .ep#{$breakpoint}-phn,
+    .ep#{$breakpoint}-pxn {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .ep#{$breakpoint}-fw-w {
+      flex-wrap: wrap;
+    }
+    .ep#{$breakpoint}-fw-nw {
+      flex-wrap: nowrap;
+    }
+    .ep#{$breakpoint}-fd-col {
+      flex-direction: column;
+    }
+    .ep#{$breakpoint}-fd-col-rev {
+      flex-direction: column-reverse;
+    }
+    .ep#{$breakpoint}-fd-row {
+      flex-direction: row;
+    }
+    .ep#{$breakpoint}-fd-row-rev {
+      flex-direction: row-reverse;
+    }
+
+    @for $a from 1 through 8 {
+      @for $b from 1 through 8 {
+        // Don't output anything where:
+        // $a equals $b ( 2-2, 3-3, 4-4 -> all 100% )
+        // $a is smaller than $b ( 3-2 -> over 100% )
+        // You can simplify the fractions ( 2-4, 3-9 -> 50%, 33% )
+        // But do output 1-1 to 1-12
+        $left: $b % $a;
+
+        // @debug '.ep-#{$breakpoint}-#{$a}-#{$b} | #{$b} % #{$a} = #{$left}';
+
+        // HACK: To stop excluding cols where the leftover is 1
+        @if $left == 1 {
+          $left: 100;
+        }
+        @if $a != $b
+        and $left != 0
+        and $left > 0
+        and ( $a % $left ) != 0
+        and $a < $b
+        or $a == 1 {
+          // @debug 'OUTPUT';
+          .ep#{$breakpoint}-#{$a}-#{$b} {
+            flex-basis: 100% / ( $b / $a );
+          }
+        }
+      }
+    }
+  }
+}

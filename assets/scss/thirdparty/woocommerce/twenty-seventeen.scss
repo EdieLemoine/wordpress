@@ -99,7 +99,7 @@
 		font-size: 1em;
 		float: none;
 		line-height: 1.5;
-		border-radius: 2px;
+		border-radius: $global-border-radius;
 		transition: background-color ease-in-out .3s;
 	}
 
@@ -280,7 +280,7 @@ a.remove {
 	line-height: 16px;
 	font-size: 16px;
 	text-align: center;
-	border-radius: 100%;
+	border-radius: $global-border-radius;
 	box-shadow: none !important;
 	border: 1px solid #000;
 
@@ -632,7 +632,7 @@ button.pswp__button--zoom:hover {
 			line-height: 16px;
 			font-size: 16px;
 			text-align: center;
-			border-radius: 100%;
+			border-radius: $global-border-radius;
 			border: 1px solid black;
 			margin-right: .25em;
 		}
@@ -668,7 +668,7 @@ button.pswp__button--zoom:hover {
 		width: 1em;
 		height: 1em;
 		background-color: #000;
-		border-radius: 1em;
+		border-radius: $global-border-radius;
 		cursor: ew-resize;
 		outline: none;
 		top: -0.3em;
@@ -681,12 +681,12 @@ button.pswp__button--zoom:hover {
 		font-size: 0.7em;
 		display: block;
 		border: 0;
-		border-radius: 1em;
+		border-radius: $global-border-radius;
 		background-color: #000;
 	}
 
 	.price_slider_wrapper .ui-widget-content {
-		border-radius: 1em;
+		border-radius: $global-border-radius;
 		background-color: #666;
 		border: 0;
 	}
@@ -876,7 +876,7 @@ button.pswp__button--zoom:hover {
 				width: 30px;
 				border: 2px solid #bbb;
 				background: #bbb;
-				border-radius: 13em;
+				border-radius: $global-border-radius;
 				box-sizing: content-box;
 				transition: all ease-in-out .3s;
 				position: absolute;
@@ -893,7 +893,7 @@ button.pswp__button--zoom:hover {
 				position: absolute;
 				top: 7px;
 				right: 17px;
-				border-radius: 13em;
+				border-radius: $global-border-radius;
 				transition: all ease-in-out .3s;
 			}
 		}
@@ -1014,7 +1014,7 @@ button.pswp__button--zoom:hover {
 				background: white;
 				margin-left: 4px;
 				margin-right: .5em;
-				border-radius: 100%;
+				border-radius: $global-border-radius;
 				transform: translateY(2px);
 			}
 		}

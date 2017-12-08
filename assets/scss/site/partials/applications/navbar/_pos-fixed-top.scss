@@ -2,6 +2,7 @@
   @include break( $mobile-breakpoint, 'min' ) {
     .scrolled .masthead .x-navbar-wrap {
       position: fixed;
+      top: 0;
     }
   }
 

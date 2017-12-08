@@ -1,0 +1,30 @@
+.woocommerce ul.products {
+  display: flex;
+  margin: -.5em;
+  .product-inner {
+    @include border( $primary-color );
+    border-radius: $global-border-radius;
+    overflow: hidden;
+    @include turbo-transition;
+    &:hover {
+      @include background;
+    }
+  }
+  img {
+    user-select: none;
+  }
+  .product {
+    padding: .5em;
+    flex-basis: 25%;
+  }
+  .product-info {
+    padding: .5em;
+  }
+}
+
+
+.ep-product {
+  text-decoration: none;
+  color: inherit;
+
+}
