@@ -18,8 +18,8 @@
 @mixin section() {
   .x-section {
     position: relative;
-    margin: 0 0 $baseMargin;
-    padding: 45px 0;
+    // margin: 0 0 $baseMargin;
+    // padding: 45px 0;
     @include cf();
 
     &.bg-image,
