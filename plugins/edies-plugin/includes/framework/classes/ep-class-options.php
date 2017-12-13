@@ -497,13 +497,19 @@ class EP_Settings extends Edies_Plugin {
     if ( $conditions = !array_key_exists( 'condition', $args ) ?"": $args[ 'condition' ] ) :
       $output = '';
       foreach ($conditions as $condition => $condval) :
+        // Allow multiple conditions in same input like checkboxes
+        // Comma separated will be handled automatically
+        if ( is_array($condval) ) :
+          $condval = implode( ",", $condval );
+        endif;
+
         if ( strpos( $condition, "__") !== false ) :
-          $cond = $this->setting_slug ."_". $condition;
+          $cond = "ep_settings_". $condition;
         else:
           $cond = $group . "_" . $condition;
         endif;
         $currentval = get_option( $cond );
-        $output .= $cond."=".$condval.";";
+        $output .= $cond . "=" . $condval . ";";
       endforeach;
       echo "<div id='helper-$slug' class='ep-condition-helper' condition='$output'></div>";
     endif;
