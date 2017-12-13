@@ -1,8 +1,15 @@
 <?php
 
+// static $ep_custom_map_i = 0;
+
 function ep_custom_map( $atts ) {
+  static $i = 0;
+  static $map_data = [];
+
+  $i++;
+
   $a = shortcode_atts( array(
-    'id' => 'ep-map',
+    'id' => 'ep-map-',
     'post_types' => false,
     'scroll' => false,
     'center' => '52.509614, 4.944798',
@@ -14,30 +21,26 @@ function ep_custom_map( $atts ) {
     // 'snazzy_style' => ''
   ), $atts );
 
-  // echo ep_get_option( 'googlemaps__global_style' );
-
-  $snazzy_style = json_decode( ep_get_option( 'googlemaps__global_style' ) );
-
   // Create usable array from string input
   $center = explode( ',', str_replace( ' ', '', $a['center'] ) );
 
-  // Init map data array
-  $map_data = [];
+  $id = $a['id'] . $i;
 
-  $map_data = array(
-    'id' => $a['id'],
+  // Init map data array
+
+  $map_data[$id] = array(
+    'id' => $id,
     'zoom' => intval($a['zoom']),
     'scroll' => $a['scroll'],
-    'snazzy_style' => $snazzy_style,
-    // 'snazzy_style' => htmlspecialchars( wp_json_encode( $snazzy_style ), ENT_QUOTES, 'UTF-8' ),
     'center' => array(
       'lat' => floatval( $center[0] ),
       'lng' => floatval( $center[1] )
-    ),
-    // 'primary_color' => $var['colors']['primary-color'],
-    // 'secondary_color' => $var['colors']['secondary-color'],
-    'markers' => array()
+    )
   );
+
+  if ( ep_get_option( 'googlemaps__global_style' ) ) :
+    $map_data[$id]['snazzy_style'] = json_decode( ep_get_option( 'googlemaps__global_style' ) );
+  endif;
 
   if ( $a['post_types'] != false OR $a['markers'] == true  ) : // Only do this if there are post types entered
 
@@ -59,23 +62,13 @@ function ep_custom_map( $atts ) {
         // Get all the post data
         $location = get_field( 'locatie' );
         if ( $location AND $location['lat'] AND $location['lng'] ) :
-          // if ( get_post_type() == 'ep-winkel' ) :
-          //   $color = "#5776CF";
-          // else:
-          //   $color = "#EC613F";
-          // endif;
 
-          if ( get_field( 'subtitle' ) != '' ) :
-            $subtitle = get_field( 'subtitle' );
-          else :
-            $subtitle = '';
-          endif;
+          $subtitle = get_the_excerpt() ? get_the_excerpt() : "";
 
           // Add new marker for each post
-          $map_data['markers'][] = array(
+          $map_data[$id]['markers'][] = array(
             'id' => get_the_ID(),
-            'posttype' => substr( get_post_type(), 3 ),
-            // 'color' => $color,
+            'posttype' => get_post_type_object( get_post_type() )->labels->singular_name,
             'title' => get_the_title(),
             'subtitle' => $subtitle,
             'content' => get_the_excerpt(),
@@ -91,17 +84,17 @@ function ep_custom_map( $atts ) {
     wp_reset_postdata();
   endif;
 
-  if ( defined( 'API_KEY' ) ) :
-    wp_localize_script( 'ep-custom-map', 'mapData', $map_data ); // Register map data variable with js
-
+  // Only load this once
+  if ( $i == 1 ) :
     wp_script_is( 'google-maps' ) ?: wp_enqueue_script( 'google-maps' );
     wp_script_is( 'snazzy-info-window' ) ?: wp_enqueue_script( 'snazzy-info-window' );
     wp_script_is( 'ep-custom-map' ) ?: wp_enqueue_script( 'ep-custom-map' );
-  else :
-    echo 'Map can\'t load: No API key defined.';
   endif;
 
-  $output = '<div class="ep-map-wrapper"><div id="' . $map_data['id'] . '" style="height:' . $a['height'] . ';"></div></div>';
+  // This one is done every time to ensure all variables are passed
+  wp_localize_script( 'ep-custom-map', 'maps', $map_data ); // Register map data variable with js
+
+  $output = '<div class="ep-map-wrapper"><div id="' . $id . '" style="height:' . $a['height'] . ';"></div></div>';
 
   return $output;
 }
