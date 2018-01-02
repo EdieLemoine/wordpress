@@ -6,8 +6,6 @@
 // Standard page output for Integrity.
 // =============================================================================
 
-$disable_page_title = get_post_meta( get_the_ID(), '_x_entry_disable_page_title', true );
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -18,11 +16,9 @@ $disable_page_title = get_post_meta( get_the_ID(), '_x_entry_disable_page_title'
 <?php endif; ?>
   <div class="entry-wrap">
     <?php if ( is_singular() ) : ?>
-      <?php if ( $disable_page_title != 'on' ) : ?>
       <header class="entry-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
       </header>
-      <?php endif; ?>
     <?php else : ?>
     <header class="entry-header">
       <h2 class="entry-title">

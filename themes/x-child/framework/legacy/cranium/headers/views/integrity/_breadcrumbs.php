@@ -13,13 +13,19 @@
 
     <div class="x-breadcrumb-wrap">
       <div class="x-container max width">
+        <?php
 
-        <?php x_breadcrumbs(); ?>
+        if ( is_woocommerce() ):
+          woocommerce_breadcrumb();
+        else :
+          x_breadcrumbs();
+        endif;
 
-        <?php if ( is_single() || x_is_portfolio_item() ) : ?>
-          <?php x_entry_navigation(); ?>
-        <?php endif; ?>
+        if ( is_single() || x_is_portfolio_item() ) :
+          x_entry_navigation();
+        endif;
 
+        ?>
       </div>
     </div>
 
