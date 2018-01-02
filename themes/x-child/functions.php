@@ -19,7 +19,12 @@ function load_scripts() {
   add_script( 'ep-javascript', 'ep-javascript.min.js' );
   add_script( 'ep-jquery', 'ep-jquery.min.js', array( 'jquery' ) );
 
-
   wp_enqueue_script( 'ep-javascript' );
   wp_enqueue_script( 'ep-jquery' );
 }
+
+function ep_catalog_archive_size( $shop_catalog ) {
+	return array( 400, 400 );
+}
+
+add_filter( 'subcategory_archive_thumbnail_size', 'ep_catalog_archive_size', 10, 1 );

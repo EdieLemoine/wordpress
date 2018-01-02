@@ -26,28 +26,63 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
+$terms = get_the_terms( $post->ID, 'product_cat' );
+
+// $product_cat_id = null;
+// $last = null;
+//
+$cat = null;
+foreach ( $terms as $term ) {
+	if ( is_shop() ) :
+		$cat .= $term->name;
+	endif;
+}
+//
+// if ( $product_cat_id != $last ) {
+// 	echo $name . " |";
+// }
+
+
+$m2 = $product->get_attribute( 'pa_pakinhoud' );
+$m2price = wc_price( $product->get_price() / $m2 );
+
 ?>
-<li <?php post_class(); ?>>
-	<div class="product-inner bg-light">
+
+<li <?php post_class( "ep-1-4 ep-l-1-3 ep-s-1-2 ep-xs-1-1" ); ?>>
+	<div class="inner">
+		<?php echo "<div class='bg-dark category'><span>$cat</span></div>"; ?>
 		<?php
 
 		woocommerce_template_loop_product_link_open();
-
-		echo "<div class=product-info>";
-
-		woocommerce_template_loop_product_title();
-
 		// woocommerce_template_loop_rating();
 		// woocommerce_template_loop_price();
-		$m2 = $product->get_attributes()['pakinhoud']['data']['options'][0];
-		echo "<p class='price'>" . wc_price( $product->get_price() / $m2) . "<span> / m<sup>2</sup></span>";
 
-		echo "</div><div class=product-image>";
+		echo "<div class='image'>";
 		woocommerce_show_product_loop_sale_flash();
 		woocommerce_template_loop_product_thumbnail();
+		echo "</div>";
+
+		echo "<div class='info'>";
+		echo "<div class='bg-light'>";
+		echo "<h3 class='title h5'>" . get_the_title() . "</h2>";
+		echo "<p class='price'>$m2price<span> / m<sup>2</sup></span></p>";
+		echo "</div>";
+		echo "<div class='bg-color ep-button'>";
+		echo "<span>Bekijk product</span>";
+		echo "</div>";
 		echo "</div>";
 		woocommerce_template_loop_product_link_close();
 		// woocommerce_template_loop_add_to_cart();
 		?>
 	</div>
 </li>
+
+
+<!-- pvc
+  plak
+  klik
+laminaat
+parket
+
+trapbekleding -->

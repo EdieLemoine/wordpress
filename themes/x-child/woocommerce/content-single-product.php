@@ -20,8 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+global $product;
+
+// woocommerce_template_single_excerpt();
+
+$productID = $product->get_ID();
+$m2 = $product->get_attribute('pa_pakinhoud');
+
 ?>
-<div class="x-section">
+
+<script type="text/javascript">
+	var fw_productID = <?php echo $productID; ?>;
+	var fw_prijs = <?php echo $product->get_price(); ?>;
+	var fw_vierkantemeter = <?php echo $m2; ?>;
+</script>
 
 <?php
 	/**
@@ -29,6 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @hooked wc_print_notices - 10
 	 */
+
 	 do_action( 'woocommerce_before_single_product' );
 
 	 if ( post_password_required() ) {
@@ -36,23 +49,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	return;
 	 }
 ?>
+<div class="x-section">
+	<div class="x-container max width">
+
 	<div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="ep-row ep-m-fw-w ep-row-m">
 			<div class="ep-1-1">
-				<?php echo woocommerce_template_single_title(); ?>
+				<?php woocommerce_template_single_title(); ?>
 			</div>
 		</div>
 		<div class="ep-row ep-m-fw-w ep-row-m">
 			<div class="ep-1-2 ep-m-1-1">
 				<div class="product-image">
 					<?php
-						/**
-						 * woocommerce_before_single_product_summary hook.
-						 *
-						 * @hooked woocommerce_show_product_sale_flash - 10
-						 * @hooked woocommerce_show_product_images - 20
-						 */
-						do_action( 'woocommerce_before_single_product_summary' );
+						woocommerce_show_product_sale_flash();
+						woocommerce_show_product_images();
 					?>
 				</div>
 			</div>
@@ -72,23 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						 * @hooked woocommerce_template_single_sharing - 50
 						 * @hooked WC_Structured_Data::generate_product_data() - 60
 						 */
-
-						 global $product;
-
-						 echo woocommerce_template_single_excerpt();
-
-						 $productID = $product->get_ID();
-						 $dimensions = $product->get_dimensions(false);
-						 $attributes = $product->get_attributes();
-						 $m2 = $product->get_attributes()['pakinhoud']['data']['options'][0];
-
 						 ?>
-						 <script type="text/javascript">
-						 var fw_productID = <?php echo $productID; ?>;
-						 var fw_prijs = <?php echo $product->get_price(); ?>;
-						 var fw_vierkantemeter = <?php echo $m2; ?>;
-						 </script>
-
 							 <table>
 								 <tr>
 									 <th><?php _eep( 'Vierkante meter per pak' ) ?></th>
@@ -110,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							 </table>
 
 						 <div class="calculator">
-							 <h2 class="h4">Hoeveel m<sup>2</sup> heeft u nodig?</h2>
+							 <h2 class="h4">Hoeveel pakken heeft u nodig?</h2>
 							 <table>
 								 <tr>
 									 <td><label for="m2">Aantal vierkante meter (m<sup>2</sup>)</label></td>
@@ -134,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						 <!-- Pass variables to js -->
 						 <?php
 
-						 echo woocommerce_template_single_add_to_cart();
+						 woocommerce_template_single_add_to_cart();
 						 // echo woocommerce_template_single_meta();
 						 // echo woocommerce_template_single_sharing();
 
@@ -156,4 +151,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</div><!-- #product-<?php the_ID(); ?> -->
 	<?php do_action( 'woocommerce_after_single_product' ); ?>
-</div>
+
+		</div>
+	</div>

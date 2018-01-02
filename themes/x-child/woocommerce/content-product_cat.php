@@ -19,39 +19,40 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 ?>
-<li <?php wc_product_cat_class( '', $category ); ?>>
+
+<li <?php wc_product_cat_class( 'ep-1-4 ep-l-1-3 ep-xs-1-1', $category ); ?>>
 	<?php
-	/**
-	 * woocommerce_before_subcategory hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_link_open - 10
-	 */
-	do_action( 'woocommerce_before_subcategory', $category );
+	
+	woocommerce_template_loop_category_link_open( $category );
+	echo "<div class='inner'>";
 
-	/**
-	 * woocommerce_before_subcategory_title hook.
-	 *
-	 * @hooked woocommerce_subcategory_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_subcategory_title', $category );
+	echo "<div class=image>";
+	woocommerce_subcategory_thumbnail( $category );
 
-	/**
-	 * woocommerce_shop_loop_subcategory_title hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_subcategory_title', $category );
+	echo "</div>";
 
-	/**
-	 * woocommerce_after_subcategory_title hook.
-	 */
-	do_action( 'woocommerce_after_subcategory_title', $category );
+	echo "<div class='info'>";
 
-	/**
-	 * woocommerce_after_subcategory hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_link_close - 10
-	 */
-	do_action( 'woocommerce_after_subcategory', $category ); ?>
+	echo "<div class='bg-dark'>";
+	echo "<h2 class='title h4'>" . $category->name . "</h2>";
+
+	echo "</div>";
+	echo "<div class='bg-color ep-button'>";
+	echo "<span>Bekijk producten</span>";
+	echo "</div>";
+
+	echo "</div>";
+
+
+	// $count = $category->count > 0 ? '<span class="count">(' . $category->count . ')</span>' : "";
+	// woocommerce_template_loop_category_title( $category );
+	// echo "<h2 class='h4 title'>" .$category->name . "</h2>";
+
+	// do_action( 'woocommerce_after_subcategory_title', $category );
+
+	woocommerce_template_loop_category_link_close( $category );
+
+?>
 </li>

@@ -28,6 +28,7 @@ $full_size_image   = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail
 $placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
 $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
 	'woocommerce-product-gallery',
+	'images',
 	'woocommerce-product-gallery--' . $placeholder,
 	'woocommerce-product-gallery--columns-' . absint( $columns ),
 	// 'images',
