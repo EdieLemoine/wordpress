@@ -1,0 +1,41 @@
+// woocommerce/_variables.scss
+$woocommerce: #a46497;
+$green: $green;
+$red: $red;
+$orange: $orange;
+$blue: $blue;
+
+$primary: $primary-color; // Primary color for buttons (alt)
+$primarytext: desaturate(lighten($primary, 50%), 18%); // Text on primary color bg
+
+$secondary: desaturate(lighten($primary, 40%), 21%); // Secondary buttons
+$secondarytext: desaturate(darken($secondary, 60%), 21%); // Text on secondary color bg
+
+$highlight: $primary; // Prices, In stock labels, sales flash
+$highlightext: desaturate(lighten($highlight, 50%), 18%); // Text on highlight color bg
+
+$contentbg: $white; // Content BG - Tabs (active state)
+$subtext: $light-gray; // small, breadcrumbs etc
+
+// woocommerce/helper.scss
+$white: $white;
+
+$gray: $gray;
+$gray-light: lighten( $gray, 33% ); //#f3f6f8
+$gray-dark: darken( $gray, 38% ); //#2e4453
+
+$gray-text: $gray-dark;
+$gray-text-min: darken( $gray, 18% ); //#537994
+
+$woo_pink1: #955a89;
+$woo_pink2: #bb77ae;
+
+$color_text_blue: $blue;
+$color_button_primary: $primary-color;
+$color_button_secondary: $secondary-color;
+
+.pswp__bg {
+  background-color: rgba(#000, 0.85);
+}
+
+@import 'woocommerce/woocommerce';

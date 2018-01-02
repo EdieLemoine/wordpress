@@ -14,40 +14,46 @@ class EP_Element_Base extends EP_Theme {
 
   // public function control( $type, $title = null, $condition = null, $default = '', $post_types = null ) {
   public function control( $args ) {
-    $title      = ( !array_key_exists( 'title', $args ) ) ? null : $args['title'];
-    $type       = ( !array_key_exists( 'type', $args ) ) ? null : $args['type'];
-    $condition  = ( !array_key_exists( 'condition', $args ) ) ? null : $args['condition'];
-    $default    = ( !array_key_exists( 'default', $args ) ) ? null : $args['default'];
-    $post_types = ( !array_key_exists( 'post_types', $args ) ) ? null : $args['post_types'];
+    $type       = ( !array_key_exists( 'type', $args ) )       ? null       : $args['type'];
+    $title      = ( !array_key_exists( 'title', $args ) ) ? ucwords( str_replace( '_', ' ', $type ) ) : $args['title'];
+    $condition  = ( !array_key_exists( 'condition', $args ) )  ? null       : $args['condition'];
+    $default    = ( !array_key_exists( 'default', $args ) )    ? null       : $args['default'];
+    $post_types = ( !array_key_exists( 'post_types', $args ) ) ? 'post'     : $args['post_types'];
+    $tax        = ( !array_key_exists( 'tax', $args ) )        ? 'category' : $args['tax'];
 
-    // Create title if none exists
-    if ( $title == null ) :
-      $title = ucwords( str_replace( '_', ' ', $type ) );
-    endif;
-
-    if ( $type == 'icon' ) :
+    // icon-choose is the proper name but don't have to remember it this way
+    if ( $type == 'icon' )
       $type .= '-choose';
-    endif;
 
-    if ( $type == 'toggle' && $default == null ) :
+    // Backup default everything to enabled
+    if ( $type == 'toggle' && $default == null )
       $default = '1';
-    endif;
 
     // Check if it's a select control
-    if ( $type == 'post_type' OR $type == 'post' ) :
-      $array = $this->get_post_types( $type, $title, $post_types );
-    elseif ( $type == 'order_by' ) :
-      $array = $this->order_by( $title, $default );
-    elseif ( $type == 'order' ) :
-      $array = $this->order( $title );
-    else :
-      $array = array(
-        'type' => $type,
-        'ui' => array(
-          'title' => __ep( $title )
-        )
-      );
-    endif;
+    switch ( $type ) {
+      case 'post_type':
+      case 'post':
+        $array = $this->get_post_types( $type, $title, $post_types );
+        break;
+      case 'category':
+      case 'categories':
+        $array = $this->get_categories( $tax, $title, $post_types );
+        break;
+      case 'order_by':
+        $array = $this->order_by( $title, $default );
+        break;
+      case 'order':
+        $array = $this->order( $title );
+        break;
+      default:
+        $array = array(
+          'type' => $type,
+          'ui' => array(
+            'title' => __ep( $title )
+          )
+        );
+        break;
+    }
 
     // Add optional condition
     if ( $condition != null ) :
@@ -71,11 +77,63 @@ class EP_Element_Base extends EP_Theme {
     return $array;
   }
 
+  private function hierarchical_cat_tree( $tax = 0, $cat = 0 ) {
+    $next = get_categories("hide_empty=false&orderby=name&order=ASC&parent=$cat&taxonomy=$tax");
+    $array = [];
+
+    if ( $next ) :
+      foreach( $next as $cat ) :
+        // echo '<strong>' . $cat->name . '</strong>';
+        $array[] = array(
+          'value' => $cat->slug,
+          'label' => $cat->name
+        );
+        $this->hierarchical_cat_tree( $tax, $cat->term_id );
+      endforeach;
+    endif;
+
+    return $array;
+  }
+
+  private function get_categories( $tax = 'category', $title = null, $post_types = null, $default = 'post' ) {
+    $choices = $this->default_choice();
+
+    $choices = $this->hierarchical_cat_tree( $tax );
+
+    // foreach ( $entries as $cat ):
+    //   if ( $cat->parent != 0 ) :
+    //     $name = '— ' . $cat->name;
+    //   else:
+    //     $name = $cat->cat_name;
+    //   endif;
+    //   $choices[] = array(
+    //     'value' => $cat->slug,
+    //     'label' => $name
+    //   );
+    // endforeach;
+
+    // pretty_print( $entries );
+    // pretty_print( $choices );
+
+    $array = array(
+      'type' => 'select',
+      'context' => 'content',
+      'ui' => array(
+        'title' => __ep( $title )
+      ),
+      'options' => array(
+        'choices' => $choices
+      )
+    );
+
+    return $array;
+  }
+
   /*
     Gets post types and inserts it into a select control (controls.php)
     Usage: "name of element" => $this->post_types()
   */
-  public function get_post_types( $type = 'post_type', $title = null, $post_types = null, $default = 'post' ) {
+  private function get_post_types( $type = 'post_type', $title = null, $post_types = null, $default = 'post' ) {
     if ( $title == null && $type == 'post_type' ) :
       $title = 'Post type';
     elseif ( $title == null ) :
@@ -86,12 +144,7 @@ class EP_Element_Base extends EP_Theme {
       $post_types = 'any';
     endif;
 
-    $choices = array(
-      array(
-        'value' => 'false',
-        'label' => 'None'
-      )
-    );
+    $choices = $this->default_choice();
 
     if ( $type == 'post' ) :
       $entries = get_posts(
@@ -100,6 +153,7 @@ class EP_Element_Base extends EP_Theme {
           'posts_per_page' => -1
         )
       );
+
       foreach ( $entries as $post ):
         $choices[] = array(
           'value' => $post->name,
@@ -133,8 +187,6 @@ class EP_Element_Base extends EP_Theme {
         'choices' => $choices
       )
     );
-
-    $array['default'] = $default;
 
     return $array;
   }
@@ -203,6 +255,15 @@ class EP_Element_Base extends EP_Theme {
           )
         )
       ),
+    );
+  }
+
+  public function default_choice() {
+    return array(
+      array(
+        'value' => 'false',
+        'label' => 'None'
+      )
     );
   }
 

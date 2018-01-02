@@ -5,7 +5,7 @@ Author: Edie
 Template: x
 
 */
-$image-dir: '../../themes/x-child/dist/images/';
+$fa-image-dir: '../../themes/x-child/dist/images/';
 
 
 @import '../global/base/functions';
@@ -36,15 +36,16 @@ $image-dir: '../../themes/x-child/dist/images/';
 @import 'partials/base/layers';
 
 // Plugin files
+@import 'partials/plugins/woocommerce';
 @import 'partials/plugins/essentialgrid';
 @import 'partials/plugins/revolutionslider';
 @import 'partials/plugins/wpml';
 @import 'partials/plugins/wpcf7';
 
 // Third party plugins
-@import '../thirdparty/woocommerce/woocommerce';
-@import '../thirdparty/font-awesome/font-awesome';
-@import '../thirdparty/outdatedbrowser/outdatedbrowser';
+@import '../thirdparty/woocommerce';
+@import '../thirdparty/font-awesome';
+@import '../thirdparty/outdatedbrowser';
 
 // Responsive
 @import 'partials/base/responsive';

@@ -53,17 +53,17 @@
     list-style: none;
 
     li {
-      border-bottom: 1px solid $baseBorderSolid;
-      border-bottom: 1px solid $baseBorderRgba;
+      // border-bottom: 1px solid $baseBorderSolid;
+      // border-bottom: 1px solid $baseBorderRgba;
       padding: 0.65em 21px;
       letter-spacing: 1px;
       line-height: 1.5;
       text-transform: uppercase;
 
-      &:first-child {
-        border-top: 1px solid $baseBorderSolid;
-        border-top: 1px solid $baseBorderRgba;
-      }
+      // &:first-child {
+      //   border-top: 1px solid $baseBorderSolid;
+      //   border-top: 1px solid $baseBorderRgba;
+      // }
     }
   }
 
@@ -145,7 +145,7 @@
   }
 
   tbody td {
-    border: $baseBorderWidth solid darken($baseModBackground, 10%);
+    // border: $baseBorderWidth solid darken($baseModBackground, 10%);
     background-color: $baseModBackground;
 
     &.pad {
@@ -404,8 +404,8 @@
   display: inline-block;
   position: relative;
   margin-top: 0.35em;
-  border: $baseBorderWidth solid $baseBorderSolid;
-  border: $baseBorderWidth solid $baseBorderRgba;
+  // border: $baseBorderWidth solid $baseBorderSolid;
+  // border: $baseBorderWidth solid $baseBorderRgba;
   padding: 0.635em 0.725em 0.545em;
   cursor: pointer;
   font-size: 91.67%;
@@ -466,8 +466,8 @@
 .widget_nav_menu ul,
 .widget_pages ul {
   border-top: 0;
-  border-bottom: 1px solid $baseBorderSolid;
-  border-bottom: 1px solid $baseBorderRgba;
+  // border-bottom: 1px solid $baseBorderSolid;
+  // border-bottom: 1px solid $baseBorderRgba;
 
   ul {
     margin: 0;
@@ -475,8 +475,8 @@
   }
 
   > li {
-    border-top: 1px solid $baseBorderSolid;
-    border-top: 1px solid $baseBorderRgba;
+    // border-top: 1px solid $baseBorderSolid;
+    // border-top: 1px solid $baseBorderRgba;
     border-bottom: 0;
     padding: 0;
 

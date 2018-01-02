@@ -75,7 +75,7 @@
   $list: ();
 
   @if $type == "text" {
-    $inputs: ( 'text', 'email', 'phone', 'number' );
+    $inputs: ( 'text', 'email', 'phone', 'number', 'search' );
   }
   @else if $type == "buttons" {
     $inputs: ('button', 'submit', 'reset');

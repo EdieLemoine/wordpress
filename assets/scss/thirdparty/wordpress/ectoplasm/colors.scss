@@ -1,8 +1,8 @@
-$base-color: #523f6d;
-$icon-color: #ece6f6;
-$highlight-color: #a3b745;
-$notification-color: #d46f15;
+$base-color: #523f6d !default;
+$icon-color: #ece6f6 !default;
+$highlight-color: #a3b745 !default;
+$notification-color: #d46f15 !default;
 
-$form-checked: $base-color;
+$form-checked: $base-color !default;
 
 @import "../_admin.scss";

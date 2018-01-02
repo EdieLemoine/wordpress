@@ -1,28 +1,20 @@
 <?php
 
-/**
- *
- */
-
 class EP_Plugins extends Edies_Plugin {
-  private $svg_support = false;
-  
+
   function __construct() {
-    $this->check_plugins();
-    $this->set_options();
+
+    if ( defined( 'ACTIVE_WOOCOMMERCE' ) ) :
+      add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+    endif;
   }
 
-  public function check_plugins() {
-    // SVG Support
-    if ( isset( $svgs_plugin_version ) ) {
-      $this->svg_support = true;
-    }
-  }
+  // Changes woocommerce breadcrumb defaults
+  public function woocommerce_breadcrumb_defaults( $defaults ) {
+    $defaults['wrap_before'] = '<div class="x-breadcrumbs">';
+    $defaults['wrap_after'] = '</div>';
+    $defaults['delimiter'] = '<span class="delimiter"><i class="x-icon-angle-right" data-x-icon=""></i></span>';
 
-  public function set_options() {
-    // global $bodhi_svgs_options;
-    //
-    // $bodhi_svgs_options['advanced_mode'] = true;
-    // $this->svg_support ? 'output-true' : ;
+    return $defaults;
   }
 }

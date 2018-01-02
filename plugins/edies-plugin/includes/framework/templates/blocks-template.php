@@ -1,10 +1,10 @@
 <?php
 
 get_header();
-ep_part( 'parallax' );
 
 $args = array(
   'post_type' => 'post',
+  'category_name' => 'wonen',
   'orderby' => 'menu_order',
   'per_page' => -1,
   'order' => 'ASC'
@@ -12,69 +12,45 @@ $args = array(
 
 $query = new WP_Query( $args ); ?>
 
-  <div id="ep-top">
-    <?php while ( have_posts() ) : the_post(); ?>
-      <?php the_content(); ?>
-      <?php x_link_pages(); ?>
-    <?php endwhile;
-    wp_reset_postdata(); ?>
+  <?php $i = 0;
 
+  if ( $query->have_posts() ) :
+    while ( $query->have_posts() ) : $query->the_post();
+      $i++;
 
-    <?php $i = 0;
+      $row = array(
+        'class' => 'ep-row',
+        'id' => $post->post_name
+      );
 
-    if ( $query->have_posts() ) :
-      while ( $query->have_posts() ) : $query->the_post();
-        $i++;
+      $text = array(
+        'class' => 'ep ep-2-5 ep-text'
+      );
 
-        $row = array(
-          'class' => 'ep-row',
-          'id' => $post->post_name
-        );
+      $bg = array(
+        'class' => 'ep ep-3-5 ep-bg-image',
+        'style' => 'background-image: url(' . get_the_post_thumbnail_url( $post, 'full' ) . ');'
+      );
 
-        $text = array(
-          'class' => 'ep ep-2-5 ep-text'
-        );
+      if ( $i % 2 === 0 ) :
+        $row['class'] .=  ' ep-fd-row-rev';
+      endif;
 
-        $bg = array(
-          'class' => 'ep ep-3-5 ep-bg-image',
-          'style' => 'background-image: url(' . get_the_post_thumbnail_url( $post, 'full' ) . ');'
-        );
-
-        if ( $i % 2 === 0 ) :
-          $text['class'] .= ' bg1';
-        else :
-          $text['class'] .= ' bg3';
-        endif;
-
-        ?>
-        <div <?php ep_atts( $row ) ?>>
-          <?php if ( get_the_post_thumbnail_url() ) : ?>
-            <div <?php ep_atts( $bg ) ?>>
-              <a href="<?php echo get_the_permalink() ?>">
-                <h1 class="ep-heading"><?php strtolower( the_title() ) . '.'; ?></h1>
-              </a>
-            </div>
-          <?php endif; ?>
-          <div <?php ep_atts( $text ) ?>>
-            <div class="x-container max width">
-              <h1 class="ep-heading"><?php the_title(); ?></h1>
-              <?php the_content(); ?>
-              <div class="ep-btn-group">
-                <?php ep_button();
-
-                while ( have_rows( 'buttons' ) ) : the_row();
-                  ep_button( get_sub_field('link'), get_sub_field('text') );
-                endwhile; ?>
-              </div>
-            </div>
+      ?>
+      <div <?php ep_atts( $row ) ?>>
+        <?php if ( get_the_post_thumbnail_url() ) : ?>
+          <div <?php ep_atts( $bg ) ?>>
+          </div>
+        <?php endif; ?>
+        <div <?php ep_atts( $text ) ?>>
+          <div class="x-container max width">
+            <h1><?php the_title(); ?></h1>
+            <?php the_content(); ?>
           </div>
         </div>
-      <?php endwhile; ?>
-      <?php wp_reset_postdata(); ?>
-    </div>
-  <?php endif; ?>
-  <div id="ep-footer">
-    <?php get_footer(); ?>
-  </div>
+      </div>
+    <?php endwhile; ?>
+    <?php wp_reset_postdata(); ?>
 
-<?php // $c->ep_part( 'parallax' )->close(); ?>
+<?php endif; ?>
+<?php get_footer(); ?>

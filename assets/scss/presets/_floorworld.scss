@@ -28,7 +28,7 @@ $global-border-radius: 10px;
 $global-corners: none;
 $global-border-color: $light-gray;
 $global-border-width: 1px;
-$global-spacing: 3.5em;
+$global-spacing: 2.5em;
 $global-shadow: transparentize( $black, 0.75 );
 
 //////////
@@ -36,16 +36,16 @@ $global-shadow: transparentize( $black, 0.75 );
 //////////
 $fonts: (
   heading: (
-    family: "Ubuntu",
+    family: "Bree Serif",
     source: "google",
     fallback: serif,
     atts: (
-      font-weight: 300,
+      font-weight: 400,
       text-transform: none
     )
   ),
   body: (
-    family: "Open Sans",
+    family: "Ubuntu",
     source: "google",
     fallback: sans-serif,
     atts: (
@@ -106,7 +106,7 @@ $button-arrow: true;
 // Inputs //
 ////////////
 $input-style: 'fill'; // Transparent | Fill | Border-Fill | 3D
-$input-borders: bottom;
+$input-borders: all;
 $input-style-transition: none; // Grow | Shrink | none
 $input-style-transition-rotation: 0; // Rotation on hover
 $input-border-color: $primary-color;
@@ -122,7 +122,7 @@ $input-background-color: lighten( $secondary-color, 2% );
 ////////////
 // Navbar //
 ////////////
-$navbar-position: 'fixed-top';
+$navbar-position: 'top';
 
 // Height //
 $navbar-size: 120px;
@@ -144,13 +144,13 @@ $navbar-fixed-brand-size: 90%;
 ////////////
 // Footer //
 ////////////
-$footer-top-padding: 8em;
-$footer-top-background-color: $dark-gray;
+$footer-top-padding: 6em;
+$footer-top-background-color: $off-white;
 $footer-top-color: calculate-color( $footer-top-background-color );
 
-$footer-bottom-padding: $global-spacing * 0.5;
+$footer-bottom-padding: $footer-top-padding * 0.5;
 // $footer-bottom-font: 'heading';
-$footer-bottom-background-color: $dark-gray;
+$footer-bottom-background-color: darken( $footer-top-background-color, 2.5% );
 $footer-bar-background-color: $black;
 $footer-bottom-color: calculate-color( $footer-bottom-background-color );
 

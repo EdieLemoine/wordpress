@@ -12,10 +12,10 @@ function ep_custom_map( $atts ) {
     'id' => 'ep-map-',
     'post_types' => false,
     'scroll' => false,
-    'center' => '52.509614, 4.944798',
-    'marker' => '52.509614, 4.944798',
+    'center' => ep_get_option( 'googlemaps__global_latlng' ),
+    'marker' => ep_get_option( 'googlemaps__global_latlng' ),
     'markerName' => '',
-    'zoom' => '17',
+    'zoom' => ep_get_option( 'googlemaps__global_zoom' ),
     'height' => '600px',
     'markers' => false
     // 'snazzy_style' => ''

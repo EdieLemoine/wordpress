@@ -4,16 +4,13 @@ function ep_product_list( $atts ) {
   $a = shortcode_atts( array(
     'post_type' => 'product',
     'orderby' => 'title',
-    'style' => 'simple'
+    'style' => 'woocommerce'
   ), $atts );
 
   // Output
   $args = array(
     'post_type' => $a['post_type'],
-    'order_by' => $a['orderby'],
-    'meta_query' => array(
-      'relation' => 'OR',
-    )
+    'orderby' => $a['orderby']
   );
 
   $output = '';
@@ -22,7 +19,7 @@ function ep_product_list( $atts ) {
 
   $output .= "<div class='ep-product-list $style'>";
   $output .= "<div class='ep-product-list-inner'>";
-
+  
   if ( $query->have_posts() ) :
     while ( $query->have_posts() ) : $query->the_post();
       $url = get_the_permalink();

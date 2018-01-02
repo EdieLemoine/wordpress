@@ -64,5 +64,23 @@ function ep_option( $option ) {
 }
 
 function ep_get_option_check( $option, $part ) {
-  return (ep_get_option( $option ) and array_key_exists( $part, ep_get_option( $option ) ));
+  return ( ep_get_option( $option ) and array_key_exists( $part, ep_get_option( $option ) ));
+}
+
+function weekdays( $initial = true, $echo = false ) {
+	global $wp_locale;
+
+  // TODO: make this run after init so new class isn't needed
+  $ep_locale = new WP_Locale;
+
+	$week = array();
+
+	for ( $wdcount = 0; $wdcount <= 6; $wdcount++ ) {
+		$week[] = $ep_locale->get_weekday( ( $wdcount + 1 ) % 7 );
+	}
+
+  if ( $echo )
+    echo $week;
+  else
+    return $week;
 }

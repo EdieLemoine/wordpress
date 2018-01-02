@@ -18,15 +18,16 @@
 }
 
 #{headings()} {
+  margin: 0.75em 0 0.15em;
   @include font( 'heading' );
 }
 
 body {
   @include font( 'body' );
   background-color: $body-background-color;
-  @include break( 'xxl', 'min' ) {
-    font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 1.25;
-  }
+  // @include break( 'xxl', 'min' ) {
+  //   font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 1.25;
+  // }
   @include break( 'l' ) {
     font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) * 0.9;
   }
@@ -51,4 +52,9 @@ body {
   .x-brand {
     @include font( 'heading' );
   }
+}
+
+::selection {
+  background-color: $primary-color;
+  color: calculate-color($primary-color);
 }

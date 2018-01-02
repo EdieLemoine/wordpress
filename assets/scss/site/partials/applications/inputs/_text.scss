@@ -29,6 +29,13 @@ textarea {
   resize: none;
   padding: $global-spacing / 4;
 }
+
+.wpcf7-form-control {
+  width: 100%;
+  display: inline-block;
+  margin-top: .5em;
+}
+
 // #{inputs('buttons')} {
 //   // color: red;
 //   min-height: $global-spacing;

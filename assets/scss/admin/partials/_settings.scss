@@ -7,6 +7,10 @@
   textarea {
     font-family: monospace;
   }
+  select {
+    padding: 0;
+    margin: 0;
+  }
   p.submit {
     padding: 0;
     clear: both;
@@ -29,7 +33,7 @@
     padding: 0;
   }
   .form-table th {
-    line-height: 2.5;
+    line-height: 2.5em;
     vertical-align: top;
     padding: 0.5em 0;
   }

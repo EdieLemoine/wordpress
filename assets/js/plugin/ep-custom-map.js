@@ -6,7 +6,6 @@ function init() {
       mapData = maps[key];
 
       mapDiv = document.getElementById( mapData.id );
-      console.log(mapDiv);
       mapMarkers = mapData.markers;
 
       map = new google.maps.Map( mapDiv, {
@@ -28,9 +27,9 @@ function init() {
       }
 
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng( 52.509614, 4.944798 ),
+        position: new google.maps.LatLng( mapData.center.lat, mapData.center.lng ),
         map: map,
-        icon: icon,
+        // icon: icon,
         title: 'De Creatieve Hoek'
       });
 

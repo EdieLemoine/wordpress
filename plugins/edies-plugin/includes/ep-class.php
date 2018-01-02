@@ -49,7 +49,7 @@ class Edies_Plugin {
     if ( class_exists( 'acf' ) ) :
       define( 'ACTIVE_ACF', true );
     endif;
-    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) :
+    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' )))) :
       define( 'ACTIVE_WOOCOMMERCE', true );
     endif;
 
@@ -95,11 +95,10 @@ class Edies_Plugin {
     // Dashboard
     $this::$loader->add_action( 'init', $this->dashboard, 'add_post_types' );
 
-    if ( is_admin() ) :
-      $this::$loader->add_action( 'init', $this->scripts, 'admin_queue' );
-      $this::$loader->add_action( 'admin_menu', $this->dashboard, 'add_menu_pages', 9 );
-    endif;
-
+    // Admin dashboard
+    $this::$loader->add_action( 'init', $this->scripts, 'admin_queue' );
+    $this::$loader->add_action( 'admin_bar_menu', $this->dashboard, 'admin_bar_menu', 999 );
+    $this::$loader->add_action( 'admin_menu', $this->dashboard, 'add_menu_pages', 9 );
     $this::$loader->add_action( 'widgets_init', $this->dashboard, 'add_sidebars' );
 
     // Options
@@ -108,8 +107,10 @@ class Edies_Plugin {
     // Scripts
     $this::$loader->add_action( 'wp_enqueue_scripts', $this->scripts, 'queue', 9999 );
     $this::$loader->add_action( 'wp_enqueue_scripts', $this->scripts, 'dequeue', 9999 );
-    add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
+    if ( defined( 'ACTIVE_WOOCOMMERCE' ) ) :
+      $this::$loader->add_filter( 'woocommerce_breadcrumb_defaults', $this->plugins, 'woocommerce_breadcrumb_defaults');
+    endif;
     // Templates
     $this::$loader->add_action( 'plugins_loaded', $this->templates, 'add_templates' );
     $this::$loader->add_filter( 'single_template', $this->templates, 'set_single_template' );

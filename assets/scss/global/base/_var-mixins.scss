@@ -19,6 +19,9 @@
     color: $color;
   }
 }
+@mixin box-shadow() {
+  box-shadow: 0 0 5px rgba( $black, 0.15 );
+}
 
 // Fonts
 @mixin font( $type ) {
@@ -97,7 +100,7 @@
 // Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
 @mixin border ( $color: $global-border-color, $sides: '' ) {
   $style: $global-border-width solid $color;
-  @if $sides != '' {
+  @if $sides != '' and $sides != all {
     @each $side in $sides {
       @if $side == 'top'
        or $side == 'right'

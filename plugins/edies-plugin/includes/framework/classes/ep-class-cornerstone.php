@@ -5,8 +5,8 @@ class EP_Cornerstone extends EP_Theme {
 
   public function __construct() {
     $this->elements = $this->get_items();
-    $this->write_svg();
     $this->initialize_base();
+    $this->write_svg();
 
     add_action( 'cornerstone_register_elements', array( $this, 'register_elements' ) );
     add_filter( 'cornerstone_icon_map', array( $this, 'icon_map' ) );
@@ -15,12 +15,12 @@ class EP_Cornerstone extends EP_Theme {
   public function register_elements() {
     $items = $this->elements;
     foreach ( $items as $item ) :
-      cornerstone_register_element( $item['class'], $item['folder'], $item['dir'] );
+      cornerstone_register_element( $item['class'], $item['slug'], $item['dir'] );
     endforeach;
   }
 
   public function icon_map( $icon_map ) {
-    $icon_map['edies-plugin'] = PATH_ELEMENTS . 'icon-map.svg';
+    $icon_map[$this->slug] = $this->icon_file();
     return $icon_map;
   }
 
@@ -38,7 +38,7 @@ class EP_Cornerstone extends EP_Theme {
     $items = preg_grep( '/^\./', glob( PATH_ELEMENTS . '*', GLOB_ONLYDIR ), PREG_GREP_INVERT); // Only select dirs not starting with .
 
     foreach ( $items as $item ) :
-      $elements[$i]['folder'] = basename( $item );
+      $elements[$i]['slug'] = basename( $item );
       $elements[$i]['class'] = 'EP_' . str_replace( '- ', '_', ucwords( str_replace( "-", "- ", basename( $item ) ) ) ); // Capitalizes class and replaces hyphens
       $elements[$i]['dir'] = PATH_ELEMENTS . basename( $item );
       $i++;
@@ -47,25 +47,35 @@ class EP_Cornerstone extends EP_Theme {
     return $elements;
   }
 
+  private function icon_file() {
+    return PATH_ELEMENTS . 'icon-map.svg';
+  }
+
   private function write_svg() {
-    $icon_map = PATH_ELEMENTS . 'icon-map.svg';
+    $str = file_get_contents( $this->icon_file() );
     $o = '';
 
-    $o .= '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL . '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' . PHP_EOL . '<svg xmlns="http://www.w3.org/2000/svg">' . PHP_EOL;
+    foreach ( $this->elements as $item ) :
 
-    foreach ( $this->elements as $item ) {
-      $icon = $item['dir'] . '/icon.svg';
+      include $item['dir'] .'/definition.php';
+      $t = new $item['class'];
+      if ( array_key_exists( 'icon', $t->ui() ) ) :
 
-      if ( ! file_exists( $icon ) ) :
-        $file = fopen( $icon, 'w' );
+      else :
+        $icon = $item['dir'] . '/icon.svg';
+
+        if ( ! file_exists( $icon ) ) :
+          $file = fopen( $icon, 'w' );
+        endif;
+
+        $o .= '<symbol id="' . $item['slug'] . '" viewBox="-290 382 30 30">' . PHP_EOL;
+        $o .= file_get_contents( $icon );
+        $o .= '</symbol>' . PHP_EOL;
       endif;
+    endforeach;
 
-      $o .= '<symbol id="' . $item['folder'] . '" viewBox="-290 382 30 30">' . PHP_EOL;
-      $o .= file_get_contents( $icon );
-      $o .= '</symbol>' . PHP_EOL;
-    }
-    $o .= '</svg>' . PHP_EOL;
+    $str = str_replace( '<!-- generated icons -->', "<!-- generated icons -->" . PHP_EOL . $o, $str  );
 
-    file_put_contents( $icon_map, $o );
+    file_put_contents( $this->icon_file(), $str );
   }
 }

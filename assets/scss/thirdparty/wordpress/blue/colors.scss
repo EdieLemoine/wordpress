@@ -1,11 +1,11 @@
-$base-color: #52accc;
-$icon-color: #e5f8ff;
-$highlight-color: #096484;
-$notification-color: #e1a948;
-$button-color: #e1a948;
+$base-color: #52accc !default;
+$icon-color: #e5f8ff !default;
+$highlight-color: #096484 !default;
+$notification-color: #e1a948 !default;
+$button-color: #e1a948 !default;
 
-$menu-submenu-text: #e2ecf1;
-$menu-submenu-focus-text: #fff;
-$menu-submenu-background: #4796b3;
+$menu-submenu-text: #e2ecf1 !default;
+$menu-submenu-focus-text: #fff !default;
+$menu-submenu-background: #4796b3 !default;
 
 @import "../_admin.scss";

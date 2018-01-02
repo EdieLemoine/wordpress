@@ -34,7 +34,7 @@ class EP_Scripts extends Edies_Plugin {
 
     // Add Google Maps
     if ( defined( 'API_KEY' ) ) :
-      if ( defined( 'ACTIVE_ACF' ) ) 
+      if ( defined( 'ACTIVE_ACF' ) )
         add_filter( 'acf/fields/google_map/api', API_KEY ); // Registers API with ACF Pro
 
       $this->api_key = esc_attr( API_KEY );
@@ -44,6 +44,7 @@ class EP_Scripts extends Edies_Plugin {
       $this->add_script( 'snazzy-info-window', 'snazzy-info-window/snazzy-info-window.min.js', array( 'google-maps' ) );
       $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps', 'snazzy-info-window' ) );
     endif;
+    $this->add_script( 'ep-opening-hours', 'ep-opening-hours.min.js', array( 'jquery' ) );
 
     // Register styles
     $this->add_style( 'ep_style', 'ep-style.css' );

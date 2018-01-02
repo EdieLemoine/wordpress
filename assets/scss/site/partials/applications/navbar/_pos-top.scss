@@ -1,100 +1,97 @@
 @if $navbar-position == 'top'
  or $navbar-position == 'fixed-top' {
   .masthead {
-    height: $navbar-size;
+    // height: $navbar-size;
     position: relative;
     .x-navbar-wrap {
       width: 100%;
-    }
-    .x-container {
-      height: 100%;
-    }
-    // @include simple-transition;
-    ul li a {
-      padding: 0 $global-spacing / 6;
-      & + ul {
-        top: $navbar-size;
-      }
-    }
-
-    li > .sub-menu {
-      position: absolute;
-      display: none;
-      flex-direction: column;
-      list-style: none;
-      margin: 0;
-      // padding: 0 $global-border-width $global-border-width $global-border-width;
-      
+      height: $navbar-size;
       @include fast-transition;
-      @if $navbar-menu-flex == true {
-        width: 100%;
+
+      .x-container {
+        height: 100%;
       }
-      @else {
-        right: 0;
-      }
-      li {
-        a {
-          min-height: $global-spacing;
+      // @include simple-transition;
+      ul li a {
+        padding: 0 $global-spacing / 6;
+        & + ul {
+          top: $navbar-size;
         }
       }
-    }
-    nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-    }
 
-    .x-navbar .x-nav-wrap.desktop {
-      display: flex;
-      height: 100%;
-      position: relative;
-      flex: 1;
-      // float: right;
-      // margin: auto;
-      // @include visible( false );
-      @include fast-transition;
+      li > .sub-menu {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        // padding: 0 $global-border-width $global-border-width $global-border-width;
 
-      & > .x-nav {
-        display: flex;
+        @include fast-transition;
+        @if $navbar-menu-flex == true {
+          width: 100%;
+        }
+        @else {
+          right: 0;
+        }
+        li {
+          a {
+            min-height: $global-spacing;
+          }
+        }
+      }
+      nav {
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
-        height: 100%;
-        margin-bottom: 0;
+      }
 
-        @if $navbar-menu-flex == 'true' {
-          width: 100%;
+      .x-navbar .x-nav-wrap.desktop {
+        display: flex;
+        height: 100%;
+        position: relative;
+        flex: 1;
+        // float: right;
+        // margin: auto;
+        // @include visible( false );
+        @include fast-transition;
+
+        & > .x-nav {
+          display: flex;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          height: 100%;
+          margin-bottom: 0;
+
+          @if $navbar-menu-flex == 'true' {
+            width: 100%;
+          }
         }
       }
-    }
 
-    .x-brand {
-      height: 100%;
-    }
+      .x-brand {
+        height: 100%;
+      }
 
-    .x-navbar-wrap {
-      height: $navbar-size;
-      @include fast-transition;
-      // display: flex;
-    }
+      .x-navbar {
+        width: 100%; // Safari fix
+        // padding: 0 $global-spacing;
 
-    .x-navbar {
-      width: 100%; // Safari fix
-      // padding: 0 $global-spacing;
-
-      .x-navbar-inner {
-        // &, .x-container {
-        //   min-height: $navbar-size;
-        // }
-        // .x-container {
-        //   display: flex;
-        //   align-items: stretch;
-        // }
-        // .x-nav-wrap {
-        //   margin-left: $global-spacing;
-        // }
+        .x-navbar-inner {
+          // &, .x-container {
+          //   min-height: $navbar-size;
+          // }
+          // .x-container {
+          //   display: flex;
+          //   align-items: stretch;
+          // }
+          // .x-nav-wrap {
+          //   margin-left: $global-spacing;
+          // }
+        }
       }
     }
   }

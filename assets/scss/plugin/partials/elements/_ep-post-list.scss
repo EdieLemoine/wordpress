@@ -1,0 +1,22 @@
+.ep-post-list {
+  background-color: $off-white;
+  .bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .ep-row {
+    // &:nth-child(even) {
+    //   background-color: $off-white;
+    // }
+    @include break( $mobile-breakpoint ) {
+      
+    }
+    & > div {
+      padding: $global-spacing 0;
+    }
+    // max-width: $container-max-width * 2;
+    // width: $container-width;
+    // margin: auto;
+    // @include background('light');
+  }
+}

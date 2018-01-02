@@ -1,4 +1,4 @@
-if ($('body').hasClass('woocommerce')) {
+if ($('body').hasClass('single-product')) {
   inputZaagverlies = $('input#zaagverlies');
   inputM2Nodig = $('input#m2');
   zaagverlies = false;

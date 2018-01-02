@@ -3,18 +3,21 @@
   display: flex;
   align-items: stretch;
 }
+
 .ep-row-l {
   margin: -2em;
   & > div {
     padding: 2em;
   }
 }
+
 .ep-row-m {
   margin: -1em;
   & > div {
     padding: 1em;
   }
 }
+
 .ep-row-flex {
   @extend .ep-row;
   flex-wrap: wrap;
@@ -54,11 +57,12 @@
 
 // Create grid structure for each breakpoint in $breakpoints
 // Reverse map if the order of breakpoints would override each other the wrong way
-@if last-value( $breakpoints, true ) > first-value( $breakpoints, true ) {
+@if last-value( $breakpoints, true ) < first-value( $breakpoints, true ) {
   $breakpoints: map-reverse( $breakpoints );
 }
 
 $breakpointlist: ();
+
 @each $breakpoint in map-keys( $breakpoints ) {
   $breakpointlist: join( $breakpoint, $breakpointlist );
 }
@@ -69,6 +73,11 @@ $breakpointlist: join( "", $breakpointlist );
 @each $breakpoint in $breakpointlist {
   // @debug $breakpoint;
   @include break( $breakpoint ) {
+    #wpadminbar #wp-admin-bar-edies-plugin .ab-label::after {
+      $size: map-get($breakpoints, $breakpoint);
+      content: "#{$breakpoint} (#{$size})";
+    }
+
     @if $breakpoint != "" {
       $breakpoint: "-" + $breakpoint;
     }
@@ -105,6 +114,9 @@ $breakpointlist: join( "", $breakpointlist );
     }
 
     @for $a from 1 through 8 {
+      // .woocommerce.columns-#{$a} > ul > li {
+      //   flex-basis: 100% / $a;
+      // }
       @for $b from 1 through 8 {
         // Don't output anything where:
         // $a equals $b ( 2-2, 3-3, 4-4 -> all 100% )

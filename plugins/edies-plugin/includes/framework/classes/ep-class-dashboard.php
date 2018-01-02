@@ -1,7 +1,7 @@
 <?php
 
 class EP_Dashboard extends Edies_Plugin {
-  
+
   public function __construct() {
   }
 
@@ -18,6 +18,19 @@ class EP_Dashboard extends Edies_Plugin {
     );
   }
 
+  public function admin_bar_menu( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'wp-logo' );
+    $wp_admin_bar->remove_node( 'comments' );
+    $wp_admin_bar->add_node( array(
+      'id' => 'edies-plugin',
+      'title' => '<span class="ab-icon"></span><span class="ab-label"></span>',
+      'href' => 'wp-admin/admin.php?page=edies-plugin/edies-plugin-admin.php',
+      'meta' => array(
+        'class' => 'bg-color'
+      )
+    ));
+  }
+
   public function add_sidebars() {
     $areas = [
       "top" => ep_get_option( 'footer__top_widgets' ),
@@ -29,12 +42,13 @@ class EP_Dashboard extends Edies_Plugin {
         register_sidebar(
           array (
             'name' => __ep( ucwords( $area ) . " footer" ) . ' ' . $i,
-            'id' => "ep-$area-footer-" . $i,
-            'description' => __ep( "Widgetized $area footer area" ) . ' ' . $i
-            // 'before_widget' => '<div class="widget-content">',
-            // 'after_widget' => "</div>",
-            // 'before_title' => '<h3 class="widget-title">',
-            // 'after_title' => '</h3>',
+            'id' => "ep-$area-footer-$i",
+            'description' => __ep( "Widgetized $area footer area" ) . ' ' . $i,
+            'class' => "ep",
+            'before_widget' => '<div class="widget-content %1$s %2$s">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
           )
         );
       }

@@ -1,4 +1,6 @@
 .x-colophon {
+  display: flex;
+  
   // All footer links
   a {
     @include fast-transition;
@@ -10,10 +12,14 @@
 
   // Top Footer
   &.top {
+    @include break('l') {
+      flex-direction: column;
+    }
     color: $footer-top-color;
     font-size: $footer-top-font-size;
-    // padding: $footer-top-padding 0;
-
+    .ep-widget-area {
+      padding: $footer-top-padding 0;
+    }
     &:not(.bg-color) {
       background-color: $footer-top-background-color;
     }
@@ -21,9 +27,11 @@
   // Bottom Footer
   &.bottom {
     background-color: $footer-bottom-background-color;
-    padding: $footer-bottom-padding 0;
     color: $footer-bottom-color;
     // @include font( $footer-bottom-font );
+    .ep-widget-area {
+      padding: $footer-bottom-padding 0;
+    }
     .x-nav {
       display: flex;
       margin: 0;
@@ -36,38 +44,37 @@
       }
     }
   }
+
   &.bar {
     text-align: center;
     font-size: 0.75em;
     padding: $global-spacing / 4 0;
-    background-color: $footer-bar-background-color;
+    // background-color: $footer-bar-background-color;
     @include font( $footer-bottom-font );
-
-    .x-colophon-content {
-      margin: 0;
-      color: calculate-color( $footer-bar-background-color );
-    }
+    color: calculate-color( $footer-bar-background-color );
   }
 
   // Make bottom bar less extra based on other footers
   &.top + .bar {
     background-color: darken( $footer-top-background-color, 2.5 );
     .x-colophon-content {
-      margin: 0;
+      margin: auto;
       color: darken( $footer-top-color, 2.5 );
     }
   }
+
   &.bottom + .bar {
     background-color: darken( $footer-bottom-background-color, 5 );
     .x-colophon-content {
-      margin: 0;
+      margin: auto;
       color: darken( $footer-bottom-color, 5 );
     }
   }
+
   &:first-of-type.bar {
     background-color: darken( $body-background-color, 1.96 );
     .x-colophon-content {
-      margin: 0;
+      margin: auto;
       color: $body-color;
     }
   }

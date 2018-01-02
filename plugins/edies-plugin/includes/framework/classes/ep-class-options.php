@@ -25,6 +25,95 @@ class EP_Settings extends Edies_Plugin {
       )
     ));
 
+    $this->add_group( "shortcodes", "Shortcode settings", "Custom shortcode options" );
+    $this->add_settings( "shortcodes", "openinghours", "Opening hours", array(
+      array(
+        'slug' => 'enabled',
+        'label' => 'Enable opening hours',
+        'type' => 'select',
+        'options' => array(
+          0 => "Disabled",
+          1 => "Enabled"
+        )
+      ),
+      array(
+        'slug' => 'style',
+        'type' => 'select',
+        'options' => array(
+          'flex' => "Flex",
+          'table' => "Table",
+          '' => "None"
+        ),
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+
+      array(
+        'slug' => 'monday',
+        'label' => weekdays()[0],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'tuesday',
+        'label' => weekdays()[1],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'wednesday',
+        'label' => weekdays()[2],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'thursday',
+        'label' => weekdays()[3],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'friday',
+        'label' => weekdays()[4],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'saturday',
+        'label' => weekdays()[5],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'sunday',
+        'label' => weekdays()[6],
+        'type' => 'text',
+        'placeholder' => 'HH:MM - HH:MM',
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+    ));
+
     $this->add_settings( "social", "text", "Text Settings", array(
       array(
         'slug' => 'enabled',
@@ -132,6 +221,24 @@ class EP_Settings extends Edies_Plugin {
         )
       ),
       array(
+        'slug' => 'latlng',
+        'label' => 'Global default Lat/Lng',
+        'type' => 'text',
+        'default' => '52.510349,4.944272',
+        'condition' => array(
+          'enabled' => 1,
+        )
+      ),
+      array(
+        'slug' => 'zoom',
+        'label' => 'Global default zoom',
+        'type' => 'number',
+        'default' => '17',
+        'condition' => array(
+          'enabled' => 1,
+        )
+      ),
+      array(
         'slug' => 'style',
         'label' => 'JSON Style array',
         'type' => 'textarea',
@@ -155,18 +262,21 @@ class EP_Settings extends Edies_Plugin {
         'default' => 1
       ),
       array(
-        'slug' => 'map',
-        'label' => 'Footer map',
+        'slug' => 'widgets',
+        'label' => 'Amount of widgets',
         'type' => 'select',
+        'bottom_text' => "<a href='widgets.php'>Go to widgets</a>",
         'options' => array(
-          1 => "Enabled",
-          0 => "Disabled"
+          0 => "None",
+          1 => "1",
+          2 => "2",
+          3 => "3",
+          4 => "4"
         ),
-        'default' => 1,
+        'default' => 2,
         'condition' => array(
-          'enabled' => 1,
-          'googlemaps__global_enabled' => 1
-        ),
+          'enabled' => 1
+        )
       ),
       array(
         'slug' => 'parts',
@@ -181,21 +291,19 @@ class EP_Settings extends Edies_Plugin {
         )
       ),
       array(
-        'slug' => 'widgets',
-        'label' => 'Amount of widgets',
+        'slug' => 'map-position',
+        'label' => 'Map position',
         'type' => 'select',
-        'bottom_text' => "<a href='widgets.php'>Go to widgets</a>",
         'options' => array(
-          false => "0",
-          1 => "1",
-          2 => "2",
-          3 => "3",
-          4 => "4"
+          'before' => "Before widgets",
+          'after' => "After widgets"
         ),
-        'default' => 2,
         'condition' => array(
-          'enabled' => 1
-        )
+          'enabled' => 1,
+          'parts' => 'map',
+          'widgets' => '!0',
+          'googlemaps__global_enabled' => 1
+        ),
       )
     ));
 
@@ -207,8 +315,7 @@ class EP_Settings extends Edies_Plugin {
         'options' => array(
           1 => "Enabled",
           0 => "Disabled"
-        ),
-        'default' => 1
+        )
       ),
       array(
         'slug' => 'widgets',
@@ -216,7 +323,7 @@ class EP_Settings extends Edies_Plugin {
         'type' => 'select',
         'bottom_text' => "<a href='widgets.php'>Go to widgets</a>",
         'options' => array(
-          false => "0",
+          0 => "None",
           1 => "1",
           2 => "2",
           3 => "3",
@@ -226,8 +333,36 @@ class EP_Settings extends Edies_Plugin {
         'condition' => array(
           'enabled' => 1
         )
+      ),
+      array(
+        'slug' => 'parts',
+        'label' => 'Bottom footer parts',
+        'type' => 'checkbox',
+        'options' => array(
+          'map' => "Google map",
+          'social' => "Social"
+        ),
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'map-position',
+        'label' => 'Map position',
+        'type' => 'select',
+        'options' => array(
+          'before' => "Before widgets",
+          'after' => "After widgets"
+        ),
+        'condition' => array(
+          'enabled' => 1,
+          'parts' => 'map',
+          'widgets' => '!0',
+          'googlemaps__global_enabled' => 1
+        ),
       )
     ));
+
     $this->add_settings( "footer", "bar", "Bottom bar", array(
       array(
         'slug' => 'enabled',
@@ -236,14 +371,31 @@ class EP_Settings extends Edies_Plugin {
         'options' => array(
           1 => "Enabled",
           0 => "Disabled"
-        ),
-        'default' => 1
+        )
       ),
       array(
         'slug' => 'content',
         'label' => 'Bottom bar content',
         'type' => 'textarea',
         'default' => "Ontworpen en gerealiseerd door <a href='https://decreatievehoek.nl/'>De Creatieve Hoek</a>",
+        'condition' => array(
+          'enabled' => 1
+        )
+      ),
+      array(
+        'slug' => 'font',
+        'label' => 'Content font',
+        'type' => 'select',
+        'options' => array(
+          '' => 'Body font',
+          'h1' => 'H1',
+          'h2' => 'H2',
+          'h3' => 'H3',
+          'h4' => 'H4',
+          'h5' => 'H5',
+          'h6' => 'H6'
+        ),
+        'default' => '',
         'condition' => array(
           'enabled' => 1
         )
@@ -296,10 +448,10 @@ class EP_Settings extends Edies_Plugin {
           if ( array_key_exists( "settings", $group ) ) :
             foreach ( $group['settings'] as  $field ) :
               $field_slug = $group_slug . "_" . $field['slug'];
-
+              $label = array_key_exists( 'label', $field ) ? $field['label'] : ucwords( $field['slug'] );
               add_settings_field(
                 $field_slug, // $id: Slug-name to identify the field. Used in the 'id' attribute of tags.
-                __ep( $field['label'] ),
+                __ep( $label ),
                 array( $this, 'field_callback' ),
                 $page_slug, // $page: The slug-name of the settings page on which to show the section
                 $setting_slug, // $section: The slug-name of the section of the settings page in which to show the box.
@@ -491,7 +643,7 @@ class EP_Settings extends Edies_Plugin {
   public function field_callback( $args ) {
     $group = $args['group'];
     $slug = $args['slug'];
-    $value = get_option( $slug );
+    $dbvalue = get_option( $slug );
     $args = $args['data'];
 
     if ( $conditions = !array_key_exists( 'condition', $args ) ?"": $args[ 'condition' ] ) :
@@ -519,21 +671,25 @@ class EP_Settings extends Edies_Plugin {
     $placeholder = !array_key_exists( 'placeholder', $args ) ?"": "placeholder=\"" . $args[ 'placeholder' ] . "\"";
     $default     = !array_key_exists( 'default', $args )     ?"": $args[ 'default' ];
 
-    if ( !$value and !$default and $args['type'] == 'color' )
+    if ( !$dbvalue and !$default and $args['type'] == 'color' )
       $value = "#123456";
-    // if ( is_array($value) )
-    //   pretty_print($value);
-
-    if ( !$value and $default ) {
+    elseif ( !$dbvalue and $default ) {
       $value = $default;
     }
-    elseif ( !$value and !$default and array_key_exists( 'options', $args ) ) {
-      $value = reset( $args['options'] ); // Get first value if there's no default
+    elseif ( !$dbvalue and !$default and array_key_exists( 'options', $args ) ) {
+      $value = key( reset( $args['options'] ) ); // Get first value if there's no default
     }
-    elseif ( !$value and !$default ){
+    elseif ( !$dbvalue and !$default ){
       $value = '';
     }
+    else {
+      $value = $dbvalue;
+    }
 
+    // Write new default to db
+    if ( !$dbvalue ) :
+      update_option( $slug, $value );
+    endif;
 
     //   if( $args['type'] == 'radio' or $args['type'] == 'checkbox' ) {
     //     $value = array( $args['options'][ $args['default'] ] => 1 );

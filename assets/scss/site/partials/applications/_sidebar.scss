@@ -1,0 +1,42 @@
+// .x-content-sidebar-active {
+//   // .x-section {
+//   //   width: calc( 100% - 300px );
+//   //   float: right;
+//   // }
+//   .content {
+//     position: relative;
+//   }
+//   .x-sidebar {
+//     margin: 1em 0;
+//     position: fixed;
+//     top: 0;
+//     box-shadow: 0 0 10px rgba( #000, 0.25 );
+//     padding: 1em;
+//     width: 300px;
+//     float: right;
+//     .widget {
+//       padding: 1em 0;
+//       & + .widget {
+//         border-top: 1px solid #eee;
+//       }
+//     }
+//   }
+// }
+
+.woof .woof_redraw_zone {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  padding: 1em 0;
+  background-color: #fafafa;
+
+  & > div {
+    padding-left: 2em;
+    &.woof_submit_search_form_container {
+      flex-basis: 100%;
+      button {
+        float: left !important;
+      }
+    }
+  }
+}
