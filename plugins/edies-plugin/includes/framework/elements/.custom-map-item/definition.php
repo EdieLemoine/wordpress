@@ -12,7 +12,7 @@ class EP_Custom_Map_Item {
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'custom-map-item'
+   'icon_group' => $this->icon_group
     );
 	}
 

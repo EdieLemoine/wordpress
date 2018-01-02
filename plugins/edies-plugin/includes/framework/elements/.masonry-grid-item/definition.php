@@ -12,7 +12,7 @@ class EP_Masonry_Grid_Item extends EP_Masonry_Grid {
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'edies-plugin'
+   		'icon_group' => $this->icon_group
     );
 	}
 

@@ -16,7 +16,7 @@ class EP_Countdown extends EP_Element_Base {
 	public function ui() {
 		return array(
       'title' => __ep( 'Countdown' ),
-    	'icon_group' => 'countdown'
+   		'icon_group' => $this->icon_group
     );
 	}
 

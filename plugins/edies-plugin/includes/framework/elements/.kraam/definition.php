@@ -12,7 +12,7 @@ class EP_Kraam extends EP_Element_Base {
       'autofocus' => array(
 				'categorie' => '',
     	),
-    	'icon_group' => 'kraam'
+   'icon_group' => $this->icon_group
     );
 	}
 

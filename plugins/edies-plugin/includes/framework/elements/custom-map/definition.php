@@ -20,7 +20,7 @@ class EP_Custom_Map extends EP_Element_Base {
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'edies-plugin'
+   		'icon_group' => $this->icon_group
     );
 	}
 

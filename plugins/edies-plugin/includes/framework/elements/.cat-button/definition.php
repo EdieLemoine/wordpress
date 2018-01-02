@@ -15,7 +15,7 @@ class EP_Cat_Button extends EP_Element_Base {
 				'image' => '',
 				'url' => ''
     	),
-    	'icon_group' => 'cat-button'
+   'icon_group' => $this->icon_group
     );
 	}
 

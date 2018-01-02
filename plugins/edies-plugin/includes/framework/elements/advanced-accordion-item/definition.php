@@ -21,7 +21,7 @@ class EP_Advanced_Accordion_Item extends EP_Advanced_Accordion {
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'advanced-accordion-item'
+   'icon_group' => $this->icon_group
     );
 	}
 

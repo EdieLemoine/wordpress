@@ -13,7 +13,7 @@ class EP_Masonry_Grid extends EP_Element_Base {
 	public function ui() {
 		return array(
       'title' => __ep( 'Masonry Grid' ),
-    	'icon_group' => 'edies-plugin'
+   'icon_group' => $this->icon_group
     );
 	}
 

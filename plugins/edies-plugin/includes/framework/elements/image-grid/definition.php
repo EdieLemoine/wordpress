@@ -19,7 +19,7 @@ class EP_Image_Grid extends EP_Element_Base {
       'autofocus' => array(
 				'categorie' => '',
     	),
-    	'icon_group' => 'product-list'
+   'icon_group' => $this->icon_group
     );
 	}
 

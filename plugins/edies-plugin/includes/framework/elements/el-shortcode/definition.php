@@ -16,7 +16,7 @@ class EP_El_Shortcode extends EP_Element_Base {
 	public function ui() {
 		return array(
       'title' => __ep( 'Shortcode' ),
-    	'icon_group' => 'el-shortcode'
+   'icon_group' => $this->icon_group
     );
 	}
 

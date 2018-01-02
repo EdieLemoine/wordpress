@@ -19,7 +19,7 @@ class EP_Contact_Box_Item extends EP_Contact_Box {
       'autofocus' => array(
 				'height' => '',
     	),
-    	'icon_group' => 'contact-box-item'
+   		'icon_group' => $this->icon_group
     );
 	}
 
