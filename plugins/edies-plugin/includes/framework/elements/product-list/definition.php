@@ -19,7 +19,7 @@ class EP_Product_List extends EP_Element_Base {
       'autofocus' => array(
 				'categorie' => '',
     	),
-   'icon_group' => $this->icon_group
+   		'icon_group' => $this->icon_group
     );
 	}
 
@@ -49,16 +49,12 @@ class EP_Product_List extends EP_Element_Base {
 				'title' => 'Style',
 				'type' => 'select',
 				'options' => array(
-					'choices' => array(
-						array( 'label' => 'Simple', 'value' => 'simple' ),
-						array( 'label' => 'Custom', 'value' => 'custom' )
-					)
+					'simple' => 'Simple',
+					'custom' => 'Custom'
 				),
 				'default' => 'simple'
 			)),
-			'orderby' => $this->control(array(
-				'type' => 'order_by'
-			)),
+			'orderby' => $this->control( 'orderby' ),
 			'order' => $this->control(array(
 				'type' => 'order'
 			))

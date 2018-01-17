@@ -34,8 +34,8 @@ class EP_WC_Product_Category extends EP_Element_Base {
 				'title' => 'Number of columns',
 				'type' => 'text'
 			)),
-			'orderby' => $this->order_by(),
-			'order' => $this->order(),
+			'orderby' => $this->control( 'orderby' ),
+			'order' => $this->control( 'order' ),
 		  'category' => $this->control(array(
 				'title' => 'Category slug',
 				'type' => 'text'

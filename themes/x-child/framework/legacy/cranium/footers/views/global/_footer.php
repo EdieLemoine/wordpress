@@ -8,13 +8,16 @@
 
 ?>
 
-  <?php do_action( 'x_before_site_end' ); ?>
 
-  </div> <!-- END .x-site -->
+    <?php do_action( 'x_before_site_end' ); ?>
 
-  <?php do_action( 'x_after_site_end' ); ?>
+  </div> <!-- /.site -->
 
+
+</div> <!-- /.x-root -->
 <?php wp_footer(); ?>
 
+<?php do_action( 'x_after_site_end' ); ?>
+<?php do_action( 'ep_end_body' ); ?>
 </body>
 </html>

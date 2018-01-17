@@ -32,7 +32,9 @@
   .inner {
     text-align: center;
     position: relative;
-    @include border( rgba(#000,0.25) );
+    @include box-shadow;
+    @include border-radius;
+    // @include border( rgba(#000,0.25) );
     // box-shadow: 2px 2px 10px rgba(#000,0.25);
     border-radius: $global-border-radius;
     overflow: hidden;

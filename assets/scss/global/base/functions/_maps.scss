@@ -3,6 +3,11 @@
 @function map-get-deep( $map, $keys... ) {
   $value: $map;
 
+  // @if str-contains( $keys, ' ' ) {
+  //   $keys: str-split( $keys, ' ' );
+  //   @warn $keys;
+  // }
+
   @each $key in $keys {
     @if type_of( $key ) == 'list' {
       @each $list-item in $key {

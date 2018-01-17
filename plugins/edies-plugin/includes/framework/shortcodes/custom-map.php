@@ -2,7 +2,7 @@
 
 // static $ep_custom_map_i = 0;
 
-function ep_custom_map( $atts ) {
+function eps_custom_map( $atts ) {
   static $i = 0;
   static $map_data = [];
 
@@ -12,10 +12,10 @@ function ep_custom_map( $atts ) {
     'id' => 'ep-map-',
     'post_types' => false,
     'scroll' => false,
-    'center' => ep_get_option( 'googlemaps__global_latlng' ),
-    'marker' => ep_get_option( 'googlemaps__global_latlng' ),
+    'center' => ep_get_option( 'google__maps_latlng' ),
+    'marker' => ep_get_option( 'google__maps_latlng' ),
     'markerName' => '',
-    'zoom' => ep_get_option( 'googlemaps__global_zoom' ),
+    'zoom' => ep_get_option( 'google__maps_zoom' ),
     'height' => '600px',
     'markers' => false
     // 'snazzy_style' => ''
@@ -27,7 +27,6 @@ function ep_custom_map( $atts ) {
   $id = $a['id'] . $i;
 
   // Init map data array
-
   $map_data[$id] = array(
     'id' => $id,
     'zoom' => intval($a['zoom']),
@@ -38,8 +37,8 @@ function ep_custom_map( $atts ) {
     )
   );
 
-  if ( ep_get_option( 'googlemaps__global_style' ) ) :
-    $map_data[$id]['snazzy_style'] = json_decode( ep_get_option( 'googlemaps__global_style' ) );
+  if ( ep_get_option( 'google__maps_style' ) ) :
+    $map_data[$id]['snazzy_style'] = json_decode( ep_get_option( 'google__maps_style' ) );
   endif;
 
   if ( $a['post_types'] != false OR $a['markers'] == true  ) : // Only do this if there are post types entered

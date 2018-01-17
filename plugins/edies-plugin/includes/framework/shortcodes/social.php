@@ -1,6 +1,6 @@
 <?php
 
-function ep_social( $atts ) {
+function eps_social( $atts ) {
   $socials = array(
     "facebook" => get_option( 'x_social_facebook' ),
     "twitter" => get_option( 'x_social_twitter' ),

@@ -96,6 +96,14 @@
   }
 }
 
+@mixin box-shadow {
+  box-shadow: $global-box-shadow;
+}
+
+@mixin border-radius {
+  border-radius: $global-border-radius;
+}
+
 // Apply same border to varying sides of objects
 // Usage: @include border; for all sides, or for example @include border(top, left) for only top and left.
 @mixin border ( $color: $global-border-color, $sides: '' ) {

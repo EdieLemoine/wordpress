@@ -1,6 +1,6 @@
 <?php
 
-function EP_Opening_Hours() {
+function eps_Opening_Hours() {
 
   if ( ep_get_option( 'shortcodes__openinghours_enabled' )) :
     $atts = cs_atts( array(

@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------------
 // Outputs the widget areas for the footer.
 // =============================================================================
+
 $map1 = ep_get_option_check( 'footer__top_parts', 'map' );
 $map2 = ep_get_option_check( 'footer__bottom_parts', 'map' );
 
@@ -13,7 +14,7 @@ $n2 = ep_get_option( 'footer__bottom_widgets' );
 
 function footer_map( $index, $atts = "" ) {
   $map  = "<div class='ep-1-$index ep-footer-map'>";
-  $map .= do_shortcode( "[ep-custom-map $atts]" );
+  $map .= do_shortcode( "[eps_custom_map $atts]" );
   $map .= "</div>";
 
   echo $map;

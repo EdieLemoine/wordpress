@@ -34,7 +34,7 @@ class EP_WC_Related_Products extends EP_Element_Base {
 				'title' => 'Number of columns',
 				'type' => 'text'
 			)),
-			'orderby' => $this->order_by()
+			'orderby' => $this->control( 'orderby' )
 		);
 
 		$this->defaults = $this->add_defaults( $this->controls );

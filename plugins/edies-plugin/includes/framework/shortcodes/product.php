@@ -1,6 +1,6 @@
 <?php
 
-function ep_product( $atts ) {
+function eps_product( $atts ) {
   // $output = '';
   //
   // $title = get_the_title();

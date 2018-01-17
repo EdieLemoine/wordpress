@@ -24,7 +24,7 @@ class EP_Dashboard extends Edies_Plugin {
     $wp_admin_bar->add_node( array(
       'id' => 'edies-plugin',
       'title' => '<span class="ab-icon"></span><span class="ab-label"></span>',
-      'href' => 'wp-admin/admin.php?page=edies-plugin/edies-plugin-admin.php',
+      'href' => get_site_url() . '/wp-admin/admin.php?page=edies-plugin/edies-plugin-admin.php',
       'meta' => array(
         'class' => 'bg-color'
       )

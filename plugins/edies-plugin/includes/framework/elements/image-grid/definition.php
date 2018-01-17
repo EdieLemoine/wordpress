@@ -37,12 +37,8 @@ class EP_Image_Grid extends EP_Element_Base {
 				'title' => 'Per page',
 				'type' => 'number'
 			)),
-			'orderby' => $this->control(array(
-				'type' => 'order_by'
-			)),
-			'order' => $this->control(array(
-				'type' => 'order'
-			))
+			'orderby' => $this->control( 'orderby' ),
+			'order' => $this->control( 'order' )
 		);
 
 		$this->defaults = $this->add_defaults( $this->controls );

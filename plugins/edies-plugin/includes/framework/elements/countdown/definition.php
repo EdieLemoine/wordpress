@@ -58,12 +58,8 @@ class EP_Countdown extends EP_Element_Base {
 				'condition' => 'complex',
 				'default' => 3
 			)),
-			'orderby' => $this->control(array(
-				'type' => 'order_by'
-			)),
-			'order' => $this->control(array(
-				'type' => 'order'
-			))
+			'orderby' => $this->control( 'orderby' ),
+			'order' => $this->control( 'order' )
 		);
 
 		$this->defaults = $this->add_defaults( $this->controls );

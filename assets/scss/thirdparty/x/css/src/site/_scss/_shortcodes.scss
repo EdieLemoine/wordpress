@@ -30,18 +30,18 @@
 // Container
 // =============================================================================
 
-.x-container {
-  margin: 0 auto;
-  @include cf();
-
-  &.max {
-    max-width: 1200px;
-  }
-
-  &.width {
-    width: 88%;
-  }
-}
+// .x-container {
+//   margin: 0 auto;
+//   @include cf();
+//
+  // &.max {
+  //   max-width: 1200px;
+  // }
+  //
+  // &.width {
+  //   width: 88%;
+  // }
+// }
 
 
 
@@ -421,7 +421,7 @@
     &.front { z-index: 2; }
     &.back  { z-index: 1; }
   }
-  
+
   .x-face-inner {
     height: 100%;
   }
@@ -456,7 +456,7 @@
     border-radius: 0.35em;
     box-shadow: none;
   }
-  
+
   &.flipped {
     .x-face-outer {
       &.front { z-index: 1; }

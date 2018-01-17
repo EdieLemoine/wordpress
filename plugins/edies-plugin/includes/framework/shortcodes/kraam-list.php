@@ -1,6 +1,6 @@
 <?php
 
-function ep_kraam_list( $atts ) {
+function eps_kraam_list( $atts ) {
   $a = shortcode_atts( array(
     'post_type' => 'ac-winkel',
     'taxfree' => false,

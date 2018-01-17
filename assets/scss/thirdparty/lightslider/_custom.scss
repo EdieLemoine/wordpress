@@ -1,0 +1,8 @@
+.lightSlider {
+  display: block !important;
+  p, h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

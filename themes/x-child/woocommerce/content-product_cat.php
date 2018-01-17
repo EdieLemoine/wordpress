@@ -22,9 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<li <?php wc_product_cat_class( 'ep-1-4 ep-l-1-3 ep-xs-1-1', $category ); ?>>
+<li <?php wc_product_cat_class( 'ep-1-4 ep-l-1-3 ep-s-1-1', $category ); ?>>
 	<?php
-	
+
 	woocommerce_template_loop_category_link_open( $category );
 	echo "<div class='inner'>";
 
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	echo "</div>";
 
-
+	
 	// $count = $category->count > 0 ? '<span class="count">(' . $category->count . ')</span>' : "";
 	// woocommerce_template_loop_category_title( $category );
 	// echo "<h2 class='h4 title'>" .$category->name . "</h2>";

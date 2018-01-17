@@ -77,12 +77,3 @@ $m2price = wc_price( $product->get_price() / $m2 );
 		?>
 	</div>
 </li>
-
-
-<!-- pvc
-  plak
-  klik
-laminaat
-parket
-
-trapbekleding -->

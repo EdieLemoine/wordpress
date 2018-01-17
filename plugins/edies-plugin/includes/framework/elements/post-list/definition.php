@@ -37,12 +37,8 @@ class EP_Post_List extends EP_Element_Base {
 				'title' => 'Per page',
 				'type' => 'number'
 			)),
-			'orderby' => $this->control(array(
-				'type' => 'order_by'
-			)),
-			'order' => $this->control(array(
-				'type' => 'order'
-			)),
+			'orderby' => $this->control( 'orderby' ),
+			'order' => $this->control( 'order' ),
 			'category' => $this->control(array(
 				'type' => 'categories',
 				'tax' => 'product_cat'

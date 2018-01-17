@@ -2,7 +2,7 @@
 
 add_shortcode('ep-widget', 'ep_widget');
 
-function ep_widget( $atts ) {
+function eps_widget( $atts ) {
   $a = shortcode_atts( array(
     'widget' => ''
   ), $atts );

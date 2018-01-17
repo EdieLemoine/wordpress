@@ -30,6 +30,13 @@ $global-corners: 'top-left', 'bottom-right';
 $global-border-color: currentColor !default;
 $global-border-width: 2px !default;
 $global-spacing: 2em !default;
+$global-shadow: transparentize( $black, 0.75 );
+
+$global-box-shadow: .2em .2em .75em $global-shadow !default;
+@warn $global-box-shadow;
+$size-s: 1em !default;
+$size-m: 2em !default;
+$size-l: 3em !default;
 
 //////////
 // Text //
@@ -114,6 +121,7 @@ $footer-bottom-font: 'heading' !default;
 $footer-bottom-background-color: darken( $footer-top-background-color, 15% ) !default;
 $footer-bottom-color: calculate-color( $footer-bottom-background-color ) !default;
 
+// WordPress stuff
 $admin-bar-height: 32px !default;
 $admin-bar-mobile-height: 46px !default;
 

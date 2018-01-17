@@ -5,6 +5,32 @@ class EP_Settings extends Edies_Plugin {
 
   function __construct() {
 
+    $this->add_group( "navbar", "Navbar settings", "Desc for social section" );
+    $this->add_settings( "navbar", "parts", "Icon Settings", array(
+      array(
+        'slug' => 'logo',
+        'label' => 'Navbar logo',
+        'type' => 'select',
+        'options' => array(
+          0 => "Disabled",
+          1 => "Enabled"
+        )
+      ),
+      array(
+        'slug' => 'logo_img',
+        'label' => 'Navbar logo image',
+        'type' => 'image'
+      )
+    ));
+    $this->add_settings( "navbar", "above", "Above masthead content", array(
+      array(
+        'slug' => 'id',
+        'label' => 'Page or post to display above masthead',
+        'type' => 'select',
+        'options' => $this->post_list_arr()
+      )
+    ));
+
     $this->add_group( "social", "Social settings", "Desc for social section" );
     $this->add_settings( "social", "icon", "Icon Settings", array(
       array(
@@ -168,6 +194,8 @@ class EP_Settings extends Edies_Plugin {
         'type' => 'select',
         'options' => array(
           'fill' => 'Fill',
+          'transparent' => 'Transparent',
+          'transparent-invert' => 'Transparent (invert)',
           'border' => 'Border',
           'border-fill' => 'Border-fill'
         ),
@@ -199,8 +227,38 @@ class EP_Settings extends Edies_Plugin {
       ),
     ));
 
-    $this->add_group( "googlemaps", "Google Maps", "Settings related to Google Maps (JS) API" );
-    $this->add_settings( "googlemaps", "global", "Global settings", array(
+    $this->add_group( "google", "Google", "Settings related to Google" );
+    $this->add_settings( "google", "global", "Global Google Settings", array(
+      array(
+        'slug' => 'api',
+        'label' => 'API key',
+        'type' => 'text',
+        'bottom_text' => "<a target='_blank' href='https://console.cloud.google.com/'>Google API Console</a>"
+      )
+    ));
+    $this->add_settings( "google", "analytics", "Google Analytics", array(
+      array(
+        'slug' => 'enabled',
+        'label' => 'Enable Google Analytics',
+        'type' => 'select',
+        'options' => array(
+          1 => "Enabled",
+          0 => "Disabled"
+        ),
+        'default' => 1
+      ),
+      array(
+        'slug' => 'id',
+        'label' => 'Analytics ID',
+        'type' => 'text',
+        'placeholder' => 'UA-XXXXXXXX-XX',
+        'condition' => array(
+          'enabled' => 1
+        )
+      )
+    ));
+
+    $this->add_settings( "google", "maps", "Maps settings", array(
       array(
         'slug' => 'enabled',
         'label' => 'Enable Google Maps',
@@ -210,15 +268,6 @@ class EP_Settings extends Edies_Plugin {
           0 => "Disabled"
         ),
         'default' => 1
-      ),
-      array(
-        'slug' => 'api',
-        'label' => 'API key',
-        'type' => 'text',
-        'bottom_text' => "<a href='https://console.cloud.google.com/'>Google API Console</a>",
-        'condition' => array(
-          'enabled' => 1,
-        )
       ),
       array(
         'slug' => 'latlng',
@@ -242,7 +291,7 @@ class EP_Settings extends Edies_Plugin {
         'slug' => 'style',
         'label' => 'JSON Style array',
         'type' => 'textarea',
-        'bottom_text' => "<a href='http://snazzymaps.com/'>Find styles</a>",
+        'bottom_text' => "<a target='_blank' href='http://snazzymaps.com/'>Find styles</a>",
         'condition' => array(
           'enabled' => 1,
         )
@@ -302,7 +351,7 @@ class EP_Settings extends Edies_Plugin {
           'enabled' => 1,
           'parts' => 'map',
           'widgets' => '!0',
-          'googlemaps__global_enabled' => 1
+          'google__maps_enabled' => 1
         ),
       )
     ));
@@ -358,7 +407,7 @@ class EP_Settings extends Edies_Plugin {
           'enabled' => 1,
           'parts' => 'map',
           'widgets' => '!0',
-          'googlemaps__global_enabled' => 1
+          'google__maps_enabled' => 1
         ),
       )
     ));
@@ -424,6 +473,27 @@ class EP_Settings extends Edies_Plugin {
       ));
     endif;
   } // end __construct()
+
+  private function post_list_arr( $post_type = 'any' ) {
+    $args = array(
+      'post_type' => array('post', 'page'),
+      'numberposts' => -1
+    );
+    $last = null;
+    $arr = get_posts( $args );
+    $i=0;
+
+    foreach ($arr as $post) {
+      $i++;
+      if ( $last != $post->post_type )
+        $newarr['DISABLE_'.$i] = get_post_type_object( $post->post_type )->labels->name;
+
+      $newarr[$post->ID] = $post->post_title . " (" . $post->ID . ")";
+      $last = $post->post_type;
+    }
+
+    return $newarr;
+  }
 
   // End of customizable stuff
   public function add_all_settings() {
@@ -671,15 +741,15 @@ class EP_Settings extends Edies_Plugin {
     $placeholder = !array_key_exists( 'placeholder', $args ) ?"": "placeholder=\"" . $args[ 'placeholder' ] . "\"";
     $default     = !array_key_exists( 'default', $args )     ?"": $args[ 'default' ];
 
-    if ( !$dbvalue and !$default and $args['type'] == 'color' )
+    if ( $dbvalue == '' and !$default and $args['type'] == 'color' )
       $value = "#123456";
-    elseif ( !$dbvalue and $default ) {
+    elseif ( $dbvalue == '' and $default ) {
       $value = $default;
     }
-    elseif ( !$dbvalue and !$default and array_key_exists( 'options', $args ) ) {
-      $value = key( reset( $args['options'] ) ); // Get first value if there's no default
+    elseif ( $dbvalue == '' and !$default and array_key_exists( 'options', $args ) ) {
+      $value = reset( $args['options'] ); // Get first value if there's no default
     }
-    elseif ( !$dbvalue and !$default ){
+    elseif ( $dbvalue == '' and !$default ){
       $value = '';
     }
     else {
@@ -687,7 +757,7 @@ class EP_Settings extends Edies_Plugin {
     }
 
     // Write new default to db
-    if ( !$dbvalue ) :
+    if ( $dbvalue == '' ) :
       update_option( $slug, $value );
     endif;
 
@@ -709,7 +779,8 @@ class EP_Settings extends Edies_Plugin {
         if( ! empty ( $args['options'] ) && is_array( $args['options'] ) ) {
           $html = '';
           foreach( $args['options'] as $key => $label ) {
-            $html .= sprintf( '<option value="%s" %s>%s</option>', $key, selected( $value, $key, false ), $label );
+            // echo strpos( $key, 'DISABLE' );
+            $html .= sprintf( '<option value="%s" %s>%s</option>', $key, trim(selected( $value, $key, false ) . ' ' . disabled( strpos( $key, 'DISABLE' ) === 0, true, false )), $label );
           }
           printf( '<select name="%1$s" id="%1$s">%2$s</select>', $slug, $html );
         }

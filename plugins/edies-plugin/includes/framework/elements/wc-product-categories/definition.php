@@ -34,8 +34,8 @@ class EP_WC_Product_Categories extends EP_Element_Base {
 				'title' => 'Number of columns',
 				'type' => 'text'
 			)),
-			'orderby' => $this->order_by(),
-			'order' => $this->order(),
+			'orderby' => $this->control( 'orderby' ),
+			'order' => $this->control( 'order' ),
 		  'hide_empty' => $this->control(array(
 				'title' => 'Hide empty categories',
 				'type' => 'toggle'

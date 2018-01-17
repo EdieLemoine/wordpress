@@ -103,7 +103,7 @@ class Edies_Plugin {
 
     // Options
     $this::$loader->add_action( 'admin_init', $this->settings, 'add_all_settings' );
-
+    
     // Scripts
     $this::$loader->add_action( 'wp_enqueue_scripts', $this->scripts, 'queue', 9999 );
     $this::$loader->add_action( 'wp_enqueue_scripts', $this->scripts, 'dequeue', 9999 );
@@ -123,6 +123,9 @@ class Edies_Plugin {
     $this::$loader->add_action( 'after_setup_theme', $this->theme, 'disable_cranium', 999 );
     $this::$loader->add_filter( 'wp_title', $this->theme, 'ep_wp_title', 11 );
 
+    $this::$loader->add_action( 'ep_begin_body', $this->scripts, 'add_google_analytics' );
+
+    include_once PATH_FRAMEWORK.'plugins/wpcf7.php';
     // Shortcodes
     $this->shortcodes->register_shortcodes();
     $this::$loader->add_filter( 'do_shortcode_tag', $this->shortcodes, 'shortcode_filter', 9999, 3 );

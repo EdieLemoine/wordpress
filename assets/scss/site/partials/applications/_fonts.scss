@@ -42,9 +42,9 @@ body {
   }
 }
 
-@for $i from 1 to 6 {
-  h#{$i}, .h#{$i} {
-    font-size: 1em + ( 5 * 0.5 / $i );
+@for $i from 1 through 6 {
+  h#{7 - $i}, .h#{7 - $i} {
+    font-size: #{1 + 0.165 * $i }em;
   }
 }
 

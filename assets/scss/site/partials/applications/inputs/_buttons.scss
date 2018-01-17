@@ -1,40 +1,52 @@
-@import "button-styles";
+// @import "button-styles";
 
-.ep-btn-group {
-  display: flex;
-  align-content: stretch;
-  flex-wrap: wrap;
-  .x-btn {
-    flex: 1 0 30%;
-    max-width: none;
-    margin: $global-spacing / 6;
-    @include break( 'm' ) {
-      margin: $global-spacing / 8 0;
-      flex: 1 0 100%;
-    }
-  }
-  @include break( 'm', 'min' ) {
-    margin: -$global-spacing / 6;
-  }
-}
+// .ep-btn-group {
+//   display: flex;
+//   align-content: stretch;
+//   flex-wrap: wrap;
+//   .x-btn,
+//   .ep-btn {
+//     flex: 1 0 30%;
+//     max-width: none;
+//     margin: $global-spacing / 6;
+//     @include break( 'm' ) {
+//       margin: $global-spacing / 8 0;
+//       flex: 1 0 100%;
+//     }
+//   }
+//   @include break( 'm', 'min' ) {
+//     margin: -$global-spacing / 6;
+//   }
+// }
 
-
-a.x-btn,
-button,
-#{inputs( 'buttons' )} {
-  // min-width: 200px;
-  font-size: map-get-deep( $fonts, "body", "atts", "font-size" );
+#{inputs('buttons')} {
+  height: $input-height;
+  font-size: inherit;
   line-height: normal;
   flex: 1;
-  display: block;
-  align-content: center;
-  // padding: $global-spacing / 3 $global-spacing / 2;
+  display: inline-flex;
+  position: relative;
+  padding: $global-spacing / 3 $global-spacing / 2;
   border-radius: $global-border-radius;
   @include font( $button-font );
   @include fast-transition;
   $button-invert-color: calculate-color( $button-background-color );
-
-  @if $button-style == 'transparent' {
+  &.submitting {
+    background-image: linear-gradient( -45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent );
+    animation: progress-bar-stripes 1s infinite linear;
+    background-size: 2rem 2rem;
+    border-color: transparent !important;
+    color: $button-invert-color !important;
+    background-color: $button-background-color !important;
+  }
+  &:not(:first-of-type) {
+    margin-left: 0.5em;
+  }
+  span {
+    margin: auto;
+    color: inherit;
+  }
+  &.transparent {
     color: $button-background-color;
     background-color: transparent;
     // border-color: $button-background-color;
@@ -55,8 +67,7 @@ button,
       }
     }
   }
-
-  @if $button-style == 'transparent-invert' {
+  &.transparent-invert {
     color: calculate-color( $button-background-color );
     background-color: $button-background-color;
     @include border( $button-background-color );
@@ -75,8 +86,7 @@ button,
       }
     }
   }
-
-  @if $button-style == 'fill' {
+  &.fill {
     border: none;
     color: calculate-color( $button-background-color );
     background-color: $button-background-color;
@@ -85,7 +95,6 @@ button,
       background-color: $button-invert-color;
     }
     @include active {
-
     }
   }
 }

@@ -77,6 +77,15 @@ $breakpoints: (
   xxl: 1999px
 );
 
+$sizes: (
+  n: 0,
+  s: $size-s,
+  m: $size-m,
+  l: $size-l
+);
+
+$sides: left, top, right, bottom;
+
 $social: (
   facebook: (
     icon: "\f09a",

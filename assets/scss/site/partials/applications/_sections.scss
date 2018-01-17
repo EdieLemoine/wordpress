@@ -4,10 +4,16 @@
 }
 
 .x-container {
+  margin: 0 auto;
+  position: relative;
+  @include cf();
+
   &.width {
     width: $container-width;
   }
-
+  &.double {
+    max-width: $container-max-width * 2;
+  }
   &.max {
     max-width: $container-max-width;
   }

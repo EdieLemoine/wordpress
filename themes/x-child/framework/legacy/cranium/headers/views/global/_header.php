@@ -17,7 +17,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+  <?php do_action( 'ep_begin_body' ); ?>
   <div id="x-root" class="x-root">
 
     <?php do_action( 'x_before_site_begin' ); ?>

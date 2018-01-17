@@ -24,36 +24,15 @@
   margin: -($global-spacing / 8);
 }
 
-.ep-col-flex {
-  padding: $global-spacing / 8;
-}
 
-.ep {
-  position: relative;
-  .x-container {
-    margin: auto;
-  }
-}
-
-// Create grid structure
-// @for $a from 1 through 8 {
-//   @for $b from 1 through 8 {
-//     $left: $b % $a;
-//     @if $left == 1 {
-//       $left: 100;
-//     }
-//     @if $a != $b
-//     and $left != 0
-//     and $left > 0
-//     and ( $a % $left ) != 0
-//     and $a < $b
-//     or $a == 1 {
-//       .ep-#{$a}-#{$b} {
-//         flex-basis: 100% / ( $b / $a );
-//       }
-//     }
+// .ep {
+//   position: relative;
+//   .x-container {
+//     margin: auto;
 //   }
 // }
+//
+
 
 // Create grid structure for each breakpoint in $breakpoints
 // Reverse map if the order of breakpoints would override each other the wrong way
@@ -61,7 +40,9 @@
   $breakpoints: map-reverse( $breakpoints );
 }
 
+// Create lists to allow keys to be used alongside values
 $breakpointlist: ();
+$sizelist: map-keys( $sizes );
 
 @each $breakpoint in map-keys( $breakpoints ) {
   $breakpointlist: join( $breakpoint, $breakpointlist );
@@ -81,9 +62,30 @@ $breakpointlist: join( "", $breakpointlist );
     @if $breakpoint != "" {
       $breakpoint: "-" + $breakpoint;
     }
-    .ep#{$breakpoint}-pan {
-      padding: 0 !important;
+
+    @each $size in $sizelist {
+      .ep#{$breakpoint}-pa#{$size} {
+        padding: map-get( $sizes, $size ) !important;
+      }
+      .ep#{$breakpoint}-ph#{$size} {
+        padding-left: map-get( $sizes, $size ) !important;
+        padding-right: map-get( $sizes, $size ) !important;
+      }
+      .ep#{$breakpoint}-pv#{$size} {
+        padding-top: map-get( $sizes, $size ) !important;
+        padding-bottom: map-get( $sizes, $size ) !important;
+      }
+
+      @each $side in $sides {
+        .ep#{$breakpoint}-p#{str-slice( $side, 1, 1 )}#{$size} {
+          padding-#{$side}: map-get( $sizes, $size );
+        }
+      }
     }
+    // .ep#{$breakpoint}-pan {
+    //   padding: 0 !important;
+    // }
+
     .ep#{$breakpoint}-pvn,
     .ep#{$breakpoint}-pyn {
       padding-top: 0 !important;
@@ -94,6 +96,7 @@ $breakpointlist: join( "", $breakpointlist );
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
+
     .ep#{$breakpoint}-fw-w {
       flex-wrap: wrap;
     }

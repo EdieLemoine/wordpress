@@ -37,8 +37,6 @@ $i = 0;
 
 ?>
 
-
-
 <div <?php echo $atts ?>>
   <?php if ( $query->have_posts() ) :
 		while ( $query->have_posts() ) : $query->the_post();

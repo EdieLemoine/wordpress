@@ -1,11 +1,17 @@
 div.wpcf7 .ajax-loader {
-  @include size(30px);
-  background-repeat: no-repeat;
-  position: absolute;
-  left: $global-spacing / 2;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+  display: none;
+}
+.wpcf7 p {
+  margin: 0;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 2rem 0
+  }
+  to {
+    background-position:0 0
+  }
 }
 
 .wpcf7-response-output {
@@ -13,7 +19,9 @@ div.wpcf7 .ajax-loader {
 }
 
 span.wpcf7-not-valid-tip {
-  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
+  font-size: inherit;
+  display: inline;
+  color: $red;
 }
 
 .x-alert, .wpcf7-response-output, .buddypress #message, .bbp-template-notice {
@@ -23,7 +31,7 @@ span.wpcf7-not-valid-tip {
 div.wpcf7-validation-errors {
   border-width: $global-border-width;
   border-color: currentColor;
-  font-size: map-get-deep( $fonts, "body", "atts", "font-size"  );
+  font-size: inherit;
 }
 
 .ep-flex + p {

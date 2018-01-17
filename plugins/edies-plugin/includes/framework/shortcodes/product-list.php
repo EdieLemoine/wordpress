@@ -1,6 +1,6 @@
 <?php
 
-function ep_product_list( $atts ) {
+function eps_product_list( $atts ) {
   $a = shortcode_atts( array(
     'post_type' => 'product',
     'orderby' => 'title',

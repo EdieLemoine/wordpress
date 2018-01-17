@@ -1,7 +1,7 @@
 <?php
 
 $c = new EP_Shortcodes();
-function ep_buttons( $atts ) {
+function eps_buttons( $atts ) {
   $atts = shortcode_atts(
     array(
       'post_type' => 'post',

@@ -6,8 +6,8 @@
 class EP_Scripts extends Edies_Plugin {
 
   function __construct() {
-    if ( ep_get_option( 'googlemaps__global_enabled') and ep_get_option( 'googlemaps__global_api' ) )
-      define( 'API_KEY', ep_get_option( 'googlemaps__global_api' ) );
+    if ( ep_get_option( 'google__maps_enabled') and ep_get_option( 'google__global_api' ) )
+      define( 'API_KEY', ep_get_option( 'google__global_api' ) );
   }
 
   // Enqueue scripts and styles
@@ -40,9 +40,9 @@ class EP_Scripts extends Edies_Plugin {
       $this->api_key = esc_attr( API_KEY );
       $script_url = add_query_arg( array( 'key' => $this->api_key ), 'https://maps.googleapis.com/maps/api/js' );
 
-      wp_register_script( 'google-maps', $script_url, array( 'jquery' ), true );
-      $this->add_script( 'snazzy-info-window', 'snazzy-info-window/snazzy-info-window.min.js', array( 'google-maps' ) );
-      $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps', 'snazzy-info-window' ) );
+      wp_register_script( 'google-maps', $script_url, null, true );
+      // $this->add_script( 'snazzy-info-window', 'snazzy-info-window/snazzy-info-window.min.js', array( 'google-maps' ) );
+      $this->add_script( 'ep-custom-map', 'ep-custom-map.min.js', array( 'google-maps' ) );
     endif;
     $this->add_script( 'ep-opening-hours', 'ep-opening-hours.min.js', array( 'jquery' ) );
 
@@ -51,9 +51,16 @@ class EP_Scripts extends Edies_Plugin {
 
     // Enqueue scripts
     wp_enqueue_script( 'outdatedbrowser' );
+    wp_enqueue_script( 'lightslider' );
 
     wp_enqueue_style( 'ep_style' );
   }
+
+  public function add_google_analytics() { ?>
+    <script type="text/javascript">
+      <?php ep_option( 'google__analytics_id' ); ?>
+    </script>
+  <?php }
 
   // Enqueue admin scripts and styles
   public function admin_queue() {

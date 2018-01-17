@@ -17,10 +17,10 @@
 
 @mixin section() {
   .x-section {
-    position: relative;
+    // position: relative;
     // margin: 0 0 $baseMargin;
     // padding: 45px 0;
-    @include cf();
+    // @include cf();
 
     &.bg-image,
     &.bg-pattern {

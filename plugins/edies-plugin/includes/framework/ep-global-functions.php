@@ -1,9 +1,12 @@
 <?php
 
 function ep_atts( $atts ) {
+  $arr = '';
   foreach ( $atts as $key => $value ) {
-    echo $key . "=\"$value\"" . PHP_EOL;
+    if ( $value != '' )
+      $arr .=  $key . "=\"$value\"" . PHP_EOL;
   }
+  return $arr;
 }
 
 function ep_part( $part ) {
@@ -26,13 +29,13 @@ function ep_button( $link = null, $text = "Bewerken" ) {
     endif;
   endif;
 
-  echo do_shortcode( "[x_button class='x-btn' href='$link']" . $text . "[/x_button]" );
+  echo do_shortcode( "[eps_button href='$link']" . $text . "[/eps_button]" );
 }
 
 function pretty_print($string) {
-  echo '<pre>';
+  echo '<pre class="language-markup"><code>';
   print_r( $string );
-  echo '</pre>';
+  echo '</code></pre>';
 }
 
 function __ep( $string, $slug = null ) {
@@ -64,7 +67,7 @@ function ep_option( $option ) {
 }
 
 function ep_get_option_check( $option, $part ) {
-  return ( ep_get_option( $option ) and array_key_exists( $part, ep_get_option( $option ) ));
+  return (ep_get_option($option) and array_key_exists($part, ep_get_option( $option )) and ep_get_option( $option )[$part]);
 }
 
 function weekdays( $initial = true, $echo = false ) {
@@ -83,4 +86,9 @@ function weekdays( $initial = true, $echo = false ) {
     echo $week;
   else
     return $week;
+}
+
+function ep_options_list() {
+  global $ep_options;
+  return $ep_options;
 }

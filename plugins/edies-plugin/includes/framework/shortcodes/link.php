@@ -1,6 +1,6 @@
 <?php
 
-function ep_link( $atts ) {
+function eps_link( $atts ) {
   if ( array_key_exists( 't', $atts ) ) {
     $tel = $atts['t'];
     $link = preg_replace( "/^0+/", "+31", str_replace( ' ', '', $tel ) );

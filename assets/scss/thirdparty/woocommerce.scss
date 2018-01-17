@@ -35,7 +35,7 @@ $color_button_primary: $primary-color;
 $color_button_secondary: $secondary-color;
 
 .pswp__bg {
-  background-color: rgba(#000, 0.85);
+  background-color: $global-shadow;
 }
 
 @import 'woocommerce/woocommerce';

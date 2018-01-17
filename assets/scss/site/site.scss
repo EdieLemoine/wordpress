@@ -44,8 +44,10 @@ $fa-image-dir: '../../themes/x-child/dist/images/';
 
 // Third party plugins
 @import '../thirdparty/woocommerce';
+@import '../thirdparty/prism';
 @import '../thirdparty/font-awesome';
 @import '../thirdparty/outdatedbrowser';
+@import '../thirdparty/lightslider';
 
 // Responsive
 @import 'partials/base/responsive';

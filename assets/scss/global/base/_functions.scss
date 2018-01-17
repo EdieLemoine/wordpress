@@ -1,6 +1,7 @@
 @import 'functions/strings';
 @import 'functions/lists';
 @import 'functions/maps';
+@import 'functions/integers';
 
 @function strip-unit( $number ) {
   @if type-of( $number ) == 'number' and not unitless($number) {
@@ -72,17 +73,23 @@
 // Usage: #{inputs( 'text' )} { @content }
 @function inputs( $type ) {
   $inputs: ();
+  $others: ();
   $list: ();
 
   @if $type == "text" {
-    $inputs: ( 'text', 'email', 'phone', 'number', 'search' );
+    $inputs: ( 'text', 'email', 'phone', 'number', 'search', 'tel', 'date' );
+    $others: ( 'textarea' );
   }
   @else if $type == "buttons" {
-    $inputs: ('button', 'submit', 'reset');
+    $inputs: ( 'button', 'submit', 'reset' );
+    $others: ( '.ep-btn', 'a.x-btn', 'button' );
   }
 
   @each $input in $inputs {
     $list: append( $list, 'input[type="#{$input}"]');
+  }
+  @each $other in $others {
+    $list: append( $list, '#{$other}');
   }
 
   @return createList( $list );

@@ -16,4 +16,4 @@ $atts = cs_atts( array(
 	'snazzy_style' => strip_tags($snazzy_style)
 ));
 
-echo do_shortcode('[ep-custom-map ' . $atts . ']');
+echo do_shortcode( "[eps_custom_map $atts]" );
