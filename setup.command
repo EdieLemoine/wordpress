@@ -1,15 +1,25 @@
 #!/bin/bash
 
 echo "Enter destination directory"
-read dest
+read name
 
-cp -R "`dirname "$0"`/../_ASSETS/wordpress/" $dest
-ln -s "`dirname "$0"`/../_ASSETS/x" $dest/wp-content/themes
+if [[ $name != /* ]]; then
+  dest=/Applications/MAMP/htdocs/$name
+fi
 
-ln -s "`dirname "$0"`/plugins/edies-plugin" $dest/wp-content/plugins
-ln -s "`dirname "$0"`/themes/x-child" $dest/wp-content/themes
+source=`dirname "$0"`
+assets="$(dirname "$source")/_ASSETS"
 
-cd "`dirname "$0"`/assets/grunt"
+mkdir -p $dest
 
+cp -R "$assets/wordpress/" $dest
+ln -s "$assets/x" $dest/wp-content/themes
+
+ln -s "$source/plugins/edies-plugin" $dest/wp-content/plugins
+ln -s "$source/themes/x-child" $dest/wp-content/themes
+
+
+# Grunt actions
+cd "$source/assets/grunt"
 npm i
 grunt watch
