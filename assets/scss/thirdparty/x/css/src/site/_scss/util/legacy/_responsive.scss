@@ -14,53 +14,53 @@
 // New Responsive Styles
 // =============================================================================
 
-@include break( 'xl' ) {
-  .x-hide-xl { display: none !important; }
-}
-
-@include break( 'xl' ) {
-  .x-hide-lg { display: none !important; }
-}
-
-@include break( 'l' ) {
-  .x-hide-md { display: none !important; }
-}
-
-@include break( 'm' ) {
-  .x-hide-sm { display: none !important; }
-}
-
-@include break( 's' ) {
-  .x-hide-xs { display: none !important; }
-}
+// @include break( 'xl' ) {
+//   .x-hide-xl { display: none !important; }
+// }
+//
+// @include break( 'xl' ) {
+//   .x-hide-lg { display: none !important; }
+// }
+//
+// @include break( 'l' ) {
+//   .x-hide-md { display: none !important; }
+// }
+//
+// @include break( 'm' ) {
+//   .x-hide-sm { display: none !important; }
+// }
+//
+// @include break( 's' ) {
+//   .x-hide-xs { display: none !important; }
+// }
 
 
 
 // Old Responsive Styles
 // =============================================================================
 
-.x-visible-phone       { display: none !important;    }
-.x-visible-tablet      { display: none !important;    }
-.x-visible-desktop     { display: inherit !important; }
-span.x-visible-desktop { display: inline !important;  }
-.x-hidden-phone        {                              }
-.x-hidden-tablet       {                              }
-.x-hidden-desktop      { display: none !important;    }
-
-@include break( 'xl' ) {
-  .x-visible-tablet     { display: inherit !important; }
-  span.x-visible-tablet { display: inline !important;  }
-  .x-hidden-tablet      { display: none !important;    }
-  .x-hidden-desktop     { display: inherit !important; }
-  span.x-hidden-desktop { display: inline !important;  }
-  .x-visible-desktop    { display: none !important;    }
-}
-
-@include break( 'm' ) {
-  .x-visible-phone      { display: inherit !important; }
-  span.x-visible-phone  { display: inline !important;  }
-  .x-hidden-phone       { display: none !important;    }
-  .x-hidden-desktop     { display: inherit !important; }
-  span.x-hidden-desktop { display: inline !important;  }
-  .x-visible-desktop    { display: none !important;    }
-}
+// .x-visible-phone       { display: none !important;    }
+// .x-visible-tablet      { display: none !important;    }
+// .x-visible-desktop     { display: inherit !important; }
+// span.x-visible-desktop { display: inline !important;  }
+// .x-hidden-phone        {                              }
+// .x-hidden-tablet       {                              }
+// .x-hidden-desktop      { display: none !important;    }
+//
+// @include break( 'xl' ) {
+//   .x-visible-tablet     { display: inherit !important; }
+//   span.x-visible-tablet { display: inline !important;  }
+//   .x-hidden-tablet      { display: none !important;    }
+//   .x-hidden-desktop     { display: inherit !important; }
+//   span.x-hidden-desktop { display: inline !important;  }
+//   .x-visible-desktop    { display: none !important;    }
+// }
+//
+// @include break( 'm' ) {
+//   .x-visible-phone      { display: inherit !important; }
+//   span.x-visible-phone  { display: inline !important;  }
+//   .x-hidden-phone       { display: none !important;    }
+//   .x-hidden-desktop     { display: inherit !important; }
+//   span.x-hidden-desktop { display: inline !important;  }
+//   .x-visible-desktop    { display: none !important;    }
+// }

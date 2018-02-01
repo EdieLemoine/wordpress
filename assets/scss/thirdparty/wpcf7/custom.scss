@@ -37,3 +37,7 @@ div.wpcf7-validation-errors {
 .ep-flex + p {
   position: relative;
 }
+
+.wpcf7-display-none {
+  @extend .ep-hide;
+}

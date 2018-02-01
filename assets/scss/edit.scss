@@ -1,1 +1,20 @@
 @import 'presets/floorworld';
+
+// Plugin files
+// @import 'site/partials/plugins/woocommerce';
+// @import 'site/partials/plugins/essentialgrid';
+// @import 'site/partials/plugins/revolutionslider';
+// @import 'site/partials/plugins/wpml';
+// @import 'site/partials/plugins/wpcf7';
+
+// Third party plugins
+@import 'thirdparty/essentialgrid';
+@import 'thirdparty/font-awesome';
+@import 'thirdparty/lightslider';
+@import 'thirdparty/outdatedbrowser';
+@import 'thirdparty/prism';
+@import 'thirdparty/revolutionslider';
+@import 'thirdparty/snazzy-info-window';
+@import 'thirdparty/woocommerce';
+@import 'thirdparty/wpcf7';
+@import 'thirdparty/wpml';

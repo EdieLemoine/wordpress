@@ -30,27 +30,16 @@ $fa-image-dir: '../../themes/x-child/dist/images/';
 // @import 'partials/stack/integrity';
 // @import 'partials/stack/ethos';
 
+@import 'partials/layers';
+
+@import "../edit";
+
 // @import 'partials/colors';
-@import 'partials/base/applications';
+@import 'partials/applications';
 
-@import 'partials/base/layers';
-
-// Plugin files
-@import 'partials/plugins/woocommerce';
-@import 'partials/plugins/essentialgrid';
-@import 'partials/plugins/revolutionslider';
-@import 'partials/plugins/wpml';
-@import 'partials/plugins/wpcf7';
-
-// Third party plugins
-@import '../thirdparty/woocommerce';
-@import '../thirdparty/prism';
-@import '../thirdparty/font-awesome';
-@import '../thirdparty/outdatedbrowser';
-@import '../thirdparty/lightslider';
 
 // Responsive
-@import 'partials/base/responsive';
+@import 'partials/responsive';
 
 // Custom SCSS
-@import 'partials/custom';
+@import 'custom';

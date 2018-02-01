@@ -43,8 +43,15 @@ body {
 }
 
 @for $i from 1 through 6 {
-  h#{7 - $i}, .h#{7 - $i} {
-    font-size: #{1 + 0.165 * $i }em;
+  h#{7 - $i} {
+    font-size: #{1 + $font-size-multiplier * $i }em;
+    text-rendering: optimizelegibility;
+    & > span {
+      margin: 0 1em .3em;
+    }
+  }
+  .h#{7 - $i} {
+    @extend h#{7 - $i};
   }
 }
 

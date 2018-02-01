@@ -1,0 +1,47 @@
+// .ep-contactbox {
+//   display: flex;
+//   flex-direction: column;
+// }
+// .ep-contactbox-item {
+//   display: flex;
+//   flex: 1;
+//   width: 100%;
+//   color: $base-color-light;
+//   overflow: hidden;
+//   @include border-radius;
+//
+//   & + & {
+//     margin-top: $global-spacing / 8;
+//   }
+//
+//   .ep-cb-left {
+//     @include size( $input-height );
+//   }
+//
+//   .ep-cb-right {
+//     position: relative;
+//     flex: 1;
+//     display: flex;
+//     background-color: $primary-color;
+//     span {
+//       margin: auto 0 auto $global-spacing / 2;
+//
+//     }
+//   }
+//
+//   .ep-cb-left,
+//   .ep-cb-ani-bar {
+//     background-color: lighten( $primary-color, 15% );
+//   }
+//
+//   .ep-cb-ani-bar {
+//     width: 0;
+//     position: absolute;
+//     left: 0;
+//     height: 100%;
+//     @include fast-transition;
+//   }
+//   &:hover .ep-cb-ani-bar {
+//     width: 100%;
+//   }
+// }

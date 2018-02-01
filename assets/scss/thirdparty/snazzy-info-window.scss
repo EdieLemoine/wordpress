@@ -1,0 +1,27 @@
+// Content
+$si-content-bg:         $base-background-color-light;					// Background color of the infowindow
+$si-content-padding:    1.5rem;					// Padding of the infowindow
+$si-font-size:				  1rem;					// Font size of the infowindow content
+
+// Border
+$si-border-width: 			$global-border-width;					// Width of the border
+$si-border-color: 			$global-border-color;					// Color of the border
+$si-border-radius:      $global-border-radius;					// Border radius of the infowindow
+
+// Pointer
+$si-pointer-length:     	15px;					// Length of the pointer, from the edge of the infowindow to the tip
+
+// Shadow
+$si-shadow-h:           	0;						// Shadow horizontal offset
+$si-shadow-v:           	1px;					// Shadow vertical offset
+$si-shadow-blur:        	3px;					// Shadow blur radius
+$si-shadow-spread:      	0;						// Shadow spread radius
+$si-shadow-color:       	#000;					// Shadow color
+$si-shadow-opacity:     	0.298039;				// Shadow opacity
+
+// Close button
+$si-close-font-size:		1.25rem;					// Size of the close button text
+$si-close-opacity:			0.5;					// Initial opacity of the close button
+$si-close-hover-opacity: 0.7;					// Hover and focus opacity of the close button
+
+@import "snazzy-info-window/snazzy-info-window";

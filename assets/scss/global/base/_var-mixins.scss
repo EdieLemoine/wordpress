@@ -19,6 +19,7 @@
     color: $color;
   }
 }
+
 @mixin box-shadow() {
   box-shadow: 0 0 5px rgba( $black, 0.15 );
 }
@@ -38,7 +39,7 @@
     @content;
   }
   @else {
-    @media ( #{$type}-width: map-get( $breakpoints, $size ) ) {
+    @media ( #{$type}-width: bp($size) ) {
       @content;
     }
   }

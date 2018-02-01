@@ -1,0 +1,8 @@
+@media (max-width: bp( 'xxl' ))  { @import 'responsive/breakpoint-xxl' }
+@media (max-width: bp( 'xl' ))   { @import 'responsive/breakpoint-xl'  }
+@media (max-width: bp( 'l' ))    { @import 'responsive/breakpoint-l'   }
+@media (max-width: bp( 'm' ))    { @import 'responsive/breakpoint-m'   }
+@media (max-width: bp( 's' ))    { @import 'responsive/breakpoint-s'   }
+@media (max-width: bp( 'xs' ))   { @import 'responsive/breakpoint-xs'  }
+
+@media print { @import 'responsive/print' }

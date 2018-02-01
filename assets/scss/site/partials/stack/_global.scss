@@ -1,43 +1,43 @@
 @import "../../../global/base/variable-overrides";
 
-.button:focus,
-.x-btn:focus,
-[type="submit"]:focus,
-a:focus,
-input[type="checkbox"]:focus,
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="submit"]:focus,
-select:focus {
-  outline: none !important;
-  outline: none !important;
-  outline-offset: 0 !important;
-}
-
-body.admin-bar .x-navbar-fixed-top{
-  top: 32px;
-}
-
-a {
-  color: $primary-color;
-}
-
-.site, .x-site {
-  background-color: transparent;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.widget_text a {
-  text-decoration: none;
-}
-
-.widget::before {
-  content: none;
-}
-
-figure {
-  margin: 0;
-}
+// .button:focus,
+// .x-btn:focus,
+// [type="submit"]:focus,
+// a:focus,
+// input[type="checkbox"]:focus,
+// input[type="file"]:focus,
+// input[type="radio"]:focus,
+// input[type="submit"]:focus,
+// select:focus {
+//   outline: none !important;
+//   outline: none !important;
+//   outline-offset: 0 !important;
+// }
+//
+// body.admin-bar .x-navbar-fixed-top{
+//   top: 32px;
+// }
+//
+// a {
+//   color: $primary-color;
+// }
+//
+// .site, .x-site {
+//   background-color: transparent;
+// }
+//
+// textarea {
+//   resize: vertical;
+// }
+//
+// .widget_text a {
+//   text-decoration: none;
+// }
+//
+// .widget::before {
+//   content: none;
+// }
+//
+// figure {
+//   margin: 0;
+// }

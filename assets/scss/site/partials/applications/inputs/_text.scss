@@ -17,11 +17,8 @@ textarea,
 }
 
 textarea,
-button,
-.x-btn,
-#{inputs('buttons')},
 #{inputs('text')} {
-  min-height: 2.5em;
+  min-height: $input-height;
   padding: 0 $global-spacing / 4;
 }
 

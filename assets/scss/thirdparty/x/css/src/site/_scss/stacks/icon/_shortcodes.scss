@@ -190,7 +190,7 @@
   color: $black;
   opacity: 0.4;
   transition: opacity 0.3s ease;
-  
+
   &:hover {
     color: $black;
     text-decoration: none;
@@ -1409,43 +1409,43 @@ a.x-img-thumbnail:hover {
 // Custom Headline
 // =============================================================================
 
-.h-custom-headline {
-  letter-spacing: -1px;
-  line-height: 1.1;
-
-  &.accent {
-    overflow: hidden;
-
-    span {
-      padding-bottom: 2px;
-      display: inline-block;
-      position: relative;
-
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        height: 1px;
-        width: 9999px;
-        display: block;
-        margin-top: -1px;
-        background-color: $baseBorderSolid;
-        background-color: $baseBorderRgba;
-      }
-
-      &:before {
-        right: 100%;
-        margin-right: 0.5em;
-      }
-
-      &:after {
-        left: 100%;
-        margin-left: 0.5em;
-      }
-    }
-  }
-}
+// .h-custom-headline {
+//   letter-spacing: -1px;
+//   line-height: 1.1;
+//
+//   &.accent {
+//     overflow: hidden;
+//
+//     span {
+//       padding-bottom: 2px;
+//       display: inline-block;
+//       position: relative;
+//
+//       &:before,
+//       &:after {
+//         content: "";
+//         position: absolute;
+//         top: 50%;
+//         height: 1px;
+//         width: 9999px;
+//         display: block;
+//         margin-top: -1px;
+//         background-color: $baseBorderSolid;
+//         background-color: $baseBorderRgba;
+//       }
+//
+//       &:before {
+//         right: 100%;
+//         margin-right: 0.5em;
+//       }
+//
+//       &:after {
+//         left: 100%;
+//         margin-left: 0.5em;
+//       }
+//     }
+//   }
+// }
 
 
 
@@ -1453,7 +1453,7 @@ a.x-img-thumbnail:hover {
 // =============================================================================
 
 .h-feature-headline {
-  line-height: 1.1;
+  // line-height: 1.1;
 
   span {
     display: inline-block;

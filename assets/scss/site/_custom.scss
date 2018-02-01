@@ -83,3 +83,8 @@ footer {
 .ep-grid .ep-row .ep-row {
   @extend .ep-pbm;
 }
+
+
+.x-section:nth-child(even) {
+  background-color: $off-white;
+}

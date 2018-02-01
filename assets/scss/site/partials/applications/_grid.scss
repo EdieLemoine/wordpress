@@ -4,35 +4,6 @@
   align-items: stretch;
 }
 
-.ep-row-l {
-  margin: -2em;
-  & > div {
-    padding: 2em;
-  }
-}
-
-.ep-row-m {
-  margin: -1em;
-  & > div {
-    padding: 1em;
-  }
-}
-
-.ep-row-flex {
-  @extend .ep-row;
-  flex-wrap: wrap;
-  margin: -($global-spacing / 8);
-}
-
-
-// .ep {
-//   position: relative;
-//   .x-container {
-//     margin: auto;
-//   }
-// }
-//
-
 
 // Create grid structure for each breakpoint in $breakpoints
 // Reverse map if the order of breakpoints would override each other the wrong way
@@ -50,6 +21,20 @@ $sizelist: map-keys( $sizes );
 // Make sure the empty value gets added to the top of the stack so it doesn't override the others
 $breakpointlist: join( "", $breakpointlist );
 
+@each $size in $sizelist {
+  .ep-row-#{$size} {
+    @extend .ep-row;
+    margin: -(map-get( $sizes, $size ) / 2);
+    & > div {
+      padding: map-get( $sizes, $size ) / 2;
+    }
+  }
+}
+
+.ep-fg {
+  flex-grow: 1;
+}
+
 // @warn $breakpointlist;
 @each $breakpoint in $breakpointlist {
   // @debug $breakpoint;
@@ -64,37 +49,25 @@ $breakpointlist: join( "", $breakpointlist );
     }
 
     @each $size in $sizelist {
-      .ep#{$breakpoint}-pa#{$size} {
-        padding: map-get( $sizes, $size ) !important;
-      }
-      .ep#{$breakpoint}-ph#{$size} {
-        padding-left: map-get( $sizes, $size ) !important;
-        padding-right: map-get( $sizes, $size ) !important;
-      }
-      .ep#{$breakpoint}-pv#{$size} {
-        padding-top: map-get( $sizes, $size ) !important;
-        padding-bottom: map-get( $sizes, $size ) !important;
-      }
+      @each $type in ( 'margin', 'padding' ) {
+        .ep#{$breakpoint}-#{str-slice($type, 1, 1)}a#{$size} {
+          #{$type}: map-get( $sizes, $size ) !important;
+        }
+        .ep#{$breakpoint}-#{str-slice($type, 1, 1)}h#{$size} {
+          #{$type}-left: map-get( $sizes, $size ) !important;
+          #{$type}-right: map-get( $sizes, $size ) !important;
+        }
+        .ep#{$breakpoint}-#{str-slice($type, 1, 1)}v#{$size} {
+          #{$type}-top: map-get( $sizes, $size ) !important;
+          #{$type}-bottom: map-get( $sizes, $size ) !important;
+        }
 
-      @each $side in $sides {
-        .ep#{$breakpoint}-p#{str-slice( $side, 1, 1 )}#{$size} {
-          padding-#{$side}: map-get( $sizes, $size );
+        @each $side in $sides {
+          .ep#{$breakpoint}-#{str-slice($type, 1, 1)}#{str-slice( $side, 1, 1 )}#{$size} {
+            #{$type}-#{$side}: map-get( $sizes, $size ) !important;
+          }
         }
       }
-    }
-    // .ep#{$breakpoint}-pan {
-    //   padding: 0 !important;
-    // }
-
-    .ep#{$breakpoint}-pvn,
-    .ep#{$breakpoint}-pyn {
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-    }
-    .ep#{$breakpoint}-phn,
-    .ep#{$breakpoint}-pxn {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
     }
 
     .ep#{$breakpoint}-fw-w {
@@ -116,10 +89,11 @@ $breakpointlist: join( "", $breakpointlist );
       flex-direction: row-reverse;
     }
 
+    .ep#{$breakpoint}-hide {
+      display: none;
+    }
+
     @for $a from 1 through 8 {
-      // .woocommerce.columns-#{$a} > ul > li {
-      //   flex-basis: 100% / $a;
-      // }
       @for $b from 1 through 8 {
         // Don't output anything where:
         // $a equals $b ( 2-2, 3-3, 4-4 -> all 100% )
@@ -147,5 +121,14 @@ $breakpointlist: join( "", $breakpointlist );
         }
       }
     }
+  }
+}
+
+@include break( 'l', landscape ) {
+  .ep-ls-l-hide {
+    display: none;
+  }
+  .ep-ls-l-1-1 {
+    flex-basis: 100%;
   }
 }

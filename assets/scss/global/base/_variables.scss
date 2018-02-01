@@ -1,4 +1,4 @@
-@import '../../edit';
+// @import '../../edit';
 
 ////////////
 // Colors //
@@ -11,20 +11,32 @@ $dark-gray: #222 !default;
 $gray: #333 !default;
 $light-gray: #ccc !default;
 $white: #fff !default;
+$off-white: #fafafa !default;
 
+$red: #d92525 !default;
+$orange: #ffa100 !default;
+$yellow: #ffca0d !default;
 $green: #7ad03a !default;
-$red: #a00 !default;
-$orange: #ffba00 !default;
 $blue: #2ea2cc !default;
+$purple: #850be4 !default;
 
 $base-color-light: $white !default;
 $base-color-dark: $dark-gray !default;
 
+$base-background-color-light: $base-color-light !default;
+$base-background-color-dark: $base-color-dark !default;
+
+
+$body-color: $base-color-dark !default;
+$body-background-color: $base-color-light !default;
+
+@import 'var-functions';
+
 ////////////
 // Global //
 ////////////
-$container-width: 1200px !default;
-$container-max-width: 95% !default;
+$container-width: 96% !default;
+$container-max-width: 1200px !default;
 $global-border-radius: 0 !default;
 $global-corners: 'top-left', 'bottom-right';
 $global-border-color: currentColor !default;
@@ -33,7 +45,8 @@ $global-spacing: 2em !default;
 $global-shadow: transparentize( $black, 0.75 );
 
 $global-box-shadow: .2em .2em .75em $global-shadow !default;
-@warn $global-box-shadow;
+
+$size-xs: .5em !default;
 $size-s: 1em !default;
 $size-m: 2em !default;
 $size-l: 3em !default;
@@ -51,6 +64,8 @@ $heading-color: calculate-color( $body-background-color ) !default;
 //////////////
 $section-padding: $global-spacing * 4 !default;
 
+$font-size-multiplier: 0.265;
+
 /////////////
 // Buttons //
 /////////////
@@ -64,18 +79,20 @@ $button-arrow: true !default;
 ////////////
 // Inputs //
 ////////////
-$input-height: 50px !default;
+$input-height: 2.5rem !default;
 $input-style: 'transparent' !default; // Transparent | Fill | Border-Fill | 3D
 $input-border-color: transparent !default;
 $input-active-border-color: $global-border-color !default;
 $input-background-color: $base-color-light !default;
 $input-active-background-color: $secondary-color !default;
 $input-color: calculate-color( $input-background-color ) !default;
+$input-borders: top, left, right, bottom;
+$input-border-radius: $global-border-radius;
 
 ////////////
 // Navbar //
 ////////////
-$navbar-position: 'left' !default;
+$navbar-position: 'top' !default;
 $mobile-breakpoint: 'm' !default;
 $navbar-submenu-offset: 0 !default;
 // Colors //
@@ -91,7 +108,7 @@ $navbar-submenu-padding: 0 !default;
 $navbar-menu-flex: false !default;
 
 // Text //
-$navbar-font-size: map-get-deep( $fonts, "body", "atts", "font-size"  ) !default;
+$navbar-font-size: 1.25rem !default;
 $navbar-font: 'heading' !default;
 
 // Links //
@@ -121,8 +138,13 @@ $footer-bottom-font: 'heading' !default;
 $footer-bottom-background-color: darken( $footer-top-background-color, 15% ) !default;
 $footer-bottom-color: calculate-color( $footer-bottom-background-color ) !default;
 
+$footer-bar-background-color: darken( $footer-bottom-background-color, 15% ) !default;
+$footer-bar-color: calculate-color( $footer-bar-background-color ) !default;
+
 // WordPress stuff
 $admin-bar-height: 32px !default;
 $admin-bar-mobile-height: 46px !default;
+
+
 
 @import "maps";

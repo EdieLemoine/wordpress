@@ -1,17 +1,17 @@
 @import 'global';
 @import '../../../thirdparty/x/css/src/site/stacks/renew';
 
-.button,
-.x-btn,
-[type="submit"] {
-  &,
-  &:hover {
-    text-shadow: none !important;
-  }
-}
-
-.x-navbar .desktop .x-nav > li > a:hover > span,
-.x-navbar .desktop .x-nav > li.current-menu-item > a > span,
-.x-navbar .desktop .x-nav > li.x-active > a > span {
-  box-shadow: none !important;
-}
+// .button,
+// .x-btn,
+// [type="submit"] {
+//   &,
+//   &:hover {
+//     text-shadow: none !important;
+//   }
+// }
+//
+// .x-navbar .desktop .x-nav > li > a:hover > span,
+// .x-navbar .desktop .x-nav > li.current-menu-item > a > span,
+// .x-navbar .desktop .x-nav > li.x-active > a > span {
+//   box-shadow: none !important;
+// }

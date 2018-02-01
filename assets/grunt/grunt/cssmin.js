@@ -5,15 +5,12 @@ module.exports = {
   },
 
   theme: {
-    '<%= theme_style_dist %>': '<%= theme_style_dist %>'
-  },
-
-  admin: {
-    '<%= admin_style_dist %>': '<%= admin_style_dist %>'
-  },
-
-  plugin: {
-    '<%= plugin_style_dist %>': '<%= plugin_style_dist %>'
+    files: [{
+      expand: true,
+      cwd: '<%= theme %>',
+      src: 'style.css',
+      dest: '<%= theme %>',
+      ext: '.min.css'
+    }]
   }
-
 };

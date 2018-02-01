@@ -29,15 +29,6 @@ module.exports = {
     ],
     tasks: [ 'sass:admin', 'postcss:admin' ],
   },
-  scss_plugin: {
-    files: [
-      '<%= style_prod %>/global/**/*.scss',
-      '<%= style_prod %>/presets/**/*.scss',
-      '<%= style_prod %>/plugin/**/*.scss',
-      '<%= style_prod %>/edit.scss',
-    ],
-    tasks: [ 'sass:plugin', 'postcss:plugin' ],
-  },
   scss_theme: {
     files: [
       '<%= style_prod %>/global/**/*.scss',
@@ -46,16 +37,8 @@ module.exports = {
       '<%= style_prod %>/thirdparty/**/*.scss',
       '<%= style_prod %>/edit.scss',
     ],
-    tasks: [ 'sass:theme', 'postcss:theme' ],
+    tasks: [ 'sass:theme', 'postcss:theme', 'cssmin:theme' ],
   },
-  scss_global: {
-    files: [
-      '<%= style_prod %>/global/**/*.scss',
-      '<%= style_prod %>/thirdparty/**/*.scss',
-    ],
-    tasks: [ 'sass:global', 'postcss:global' ],
-  },
-
 
   ini: {
     files: ['../../*.ini'],

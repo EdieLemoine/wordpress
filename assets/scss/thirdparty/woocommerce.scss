@@ -34,8 +34,5 @@ $color_text_blue: $blue;
 $color_button_primary: $primary-color;
 $color_button_secondary: $secondary-color;
 
-.pswp__bg {
-  background-color: $global-shadow;
-}
-
 @import 'woocommerce/woocommerce';
+@import 'woocommerce/custom';

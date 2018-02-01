@@ -81,8 +81,8 @@
     $others: ( 'textarea' );
   }
   @else if $type == "buttons" {
-    $inputs: ( 'button', 'submit', 'reset' );
-    $others: ( '.ep-btn', 'a.x-btn', 'button' );
+    // $inputs: ( 'button', 'submit', 'reset' );
+    $others: ( '.ep-btn' );
   }
 
   @each $input in $inputs {
@@ -93,4 +93,8 @@
   }
 
   @return createList( $list );
+}
+
+@function bp( $size ) {
+  @return map-get( $breakpoints, $size );
 }
