@@ -7,7 +7,7 @@
 */
 
 class EP_Theme extends Edies_Plugin {
-  
+
   public function __construct() { }
 
   public function register_cornerstone_integration() {
@@ -28,7 +28,6 @@ class EP_Theme extends Edies_Plugin {
   }
 
   public function disable_cranium() {
-    echo !get_bloginfo( 'description' ) ? "" : ' | ' . get_bloginfo( 'description' );
     remove_action( 'template_redirect', 'x_legacy_modes', 25 );
     add_action( 'template_redirect', array( $this, 'x_legacy_modes_v2' ), 25 );
   }
