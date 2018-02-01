@@ -20,16 +20,16 @@ $args = array(
 
 $query = new WP_Query($args);
 
-$count = $query->post_count();
-if ( $count % 4 == 0 ):
-	$cols = 4;
-elseif ( $count % 3 == 0 ):
-	$cols = 3;
-elseif ( $count % 2 == 0 ):
-	$cols = 2;
-else:
-	$cols = 3;
-endif;
+// $count = $query->post_count();
+// if ( $count % 4 == 0 ):
+// 	$cols = 4;
+// elseif ( $count % 3 == 0 ):
+// 	$cols = 3;
+// elseif ( $count % 2 == 0 ):
+// 	$cols = 2;
+// else:
+// 	$cols = 3;
+// endif;
 
 ?>
 
@@ -49,7 +49,7 @@ endif;
 						<div class="ep-text ep-2-3 ep-s-1-1">
 							<h2><?php echo get_the_title(); ?></h2>
 							<p><?php echo $content; ?></p>
-							<?php ep_button( get_permalink(), 'Lees verder' ); ?>
+							<?php ep_button( get_permalink(), 'Lees verder', 'small' ); ?>
 						</div>
 					</div>
 

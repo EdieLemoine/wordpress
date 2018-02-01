@@ -19,17 +19,28 @@ function ep_part( $part ) {
   endif;
 }
 
-function ep_button( $link = null, $text = "Bewerken" ) {
+function ep_button( $link = null, $text = "Lees verder", $class = null ) {
+  global $post;
+
   if ($link == null) :
-    if ( is_user_logged_in() ):
-      global $post;
+    if ( get_permalink($post->ID) ) :
+      $link = get_permalink($post->ID);
+    elseif ( is_user_logged_in() ):
       $link = get_edit_post_link( $post->ID );
+      $text = "Bewerken";
     else :
       return;
     endif;
   endif;
 
-  echo do_shortcode( "[eps_button href='$link']" . $text . "[/eps_button]" );
+  $array = array(
+    'href' => $link
+  );
+
+  if ( $class )
+    $array['class'] = $class;
+
+  echo eps_button( $array, $text );
 }
 
 function pretty_print($string) {
@@ -75,7 +86,7 @@ function weekdays( $initial = true, $echo = false ) {
 
   // TODO: make this run after init so new class isn't needed
   $ep_locale = new WP_Locale;
-
+  
 	$week = array();
 
 	for ( $wdcount = 0; $wdcount <= 6; $wdcount++ ) {
@@ -91,4 +102,56 @@ function weekdays( $initial = true, $echo = false ) {
 function ep_options_list() {
   global $ep_options;
   return $ep_options;
+}
+
+function ep_getlatlng( $string ) {
+  if ( $string )
+    if ( is_array( $string ) ) :
+      foreach ($string as $key) {
+        $arr[] = ep_getlatlng( $key );
+      }
+      return $arr;
+    else :
+      $arr = explode( ',', str_replace( ' ', '', $string ) );
+
+      $string = [];
+      $string['lat'] = floatval($arr[0]);
+      $string['lng'] = floatval($arr[1]);
+    endif;
+  return $string;
+}
+
+function ep_bgimg( $url ) {
+  echo "style='background-image: url(\"$url\")'";
+}
+
+function ep_query_args() {
+  $array = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1,
+
+    'order' => 'DESC',
+    'orderby' => 'title',
+
+    'author' => '',
+    'author_name' => '',
+    'author__in' => '',
+    'author__not_in' => '',
+
+    'cat' => '',
+    'category_name' => '',
+    'category__and' => '',
+    'category__in' => '',
+    'category__not_in' => '',
+
+    'tag' => '',
+    'tag_id' => '',
+    'tag__and' => '',
+    'tag__in' => '',
+    'tag__not_in' => '',
+    'tag_slug__and' => '',
+    'tag_slug__in' => '',
+  );
+
+  return $array;
 }

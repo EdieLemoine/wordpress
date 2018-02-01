@@ -46,14 +46,9 @@ class EP_Scripts extends Edies_Plugin {
     endif;
     $this->add_script( 'ep-opening-hours', 'ep-opening-hours.min.js', array( 'jquery' ) );
 
-    // Register styles
-    $this->add_style( 'ep_style', 'ep-style.css' );
-
     // Enqueue scripts
     wp_enqueue_script( 'outdatedbrowser' );
     wp_enqueue_script( 'lightslider' );
-
-    wp_enqueue_style( 'ep_style' );
   }
 
   public function add_google_analytics() { ?>
