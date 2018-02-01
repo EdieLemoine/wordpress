@@ -44,8 +44,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	echo "</div>";
 
 	echo "</div>";
-
 	
+
 	// $count = $category->count > 0 ? '<span class="count">(' . $category->count . ')</span>' : "";
 	// woocommerce_template_loop_category_title( $category );
 	// echo "<h2 class='h4 title'>" .$category->name . "</h2>";
