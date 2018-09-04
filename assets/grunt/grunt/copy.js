@@ -26,14 +26,14 @@ module.exports = {
 	// 	}
 	// },
 
-	ini: {
-		expand: true,
-		filter: 'isFile',
-		flatten: true,
-		src: [ '../../settings.ini' ],
-		dest: '<%= plugin_path %>',
-		filter: 'isFile',
-	}
+	// ini: {
+	// 	expand: true,
+	// 	filter: 'isFile',
+	// 	flatten: true,
+	// 	src: [ '../../settings.ini' ],
+	// 	dest: '<%= plugin_path %>',
+	// 	filter: 'isFile',
+	// }
 
 
 	// js: {
