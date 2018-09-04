@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7532c6e5-9446-4f32-8882-6a6b31c63521" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/edie-custom.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7532c6e5-9446-4f32-8882-6a6b31c63521" name="Default Changelist" comment=".gitignore update">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/grunt/grunt/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/grunt/grunt/copy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/grunt/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/grunt/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/grunt/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/grunt/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-element-base.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-element-base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-global-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-global-functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-template-base.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-template-base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/button.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/button.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/buttons.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/buttons.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/code.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/code.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/custom-map.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/custom-map.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/kraam-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/kraam-list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/kraam.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/kraam.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/link.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/notification.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/notification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/opening-hours.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/opening-hours.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/product-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/product-list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/social.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/social.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/blocks-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/blocks-template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-home-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-home-template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-partner.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-partner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/destijl-home-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/destijl-home-template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/floorworld-home-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/floorworld-home-template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/madog-home-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/madog-home-template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/one-two-home-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/one-two-home-template.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.ini" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,95 +36,69 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DrupalConfiguration">
+    <drupalPath />
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-226914801">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bat" value="1" />
           <entry key="command" value="2" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="3" />
           <entry key="ini" value="1" />
           <entry key="js" value="1" />
+          <entry key="json" value="2" />
+          <entry key="php" value="18" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Ini" value="1" />
+          <entry key="JSON" value="2" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PHP" value="18" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="11" />
+          <entry key="gitignore" value="71" />
+          <entry key="php" value="4" />
+          <entry key="txt" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="PHP" value="4" />
+          <entry key="PLAIN_TEXT" value="114" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.php.composer.command.options" />
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/grunt/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/grunt/package-lock.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37718">
-              <caret line="2873" column="19" selection-start-line="2873" selection-start-column="19" selection-end-line="2873" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/watch.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/watch.command">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/grunt/grunt/copy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.command">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -127,9 +118,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/assets/grunt/grunt/copy.js" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-template-base.php" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-global-functions.php" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-element-base.php" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/one-two-home-template.php" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/blocks-template.php" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-home-template.php" />
+        <option value="$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-partner.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
+  </component>
+  <component name="JoomlaConfiguration">
+    <joomlaConfigPath />
+    <joomlaPath />
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -145,9 +147,12 @@
       <path value="$PROJECT_DIR$/assets/grunt/package.json" />
     </packageJsonPaths>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-12" />
-    <option name="width" value="1941" />
+    <option name="width" value="2955" />
     <option name="height" value="2112" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -155,6 +160,7 @@
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -165,6 +171,55 @@
               <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
               <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="edies-plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="edies-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="edies-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="edies-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="edies-plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="shortcodes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edie-custom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edie-custom" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -174,11 +229,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wordpress" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="settings.php.frameworks" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -202,35 +257,51 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536060690472</updated>
-      <workItem from="1536060691904" duration="578000" />
+      <workItem from="1536060691904" duration="1875000" />
+      <workItem from="1536062618605" duration="698000" />
     </task>
+    <task id="LOCAL-00001" summary="Grunt update">
+      <created>1536061387615</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536061387615</updated>
+    </task>
+    <task id="LOCAL-00002" summary=".gitignore update">
+      <created>1536061508645</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1536061508645</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="578000" />
+    <option name="totallyTimeSpent" value="2573000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1294" height="1408" extended-state="0" />
+    <frame x="-8" y="0" width="1970" height="1408" extended-state="0" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1630094" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32994527" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32994527" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32994527" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32994527" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49947754" weight="0.32994527" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49895507" visible="true" weight="0.32994527" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49947754" weight="0.32994527" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010449" side_tool="true" visible="true" weight="0.32994527" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,23 +310,22 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Grunt update" />
+    <MESSAGE value=".gitignore update" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore update" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>G:\xampp\htdocs\wordpress</wordpressPath>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/watch.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/watch.command">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.command">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.ini" />
     <entry file="file://$PROJECT_DIR$/assets/grunt/grunt/copy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -263,24 +333,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watch.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/grunt/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37718">
-          <caret line="2873" column="19" selection-start-line="2873" selection-start-column="19" selection-end-line="2873" selection-end-column="19" />
+        <state relative-caret-position="-2276">
+          <caret line="2729" column="26" lean-forward="true" selection-start-line="2729" selection-start-column="26" selection-end-line="2729" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/grunt/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-template-base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-global-functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="138" column="24" lean-forward="true" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/ep-element-base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-504">
+          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/one-two-home-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/blocks-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-home-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/decreatievehoek-partner.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/floorworld-product-template.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/madog-home-template.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/floorworld-home-template.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/destijl-home-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/custom-map.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/code.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/buttons.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/shortcodes/button.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/plugins/plugins.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/plugins/wpcf7.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/edies-plugin/includes/framework/templates/floorworld-product-category.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>

@@ -7,3 +7,7 @@ dist/js/script.min.js
 **/*.css
 **/*.map
 .idea/
+themes/
+plugins/
+!themes/x-child
+!plugins/edies-plugin
