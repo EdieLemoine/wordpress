@@ -9,6 +9,7 @@
     @content;
   }
 }
+
 @mixin visible( $bool: true ) {
   @if $bool {
     opacity: 1;
